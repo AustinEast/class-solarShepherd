@@ -1,0 +1,24 @@
+{
+	"folders":
+	[
+		{
+			"name": "FlxProject",
+			"path": "/Users/Weasty/Documents/haxedev/default"
+		},
+		{
+			"name": "Flixel",
+			"path": "/usr/lib/haxe/lib/flixel/3,3,11"
+		},
+		{
+			"name": "Flixel Addons",
+			"path": "/usr/lib/haxe/lib/flixel-addons/1,1,0"
+		},
+		{
+			"name": "Haxe",
+			"path": "/usr/lib/haxe/std"
+		},
+		{
+			"path": "source"
+		}
+	]
+}

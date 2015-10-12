@@ -1,0 +1,94 @@
+package;
+ 
+import flixel.FlxSprite;
+import flixel.FlxG;
+import flixel.util.FlxPoint;
+import flixel.util.FlxColor;
+
+ /**
+ * This class holds all the functions of the Space Bullet shot by enemies.
+ **/
+class SpaceBullet extends SpaceSprite
+{
+    public var hitPaddle:SpaceSprite;
+
+    /**
+    * Function to create and assign attributes to the bullet.
+    **/
+    public function new()
+    {
+        super();
+
+        //Creates a graphic. Will probably be replaced with image later.
+        makeGraphic(4,4);
+        //Sets its polarity (Color). True is white, false is black.
+        _polarity = true;
+    }
+    /**
+    * Function to keep track of anything that needs to be updated on the bullet.
+    **/
+    override public function update():Void
+    {
+        super.update();
+
+        //Kill bullet if off screen.
+        if(this.y <= -10 || this.y >= FlxG.height)
+        {
+            hitPaddle = null;
+            this.exists = false;
+        }
+        //Bounce bullet off walls.
+        if(this.x <= 0 || this.x >= FlxG.width)
+        {
+            this.velocity.x *= -1;
+        }
+    }
+    /**
+    * Function that destroys the instance of the bullet.
+    **/
+    override public function destroy():Void
+    {
+        super.destroy();
+    }
+
+    /**
+    * Function that Checks whether the bullet bounces or hits the player.
+    * The basis of the whole game, really.. 
+    **/
+    public function bounce(paddle:SpaceSprite):Void
+    {   
+        //Method to keep the bullet from overlapping with whichever enemy.
+        if (hitPaddle != paddle)
+        {   
+            //If the bullet is the same polarity as the object, it will "Bounce".
+            if(paddle._polarity == this._polarity)
+            {
+                velocity.y *= -1;
+                hitPaddle = paddle;
+            }
+            //If the bullet isn't, kill the item, bullet and make a screen shake.
+            else if(paddle._polarity != this._polarity)
+            {
+                paddle.kill();
+                this.kill();
+                FlxG.camera.flash(0xffFFFFFF, 1);
+                FlxG.camera.shake(0.02, 0.35); 
+                //if the player is hit, fade the camera.
+                //This calls doneFadeOut once the fade is done.
+                if (hitPaddle == null)
+                { 
+                    FlxG.camera.fade(FlxColor.BLACK, .33, false, doneFadeOut);
+                } 
+            }
+        }
+    }
+    /**
+    * This function is called if the player gets hit and the game fades out.
+    * It sends you back to the menu.
+    **/
+    private function doneFadeOut():Void 
+    {
+        FlxG.switchState(new MenuState());
+    }
+     
+}

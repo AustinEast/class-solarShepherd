@@ -10,11 +10,18 @@ package;
 **/
  class LandPlayer extends FlxSprite
  {
-    private var _max_health:Int = 10;
-    public var _hurt_counter:Int = 0;
+    //Player attributes
+    private var MAX_HEALTH:Int = 10;
+    private var ACCELERATION:Int = 400;
+    private var RUN_SPEED:Int = 80;
+    private var SPRINT_SPEED:Int = 200;
+    private var JUMP_SPEED:Int = 200;
+    private var GRAVITY:Int = 400;
+    
+    //Animation helper variables
+    public var _hurtCounter:Int = 0;
     public var meleeAnim:Bool = false;
     public var meleeTrue:Bool = false;
- 	public var speed:Float = 100;
 
     /**
     * Handles the creation of a player creation.
@@ -25,15 +32,15 @@ package;
          super(X, Y);
 
          //Set movement variables.
-         drag.set(400,400);
-         maxVelocity.set(80,200);
-         acceleration.y = 400;
+         drag.set(RUN_SPEED*5,JUMP_SPEED*2);
+         maxVelocity.set(RUN_SPEED,JUMP_SPEED);
+         acceleration.y = GRAVITY;
 
           //Set the player health
-         health = 10;
+         health = MAX_HEALTH;
             
         //  Load the player.png into this sprite.
-        //  The 2nd parameter tells Flixel it's a sprite sheet and it should chop it up into 16x16 sized frames.
+        //  The 2nd parameter tells Flixel it's animated, then the third and fourth say it is a sprite sheet and it should chop it up into 16x16 sized frames.
         loadGraphic(AssetPaths.Dog__png, true, 16, 16);
             
 
@@ -64,16 +71,16 @@ package;
         //Movement controls
         if (FlxG.keys.pressed.LEFT)
         {
-            acceleration.x = -400;
+            acceleration.x = -ACCELERATION;
             flipX = true;
         }
         else if (FlxG.keys.pressed.RIGHT)
         {
-             acceleration.x = 400;
+             acceleration.x = ACCELERATION;
              flipX = false;
         }
         //Animations.
-        if (_hurt_counter > 0)
+        if (_hurtCounter > 0)
         {
             animation.play("hurt");
         }
@@ -107,7 +114,7 @@ package;
                 }
                 else
                 {
-                    if (velocity.x > 120 || velocity.x < -120)
+                    if (velocity.x > 130 || velocity.x < -130)
                     {
                         animation.play("run");
                     }
@@ -121,7 +128,7 @@ package;
         //Mario Style jump
         if(FlxG.keys.justPressed.X && isTouching(FlxObject.FLOOR))
         {
-            velocity.y = -200;
+            velocity.y = -JUMP_SPEED;
         }
         if (FlxG.keys.justReleased.X && velocity.y < 0)
         {
@@ -130,12 +137,13 @@ package;
         //Dash button
         if (FlxG.keys.pressed.C)
         {
-            maxVelocity.x = 200; 
+            maxVelocity.x = SPRINT_SPEED; 
         }
         else
         {
-            maxVelocity.x = 80; 
+            maxVelocity.x = RUN_SPEED; 
         }
+        //Attack Button
         if (FlxG.keys.justPressed.Z && velocity.y == 0)
         {    
             if(flipX == true)

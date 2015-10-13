@@ -18,18 +18,20 @@ import flixel.FlxCamera;
 class LandState extends FlxState
 {
 	private var player:LandPlayer;
-	public var level:LandLevel1;
+	public var level:LandLevel;
 	/**
 	 * Function that is called up when to state is created to set it up. 
 	 */
 	override public function create():Void
 	{
 		FlxG.camera.bgColor = 0xff144954;
-			
-		level = new LandLevel1();
+		
+		//create levels and player.
+		level = new LandLevel();
 		level.Level1();
 		player = new LandPlayer(20,20);
 
+		//add everything to the scene.
 		add(level);
 		add(player);
 

@@ -37,9 +37,10 @@ package;
      {
          super(X, Y);
          //Set attributes of the Enemy.
-         makeGraphic(32, 8, FlxColor.WHITE);
-         maxVelocity.x = 300;
-         _polarity = true;
+         loadGraphic("assets/images/pongShip.png",true,16,8);
+         animation.add("polTrue",[2,3,4],60,true);
+         animation.add("polFalse",[7,8,9],60,true);
+         flipY = true;
 
          //Movement logic. Helps create the back & forth effect like Space Invaders.
          _originalX = X;
@@ -48,7 +49,7 @@ package;
          //Sets horizontal velocity.
          velocity.x = 10;
 
-         
+         setPolarity(true);
      }
     /**
     * This function updates the enemy. 

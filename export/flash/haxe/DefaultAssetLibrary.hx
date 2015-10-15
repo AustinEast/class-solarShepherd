@@ -67,6 +67,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_fonts_arial_ttf);
 		
@@ -82,16 +83,18 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/Background3.png", AssetType.IMAGE);
 		className.set ("assets/images/Dog.png", __ASSET__assets_images_dog_png);
 		type.set ("assets/images/Dog.png", AssetType.IMAGE);
-		className.set ("assets/images/DogRun.png", __ASSET__assets_images_dogrun_png);
-		type.set ("assets/images/DogRun.png", AssetType.IMAGE);
-		className.set ("assets/images/dogWagging.png", __ASSET__assets_images_dogwagging_png);
-		type.set ("assets/images/dogWagging.png", AssetType.IMAGE);
-		className.set ("assets/images/glow-light.png", __ASSET__assets_images_glow_light_png);
-		type.set ("assets/images/glow-light.png", AssetType.IMAGE);
 		className.set ("assets/images/images-go-here.txt", __ASSET__assets_images_images_go_here_txt);
 		type.set ("assets/images/images-go-here.txt", AssetType.TEXT);
-		className.set ("assets/images/player.png", __ASSET__assets_images_player_png);
-		type.set ("assets/images/player.png", AssetType.IMAGE);
+		className.set ("assets/images/polarityPalette.ase", __ASSET__assets_images_polaritypalette_ase);
+		type.set ("assets/images/polarityPalette.ase", AssetType.BINARY);
+		className.set ("assets/images/pongBullet.png", __ASSET__assets_images_pongbullet_png);
+		type.set ("assets/images/pongBullet.png", AssetType.IMAGE);
+		className.set ("assets/images/pongShip.png", __ASSET__assets_images_pongship_png);
+		type.set ("assets/images/pongShip.png", AssetType.IMAGE);
+		className.set ("assets/images/pongShipGrn.png", __ASSET__assets_images_pongshipgrn_png);
+		type.set ("assets/images/pongShipGrn.png", AssetType.IMAGE);
+		className.set ("assets/images/pongShipRed.png", __ASSET__assets_images_pongshipred_png);
+		type.set ("assets/images/pongShipRed.png", AssetType.IMAGE);
 		className.set ("assets/images/Sand_tile.png", __ASSET__assets_images_sand_tile_png);
 		type.set ("assets/images/Sand_tile.png", AssetType.IMAGE);
 		className.set ("assets/images/Tiles.png", __ASSET__assets_images_tiles_png);
@@ -129,23 +132,27 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "assets/images/DogRun.png";
-		path.set (id, id);
-		
-		type.set (id, AssetType.IMAGE);
-		id = "assets/images/dogWagging.png";
-		path.set (id, id);
-		
-		type.set (id, AssetType.IMAGE);
-		id = "assets/images/glow-light.png";
-		path.set (id, id);
-		
-		type.set (id, AssetType.IMAGE);
 		id = "assets/images/images-go-here.txt";
 		path.set (id, id);
 		
 		type.set (id, AssetType.TEXT);
-		id = "assets/images/player.png";
+		id = "assets/images/polarityPalette.ase";
+		path.set (id, id);
+		
+		type.set (id, AssetType.BINARY);
+		id = "assets/images/pongBullet.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/pongShip.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/pongShipGrn.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/pongShipRed.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -211,20 +218,23 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("assets/images/Dog.png", __ASSET__assets_images_dog_png);
 		type.set ("assets/images/Dog.png", AssetType.IMAGE);
 		
-		className.set ("assets/images/DogRun.png", __ASSET__assets_images_dogrun_png);
-		type.set ("assets/images/DogRun.png", AssetType.IMAGE);
-		
-		className.set ("assets/images/dogWagging.png", __ASSET__assets_images_dogwagging_png);
-		type.set ("assets/images/dogWagging.png", AssetType.IMAGE);
-		
-		className.set ("assets/images/glow-light.png", __ASSET__assets_images_glow_light_png);
-		type.set ("assets/images/glow-light.png", AssetType.IMAGE);
-		
 		className.set ("assets/images/images-go-here.txt", __ASSET__assets_images_images_go_here_txt);
 		type.set ("assets/images/images-go-here.txt", AssetType.TEXT);
 		
-		className.set ("assets/images/player.png", __ASSET__assets_images_player_png);
-		type.set ("assets/images/player.png", AssetType.IMAGE);
+		className.set ("assets/images/polarityPalette.ase", __ASSET__assets_images_polaritypalette_ase);
+		type.set ("assets/images/polarityPalette.ase", AssetType.BINARY);
+		
+		className.set ("assets/images/pongBullet.png", __ASSET__assets_images_pongbullet_png);
+		type.set ("assets/images/pongBullet.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/pongShip.png", __ASSET__assets_images_pongship_png);
+		type.set ("assets/images/pongShip.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/pongShipGrn.png", __ASSET__assets_images_pongshipgrn_png);
+		type.set ("assets/images/pongShipGrn.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/pongShipRed.png", __ASSET__assets_images_pongshipred_png);
+		type.set ("assets/images/pongShipRed.png", AssetType.IMAGE);
 		
 		className.set ("assets/images/Sand_tile.png", __ASSET__assets_images_sand_tile_png);
 		type.set ("assets/images/Sand_tile.png", AssetType.IMAGE);
@@ -971,11 +981,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__assets_data_map1_csv extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_images_background3_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_dog_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__assets_images_dogrun_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__assets_images_dogwagging_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__assets_images_glow_light_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_images_go_here_txt extends flash.utils.ByteArray { }
-@:keep @:bind #if display private #end class __ASSET__assets_images_player_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_polaritypalette_ase extends flash.utils.ByteArray { }
+@:keep @:bind #if display private #end class __ASSET__assets_images_pongbullet_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_pongship_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_pongshipgrn_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_pongshipred_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_sand_tile_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_tiles_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_music_music_goes_here_txt extends flash.utils.ByteArray { }
@@ -987,6 +998,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 #elseif html5
+
 
 
 
@@ -1018,11 +1030,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:file("assets/data/map1.csv") #if display private #end class __ASSET__assets_data_map1_csv extends lime.utils.ByteArray {}
 @:image("assets/images/Background3.png") #if display private #end class __ASSET__assets_images_background3_png extends lime.graphics.Image {}
 @:image("assets/images/Dog.png") #if display private #end class __ASSET__assets_images_dog_png extends lime.graphics.Image {}
-@:image("assets/images/DogRun.png") #if display private #end class __ASSET__assets_images_dogrun_png extends lime.graphics.Image {}
-@:image("assets/images/dogWagging.png") #if display private #end class __ASSET__assets_images_dogwagging_png extends lime.graphics.Image {}
-@:image("assets/images/glow-light.png") #if display private #end class __ASSET__assets_images_glow_light_png extends lime.graphics.Image {}
 @:file("assets/images/images-go-here.txt") #if display private #end class __ASSET__assets_images_images_go_here_txt extends lime.utils.ByteArray {}
-@:image("assets/images/player.png") #if display private #end class __ASSET__assets_images_player_png extends lime.graphics.Image {}
+@:file("assets/images/polarityPalette.ase") #if display private #end class __ASSET__assets_images_polaritypalette_ase extends lime.utils.ByteArray {}
+@:image("assets/images/pongBullet.png") #if display private #end class __ASSET__assets_images_pongbullet_png extends lime.graphics.Image {}
+@:image("assets/images/pongShip.png") #if display private #end class __ASSET__assets_images_pongship_png extends lime.graphics.Image {}
+@:image("assets/images/pongShipGrn.png") #if display private #end class __ASSET__assets_images_pongshipgrn_png extends lime.graphics.Image {}
+@:image("assets/images/pongShipRed.png") #if display private #end class __ASSET__assets_images_pongshipred_png extends lime.graphics.Image {}
 @:image("assets/images/Sand_tile.png") #if display private #end class __ASSET__assets_images_sand_tile_png extends lime.graphics.Image {}
 @:image("assets/images/Tiles.png") #if display private #end class __ASSET__assets_images_tiles_png extends lime.graphics.Image {}
 @:file("assets/music/music-goes-here.txt") #if display private #end class __ASSET__assets_music_music_goes_here_txt extends lime.utils.ByteArray {}

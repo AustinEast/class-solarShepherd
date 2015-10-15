@@ -1,0 +1,7 @@
+{
+    "HAXE_STD_PATH": "/usr/lib/haxe/std/",
+    "HAXEPATH": "/usr/lib/haxe/",
+    "PATH": "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
+    "NEKOPATH": "/usr/lib/neko/",
+    "HAXELIB_PATH": "/usr/lib/haxe/haxelib"
+}

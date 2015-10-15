@@ -8,7 +8,12 @@ package;
 **/
  class SpacePlayer extends SpaceSprite
  {
- 	public var speed:Float = 100;
+ 	//Player attributes
+    private var MAX_HEALTH:Int = 10;
+    private var RUN_SPEED:Int = 120;
+    
+    //Animation helper variables
+    public var _hurtCounter:Int = 0;
     /**
     * Handles the creation of a player creation.
     **/
@@ -16,25 +21,29 @@ package;
      {
          super(X, Y);
 
-         makeGraphic(32, 8);
-         drag.x =2000;
-         maxVelocity.x = 300;
-         _polarity = true;
-         
+         //Loads graphics/animations
+         loadGraphic("assets/images/pongShip.png",true,16,8);
+         animation.add("polTrue",[2,3,4],60,true);
+         animation.add("polFalse",[7,8,9],60,true); 
+         maxVelocity.x = RUN_SPEED;
+
+         setPolarity(true);
+     
      }
     /**
     * Updates the player, mostly for movement and eventually abilities. 
     **/
      override public function update():Void
      {
+        velocity.x = 0;
      	//Movement controls
      	if (FlxG.keys.pressed.LEFT)
      	{
-     		velocity.x -= speed;
+     		velocity.x = -RUN_SPEED;
      	}
      	else if (FlxG.keys.pressed.RIGHT)
      	{
-     		velocity.x += speed;
+     		velocity.x = RUN_SPEED;
      	}
 
      	if (FlxG.keys.justPressed.SPACE)

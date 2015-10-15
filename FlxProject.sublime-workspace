@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"f",
+				"frameIndex	Int"
+			],
+			[
+				"po",
+				"polTrue"
+			],
+			[
+				"pol",
+				"polFalse"
+			],
+			[
+				"p",
+				"play(...)	Void"
+			],
+			[
+				"tr",
+				"true"
+			],
+			[
+				"Ju",
+				"JUMP_SPEED"
+			],
+			[
+				"Ru",
+				"RUN_SPEED"
+			],
+			[
 				"flx",
 				"FlxObject"
 			],
@@ -208,14 +236,6 @@
 				"_polarity	var"
 			],
 			[
-				"pol",
-				"polSet	var"
-			],
-			[
-				"po",
-				"_polaritySwitch"
-			],
-			[
 				"flxcol",
 				"FlxColor	flixel.util"
 			],
@@ -256,10 +276,6 @@
 				"makeGraphic"
 			],
 			[
-				"p",
-				"particles	package"
-			],
-			[
 				"u",
 				"util	package"
 			],
@@ -284,30 +300,19 @@
 	"buffers":
 	[
 		{
-			"contents": "package;\n\n import flixel.FlxSprite;\n import flixel.FlxG;\n import flixel.util.FlxColor;\n import flixel.FlxObject;\n import openfl.Assets;\n/**\n* This Class contains the functions for the Player on land.\n**/\n class LandPlayer extends FlxSprite\n {\n    private var _max_health:Int = 10;\n    public var _hurt_counter:Int = 0;\n    public var meleeAnim:Bool = false;\n    public var meleeTrue:Bool = false;\n 	public var speed:Float = 100;\n\n    /**\n    * Handles the creation of a player creation.\n    **/\n     public function new(X, Y)\n     {\n\n         super(X, Y);\n\n         //Set movement variables.\n         drag.set(400,400);\n         maxVelocity.set(80,200);\n         acceleration.y = 400;\n\n          //Set the player health\n         health = 10;\n            \n        //  Load the player.png into this sprite.\n        //  The 2nd parameter tells Flixel it's animated, then the third and fourth say it is a sprite sheet and it should chop it up into 16x16 sized frames.\n        loadGraphic(AssetPaths.Dog__png, true, 16, 16);\n            \n\n        //  We also shave 2 pixels off each side to make it slip through gaps easier. Changing the width/height does NOT change the visual sprite, just the bounding box used for physics.\n        width = 12;\n        height = 16;\n            \n        //  Because we've shaved a few pixels off, we need to offset the sprite to compensate\n        offset.x = 2;\n            \n        //  The Animation sequences we need\n        animation.add(\"idle\", [0, 1], 5, true);\n        animation.add(\"walk\", [7, 8, 9, 10, 11], 10, true);\n        animation.add(\"run\", [2, 3, 4, 5, 6], 10, true);\n        animation.add(\"jump\", [3, 4], 4, false);\n        animation.add(\"fall\", [5], 0, false);\n        animation.add(\"melee\", [12, 13, 14], 5, false);\n        animation.add(\"hurt\", [3], 0, false);\n        animation.add(\"dead\", [5], 0, false);\n         \n     }\n    /**\n    * Updates the player, mostly for movement and eventually abilities. \n    **/\n     override public function update():Void\n     {\n        acceleration.x = 0;\n        //Movement controls\n        if (FlxG.keys.pressed.LEFT)\n        {\n            acceleration.x = -400;\n            flipX = true;\n        }\n        else if (FlxG.keys.pressed.RIGHT)\n        {\n             acceleration.x = 400;\n             flipX = false;\n        }\n        //Animations.\n        if (_hurt_counter > 0)\n        {\n            animation.play(\"hurt\");\n        }\n        else if (meleeTrue == true)\n        {\n            if (velocity.y == 0)\n            {\n                meleeTrue = false;\n            }\n            else if (meleeAnim == true)\n            {\n                animation.play(\"melee\");\n                meleeAnim = false;\n            }\n        }\n        else            \n        {\n            if (velocity.y < 0)\n            {\n                animation.play(\"jump\");\n            }\n            else if (velocity.y > 0)\n            {\n                animation.play(\"fall\");\n            }\n            else\n            {\n                if (velocity.x == 0)\n                {\n                    animation.play(\"idle\");\n                }\n                else\n                {\n                    if (velocity.x > 120 || velocity.x < -120)\n                    {\n                        animation.play(\"run\");\n                    }\n                    else \n                    {\n                        animation.play(\"walk\");\n                    }\n                }\n            }\n        }\n        //Mario Style jump\n        if(FlxG.keys.justPressed.X && isTouching(FlxObject.FLOOR))\n        {\n            velocity.y = -200;\n        }\n        if (FlxG.keys.justReleased.X && velocity.y < 0)\n        {\n            velocity.y = velocity.y / 2;\n        }\n        //Dash button\n        if (FlxG.keys.pressed.C)\n        {\n            maxVelocity.x = 200; \n        }\n        else\n        {\n            maxVelocity.x = 80; \n        }\n        if (FlxG.keys.justPressed.Z && velocity.y == 0)\n        {    \n            if(flipX == true)\n            {        \n                velocity.y = -75;\n                acceleration.x = -1600;\n                velocity.x += -700;\n                meleeTrue = true;\n                meleeAnim = true;\n            }\n            else\n            {        \n                velocity.y = -75;\n                acceleration.x = 1600;\n                velocity.x += 700;\n                meleeTrue = true;\n                meleeAnim = true;\n            }\n        }\n\n     	super.update();	 \n\n     }\n }",
-			"file": "source/LandPlayer.hx",
-			"file_size": 4436,
-			"file_write_time": 1444683612000000,
+			"file": "source/SpacePlayer.hx",
 			"settings":
 			{
-				"buffer_size": 4482,
+				"buffer_size": 1260,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "source/LandLevel1.hx",
+			"file": "source/SpaceState.hx",
 			"settings":
 			{
-				"buffer_size": 574,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "source/LandState.hx",
-			"settings":
-			{
-				"buffer_size": 1447,
-				"line_ending": "Unix"
+				"buffer_size": 2162,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -318,8 +323,28 @@
 		"selected_items":
 		[
 			[
+				"haxe",
+				"Haxe: Choose Build Target"
+			],
+			[
+				"hax",
+				"Haxe: Restart Server"
+			],
+			[
 				"",
-				"Build: Build"
+				"Haxe: Choose Build Target"
+			],
+			[
+				"remo",
+				"Haxelib: Remove library"
+			],
+			[
+				"instal",
+				"Haxelib: List Installed"
+			],
+			[
+				"ha",
+				"Haxelib: Install library"
 			],
 			[
 				"buil",
@@ -330,7 +355,7 @@
 				"Preferences: Browse Packages"
 			]
 		],
-		"width": 392.0
+		"width": 431.0
 	},
 	"console":
 	{
@@ -347,6 +372,17 @@
 	},
 	"file_history":
 	[
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/SpaceEnemy.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/SpaceBullet.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/SpaceSprite.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/SpaceState.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/SpacePlayer.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/Main.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/build.hxml",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/LandState.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/LandLevel.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/LandPlayer.hx",
+		"/Users/Weasty/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
 		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/MenuState.hx",
 		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/PlayState.hx",
 		"/usr/lib/haxe/lib/flixel/3,3,11/include.xml",
@@ -362,7 +398,6 @@
 		"/Users/Weasty/Documents/haxedev/default/source/MenuState.hx",
 		"/Users/Weasty/Documents/haxedev/FlxCollisions/source/PlayState3.hx",
 		"/Users/Weasty/Documents/haxedev/FlxCollisions/source/PlayState2.hx",
-		"/Users/Weasty/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
 		"/Users/Weasty/Documents/haxedev/HelloWorld/source/Main.hx",
 		"/Users/Weasty/Documents/haxedev/HelloWorld/source/MenuState.hx"
 	],
@@ -407,23 +442,23 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "source/LandPlayer.hx",
+					"file": "source/SpacePlayer.hx",
 					"settings":
 					{
-						"buffer_size": 4482,
+						"buffer_size": 1260,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								898,
-								898
+								766,
+								766
 							]
 						],
 						"settings":
@@ -434,25 +469,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1767.0,
+						"translation.y": 39.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "source/LandLevel1.hx",
+					"file": "source/SpaceState.hx",
 					"settings":
 					{
-						"buffer_size": 574,
+						"buffer_size": 2162,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								384,
-								384
+								963,
+								963
 							]
 						],
 						"settings":
@@ -462,35 +497,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "source/LandState.hx",
-					"settings":
-					{
-						"buffer_size": 1447,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								754,
-								808
-							]
-						],
-						"settings":
-						{
-							"haxe-build-id": 0,
-							"syntax": "Packages/Haxe/Haxe.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 88.0,
+						"translation.y": 304.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

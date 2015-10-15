@@ -22,11 +22,11 @@ package;
      //This function sets the polarity.
     public function setPolarity(polSet) {
         if (polSet) {
-            flixel.util.FlxSpriteUtil.fill(this, FlxColor.WHITE);
+            animation.play("polTrue");
             _polarity = true;
         }
         else {
-            flixel.util.FlxSpriteUtil.fill(this, FlxColor.BLACK);
+            animation.play("polFalse");
             _polarity = false;
         }
      }

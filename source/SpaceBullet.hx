@@ -20,7 +20,10 @@ class SpaceBullet extends SpaceSprite
         super();
 
         //Creates a graphic. Will probably be replaced with image later.
-        makeGraphic(4,4);
+        loadGraphic("assets/images/pongBullet.png",true,4,4);
+        animation.add("polTrue",[0]);
+        animation.add("polFalse",[1]);
+
         //Sets its polarity (Color). True is white, false is black.
         _polarity = true;
     }
@@ -62,7 +65,8 @@ class SpaceBullet extends SpaceSprite
         {   
             //If the bullet is the same polarity as the object, it will "Bounce".
             if(paddle._polarity == this._polarity)
-            {
+            {   
+                velocity.x += paddle.velocity.x/2;
                 velocity.y *= -1;
                 hitPaddle = paddle;
             }
@@ -71,17 +75,18 @@ class SpaceBullet extends SpaceSprite
             {
                 paddle.kill();
                 this.kill();
-                FlxG.camera.flash(0xffFFFFFF, 1);
                 FlxG.camera.shake(0.02, 0.35); 
                 //if the player is hit, fade the camera.
                 //This calls doneFadeOut once the fade is done.
                 if (hitPaddle == null)
                 { 
+                    FlxG.camera.flash(0xffFFFFFF, 1);
                     FlxG.camera.fade(FlxColor.BLACK, .33, false, doneFadeOut);
                 } 
             }
         }
     }
+   
     /**
     * This function is called if the player gets hit and the game fades out.
     * It sends you back to the menu.

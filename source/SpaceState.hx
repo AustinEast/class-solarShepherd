@@ -28,15 +28,13 @@ class SpaceState extends FlxState
 	 */
 	override public function create():Void
 	{
-		//Set Background color.
-		FlxG.camera.bgColor = FlxColor.TAN;
 
 		//create enemies. Uses a loop to put a bunch of them in a group(FlxGroup).
 		//think of this as adding them all to an array, but without an index.
 		_enemies = new FlxGroup(_numEnemies);
 		_numEnemies = 12;
 		for (i in 0 ... _numEnemies) {
-			_enemy = new SpaceEnemy(25+(i*50),20);
+			_enemy = new SpaceEnemy(12+(i*25),20);
 			_enemies.add(_enemy);
 		}
 

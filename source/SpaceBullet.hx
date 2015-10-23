@@ -75,7 +75,7 @@ class SpaceBullet extends SpaceSprite
             {
                 paddle.kill();
                 this.kill();
-                FlxG.camera.shake(0.02, 0.35); 
+                FlxG.camera.shake(0.02, 0.25); 
                 //if the player is hit, fade the camera.
                 //This calls doneFadeOut once the fade is done.
                 if (hitPaddle == null)

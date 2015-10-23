@@ -40,6 +40,7 @@ package;
      	if (FlxG.keys.pressed.LEFT)
      	{
      		velocity.x = -RUN_SPEED;
+
      	}
      	else if (FlxG.keys.pressed.RIGHT)
      	{

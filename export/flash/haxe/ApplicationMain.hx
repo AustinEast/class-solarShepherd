@@ -162,7 +162,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "478",
+			build: "504",
 			company: "HaxeFlixel",
 			file: "FlxProject",
 			fps: 60,

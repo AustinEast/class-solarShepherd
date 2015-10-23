@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"flx",
+				"FlxG"
+			],
+			[
+				"Flxan",
+				"FlxAngle	flixel.util"
+			],
+			[
 				"f",
 				"frameIndex	Int"
 			],
@@ -30,10 +38,6 @@
 			[
 				"Ru",
 				"RUN_SPEED"
-			],
-			[
-				"flx",
-				"FlxObject"
 			],
 			[
 				"me",
@@ -299,22 +303,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "source/SpacePlayer.hx",
-			"settings":
-			{
-				"buffer_size": 1260,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "source/SpaceState.hx",
-			"settings":
-			{
-				"buffer_size": 2162,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -372,11 +360,11 @@
 	},
 	"file_history":
 	[
-		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/SpaceEnemy.hx",
 		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/SpaceBullet.hx",
-		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/SpaceSprite.hx",
 		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/SpaceState.hx",
 		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/SpacePlayer.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/SpaceEnemy.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/SpaceSprite.hx",
 		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/Main.hx",
 		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/build.hxml",
 		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/LandState.hx",
@@ -442,66 +430,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "source/SpacePlayer.hx",
-					"settings":
-					{
-						"buffer_size": 1260,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								766,
-								766
-							]
-						],
-						"settings":
-						{
-							"haxe-build-id": 0,
-							"syntax": "Packages/Haxe/Haxe.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 39.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "source/SpaceState.hx",
-					"settings":
-					{
-						"buffer_size": 2162,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								963,
-								963
-							]
-						],
-						"settings":
-						{
-							"haxe-build-id": 0,
-							"syntax": "Packages/Haxe/Haxe.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 304.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],

@@ -19,7 +19,7 @@ class LandState extends FlxState
 {
 	public var _player:LandPlayer;
 	public var _level:LandLevel;
-	public var _spiny:Spiney;
+	public var _chaser:Chaser;
 	public var _enemyGroup:FlxGroup;
 	/**
 	 * Function that is called up when to state is created to set it up. 
@@ -30,12 +30,12 @@ class LandState extends FlxState
 		
 		//create levels and player.
 		_level = new LandLevel();
-		_level.Level1();
+		_level.loadLevel(Reg.level);
 		_player = new LandPlayer(20,20);
 		_player._polarity = true;
-		_spiny = new Spiney(200,20,_player);
+		_chaser = new Chaser(200,20,_player);
 		_enemyGroup = new FlxGroup();
-		_enemyGroup.add(_spiny);
+		_enemyGroup.add(_chaser);
 
 		//add everything to the scene.
 		add(_level);
@@ -71,11 +71,11 @@ class LandState extends FlxState
 		super.update();
 
 		FlxG.collide(_level,_player);
-		FlxG.collide(_level,_spiny);
+		FlxG.collide(_level,_enemyGroup);
 		FlxG.collide(_level,_player._stunGun.group);
 		FlxG.overlap(_level,_player._crateGun.group,crateCollision);
 
-		FlxG.overlap(_player,_spiny,enemyCollision);
+		FlxG.overlap(_player,_enemyGroup,enemyCollision);
 		FlxG.collide(_player,_player._crateGun.group);
 		FlxG.collide(_player._crateGun.group,_player._crateGun.group);
 
@@ -104,7 +104,7 @@ class LandState extends FlxState
 	{
 		if(Enemy._flickering == false)
 		{
-			Enemy.hurt(1);
+			Enemy.stun(1);
 			Enemy.velocity.x = Bullet.velocity.x*2;
 			Enemy.velocity.y -= 50;
 		}

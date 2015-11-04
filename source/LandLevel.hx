@@ -21,12 +21,12 @@ import flixel.tile.FlxTilemap;
 		public var height:Float;
 		
 		//This function loads level one.
-		public function Level1() 
+		public function loadLevel(Number:Int) 
 		{	
 			//creates a new tilemap.
 			map = new FlxTilemap();
 			//loads the CSV file and the tiles needed for the map.
-			add(map.loadMap(Assets.getText("assets/data/map1.csv"),"assets/images/Tiles.png",16,16));
+			add(map.loadMap(Assets.getText(Reg.levels[0]),"assets/images/Tiles.png",16,16));
 			
 			//sets the width and height for the levels.
 			width = map.width;

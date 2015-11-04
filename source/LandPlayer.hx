@@ -17,7 +17,7 @@ package;
     private var MAX_HEALTH:Int = 10;
     private var ACCELERATION:Int = 400;
     private var RUN_SPEED:Int = 100;
-    private var JUMP_SPEED:Int = 250;
+    private var JUMP_SPEED:Int = 200;
     private var GRAVITY:Int = 500;
 
     //Abilities
@@ -118,7 +118,7 @@ package;
             flipX = true;
             _stunGun.setBulletDirection(180,300);
             _stunGun.setBulletOffset(-5,2);
-            _crateGun.setBulletDirection(190,200);
+            _crateGun.setBulletDirection(195,180);
             _crateGun.setBulletOffset(-5,2);
         }
         else if (FlxG.keys.pressed.RIGHT)
@@ -127,7 +127,7 @@ package;
             flipX = false;
             _stunGun.setBulletDirection(360,300);
             _stunGun.setBulletOffset(5,2);
-            _crateGun.setBulletDirection(350,200); 
+            _crateGun.setBulletDirection(345,180); 
             _crateGun.setBulletOffset(5,2);
         }
         // Mario Style jump
@@ -148,7 +148,7 @@ package;
         // Stun Gun
         if (FlxG.keys.justPressed.X)
         {   
-            _stunGun.fire();
+            _stunGun.soundFire();
         }
         // Crate gun
         if (FlxG.keys.pressed.Z)

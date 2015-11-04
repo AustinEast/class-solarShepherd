@@ -97,6 +97,13 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_fonts_arial_ttf);
 		
@@ -130,8 +137,22 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/Tiles.png", AssetType.IMAGE);
 		className.set ("assets/music/music-goes-here.txt", __ASSET__assets_music_music_goes_here_txt);
 		type.set ("assets/music/music-goes-here.txt", AssetType.TEXT);
+		className.set ("assets/sounds/EnemySpaceshipDestroyed.mp3", __ASSET__assets_sounds_enemyspaceshipdestroyed_mp3);
+		type.set ("assets/sounds/EnemySpaceshipDestroyed.mp3", AssetType.MUSIC);
+		className.set ("assets/sounds/KnockOrBossFire.mp3", __ASSET__assets_sounds_knockorbossfire_mp3);
+		type.set ("assets/sounds/KnockOrBossFire.mp3", AssetType.MUSIC);
+		className.set ("assets/sounds/MainMenuNavi.mp3", __ASSET__assets_sounds_mainmenunavi_mp3);
+		type.set ("assets/sounds/MainMenuNavi.mp3", AssetType.MUSIC);
+		className.set ("assets/sounds/playerJump.mp3", __ASSET__assets_sounds_playerjump_mp3);
+		type.set ("assets/sounds/playerJump.mp3", AssetType.MUSIC);
+		className.set ("assets/sounds/playerSpaceshipDestroyed.mp3", __ASSET__assets_sounds_playerspaceshipdestroyed_mp3);
+		type.set ("assets/sounds/playerSpaceshipDestroyed.mp3", AssetType.MUSIC);
+		className.set ("assets/sounds/powerupPickup.mp3", __ASSET__assets_sounds_poweruppickup_mp3);
+		type.set ("assets/sounds/powerupPickup.mp3", AssetType.MUSIC);
 		className.set ("assets/sounds/sounds-go-here.txt", __ASSET__assets_sounds_sounds_go_here_txt);
 		type.set ("assets/sounds/sounds-go-here.txt", AssetType.TEXT);
+		className.set ("assets/sounds/stunGun.mp3", __ASSET__assets_sounds_stungun_mp3);
+		type.set ("assets/sounds/stunGun.mp3", AssetType.MUSIC);
 		className.set ("assets/temp/astro.png", __ASSET__assets_temp_astro_png);
 		type.set ("assets/temp/astro.png", AssetType.IMAGE);
 		className.set ("assets/temp/battery.png", __ASSET__assets_temp_battery_png);
@@ -255,10 +276,38 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.TEXT);
+		id = "assets/sounds/EnemySpaceshipDestroyed.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
+		id = "assets/sounds/KnockOrBossFire.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
+		id = "assets/sounds/MainMenuNavi.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
+		id = "assets/sounds/playerJump.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
+		id = "assets/sounds/playerSpaceshipDestroyed.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
+		id = "assets/sounds/powerupPickup.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
 		id = "assets/sounds/sounds-go-here.txt";
 		path.set (id, id);
 		
 		type.set (id, AssetType.TEXT);
+		id = "assets/sounds/stunGun.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
 		id = "assets/temp/astro.png";
 		path.set (id, id);
 		
@@ -448,8 +497,29 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("assets/music/music-goes-here.txt", __ASSET__assets_music_music_goes_here_txt);
 		type.set ("assets/music/music-goes-here.txt", AssetType.TEXT);
 		
+		className.set ("assets/sounds/EnemySpaceshipDestroyed.mp3", __ASSET__assets_sounds_enemyspaceshipdestroyed_mp3);
+		type.set ("assets/sounds/EnemySpaceshipDestroyed.mp3", AssetType.MUSIC);
+		
+		className.set ("assets/sounds/KnockOrBossFire.mp3", __ASSET__assets_sounds_knockorbossfire_mp3);
+		type.set ("assets/sounds/KnockOrBossFire.mp3", AssetType.MUSIC);
+		
+		className.set ("assets/sounds/MainMenuNavi.mp3", __ASSET__assets_sounds_mainmenunavi_mp3);
+		type.set ("assets/sounds/MainMenuNavi.mp3", AssetType.MUSIC);
+		
+		className.set ("assets/sounds/playerJump.mp3", __ASSET__assets_sounds_playerjump_mp3);
+		type.set ("assets/sounds/playerJump.mp3", AssetType.MUSIC);
+		
+		className.set ("assets/sounds/playerSpaceshipDestroyed.mp3", __ASSET__assets_sounds_playerspaceshipdestroyed_mp3);
+		type.set ("assets/sounds/playerSpaceshipDestroyed.mp3", AssetType.MUSIC);
+		
+		className.set ("assets/sounds/powerupPickup.mp3", __ASSET__assets_sounds_poweruppickup_mp3);
+		type.set ("assets/sounds/powerupPickup.mp3", AssetType.MUSIC);
+		
 		className.set ("assets/sounds/sounds-go-here.txt", __ASSET__assets_sounds_sounds_go_here_txt);
 		type.set ("assets/sounds/sounds-go-here.txt", AssetType.TEXT);
+		
+		className.set ("assets/sounds/stunGun.mp3", __ASSET__assets_sounds_stungun_mp3);
+		type.set ("assets/sounds/stunGun.mp3", AssetType.MUSIC);
 		
 		className.set ("assets/temp/astro.png", __ASSET__assets_temp_astro_png);
 		type.set ("assets/temp/astro.png", AssetType.IMAGE);
@@ -1280,7 +1350,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__assets_images_sand_tile_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_tiles_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_music_music_goes_here_txt extends flash.utils.ByteArray { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_enemyspaceshipdestroyed_mp3 extends flash.media.Sound { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_knockorbossfire_mp3 extends flash.media.Sound { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_mainmenunavi_mp3 extends flash.media.Sound { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_playerjump_mp3 extends flash.media.Sound { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_playerspaceshipdestroyed_mp3 extends flash.media.Sound { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_poweruppickup_mp3 extends flash.media.Sound { }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_sounds_go_here_txt extends flash.utils.ByteArray { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_stungun_mp3 extends flash.media.Sound { }
 @:keep @:bind #if display private #end class __ASSET__assets_temp_astro_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_temp_battery_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_temp_beam_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -1363,6 +1440,13 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
+
+
+
+
+
+
 @:keep #if display private #end class __ASSET__assets_fonts_nokiafc22_ttf extends lime.text.Font { public function new () { super (); name = "Nokia Cellphone FC Small"; } } 
 @:keep #if display private #end class __ASSET__assets_fonts_arial_ttf extends lime.text.Font { public function new () { super (); name = "Arial"; } } 
 
@@ -1387,7 +1471,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/images/Sand_tile.png") #if display private #end class __ASSET__assets_images_sand_tile_png extends lime.graphics.Image {}
 @:image("assets/images/Tiles.png") #if display private #end class __ASSET__assets_images_tiles_png extends lime.graphics.Image {}
 @:file("assets/music/music-goes-here.txt") #if display private #end class __ASSET__assets_music_music_goes_here_txt extends lime.utils.ByteArray {}
+@:file("assets/sounds/EnemySpaceshipDestroyed.mp3") #if display private #end class __ASSET__assets_sounds_enemyspaceshipdestroyed_mp3 extends lime.utils.ByteArray {}
+@:file("assets/sounds/KnockOrBossFire.mp3") #if display private #end class __ASSET__assets_sounds_knockorbossfire_mp3 extends lime.utils.ByteArray {}
+@:file("assets/sounds/MainMenuNavi.mp3") #if display private #end class __ASSET__assets_sounds_mainmenunavi_mp3 extends lime.utils.ByteArray {}
+@:file("assets/sounds/playerJump.mp3") #if display private #end class __ASSET__assets_sounds_playerjump_mp3 extends lime.utils.ByteArray {}
+@:file("assets/sounds/playerSpaceshipDestroyed.mp3") #if display private #end class __ASSET__assets_sounds_playerspaceshipdestroyed_mp3 extends lime.utils.ByteArray {}
+@:file("assets/sounds/powerupPickup.mp3") #if display private #end class __ASSET__assets_sounds_poweruppickup_mp3 extends lime.utils.ByteArray {}
 @:file("assets/sounds/sounds-go-here.txt") #if display private #end class __ASSET__assets_sounds_sounds_go_here_txt extends lime.utils.ByteArray {}
+@:file("assets/sounds/stunGun.mp3") #if display private #end class __ASSET__assets_sounds_stungun_mp3 extends lime.utils.ByteArray {}
 @:image("assets/temp/astro.png") #if display private #end class __ASSET__assets_temp_astro_png extends lime.graphics.Image {}
 @:image("assets/temp/battery.png") #if display private #end class __ASSET__assets_temp_battery_png extends lime.graphics.Image {}
 @:image("assets/temp/beam.png") #if display private #end class __ASSET__assets_temp_beam_png extends lime.graphics.Image {}

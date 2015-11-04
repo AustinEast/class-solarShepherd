@@ -14,15 +14,20 @@ class StunGun extends FlxWeapon {
 	{
 		super(Name, ParentRef, BulletType, BulletID);
 		
-		//_shootSnd = FlxG.sound.load(Reg.SHOOT);
-		makeImageBullet(2,Reg.STUNGUN,0,0,true,360,1);
+		_shootSnd = FlxG.sound.load(Reg.STUNGUNSOUND);
+		makeImageBullet(2,Reg.STUNGUNBULLET,0,0,true,360,1);
         setBulletBounds(new flixel.util.FlxRect(0,0,3000,3000));
-        setFireRate(300);
+        setFireRate(100);
         rndFactorAngle = 20;
         setBulletDirection(360,400);
         setBulletLifeSpan(0.2);
-        //setFireCallback(null, _shootSnd);
 
 	}
+	public function soundFire():Bool
+	{
+		FlxG.sound.play(Reg.STUNGUNSOUND);
+		return runFire(FlxWeapon.FIRE);
+	}
+
 	
 }

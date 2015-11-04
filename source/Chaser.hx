@@ -2,16 +2,16 @@ package;
 
  import flixel.FlxSprite;
  import flixel.FlxG;
+ import flixel.FlxObject;
  import flixel.util.FlxMath;
  import flixel.util.FlxColor;
- import flixel.FlxObject;
  import openfl.Assets;
  import flixel.effects.FlxFlicker;
  using flixel.util.FlxSpriteUtil;
 /**
 * This Class contains the functions for the Player on land.
 **/
- class Spiney extends FlxSprite
+ class Chaser extends FlxSprite
  {
     //Player attributes
     private var MAX_HEALTH:Int = 10;
@@ -56,10 +56,10 @@ package;
          //  Load the player.png into this sprite.
          //  The 2nd parameter tells Flixel it's animated, then the third and fourth say it is a sprite sheet and it should chop it up into 16x16 sized frames.
          //loadGraphic(Reg.LANDPLAYER, true, 16, 16);
-         makeGraphic(16,16);
+         makeGraphic(12,16);
 
          //  We also shave 2 pixels off each side to make it slip through gaps easier. Changing the width/height does NOT change the visual sprite, just the bounding box used for physics.
-         width = 12;
+         width = 10;
          height = 16;
             
          //  Because we've shaved a few pixels off, we need to offset the sprite to compensate
@@ -154,7 +154,7 @@ package;
      		}
         }
      }
-     override function hurt(Damage:Float)
+     public function stun(Damage:Float)
         {
         	_hurtCounter += Damage;
         	if (knockedOutCheck())

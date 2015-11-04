@@ -6,7 +6,7 @@ package;
 /**
 * This Class contains the functions for the Player... IN SPACE!
 **/
- class SpacePlayer extends SpaceSprite
+ class SpacePlayer extends PolarSprite
  {
  	//Player attributes
     private var MAX_HEALTH:Int = 10;
@@ -26,6 +26,7 @@ package;
          animation.add("polTrue",[2,3,4],60,true);
          animation.add("polFalse",[7,8,9],60,true); 
          maxVelocity.x = RUN_SPEED;
+         important = true;
 
          setPolarity(true);
      
@@ -35,6 +36,8 @@ package;
     **/
      override public function update():Void
      {
+        super.update();
+        
         velocity.x = 0;
      	//Movement controls
      	if (FlxG.keys.pressed.LEFT)
@@ -47,12 +50,10 @@ package;
      		velocity.x = RUN_SPEED;
      	}
 
-     	if (FlxG.keys.justPressed.SPACE)
+     	if (FlxG.keys.justPressed.C)
      	{
   			switchPolarity();   		
-       	}
-
-     	super.update();	 
+       	}	 
 
      }
 

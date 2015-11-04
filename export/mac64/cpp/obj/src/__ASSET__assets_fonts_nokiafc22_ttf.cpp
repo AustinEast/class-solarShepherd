@@ -15,14 +15,14 @@
 
 Void __ASSET__assets_fonts_nokiafc22_ttf_obj::__construct(::String __o_filename,::openfl::_legacy::text::FontStyle style,::openfl::_legacy::text::FontType type)
 {
-HX_STACK_FRAME("__ASSET__assets_fonts_nokiafc22_ttf","new",0x9dff4251,"__ASSET__assets_fonts_nokiafc22_ttf.new","DefaultAssetLibrary.hx",509,0x0fc48912)
+HX_STACK_FRAME("__ASSET__assets_fonts_nokiafc22_ttf","new",0x9dff4251,"__ASSET__assets_fonts_nokiafc22_ttf.new","DefaultAssetLibrary.hx",567,0x0fc48912)
 HX_STACK_THIS(this)
 HX_STACK_ARG(__o_filename,"filename")
 HX_STACK_ARG(style,"style")
 HX_STACK_ARG(type,"type")
 ::String filename = __o_filename.Default(HX_CSTRING(""));
 {
-	HX_STACK_LINE(509)
+	HX_STACK_LINE(567)
 	super::__construct(filename,style,type);
 }
 ;

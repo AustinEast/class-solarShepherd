@@ -3,11 +3,11 @@
 #ifndef INCLUDED_MenuState
 #include <MenuState.h>
 #endif
+#ifndef INCLUDED_PolarSprite
+#include <PolarSprite.h>
+#endif
 #ifndef INCLUDED_SpaceBullet
 #include <SpaceBullet.h>
-#endif
-#ifndef INCLUDED_SpaceSprite
-#include <SpaceSprite.h>
 #endif
 #ifndef INCLUDED_flixel_FlxBasic
 #include <flixel/FlxBasic.h>
@@ -139,7 +139,7 @@ return null();
 }
 
 
-Void SpaceBullet_obj::bounce( ::SpaceSprite paddle){
+Void SpaceBullet_obj::bounce( ::PolarSprite paddle){
 {
 		HX_STACK_FRAME("SpaceBullet","bounce",0xae72d9ae,"SpaceBullet.bounce","SpaceBullet.hx",64,0xf3832436)
 		HX_STACK_THIS(this)
@@ -175,7 +175,7 @@ Void SpaceBullet_obj::bounce( ::SpaceSprite paddle){
 					HX_STACK_LINE(78)
 					::flixel::FlxG_obj::camera->shake(0.02,0.25,null(),null(),null());
 					HX_STACK_LINE(81)
-					if (((this->hitPaddle == null()))){
+					if (((paddle->important == true))){
 						HX_STACK_LINE(83)
 						::flixel::FlxG_obj::camera->flash((int)-1,(int)1,null(),null());
 						HX_STACK_LINE(84)
@@ -248,7 +248,7 @@ Dynamic SpaceBullet_obj::__SetField(const ::String &inName,const Dynamic &inValu
 {
 	switch(inName.length) {
 	case 9:
-		if (HX_FIELD_EQ(inName,"hitPaddle") ) { hitPaddle=inValue.Cast< ::SpaceSprite >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"hitPaddle") ) { hitPaddle=inValue.Cast< ::PolarSprite >(); return inValue; }
 	}
 	return super::__SetField(inName,inValue,inCallProp);
 }
@@ -264,7 +264,7 @@ static ::String sStaticFields[] = {
 
 #if HXCPP_SCRIPTABLE
 static hx::StorageInfo sMemberStorageInfo[] = {
-	{hx::fsObject /*::SpaceSprite*/ ,(int)offsetof(SpaceBullet_obj,hitPaddle),HX_CSTRING("hitPaddle")},
+	{hx::fsObject /*::PolarSprite*/ ,(int)offsetof(SpaceBullet_obj,hitPaddle),HX_CSTRING("hitPaddle")},
 	{ hx::fsUnknown, 0, null()}
 };
 #endif

@@ -72,6 +72,35 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		Font.registerFont (__ASSET__assets_fonts_nokiafc22_ttf);
 		Font.registerFont (__ASSET__assets_fonts_arial_ttf);
 		
@@ -79,6 +108,35 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -596,6 +654,35 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_fonts_arial_ttf);
 		
@@ -631,6 +718,64 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/music/music-goes-here.txt", AssetType.TEXT);
 		path.set ("assets/sounds/sounds-go-here.txt", "assets/sounds/sounds-go-here.txt");
 		type.set ("assets/sounds/sounds-go-here.txt", AssetType.TEXT);
+		path.set ("assets/temp/astro.png", "assets/temp/astro.png");
+		type.set ("assets/temp/astro.png", AssetType.IMAGE);
+		path.set ("assets/temp/battery.png", "assets/temp/battery.png");
+		type.set ("assets/temp/battery.png", AssetType.IMAGE);
+		path.set ("assets/temp/beam.png", "assets/temp/beam.png");
+		type.set ("assets/temp/beam.png", AssetType.IMAGE);
+		path.set ("assets/temp/beamsocket.png", "assets/temp/beamsocket.png");
+		type.set ("assets/temp/beamsocket.png", AssetType.IMAGE);
+		path.set ("assets/temp/button.png", "assets/temp/button.png");
+		type.set ("assets/temp/button.png", AssetType.IMAGE);
+		path.set ("assets/temp/crate.png", "assets/temp/crate.png");
+		type.set ("assets/temp/crate.png", AssetType.IMAGE);
+		path.set ("assets/temp/crate2.png", "assets/temp/crate2.png");
+		type.set ("assets/temp/crate2.png", AssetType.IMAGE);
+		path.set ("assets/temp/droplets.png", "assets/temp/droplets.png");
+		type.set ("assets/temp/droplets.png", AssetType.IMAGE);
+		path.set ("assets/temp/dust.png", "assets/temp/dust.png");
+		type.set ("assets/temp/dust.png", AssetType.IMAGE);
+		path.set ("assets/temp/editorblock.png", "assets/temp/editorblock.png");
+		type.set ("assets/temp/editorblock.png", AssetType.IMAGE);
+		path.set ("assets/temp/explosion.png", "assets/temp/explosion.png");
+		type.set ("assets/temp/explosion.png", AssetType.IMAGE);
+		path.set ("assets/temp/explosion2.png", "assets/temp/explosion2.png");
+		type.set ("assets/temp/explosion2.png", AssetType.IMAGE);
+		path.set ("assets/temp/jet.png", "assets/temp/jet.png");
+		type.set ("assets/temp/jet.png", AssetType.IMAGE);
+		path.set ("assets/temp/jet2.png", "assets/temp/jet2.png");
+		type.set ("assets/temp/jet2.png", AssetType.IMAGE);
+		path.set ("assets/temp/jet3.png", "assets/temp/jet3.png");
+		type.set ("assets/temp/jet3.png", AssetType.IMAGE);
+		path.set ("assets/temp/messagebox.png", "assets/temp/messagebox.png");
+		type.set ("assets/temp/messagebox.png", AssetType.IMAGE);
+		path.set ("assets/temp/pit.png", "assets/temp/pit.png");
+		type.set ("assets/temp/pit.png", AssetType.IMAGE);
+		path.set ("assets/temp/pod.png", "assets/temp/pod.png");
+		type.set ("assets/temp/pod.png", AssetType.IMAGE);
+		path.set ("assets/temp/pod1.png", "assets/temp/pod1.png");
+		type.set ("assets/temp/pod1.png", AssetType.IMAGE);
+		path.set ("assets/temp/portrait.png", "assets/temp/portrait.png");
+		type.set ("assets/temp/portrait.png", AssetType.IMAGE);
+		path.set ("assets/temp/powerlight.png", "assets/temp/powerlight.png");
+		type.set ("assets/temp/powerlight.png", AssetType.IMAGE);
+		path.set ("assets/temp/rocks.png", "assets/temp/rocks.png");
+		type.set ("assets/temp/rocks.png", AssetType.IMAGE);
+		path.set ("assets/temp/shipbits.png", "assets/temp/shipbits.png");
+		type.set ("assets/temp/shipbits.png", AssetType.IMAGE);
+		path.set ("assets/temp/smoke.png", "assets/temp/smoke.png");
+		type.set ("assets/temp/smoke.png", AssetType.IMAGE);
+		path.set ("assets/temp/socket.png", "assets/temp/socket.png");
+		type.set ("assets/temp/socket.png", AssetType.IMAGE);
+		path.set ("assets/temp/thickfont.png", "assets/temp/thickfont.png");
+		type.set ("assets/temp/thickfont.png", AssetType.IMAGE);
+		path.set ("assets/temp/thinfont.png", "assets/temp/thinfont.png");
+		type.set ("assets/temp/thinfont.png", AssetType.IMAGE);
+		path.set ("assets/temp/tiles.png", "assets/temp/tiles.png");
+		type.set ("assets/temp/tiles.png", AssetType.IMAGE);
+		path.set ("assets/temp/timerswitch.png", "assets/temp/timerswitch.png");
+		type.set ("assets/temp/timerswitch.png", AssetType.IMAGE);
 		path.set ("assets/sounds/beep.ogg", "assets/sounds/beep.ogg");
 		type.set ("assets/sounds/beep.ogg", AssetType.SOUND);
 		path.set ("assets/sounds/flixel.ogg", "assets/sounds/flixel.ogg");
@@ -686,6 +831,93 @@ class DefaultAssetLibrary extends AssetLibrary {
 		id = "assets/sounds/sounds-go-here.txt";
 		path.set (id, id);
 		type.set (id, AssetType.TEXT);
+		id = "assets/temp/astro.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/battery.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/beam.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/beamsocket.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/button.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/crate.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/crate2.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/droplets.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/dust.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/editorblock.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/explosion.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/explosion2.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/jet.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/jet2.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/jet3.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/messagebox.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/pit.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/pod.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/pod1.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/portrait.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/powerlight.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/rocks.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/shipbits.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/smoke.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/socket.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/thickfont.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/thinfont.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/tiles.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/temp/timerswitch.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
 		id = "assets/sounds/beep.ogg";
 		path.set (id, id);
 		type.set (id, AssetType.SOUND);
@@ -717,6 +949,35 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -1473,11 +1734,69 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @:keep @:bind #if display private #end class __ASSET__assets_fonts_nokiafc22_ttf extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_fonts_arial_ttf extends null { }
 
 
 #elseif html5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

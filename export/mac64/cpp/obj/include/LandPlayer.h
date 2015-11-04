@@ -6,10 +6,13 @@
 #endif
 
 #include <flixel/FlxSprite.h>
+HX_DECLARE_CLASS0(CrateGun)
 HX_DECLARE_CLASS0(LandPlayer)
+HX_DECLARE_CLASS0(StunGun)
 HX_DECLARE_CLASS1(flixel,FlxBasic)
 HX_DECLARE_CLASS1(flixel,FlxObject)
 HX_DECLARE_CLASS1(flixel,FlxSprite)
+HX_DECLARE_CLASS3(flixel,addons,weapon,FlxWeapon)
 HX_DECLARE_CLASS2(flixel,interfaces,IFlxDestroyable)
 
 
@@ -31,18 +34,27 @@ class HXCPP_CLASS_ATTRIBUTES  LandPlayer_obj : public ::flixel::FlxSprite_obj{
 		HX_DO_RTTI;
 		static void __boot();
 		static void __register();
+		void __Mark(HX_MARK_PARAMS);
+		void __Visit(HX_VISIT_PARAMS);
 		::String __ToString() const { return HX_CSTRING("LandPlayer"); }
 
 		int MAX_HEALTH;
 		int ACCELERATION;
 		int RUN_SPEED;
-		int SPRINT_SPEED;
 		int JUMP_SPEED;
 		int GRAVITY;
+		::StunGun _stunGun;
+		::CrateGun _crateGun;
 		int _hurtCounter;
 		bool meleeAnim;
 		bool meleeTrue;
 		virtual Void update( );
+
+		virtual Void animationCheck( );
+		Dynamic animationCheck_dyn();
+
+		virtual Void controls( );
+		Dynamic controls_dyn();
 
 };
 

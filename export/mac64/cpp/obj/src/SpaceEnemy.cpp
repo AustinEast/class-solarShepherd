@@ -1,13 +1,13 @@
 #include <hxcpp.h>
 
+#ifndef INCLUDED_PolarSprite
+#include <PolarSprite.h>
+#endif
 #ifndef INCLUDED_SpaceBullet
 #include <SpaceBullet.h>
 #endif
 #ifndef INCLUDED_SpaceEnemy
 #include <SpaceEnemy.h>
-#endif
-#ifndef INCLUDED_SpaceSprite
-#include <SpaceSprite.h>
 #endif
 #ifndef INCLUDED_SpaceState
 #include <SpaceState.h>

@@ -15,7 +15,7 @@ package;
 * This Class holds all the info about the Space Enemy Class.
 * Will most likely be chopped up and expanded for different enemy types. Woo!
 **/
- class SpaceEnemy extends SpaceSprite
+ class SpaceEnemy extends PolarSprite
  {
     /**
      * A simple timer for deciding when to shoot

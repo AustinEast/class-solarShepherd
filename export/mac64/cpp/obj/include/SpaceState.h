@@ -6,10 +6,10 @@
 #endif
 
 #include <flixel/FlxState.h>
+HX_DECLARE_CLASS0(PolarSprite)
 HX_DECLARE_CLASS0(SpaceBullet)
 HX_DECLARE_CLASS0(SpaceEnemy)
 HX_DECLARE_CLASS0(SpacePlayer)
-HX_DECLARE_CLASS0(SpaceSprite)
 HX_DECLARE_CLASS0(SpaceState)
 HX_DECLARE_CLASS1(flixel,FlxBasic)
 HX_DECLARE_CLASS1(flixel,FlxObject)

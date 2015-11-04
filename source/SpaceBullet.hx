@@ -8,9 +8,9 @@ import flixel.util.FlxColor;
  /**
  * This class holds all the functions of the Space Bullet shot by enemies.
  **/
-class SpaceBullet extends SpaceSprite
+class SpaceBullet extends PolarSprite
 {
-    public var hitPaddle:SpaceSprite;
+    public var hitPaddle:PolarSprite;
 
     /**
     * Function to create and assign attributes to the bullet.
@@ -58,7 +58,7 @@ class SpaceBullet extends SpaceSprite
     * Function that Checks whether the bullet bounces or hits the player.
     * The basis of the whole game, really.. 
     **/
-    public function bounce(paddle:SpaceSprite):Void
+    public function bounce(paddle:PolarSprite):Void
     {   
         //Method to keep the bullet from overlapping with whichever enemy.
         if (hitPaddle != paddle)
@@ -78,7 +78,7 @@ class SpaceBullet extends SpaceSprite
                 FlxG.camera.shake(0.02, 0.25); 
                 //if the player is hit, fade the camera.
                 //This calls doneFadeOut once the fade is done.
-                if (hitPaddle == null)
+                if (paddle.important == true)
                 { 
                     FlxG.camera.flash(0xffFFFFFF, 1);
                     FlxG.camera.fade(FlxColor.BLACK, .33, false, doneFadeOut);

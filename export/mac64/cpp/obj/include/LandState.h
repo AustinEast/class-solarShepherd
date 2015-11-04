@@ -40,13 +40,16 @@ class HXCPP_CLASS_ATTRIBUTES  LandState_obj : public ::flixel::FlxState_obj{
 		void __Visit(HX_VISIT_PARAMS);
 		::String __ToString() const { return HX_CSTRING("LandState"); }
 
-		::LandPlayer player;
-		::LandLevel level;
+		::LandPlayer _player;
+		::LandLevel _level;
 		virtual Void create( );
 
 		virtual Void destroy( );
 
 		virtual Void update( );
+
+		virtual Void crateCollision( Dynamic Level,Dynamic Bullet);
+		Dynamic crateCollision_dyn();
 
 };
 

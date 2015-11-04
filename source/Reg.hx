@@ -34,4 +34,14 @@ class Reg
 	 * Especially useful for setting up multiple save slots.
 	 */
 	public static var saves:Array<FlxSave> = [];
+	/**
+	 * Store colors for polarity changes.
+	 */
+	public static var colors:Array<Int> = [0xff252c26, 0xffccc385, 0xffc83655, 0xff2a6c9f];
+	/**
+	 * Asset paths.
+	 */
+	public static inline var LANDPLAYER:String = "assets/images/Dog.png";
+	public static inline var STUNGUN:String = "assets/temp/beam.png";
+	public static inline var CRATE:String = "assets/temp/editorblock.png";
 }

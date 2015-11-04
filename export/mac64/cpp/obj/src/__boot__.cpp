@@ -274,6 +274,7 @@
 #include <flixel/animation/FlxAnimationController.h>
 #include <flixel/animation/FlxAnimation.h>
 #include <flixel/animation/FlxBaseAnimation.h>
+#include <flixel/addons/weapon/FlxBullet.h>
 #include <flixel/FlxSubState.h>
 #include <flixel/_FlxSprite/GraphicDefault.h>
 #include <openfl/_legacy/display/BitmapData.h>
@@ -314,14 +315,17 @@
 #include <XmlType.h>
 #include <Type.h>
 #include <ValueType.h>
+#include <StunGun.h>
 #include <StringTools.h>
 #include <StringBuf.h>
+#include <Star.h>
 #include <SpaceState.h>
 #include <SpacePlayer.h>
 #include <SpaceEnemy.h>
 #include <SpaceBullet.h>
-#include <SpaceSprite.h>
+#include <Reg.h>
 #include <Reflect.h>
+#include <PolarSprite.h>
 #include <MenuState.h>
 #include <IMap.h>
 #include <List.h>
@@ -347,7 +351,8 @@
 #include <cpp/vm/Deque.h>
 #include <openfl/_legacy/AssetLibrary.h>
 #include <Date.h>
-#include <AssetPaths.h>
+#include <CrateGun.h>
+#include <flixel/addons/weapon/FlxWeapon.h>
 #include <DocumentClass.h>
 #include <Main.h>
 #include <openfl/_legacy/display/Sprite.h>
@@ -649,6 +654,7 @@ hx::RegisterResources( hx::GetResources() );
 ::flixel::animation::FlxAnimationController_obj::__register();
 ::flixel::animation::FlxAnimation_obj::__register();
 ::flixel::animation::FlxBaseAnimation_obj::__register();
+::flixel::addons::weapon::FlxBullet_obj::__register();
 ::flixel::FlxSubState_obj::__register();
 ::flixel::_FlxSprite::GraphicDefault_obj::__register();
 ::openfl::_legacy::display::BitmapData_obj::__register();
@@ -689,14 +695,17 @@ hx::RegisterResources( hx::GetResources() );
 ::XmlType_obj::__register();
 ::Type_obj::__register();
 ::ValueType_obj::__register();
+::StunGun_obj::__register();
 ::StringTools_obj::__register();
 ::StringBuf_obj::__register();
+::Star_obj::__register();
 ::SpaceState_obj::__register();
 ::SpacePlayer_obj::__register();
 ::SpaceEnemy_obj::__register();
 ::SpaceBullet_obj::__register();
-::SpaceSprite_obj::__register();
+::Reg_obj::__register();
 ::Reflect_obj::__register();
+::PolarSprite_obj::__register();
 ::MenuState_obj::__register();
 ::IMap_obj::__register();
 ::List_obj::__register();
@@ -722,7 +731,8 @@ hx::RegisterResources( hx::GetResources() );
 ::cpp::vm::Deque_obj::__register();
 ::openfl::_legacy::AssetLibrary_obj::__register();
 ::Date_obj::__register();
-::AssetPaths_obj::__register();
+::CrateGun_obj::__register();
+::flixel::addons::weapon::FlxWeapon_obj::__register();
 ::DocumentClass_obj::__register();
 ::Main_obj::__register();
 ::openfl::_legacy::display::Sprite_obj::__register();
@@ -773,7 +783,8 @@ hx::RegisterResources( hx::GetResources() );
 ::openfl::_legacy::display::Sprite_obj::__boot();
 ::Main_obj::__boot();
 ::DocumentClass_obj::__boot();
-::AssetPaths_obj::__boot();
+::flixel::addons::weapon::FlxWeapon_obj::__boot();
+::CrateGun_obj::__boot();
 ::Date_obj::__boot();
 ::openfl::_legacy::AssetLibrary_obj::__boot();
 ::DefaultAssetLibrary_obj::__boot();
@@ -797,14 +808,17 @@ hx::RegisterResources( hx::GetResources() );
 ::List_obj::__boot();
 ::IMap_obj::__boot();
 ::MenuState_obj::__boot();
+::PolarSprite_obj::__boot();
 ::Reflect_obj::__boot();
-::SpaceSprite_obj::__boot();
+::Reg_obj::__boot();
 ::SpaceBullet_obj::__boot();
 ::SpaceEnemy_obj::__boot();
 ::SpacePlayer_obj::__boot();
 ::SpaceState_obj::__boot();
+::Star_obj::__boot();
 ::StringBuf_obj::__boot();
 ::StringTools_obj::__boot();
+::StunGun_obj::__boot();
 ::ValueType_obj::__boot();
 ::Type_obj::__boot();
 ::XmlType_obj::__boot();
@@ -840,6 +854,7 @@ hx::RegisterResources( hx::GetResources() );
 ::openfl::_legacy::display::BitmapData_obj::__boot();
 ::flixel::_FlxSprite::GraphicDefault_obj::__boot();
 ::flixel::FlxSubState_obj::__boot();
+::flixel::addons::weapon::FlxBullet_obj::__boot();
 ::flixel::animation::FlxBaseAnimation_obj::__boot();
 ::flixel::animation::FlxAnimation_obj::__boot();
 ::flixel::animation::FlxAnimationController_obj::__boot();

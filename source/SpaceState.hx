@@ -50,6 +50,11 @@ class SpaceState extends FlxState
 		//create player.
 		_player = new SpacePlayer(FlxG.width/2,FlxG.height-20);
 
+		for (i in 0...64) {
+			var star:Star = new Star();
+			add(star);
+		}
+
 		//add everything to the Play State.
 		add(_enemies);
 		add(_bullets);
@@ -72,10 +77,10 @@ class SpaceState extends FlxState
 	 */
 	override public function update():Void
 	{
+		super.update();
+
 		FlxG.overlap(_bullets,_player,onHitPaddle);
 		FlxG.overlap(_bullets,_enemies,onHitPaddle);
-
-		super.update();
 	}	
 	/**
     * This function takes the info from bullet collisions above,

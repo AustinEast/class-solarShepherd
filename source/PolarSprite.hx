@@ -15,13 +15,14 @@ package;
 * This class is very important. It holds all the functions for Polairty,
 * and all of the Space sprites inherit from this. 
 **/
- class SpaceSprite extends FlxSprite
+ class PolarSprite extends FlxSprite
  {
  	public var _polarity:Bool;
+    public var important:Bool;
 
      //This function sets the polarity.
-    public function setPolarity(polSet) {
-        if (polSet) {
+    public function setPolarity(polBool) {
+        if (polBool) {
             animation.play("polTrue");
             _polarity = true;
         }

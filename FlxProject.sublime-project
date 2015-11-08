@@ -2,10 +2,6 @@
 	"folders":
 	[
 		{
-			"name": "FlxProject",
-			"path": "/Users/Weasty/Documents/haxedev/default"
-		},
-		{
 			"name": "Flixel",
 			"path": "/usr/lib/haxe/lib/flixel/3,3,11"
 		},
@@ -18,7 +14,8 @@
 			"path": "/usr/lib/haxe/std"
 		},
 		{
-			"path": "source"
+			"name": "SolarShepard",
+			"path": "/Users/Weasty/Dropbox/Public/haxedev/SolarShepard"
 		}
 	]
 }

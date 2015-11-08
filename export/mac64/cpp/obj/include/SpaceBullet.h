@@ -5,18 +5,18 @@
 #include <hxcpp.h>
 #endif
 
-#include <SpaceSprite.h>
+#include <PolarSprite.h>
+HX_DECLARE_CLASS0(PolarSprite)
 HX_DECLARE_CLASS0(SpaceBullet)
-HX_DECLARE_CLASS0(SpaceSprite)
 HX_DECLARE_CLASS1(flixel,FlxBasic)
 HX_DECLARE_CLASS1(flixel,FlxObject)
 HX_DECLARE_CLASS1(flixel,FlxSprite)
 HX_DECLARE_CLASS2(flixel,interfaces,IFlxDestroyable)
 
 
-class HXCPP_CLASS_ATTRIBUTES  SpaceBullet_obj : public ::SpaceSprite_obj{
+class HXCPP_CLASS_ATTRIBUTES  SpaceBullet_obj : public ::PolarSprite_obj{
 	public:
-		typedef ::SpaceSprite_obj super;
+		typedef ::PolarSprite_obj super;
 		typedef SpaceBullet_obj OBJ_;
 		SpaceBullet_obj();
 		Void __construct();
@@ -36,12 +36,12 @@ class HXCPP_CLASS_ATTRIBUTES  SpaceBullet_obj : public ::SpaceSprite_obj{
 		void __Visit(HX_VISIT_PARAMS);
 		::String __ToString() const { return HX_CSTRING("SpaceBullet"); }
 
-		::SpaceSprite hitPaddle;
+		::PolarSprite hitPaddle;
 		virtual Void update( );
 
 		virtual Void destroy( );
 
-		virtual Void bounce( ::SpaceSprite paddle);
+		virtual Void bounce( ::PolarSprite paddle);
 		Dynamic bounce_dyn();
 
 		virtual Void doneFadeOut( );

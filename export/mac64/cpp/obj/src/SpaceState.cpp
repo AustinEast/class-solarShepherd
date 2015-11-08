@@ -1,5 +1,8 @@
 #include <hxcpp.h>
 
+#ifndef INCLUDED_PolarSprite
+#include <PolarSprite.h>
+#endif
 #ifndef INCLUDED_SpaceBullet
 #include <SpaceBullet.h>
 #endif
@@ -9,11 +12,11 @@
 #ifndef INCLUDED_SpacePlayer
 #include <SpacePlayer.h>
 #endif
-#ifndef INCLUDED_SpaceSprite
-#include <SpaceSprite.h>
-#endif
 #ifndef INCLUDED_SpaceState
 #include <SpaceState.h>
+#endif
+#ifndef INCLUDED_Star
+#include <Star.h>
 #endif
 #ifndef INCLUDED_flixel_FlxBasic
 #include <flixel/FlxBasic.h>
@@ -134,13 +137,32 @@ Void SpaceState_obj::create( ){
 		::SpacePlayer _g4 = ::SpacePlayer_obj::__new((Float(::flixel::FlxG_obj::width) / Float((int)2)),(::flixel::FlxG_obj::height - (int)20));		HX_STACK_VAR(_g4,"_g4");
 		HX_STACK_LINE(51)
 		this->_player = _g4;
-		HX_STACK_LINE(54)
+		HX_STACK_LINE(53)
+		{
+			HX_STACK_LINE(53)
+			int _g1 = (int)0;		HX_STACK_VAR(_g1,"_g1");
+			HX_STACK_LINE(53)
+			while((true)){
+				HX_STACK_LINE(53)
+				if ((!(((_g1 < (int)64))))){
+					HX_STACK_LINE(53)
+					break;
+				}
+				HX_STACK_LINE(53)
+				int i = (_g1)++;		HX_STACK_VAR(i,"i");
+				HX_STACK_LINE(54)
+				::Star star = ::Star_obj::__new();		HX_STACK_VAR(star,"star");
+				HX_STACK_LINE(55)
+				this->add(star);
+			}
+		}
+		HX_STACK_LINE(59)
 		this->add(this->_enemies);
-		HX_STACK_LINE(55)
+		HX_STACK_LINE(60)
 		this->add(this->_bullets);
-		HX_STACK_LINE(56)
+		HX_STACK_LINE(61)
 		this->add(this->_player);
-		HX_STACK_LINE(58)
+		HX_STACK_LINE(63)
 		this->super::create();
 	}
 return null();
@@ -149,9 +171,9 @@ return null();
 
 Void SpaceState_obj::destroy( ){
 {
-		HX_STACK_FRAME("SpaceState","destroy",0x29030117,"SpaceState.destroy","SpaceState.hx",67,0x048dfc13)
+		HX_STACK_FRAME("SpaceState","destroy",0x29030117,"SpaceState.destroy","SpaceState.hx",72,0x048dfc13)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(67)
+		HX_STACK_LINE(72)
 		this->super::destroy();
 	}
 return null();
@@ -160,14 +182,14 @@ return null();
 
 Void SpaceState_obj::update( ){
 {
-		HX_STACK_FRAME("SpaceState","update",0x93ab648c,"SpaceState.update","SpaceState.hx",74,0x048dfc13)
+		HX_STACK_FRAME("SpaceState","update",0x93ab648c,"SpaceState.update","SpaceState.hx",79,0x048dfc13)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(75)
-		::flixel::FlxG_obj::overlap(this->_bullets,this->_player,this->onHitPaddle_dyn(),null());
-		HX_STACK_LINE(76)
-		::flixel::FlxG_obj::overlap(this->_bullets,this->_enemies,this->onHitPaddle_dyn(),null());
-		HX_STACK_LINE(78)
+		HX_STACK_LINE(80)
 		this->super::update();
+		HX_STACK_LINE(82)
+		::flixel::FlxG_obj::overlap(this->_bullets,this->_player,this->onHitPaddle_dyn(),null());
+		HX_STACK_LINE(83)
+		::flixel::FlxG_obj::overlap(this->_bullets,this->_enemies,this->onHitPaddle_dyn(),null());
 	}
 return null();
 }
@@ -175,11 +197,11 @@ return null();
 
 Void SpaceState_obj::onHitPaddle( Dynamic thisBall,Dynamic thisPaddle){
 {
-		HX_STACK_FRAME("SpaceState","onHitPaddle",0xd2a6889b,"SpaceState.onHitPaddle","SpaceState.hx",86,0x048dfc13)
+		HX_STACK_FRAME("SpaceState","onHitPaddle",0xd2a6889b,"SpaceState.onHitPaddle","SpaceState.hx",91,0x048dfc13)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(thisBall,"thisBall")
 		HX_STACK_ARG(thisPaddle,"thisPaddle")
-		HX_STACK_LINE(86)
+		HX_STACK_LINE(91)
 		thisBall->__Field(HX_CSTRING("bounce"),true)(thisPaddle);
 	}
 return null();

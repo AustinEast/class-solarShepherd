@@ -40,7 +40,7 @@ class ApplicationMain {
 		telemetryConfig = new hxtelemetry.HxTelemetry.Config ();
 		telemetryConfig.allocations = true;
 		telemetryConfig.host = "localhost";
-		telemetryConfig.app_name = "FlxProject";
+		telemetryConfig.app_name = "Solar Shepard";
 		#end
 		
 		
@@ -141,7 +141,7 @@ class ApplicationMain {
 			(false ? flash.Lib.FULLSCREEN : 0) |
 			(0 == 4 ? flash.Lib.HW_AA_HIRES : 0) |
 			(0 == 2 ? flash.Lib.HW_AA : 0),
-			"FlxProject",
+			"Solar Shepard",
 			null
 			#if mobile, ScaledStage #end
 		);
@@ -325,7 +325,7 @@ class ApplicationMain {
 		wx.App.boot (function () {
 			
 			
-			frame = wx.Frame.create (null, null, "FlxProject", null, { width: 640, height: 480 });
+			frame = wx.Frame.create (null, null, "Solar Shepard", null, { width: 640, height: 480 });
 			
 			
 			#if openfl
@@ -499,11 +499,11 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "503",
+			build: "569",
 			company: "HaxeFlixel",
 			file: "FlxProject",
 			fps: 60,
-			name: "FlxProject",
+			name: "Solar Shepard",
 			orientation: "landscape",
 			packageName: "com.example.myapp",
 			version: "0.0.1",
@@ -521,7 +521,7 @@ class ApplicationMain {
 					parameters: "{}",
 					resizable: true,
 					stencilBuffer: false,
-					title: "FlxProject",
+					title: "Solar Shepard",
 					vsync: true,
 					width: 640,
 					x: null,

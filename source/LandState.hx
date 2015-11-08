@@ -17,8 +17,10 @@ import flixel.FlxCamera;
  */
 class LandState extends FlxState
 {
-	private var player:LandPlayer;
-	public var level:LandLevel;
+	public var _player:LandPlayer;
+	public var _level:LandLevel;
+	public var _chaser:Chaser;
+	public var _enemyGroup:FlxGroup;
 	/**
 	 * Function that is called up when to state is created to set it up. 
 	 */
@@ -27,22 +29,27 @@ class LandState extends FlxState
 		FlxG.camera.bgColor = 0xff144954;
 		
 		//create levels and player.
-		level = new LandLevel();
-		level.Level1();
-		player = new LandPlayer(20,20);
+		_level = new LandLevel();
+		_level.loadLevel(Reg.level);
+		_player = new LandPlayer(20,20);
+		_player._polarity = true;
+		_chaser = new Chaser(200,20,_player);
+		_enemyGroup = new FlxGroup();
+		_enemyGroup.add(_chaser);
 
 		//add everything to the scene.
-		add(level);
-		add(player);
+		add(_level);
+		add(_player);
+		add(_enemyGroup);
 
 		//	Tell flixel how big our game world is
-		FlxG.worldBounds.set(0,0,level.width,level.height);
+		FlxG.worldBounds.set(0,0,_level.width,_level.height);
 			
 		//	Don't let the camera wander off the edges of the map
-		FlxG.camera.setBounds(0, 0, level.width, level.height);
+		FlxG.camera.setBounds(0,0,_level.width,_level.height);
 		
 		//	The camera will follow the player
-		FlxG.camera.follow(player, FlxCamera.STYLE_PLATFORMER);
+		FlxG.camera.follow(_player,FlxCamera.STYLE_PLATFORMER);
 
 		super.create();
 	}
@@ -63,7 +70,43 @@ class LandState extends FlxState
 	{
 		super.update();
 
-		FlxG.collide(player, level);
-	}	
+		FlxG.collide(_level,_player);
+		FlxG.collide(_level,_enemyGroup);
+		FlxG.collide(_level,_player._stunGun.group);
+		FlxG.overlap(_level,_player._crateGun.group,crateCollision);
 
+		FlxG.overlap(_player,_enemyGroup,enemyCollision);
+		FlxG.collide(_player,_player._crateGun.group);
+		FlxG.collide(_player._crateGun.group,_player._crateGun.group);
+
+		FlxG.collide(_enemyGroup,_player._crateGun.group);
+		FlxG.overlap(_enemyGroup,_player._stunGun.group,enemyHitWithBullet);
+	}	
+	function crateCollision(Level:FlxObject, Bullet:FlxSprite)
+	{
+		FlxObject.separate(Level,Bullet);
+		Bullet.drag.x = 400;
+	}
+	function stunCollision(Level:FlxObject, Bullet:FlxSprite)
+	{
+		Bullet.kill();
+	}
+	function enemyCollision(Player:LandPlayer, Enemy)
+	{
+		if(Player._flickering == false)
+		{
+			Player.hurt(1);
+			Player.velocity.x = Enemy.velocity.x*2;
+			Player.velocity.y -= 100;
+		}
+	}
+	function enemyHitWithBullet(Enemy, Bullet:FlxSprite)
+	{
+		if(Enemy._flickering == false)
+		{
+			Enemy.stun(1);
+			Enemy.velocity.x = Bullet.velocity.x*2;
+			Enemy.velocity.y -= 50;
+		}
+	}
 }

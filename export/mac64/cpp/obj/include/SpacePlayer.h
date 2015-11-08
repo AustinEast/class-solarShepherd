@@ -5,18 +5,18 @@
 #include <hxcpp.h>
 #endif
 
-#include <SpaceSprite.h>
+#include <PolarSprite.h>
+HX_DECLARE_CLASS0(PolarSprite)
 HX_DECLARE_CLASS0(SpacePlayer)
-HX_DECLARE_CLASS0(SpaceSprite)
 HX_DECLARE_CLASS1(flixel,FlxBasic)
 HX_DECLARE_CLASS1(flixel,FlxObject)
 HX_DECLARE_CLASS1(flixel,FlxSprite)
 HX_DECLARE_CLASS2(flixel,interfaces,IFlxDestroyable)
 
 
-class HXCPP_CLASS_ATTRIBUTES  SpacePlayer_obj : public ::SpaceSprite_obj{
+class HXCPP_CLASS_ATTRIBUTES  SpacePlayer_obj : public ::PolarSprite_obj{
 	public:
-		typedef ::SpaceSprite_obj super;
+		typedef ::PolarSprite_obj super;
 		typedef SpacePlayer_obj OBJ_;
 		SpacePlayer_obj();
 		Void __construct(Dynamic X,Dynamic Y);

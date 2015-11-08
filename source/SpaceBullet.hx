@@ -5,12 +5,13 @@ import flixel.FlxG;
 import flixel.util.FlxPoint;
 import flixel.util.FlxColor;
 
+
  /**
  * This class holds all the functions of the Space Bullet shot by enemies.
  **/
-class SpaceBullet extends SpaceSprite
+class SpaceBullet extends PolarSprite
 {
-    public var hitPaddle:SpaceSprite;
+    public var _hitPaddle:PolarSprite;
 
     /**
     * Function to create and assign attributes to the bullet.
@@ -37,7 +38,7 @@ class SpaceBullet extends SpaceSprite
         //Kill bullet if off screen.
         if(this.y <= -10 || this.y >= FlxG.height)
         {
-            hitPaddle = null;
+            _hitPaddle = null;
             this.exists = false;
         }
         //Bounce bullet off walls.
@@ -58,27 +59,29 @@ class SpaceBullet extends SpaceSprite
     * Function that Checks whether the bullet bounces or hits the player.
     * The basis of the whole game, really.. 
     **/
-    public function bounce(paddle:SpaceSprite):Void
+    public function bounce(_paddle:PolarSprite):Void
     {   
         //Method to keep the bullet from overlapping with whichever enemy.
-        if (hitPaddle != paddle)
+        if (_hitPaddle != _paddle)
         {   
             //If the bullet is the same polarity as the object, it will "Bounce".
-            if(paddle._polarity == this._polarity)
+            if(_paddle._polarity == this._polarity)
             {   
-                velocity.x += paddle.velocity.x/2;
+                velocity.x += _paddle.velocity.x/2;
                 velocity.y *= -1;
-                hitPaddle = paddle;
+                _hitPaddle = _paddle;
+                FlxG.sound.play(Reg.MENUSELECT);
             }
             //If the bullet isn't, kill the item, bullet and make a screen shake.
-            else if(paddle._polarity != this._polarity)
+            else if(_paddle._polarity != this._polarity)
             {
-                paddle.kill();
+                _paddle.kill();
                 this.kill();
                 FlxG.camera.shake(0.02, 0.25); 
+                FlxG.sound.play(Reg.ENEMYSHIPDESTROYED);
                 //if the player is hit, fade the camera.
                 //This calls doneFadeOut once the fade is done.
-                if (hitPaddle == null)
+                if (_paddle.important == true)
                 { 
                     FlxG.camera.flash(0xffFFFFFF, 1);
                     FlxG.camera.fade(FlxColor.BLACK, .33, false, doneFadeOut);

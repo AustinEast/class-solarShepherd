@@ -1,10 +1,10 @@
 #include <hxcpp.h>
 
+#ifndef INCLUDED_PolarSprite
+#include <PolarSprite.h>
+#endif
 #ifndef INCLUDED_SpacePlayer
 #include <SpacePlayer.h>
-#endif
-#ifndef INCLUDED_SpaceSprite
-#include <SpaceSprite.h>
 #endif
 #ifndef INCLUDED_flixel_FlxBasic
 #include <flixel/FlxBasic.h>
@@ -63,7 +63,9 @@ HX_STACK_ARG(Y,"Y")
 	this->animation->add(HX_CSTRING("polFalse"),Array_obj< int >::__new().Add((int)7).Add((int)8).Add((int)9),(int)60,true);
 	HX_STACK_LINE(28)
 	this->maxVelocity->set_x(this->RUN_SPEED);
-	HX_STACK_LINE(30)
+	HX_STACK_LINE(29)
+	this->important = true;
+	HX_STACK_LINE(31)
 	this->setPolarity(true);
 }
 ;
@@ -85,29 +87,29 @@ Dynamic SpacePlayer_obj::__Create(hx::DynamicArray inArgs)
 
 Void SpacePlayer_obj::update( ){
 {
-		HX_STACK_FRAME("SpacePlayer","update",0x17fb72f0,"SpacePlayer.update","SpacePlayer.hx",37,0xe1d60877)
+		HX_STACK_FRAME("SpacePlayer","update",0x17fb72f0,"SpacePlayer.update","SpacePlayer.hx",38,0xe1d60877)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(38)
+		HX_STACK_LINE(39)
+		this->super::update();
+		HX_STACK_LINE(41)
 		this->velocity->set_x((int)0);
-		HX_STACK_LINE(40)
+		HX_STACK_LINE(43)
 		if ((::flixel::FlxG_obj::keys->checkStatus((int)37,::flixel::FlxG_obj::keys->pressed->checkStatus))){
-			HX_STACK_LINE(42)
+			HX_STACK_LINE(45)
 			this->velocity->set_x(-(this->RUN_SPEED));
 		}
 		else{
-			HX_STACK_LINE(45)
+			HX_STACK_LINE(48)
 			if ((::flixel::FlxG_obj::keys->checkStatus((int)39,::flixel::FlxG_obj::keys->pressed->checkStatus))){
-				HX_STACK_LINE(47)
+				HX_STACK_LINE(50)
 				this->velocity->set_x(this->RUN_SPEED);
 			}
 		}
-		HX_STACK_LINE(50)
-		if ((::flixel::FlxG_obj::keys->checkStatus((int)32,::flixel::FlxG_obj::keys->justPressed->checkStatus))){
-			HX_STACK_LINE(52)
+		HX_STACK_LINE(53)
+		if ((::flixel::FlxG_obj::keys->checkStatus((int)67,::flixel::FlxG_obj::keys->justPressed->checkStatus))){
+			HX_STACK_LINE(55)
 			this->switchPolarity();
 		}
-		HX_STACK_LINE(55)
-		this->super::update();
 	}
 return null();
 }

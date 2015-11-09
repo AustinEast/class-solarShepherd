@@ -6,6 +6,9 @@
 #ifndef INCLUDED_flixel_FlxBasic
 #include <flixel/FlxBasic.h>
 #endif
+#ifndef INCLUDED_flixel_FlxG
+#include <flixel/FlxG.h>
+#endif
 #ifndef INCLUDED_flixel_FlxObject
 #include <flixel/FlxObject.h>
 #endif
@@ -24,6 +27,9 @@
 #ifndef INCLUDED_flixel_system_FlxSound
 #include <flixel/system/FlxSound.h>
 #endif
+#ifndef INCLUDED_flixel_system_frontEnds_SoundFrontEnd
+#include <flixel/system/frontEnds/SoundFrontEnd.h>
+#endif
 #ifndef INCLUDED_flixel_util_FlxRect
 #include <flixel/util/FlxRect.h>
 #endif
@@ -40,20 +46,24 @@ Dynamic BulletID = __o_BulletID.Default(0);
 {
 	HX_STACK_LINE(15)
 	super::__construct(Name,ParentRef,BulletType,BulletID);
+	HX_STACK_LINE(17)
+	::flixel::system::FlxSound _g = ::flixel::FlxG_obj::sound->load(HX_CSTRING("assets/sounds/stunGun.mp3"),null(),null(),null(),null(),null(),null());		HX_STACK_VAR(_g,"_g");
+	HX_STACK_LINE(17)
+	this->_shootSnd = _g;
 	HX_STACK_LINE(18)
-	this->makeImageBullet((int)50,HX_CSTRING("assets/temp/beam.png"),(int)0,(int)0,true,(int)360,(int)1,null(),null());
+	this->makeImageBullet((int)2,HX_CSTRING("assets/temp/beam.png"),(int)0,(int)0,true,(int)360,(int)1,null(),null());
 	HX_STACK_LINE(19)
-	::flixel::util::FlxRect _g = ::flixel::util::FlxRect_obj::__new((int)0,(int)0,(int)3000,(int)3000);		HX_STACK_VAR(_g,"_g");
+	::flixel::util::FlxRect _g1 = ::flixel::util::FlxRect_obj::__new((int)0,(int)0,(int)3000,(int)3000);		HX_STACK_VAR(_g1,"_g1");
 	HX_STACK_LINE(19)
-	this->setBulletBounds(_g);
+	this->setBulletBounds(_g1);
 	HX_STACK_LINE(20)
-	this->setFireRate((int)500);
+	this->setFireRate((int)100);
 	HX_STACK_LINE(21)
 	this->rndFactorAngle = (int)20;
 	HX_STACK_LINE(22)
-	this->setBulletDirection((int)360,(int)300);
+	this->setBulletDirection((int)360,(int)400);
 	HX_STACK_LINE(23)
-	this->setBulletLifeSpan(0.5);
+	this->setBulletLifeSpan(0.2);
 }
 ;
 	return null();
@@ -71,6 +81,18 @@ Dynamic StunGun_obj::__Create(hx::DynamicArray inArgs)
 {  hx::ObjectPtr< StunGun_obj > result = new StunGun_obj();
 	result->__construct(inArgs[0],inArgs[1],inArgs[2],inArgs[3]);
 	return result;}
+
+bool StunGun_obj::soundFire( ){
+	HX_STACK_FRAME("StunGun","soundFire",0x14b6b6fd,"StunGun.soundFire","StunGun.hx",27,0xf9e0d938)
+	HX_STACK_THIS(this)
+	HX_STACK_LINE(28)
+	::flixel::FlxG_obj::sound->play(HX_CSTRING("assets/sounds/stunGun.mp3"),null(),null(),null(),null());
+	HX_STACK_LINE(29)
+	return this->runFire((int)0,null(),null(),null(),null());
+}
+
+
+HX_DEFINE_DYNAMIC_FUNC0(StunGun_obj,soundFire,return )
 
 
 StunGun_obj::StunGun_obj()
@@ -96,6 +118,7 @@ Dynamic StunGun_obj::__Field(const ::String &inName,bool inCallProp)
 	switch(inName.length) {
 	case 9:
 		if (HX_FIELD_EQ(inName,"_shootSnd") ) { return _shootSnd; }
+		if (HX_FIELD_EQ(inName,"soundFire") ) { return soundFire_dyn(); }
 	}
 	return super::__Field(inName,inCallProp);
 }
@@ -127,6 +150,7 @@ static hx::StorageInfo sMemberStorageInfo[] = {
 
 static ::String sMemberFields[] = {
 	HX_CSTRING("_shootSnd"),
+	HX_CSTRING("soundFire"),
 	String(null()) };
 
 static void sMarkStatics(HX_MARK_PARAMS) {

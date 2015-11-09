@@ -58,6 +58,12 @@ class HXCPP_CLASS_ATTRIBUTES  SpaceState_obj : public ::flixel::FlxState_obj{
 		virtual Void onHitPaddle( Dynamic thisBall,Dynamic thisPaddle);
 		Dynamic onHitPaddle_dyn();
 
+		virtual Void bounce( Dynamic _bullet,::PolarSprite _paddle);
+		Dynamic bounce_dyn();
+
+		virtual Void doneFadeOut( );
+		Dynamic doneFadeOut_dyn();
+
 };
 
 

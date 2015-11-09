@@ -101,6 +101,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		Font.registerFont (__ASSET__assets_fonts_nokiafc22_ttf);
 		Font.registerFont (__ASSET__assets_fonts_arial_ttf);
 		
@@ -108,6 +118,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -683,6 +703,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_fonts_arial_ttf);
 		
@@ -694,12 +724,22 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/data/data-goes-here.txt", AssetType.TEXT);
 		path.set ("assets/data/map1.csv", "assets/data/map1.csv");
 		type.set ("assets/data/map1.csv", AssetType.TEXT);
-		path.set ("assets/images/Background3.png", "assets/images/Background3.png");
-		type.set ("assets/images/Background3.png", AssetType.IMAGE);
+		path.set ("assets/data/testMap.tmx", "assets/data/testMap.tmx");
+		type.set ("assets/data/testMap.tmx", AssetType.TEXT);
 		path.set ("assets/images/Dog.png", "assets/images/Dog.png");
 		type.set ("assets/images/Dog.png", AssetType.IMAGE);
 		path.set ("assets/images/images-go-here.txt", "assets/images/images-go-here.txt");
 		type.set ("assets/images/images-go-here.txt", AssetType.TEXT);
+		path.set ("assets/images/map/Background3.png", "assets/images/map/Background3.png");
+		type.set ("assets/images/map/Background3.png", AssetType.IMAGE);
+		path.set ("assets/images/map/mapObjects.ase", "assets/images/map/mapObjects.ase");
+		type.set ("assets/images/map/mapObjects.ase", AssetType.BINARY);
+		path.set ("assets/images/map/mapObjects.png", "assets/images/map/mapObjects.png");
+		type.set ("assets/images/map/mapObjects.png", AssetType.IMAGE);
+		path.set ("assets/images/map/Sand_tile.png", "assets/images/map/Sand_tile.png");
+		type.set ("assets/images/map/Sand_tile.png", AssetType.IMAGE);
+		path.set ("assets/images/map/tiles.png", "assets/images/map/tiles.png");
+		type.set ("assets/images/map/tiles.png", AssetType.IMAGE);
 		path.set ("assets/images/polarityPalette.ase", "assets/images/polarityPalette.ase");
 		type.set ("assets/images/polarityPalette.ase", AssetType.BINARY);
 		path.set ("assets/images/pongBullet.png", "assets/images/pongBullet.png");
@@ -710,14 +750,24 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/pongShipGrn.png", AssetType.IMAGE);
 		path.set ("assets/images/pongShipRed.png", "assets/images/pongShipRed.png");
 		type.set ("assets/images/pongShipRed.png", AssetType.IMAGE);
-		path.set ("assets/images/Sand_tile.png", "assets/images/Sand_tile.png");
-		type.set ("assets/images/Sand_tile.png", AssetType.IMAGE);
-		path.set ("assets/images/Tiles.png", "assets/images/Tiles.png");
-		type.set ("assets/images/Tiles.png", AssetType.IMAGE);
 		path.set ("assets/music/music-goes-here.txt", "assets/music/music-goes-here.txt");
 		type.set ("assets/music/music-goes-here.txt", AssetType.TEXT);
+		path.set ("assets/sounds/EnemySpaceshipDestroyed.mp3", "assets/sounds/EnemySpaceshipDestroyed.mp3");
+		type.set ("assets/sounds/EnemySpaceshipDestroyed.mp3", AssetType.MUSIC);
+		path.set ("assets/sounds/KnockOrBossFire.mp3", "assets/sounds/KnockOrBossFire.mp3");
+		type.set ("assets/sounds/KnockOrBossFire.mp3", AssetType.MUSIC);
+		path.set ("assets/sounds/MainMenuNavi.mp3", "assets/sounds/MainMenuNavi.mp3");
+		type.set ("assets/sounds/MainMenuNavi.mp3", AssetType.MUSIC);
+		path.set ("assets/sounds/playerJump.mp3", "assets/sounds/playerJump.mp3");
+		type.set ("assets/sounds/playerJump.mp3", AssetType.MUSIC);
+		path.set ("assets/sounds/playerSpaceshipDestroyed.mp3", "assets/sounds/playerSpaceshipDestroyed.mp3");
+		type.set ("assets/sounds/playerSpaceshipDestroyed.mp3", AssetType.MUSIC);
+		path.set ("assets/sounds/powerupPickup.mp3", "assets/sounds/powerupPickup.mp3");
+		type.set ("assets/sounds/powerupPickup.mp3", AssetType.MUSIC);
 		path.set ("assets/sounds/sounds-go-here.txt", "assets/sounds/sounds-go-here.txt");
 		type.set ("assets/sounds/sounds-go-here.txt", AssetType.TEXT);
+		path.set ("assets/sounds/stunGun.mp3", "assets/sounds/stunGun.mp3");
+		type.set ("assets/sounds/stunGun.mp3", AssetType.MUSIC);
 		path.set ("assets/temp/astro.png", "assets/temp/astro.png");
 		type.set ("assets/temp/astro.png", AssetType.IMAGE);
 		path.set ("assets/temp/battery.png", "assets/temp/battery.png");
@@ -795,15 +845,30 @@ class DefaultAssetLibrary extends AssetLibrary {
 		id = "assets/data/map1.csv";
 		path.set (id, id);
 		type.set (id, AssetType.TEXT);
-		id = "assets/images/Background3.png";
+		id = "assets/data/testMap.tmx";
 		path.set (id, id);
-		type.set (id, AssetType.IMAGE);
+		type.set (id, AssetType.TEXT);
 		id = "assets/images/Dog.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
 		id = "assets/images/images-go-here.txt";
 		path.set (id, id);
 		type.set (id, AssetType.TEXT);
+		id = "assets/images/map/Background3.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/map/mapObjects.ase";
+		path.set (id, id);
+		type.set (id, AssetType.BINARY);
+		id = "assets/images/map/mapObjects.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/map/Sand_tile.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/map/tiles.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
 		id = "assets/images/polarityPalette.ase";
 		path.set (id, id);
 		type.set (id, AssetType.BINARY);
@@ -819,18 +884,33 @@ class DefaultAssetLibrary extends AssetLibrary {
 		id = "assets/images/pongShipRed.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
-		id = "assets/images/Sand_tile.png";
-		path.set (id, id);
-		type.set (id, AssetType.IMAGE);
-		id = "assets/images/Tiles.png";
-		path.set (id, id);
-		type.set (id, AssetType.IMAGE);
 		id = "assets/music/music-goes-here.txt";
 		path.set (id, id);
 		type.set (id, AssetType.TEXT);
+		id = "assets/sounds/EnemySpaceshipDestroyed.mp3";
+		path.set (id, id);
+		type.set (id, AssetType.MUSIC);
+		id = "assets/sounds/KnockOrBossFire.mp3";
+		path.set (id, id);
+		type.set (id, AssetType.MUSIC);
+		id = "assets/sounds/MainMenuNavi.mp3";
+		path.set (id, id);
+		type.set (id, AssetType.MUSIC);
+		id = "assets/sounds/playerJump.mp3";
+		path.set (id, id);
+		type.set (id, AssetType.MUSIC);
+		id = "assets/sounds/playerSpaceshipDestroyed.mp3";
+		path.set (id, id);
+		type.set (id, AssetType.MUSIC);
+		id = "assets/sounds/powerupPickup.mp3";
+		path.set (id, id);
+		type.set (id, AssetType.MUSIC);
 		id = "assets/sounds/sounds-go-here.txt";
 		path.set (id, id);
 		type.set (id, AssetType.TEXT);
+		id = "assets/sounds/stunGun.mp3";
+		path.set (id, id);
+		type.set (id, AssetType.MUSIC);
 		id = "assets/temp/astro.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
@@ -949,6 +1029,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -1763,11 +1853,31 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
+
+
+
+
+
+
+
+
+
 @:keep @:bind #if display private #end class __ASSET__assets_fonts_nokiafc22_ttf extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_fonts_arial_ttf extends null { }
 
 
 #elseif html5
+
+
+
+
+
+
+
+
+
+
 
 
 

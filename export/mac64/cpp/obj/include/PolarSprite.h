@@ -35,7 +35,7 @@ class HXCPP_CLASS_ATTRIBUTES  PolarSprite_obj : public ::flixel::FlxSprite_obj{
 
 		bool _polarity;
 		bool important;
-		virtual Void setPolarity( bool polSet);
+		virtual Void setPolarity( bool polBool);
 		Dynamic setPolarity_dyn();
 
 		virtual Void switchPolarity( );

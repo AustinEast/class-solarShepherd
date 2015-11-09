@@ -1,5 +1,8 @@
 #include <hxcpp.h>
 
+#ifndef INCLUDED_MenuState
+#include <MenuState.h>
+#endif
 #ifndef INCLUDED_PolarSprite
 #include <PolarSprite.h>
 #endif
@@ -21,8 +24,14 @@
 #ifndef INCLUDED_flixel_FlxBasic
 #include <flixel/FlxBasic.h>
 #endif
+#ifndef INCLUDED_flixel_FlxCamera
+#include <flixel/FlxCamera.h>
+#endif
 #ifndef INCLUDED_flixel_FlxG
 #include <flixel/FlxG.h>
+#endif
+#ifndef INCLUDED_flixel_FlxGame
+#include <flixel/FlxGame.h>
 #endif
 #ifndef INCLUDED_flixel_FlxObject
 #include <flixel/FlxObject.h>
@@ -41,6 +50,39 @@
 #endif
 #ifndef INCLUDED_flixel_interfaces_IFlxDestroyable
 #include <flixel/interfaces/IFlxDestroyable.h>
+#endif
+#ifndef INCLUDED_flixel_interfaces_IFlxPooled
+#include <flixel/interfaces/IFlxPooled.h>
+#endif
+#ifndef INCLUDED_flixel_system_FlxSound
+#include <flixel/system/FlxSound.h>
+#endif
+#ifndef INCLUDED_flixel_system_frontEnds_SoundFrontEnd
+#include <flixel/system/frontEnds/SoundFrontEnd.h>
+#endif
+#ifndef INCLUDED_flixel_util_FlxPoint
+#include <flixel/util/FlxPoint.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_DisplayObject
+#include <openfl/_legacy/display/DisplayObject.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_DisplayObjectContainer
+#include <openfl/_legacy/display/DisplayObjectContainer.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_IBitmapDrawable
+#include <openfl/_legacy/display/IBitmapDrawable.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_InteractiveObject
+#include <openfl/_legacy/display/InteractiveObject.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_Sprite
+#include <openfl/_legacy/display/Sprite.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_events_EventDispatcher
+#include <openfl/_legacy/events/EventDispatcher.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_events_IEventDispatcher
+#include <openfl/_legacy/events/IEventDispatcher.h>
 #endif
 
 Void SpaceState_obj::__construct(Dynamic MaxSize)
@@ -187,9 +229,9 @@ Void SpaceState_obj::update( ){
 		HX_STACK_LINE(80)
 		this->super::update();
 		HX_STACK_LINE(82)
-		::flixel::FlxG_obj::overlap(this->_bullets,this->_player,this->onHitPaddle_dyn(),null());
+		::flixel::FlxG_obj::overlap(this->_bullets,this->_player,this->bounce_dyn(),null());
 		HX_STACK_LINE(83)
-		::flixel::FlxG_obj::overlap(this->_bullets,this->_enemies,this->onHitPaddle_dyn(),null());
+		::flixel::FlxG_obj::overlap(this->_bullets,this->_enemies,this->bounce_dyn(),null());
 	}
 return null();
 }
@@ -209,6 +251,68 @@ return null();
 
 
 HX_DEFINE_DYNAMIC_FUNC2(SpaceState_obj,onHitPaddle,(void))
+
+Void SpaceState_obj::bounce( Dynamic _bullet,::PolarSprite _paddle){
+{
+		HX_STACK_FRAME("SpaceState","bounce",0x72c3640b,"SpaceState.bounce","SpaceState.hx",96,0x048dfc13)
+		HX_STACK_THIS(this)
+		HX_STACK_ARG(_bullet,"_bullet")
+		HX_STACK_ARG(_paddle,"_paddle")
+		HX_STACK_LINE(96)
+		if (((_bullet->__Field(HX_CSTRING("_hitPaddle"),true) != _paddle))){
+			HX_STACK_LINE(99)
+			if (((_paddle->_polarity == _bullet->__Field(HX_CSTRING("_polarity"),true)))){
+				HX_STACK_LINE(101)
+				hx::AddEq(_bullet->__Field(HX_CSTRING("velocity"),true)->__FieldRef(HX_CSTRING("x")),(Float(_paddle->velocity->x) / Float((int)2)));
+				HX_STACK_LINE(102)
+				hx::MultEq(_bullet->__Field(HX_CSTRING("velocity"),true)->__FieldRef(HX_CSTRING("y")),(int)-1);
+				HX_STACK_LINE(103)
+				_bullet->__FieldRef(HX_CSTRING("_hitPaddle")) = _paddle;
+				HX_STACK_LINE(104)
+				::flixel::FlxG_obj::sound->play(HX_CSTRING("assets/sounds/MainMenuNavi.mp3"),null(),null(),null(),null());
+			}
+			else{
+				HX_STACK_LINE(107)
+				if (((_paddle->_polarity != _bullet->__Field(HX_CSTRING("_polarity"),true)))){
+					HX_STACK_LINE(109)
+					_paddle->kill();
+					HX_STACK_LINE(110)
+					_bullet->__Field(HX_CSTRING("kill"),true)();
+					HX_STACK_LINE(111)
+					::flixel::FlxG_obj::camera->shake(0.02,0.25,null(),null(),null());
+					HX_STACK_LINE(112)
+					::flixel::FlxG_obj::sound->play(HX_CSTRING("assets/sounds/EnemySpaceshipDestroyed.mp3"),null(),null(),null(),null());
+					HX_STACK_LINE(115)
+					if (((_paddle->important == true))){
+						HX_STACK_LINE(117)
+						::flixel::FlxG_obj::camera->flash((int)-1,(int)1,null(),null());
+						HX_STACK_LINE(118)
+						::flixel::FlxG_obj::camera->fade((int)-16777216,.33,false,this->doneFadeOut_dyn(),null());
+					}
+				}
+			}
+		}
+	}
+return null();
+}
+
+
+HX_DEFINE_DYNAMIC_FUNC2(SpaceState_obj,bounce,(void))
+
+Void SpaceState_obj::doneFadeOut( ){
+{
+		HX_STACK_FRAME("SpaceState","doneFadeOut",0x82710aad,"SpaceState.doneFadeOut","SpaceState.hx",129,0x048dfc13)
+		HX_STACK_THIS(this)
+		HX_STACK_LINE(129)
+		::flixel::FlxState State = ::MenuState_obj::__new(null());		HX_STACK_VAR(State,"State");
+		HX_STACK_LINE(129)
+		::flixel::FlxG_obj::game->_requestedState = State;
+	}
+return null();
+}
+
+
+HX_DEFINE_DYNAMIC_FUNC0(SpaceState_obj,doneFadeOut,(void))
 
 
 SpaceState_obj::SpaceState_obj()
@@ -248,6 +352,7 @@ Dynamic SpaceState_obj::__Field(const ::String &inName,bool inCallProp)
 		if (HX_FIELD_EQ(inName,"_enemy") ) { return _enemy; }
 		if (HX_FIELD_EQ(inName,"create") ) { return create_dyn(); }
 		if (HX_FIELD_EQ(inName,"update") ) { return update_dyn(); }
+		if (HX_FIELD_EQ(inName,"bounce") ) { return bounce_dyn(); }
 		break;
 	case 7:
 		if (HX_FIELD_EQ(inName,"_player") ) { return _player; }
@@ -262,6 +367,7 @@ Dynamic SpaceState_obj::__Field(const ::String &inName,bool inCallProp)
 		if (HX_FIELD_EQ(inName,"_numEnemies") ) { return _numEnemies; }
 		if (HX_FIELD_EQ(inName,"_numBullets") ) { return _numBullets; }
 		if (HX_FIELD_EQ(inName,"onHitPaddle") ) { return onHitPaddle_dyn(); }
+		if (HX_FIELD_EQ(inName,"doneFadeOut") ) { return doneFadeOut_dyn(); }
 	}
 	return super::__Field(inName,inCallProp);
 }
@@ -327,6 +433,8 @@ static ::String sMemberFields[] = {
 	HX_CSTRING("destroy"),
 	HX_CSTRING("update"),
 	HX_CSTRING("onHitPaddle"),
+	HX_CSTRING("bounce"),
+	HX_CSTRING("doneFadeOut"),
 	String(null()) };
 
 static void sMarkStatics(HX_MARK_PARAMS) {

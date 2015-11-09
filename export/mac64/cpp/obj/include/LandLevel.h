@@ -40,8 +40,8 @@ class HXCPP_CLASS_ATTRIBUTES  LandLevel_obj : public ::flixel::group::FlxGroup_o
 		::flixel::tile::FlxTilemap map;
 		Float width;
 		Float height;
-		virtual Void Level1( );
-		Dynamic Level1_dyn();
+		virtual Void loadLevel( int Number);
+		Dynamic loadLevel_dyn();
 
 };
 

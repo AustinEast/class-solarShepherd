@@ -35,17 +35,34 @@ class HXCPP_CLASS_ATTRIBUTES  Xml_obj : public hx::Object{
 		::String __ToString() const { return HX_CSTRING("Xml"); }
 
 		::String _nodeName;
+		::String _nodeValue;
 		Dynamic _attributes;
 		Array< ::Dynamic > _children;
+		::Xml _parent;
 		::XmlType nodeType;
 		virtual ::String get_nodeName( );
 		Dynamic get_nodeName_dyn();
 
+		virtual ::String get_nodeValue( );
+		Dynamic get_nodeValue_dyn();
+
 		virtual ::String get( ::String att);
 		Dynamic get_dyn();
 
+		virtual bool exists( ::String att);
+		Dynamic exists_dyn();
+
+		virtual Dynamic iterator( );
+		Dynamic iterator_dyn();
+
 		virtual Dynamic elements( );
 		Dynamic elements_dyn();
+
+		virtual Dynamic elementsNamed( ::String name);
+		Dynamic elementsNamed_dyn();
+
+		virtual Void addChild( ::Xml x);
+		Dynamic addChild_dyn();
 
 		static ::XmlType Element;
 		static ::XmlType PCData;
@@ -54,6 +71,11 @@ class HXCPP_CLASS_ATTRIBUTES  Xml_obj : public hx::Object{
 		static ::XmlType DocType;
 		static ::XmlType ProcessingInstruction;
 		static ::XmlType Document;
+		static Dynamic _parse;
+		static Dynamic &_parse_dyn() { return _parse;}
+		static ::Xml parse( ::String str);
+		static Dynamic parse_dyn();
+
 };
 
 

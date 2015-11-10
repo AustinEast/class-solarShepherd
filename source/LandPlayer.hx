@@ -177,9 +177,9 @@ package;
      } 
      override function kill()
      {
-        alive = false;
+        exists = false;
         FlxG.camera.flash(0xffFFFFFF, .30);
-        FlxG.camera.fade(FlxColor.BLACK, 1, false, doneFadeOut);
+        FlxG.camera.fade(FlxColor.BLACK, 3, false, doneFadeOut);
      }
      private function flicker(Duration:Float):Void
      {
@@ -194,6 +194,6 @@ package;
         reset(_resetX, _resetY);
         health = MAX_HEALTH;
         FlxG.camera.stopFX();
-        FlxG.camera.fade(FlxColor.TRANSPARENT,1,true);
+        FlxG.camera.fade(FlxColor.TRANSPARENT,2,true);
     }     
  }

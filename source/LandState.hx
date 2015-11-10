@@ -26,6 +26,9 @@ class LandState extends FlxState
 	public var _shooterArray:Array<FlxPoint>;
 	public var _patroller:Patroller;
 	public var _patrollerArray:Array<FlxPoint>;
+	public var _fuelGroup:FlxGroup;
+	public var _fuel:Fuel;
+	public var _fuelArray:Array<FlxPoint>;
 
 	/**
 	 * Function that is called up when to state is created to set it up. 
@@ -38,11 +41,13 @@ class LandState extends FlxState
 		Reg.loadedLevel = new TiledStage(Reg.levels[Reg.level]);
 		_player = new LandPlayer(20,50,20,50);
 		_enemies = new FlxGroup();
+		_fuelGroup = new FlxGroup();
 
 		//add everything to the scene.
 		add(Reg.loadedLevel.scenarioTiles);
 		add(_player);
 		add(_enemies);
+		add(_fuelGroup);
 		add(Reg.enemyBullets);
 		Reg.loadedLevel.loadObjects(this);
 
@@ -60,6 +65,11 @@ class LandState extends FlxState
 		{
 			_patroller = new Patroller(_patrollerArray[i].x,_patrollerArray[i].y,_player);
 			_enemies.add(_patroller);
+		}
+		for (i in 0..._fuelArray.length)
+		{
+			_fuel = new Fuel(_fuelArray[i].x,_fuelArray[i].y);
+			_fuelGroup.add(_fuel);
 		}
 		//	Tell flixel how big our game world is
 		FlxG.worldBounds.set(0,0,Reg.loadedLevel.fullWidth,Reg.loadedLevel.fullHeight);
@@ -94,6 +104,7 @@ class LandState extends FlxState
 		FlxG.overlap(Reg.loadedLevel.scenarioTiles,_player._crateGun.group,crateCollision);
 
 		FlxG.overlap(_player,_enemies,enemyCollision);
+		FlxG.overlap(_player,_fuelGroup,collectFuel);
 		FlxG.collide(_player,_player._crateGun.group);
 		FlxG.collide(_player._crateGun.group,_player._crateGun.group);
 		FlxG.overlap(_player,Reg.enemyBullets,playerHitWithBullet);
@@ -106,13 +117,21 @@ class LandState extends FlxState
 		FlxObject.separate(Level,Bullet);
 		Bullet.drag.x = 400;
 	}
+	function collectFuel(Player:LandPlayer,Coin)
+	{
+		Coin.kill();
+	}
 	function stunCollision(Level:FlxObject, Bullet:FlxSprite)
 	{
 		Bullet.kill();
 	}
-	function enemyCollision(Player:LandPlayer, Enemy)
+	function enemyCollision(Player:LandPlayer, Enemy:Dynamic)
 	{
-		if(Player._flickering == false)
+		if(Enemy._knockedOut)
+		{
+			FlxObject.separate(Player,Enemy);
+		}
+		else if(Player._flickering == false)
 		{
 			Player.hurt(1);
 			Player.velocity.x = Enemy.velocity.x*2;

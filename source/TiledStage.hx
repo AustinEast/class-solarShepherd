@@ -32,6 +32,7 @@ class TiledStage extends TiledMap
 	private var c:Int = 0;
 	private var s:Int = 0;
 	private var p:Int = 0;
+	private var f:Int = 0;
 	
 	public function new(tiledLevel:Dynamic)
 	{
@@ -140,6 +141,15 @@ class TiledStage extends TiledMap
 				 }
 				 state._patrollerArray[p] = FlxPoint.get(x,y);
 				 p += 1;
+
+			case "fuel":
+
+				if (state._fuelArray == null){
+				 	state._fuelArray = new Array<FlxPoint>();
+				 }
+				 state._fuelArray[f] = FlxPoint.get(x,y);
+				 f += 1;
+				 
 		}
 	}
 }

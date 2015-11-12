@@ -148,6 +148,12 @@
 #include <haxe/zip/Uncompress.h>
 #include <haxe/zip/FlushMode.h>
 #include <haxe/zip/Compress.h>
+#include <haxe/xml/Fast.h>
+#include <haxe/xml/_Fast/NodeListAccess.h>
+#include <haxe/xml/_Fast/HasNodeAccess.h>
+#include <haxe/xml/_Fast/HasAttribAccess.h>
+#include <haxe/xml/_Fast/AttribAccess.h>
+#include <haxe/xml/_Fast/NodeAccess.h>
 #include <haxe/io/Path.h>
 #include <haxe/io/Error.h>
 #include <haxe/io/Eof.h>
@@ -275,6 +281,12 @@
 #include <flixel/animation/FlxAnimation.h>
 #include <flixel/animation/FlxBaseAnimation.h>
 #include <flixel/addons/weapon/FlxBullet.h>
+#include <flixel/addons/editors/tiled/TiledTileSet.h>
+#include <flixel/addons/editors/tiled/TiledTile.h>
+#include <flixel/addons/editors/tiled/TiledPropertySet.h>
+#include <flixel/addons/editors/tiled/TiledObjectGroup.h>
+#include <flixel/addons/editors/tiled/TiledObject.h>
+#include <flixel/addons/editors/tiled/TiledLayer.h>
 #include <flixel/FlxSubState.h>
 #include <flixel/_FlxSprite/GraphicDefault.h>
 #include <openfl/_legacy/display/BitmapData.h>
@@ -315,6 +327,8 @@
 #include <XmlType.h>
 #include <Type.h>
 #include <ValueType.h>
+#include <TiledStage.h>
+#include <flixel/addons/editors/tiled/TiledMap.h>
 #include <StunGun.h>
 #include <StringTools.h>
 #include <StringBuf.h>
@@ -323,26 +337,20 @@
 #include <SpacePlayer.h>
 #include <SpaceEnemy.h>
 #include <SpaceBullet.h>
+#include <Shooter.h>
 #include <Reg.h>
 #include <Reflect.h>
-#include <PolarSprite.h>
 #include <MenuState.h>
 #include <IMap.h>
 #include <List.h>
 #include <LandState.h>
 #include <flixel/FlxState.h>
-#include <LandPlayer.h>
-#include <flixel/FlxSprite.h>
-#include <flixel/FlxObject.h>
-#include <flixel/util/FlxRect.h>
-#include <flixel/util/FlxPool.h>
-#include <flixel/interfaces/IFlxPooled.h>
-#include <LandLevel.h>
 #include <flixel/group/FlxGroup.h>
 #include <flixel/group/FlxTypedGroup.h>
-#include <flixel/FlxBasic.h>
-#include <flixel/interfaces/IFlxDestroyable.h>
+#include <LandPlayer.h>
+#include <PolarSprite.h>
 #include <Lambda.h>
+#include <EnemyGun.h>
 #include <EReg.h>
 #include <__ASSET__assets_fonts_arial_ttf.h>
 #include <__ASSET__assets_fonts_nokiafc22_ttf.h>
@@ -353,6 +361,14 @@
 #include <Date.h>
 #include <CrateGun.h>
 #include <flixel/addons/weapon/FlxWeapon.h>
+#include <Chaser.h>
+#include <flixel/FlxSprite.h>
+#include <flixel/FlxObject.h>
+#include <flixel/util/FlxRect.h>
+#include <flixel/util/FlxPool.h>
+#include <flixel/interfaces/IFlxPooled.h>
+#include <flixel/FlxBasic.h>
+#include <flixel/interfaces/IFlxDestroyable.h>
 #include <DocumentClass.h>
 #include <Main.h>
 #include <openfl/_legacy/display/Sprite.h>
@@ -528,6 +544,12 @@ hx::RegisterResources( hx::GetResources() );
 ::haxe::zip::Uncompress_obj::__register();
 ::haxe::zip::FlushMode_obj::__register();
 ::haxe::zip::Compress_obj::__register();
+::haxe::xml::Fast_obj::__register();
+::haxe::xml::_Fast::NodeListAccess_obj::__register();
+::haxe::xml::_Fast::HasNodeAccess_obj::__register();
+::haxe::xml::_Fast::HasAttribAccess_obj::__register();
+::haxe::xml::_Fast::AttribAccess_obj::__register();
+::haxe::xml::_Fast::NodeAccess_obj::__register();
 ::haxe::io::Path_obj::__register();
 ::haxe::io::Error_obj::__register();
 ::haxe::io::Eof_obj::__register();
@@ -655,6 +677,12 @@ hx::RegisterResources( hx::GetResources() );
 ::flixel::animation::FlxAnimation_obj::__register();
 ::flixel::animation::FlxBaseAnimation_obj::__register();
 ::flixel::addons::weapon::FlxBullet_obj::__register();
+::flixel::addons::editors::tiled::TiledTileSet_obj::__register();
+::flixel::addons::editors::tiled::TiledTile_obj::__register();
+::flixel::addons::editors::tiled::TiledPropertySet_obj::__register();
+::flixel::addons::editors::tiled::TiledObjectGroup_obj::__register();
+::flixel::addons::editors::tiled::TiledObject_obj::__register();
+::flixel::addons::editors::tiled::TiledLayer_obj::__register();
 ::flixel::FlxSubState_obj::__register();
 ::flixel::_FlxSprite::GraphicDefault_obj::__register();
 ::openfl::_legacy::display::BitmapData_obj::__register();
@@ -695,6 +723,8 @@ hx::RegisterResources( hx::GetResources() );
 ::XmlType_obj::__register();
 ::Type_obj::__register();
 ::ValueType_obj::__register();
+::TiledStage_obj::__register();
+::flixel::addons::editors::tiled::TiledMap_obj::__register();
 ::StunGun_obj::__register();
 ::StringTools_obj::__register();
 ::StringBuf_obj::__register();
@@ -703,26 +733,20 @@ hx::RegisterResources( hx::GetResources() );
 ::SpacePlayer_obj::__register();
 ::SpaceEnemy_obj::__register();
 ::SpaceBullet_obj::__register();
+::Shooter_obj::__register();
 ::Reg_obj::__register();
 ::Reflect_obj::__register();
-::PolarSprite_obj::__register();
 ::MenuState_obj::__register();
 ::IMap_obj::__register();
 ::List_obj::__register();
 ::LandState_obj::__register();
 ::flixel::FlxState_obj::__register();
-::LandPlayer_obj::__register();
-::flixel::FlxSprite_obj::__register();
-::flixel::FlxObject_obj::__register();
-::flixel::util::FlxRect_obj::__register();
-::flixel::util::FlxPool_obj::__register();
-::flixel::interfaces::IFlxPooled_obj::__register();
-::LandLevel_obj::__register();
 ::flixel::group::FlxGroup_obj::__register();
 ::flixel::group::FlxTypedGroup_obj::__register();
-::flixel::FlxBasic_obj::__register();
-::flixel::interfaces::IFlxDestroyable_obj::__register();
+::LandPlayer_obj::__register();
+::PolarSprite_obj::__register();
 ::Lambda_obj::__register();
+::EnemyGun_obj::__register();
 ::EReg_obj::__register();
 ::__ASSET__assets_fonts_arial_ttf_obj::__register();
 ::__ASSET__assets_fonts_nokiafc22_ttf_obj::__register();
@@ -733,6 +757,14 @@ hx::RegisterResources( hx::GetResources() );
 ::Date_obj::__register();
 ::CrateGun_obj::__register();
 ::flixel::addons::weapon::FlxWeapon_obj::__register();
+::Chaser_obj::__register();
+::flixel::FlxSprite_obj::__register();
+::flixel::FlxObject_obj::__register();
+::flixel::util::FlxRect_obj::__register();
+::flixel::util::FlxPool_obj::__register();
+::flixel::interfaces::IFlxPooled_obj::__register();
+::flixel::FlxBasic_obj::__register();
+::flixel::interfaces::IFlxDestroyable_obj::__register();
 ::DocumentClass_obj::__register();
 ::Main_obj::__register();
 ::openfl::_legacy::display::Sprite_obj::__register();
@@ -783,6 +815,14 @@ hx::RegisterResources( hx::GetResources() );
 ::openfl::_legacy::display::Sprite_obj::__boot();
 ::Main_obj::__boot();
 ::DocumentClass_obj::__boot();
+::flixel::interfaces::IFlxDestroyable_obj::__boot();
+::flixel::FlxBasic_obj::__boot();
+::flixel::interfaces::IFlxPooled_obj::__boot();
+::flixel::util::FlxPool_obj::__boot();
+::flixel::util::FlxRect_obj::__boot();
+::flixel::FlxObject_obj::__boot();
+::flixel::FlxSprite_obj::__boot();
+::Chaser_obj::__boot();
 ::flixel::addons::weapon::FlxWeapon_obj::__boot();
 ::CrateGun_obj::__boot();
 ::Date_obj::__boot();
@@ -791,26 +831,20 @@ hx::RegisterResources( hx::GetResources() );
 ::openfl::_legacy::text::Font_obj::__boot();
 ::__ASSET__assets_fonts_nokiafc22_ttf_obj::__boot();
 ::__ASSET__assets_fonts_arial_ttf_obj::__boot();
+::EnemyGun_obj::__boot();
 ::Lambda_obj::__boot();
-::flixel::interfaces::IFlxDestroyable_obj::__boot();
-::flixel::FlxBasic_obj::__boot();
+::PolarSprite_obj::__boot();
+::LandPlayer_obj::__boot();
 ::flixel::group::FlxTypedGroup_obj::__boot();
 ::flixel::group::FlxGroup_obj::__boot();
-::LandLevel_obj::__boot();
-::flixel::interfaces::IFlxPooled_obj::__boot();
-::flixel::util::FlxPool_obj::__boot();
-::flixel::util::FlxRect_obj::__boot();
-::flixel::FlxObject_obj::__boot();
-::flixel::FlxSprite_obj::__boot();
-::LandPlayer_obj::__boot();
 ::flixel::FlxState_obj::__boot();
 ::LandState_obj::__boot();
 ::List_obj::__boot();
 ::IMap_obj::__boot();
 ::MenuState_obj::__boot();
-::PolarSprite_obj::__boot();
 ::Reflect_obj::__boot();
 ::Reg_obj::__boot();
+::Shooter_obj::__boot();
 ::SpaceBullet_obj::__boot();
 ::SpaceEnemy_obj::__boot();
 ::SpacePlayer_obj::__boot();
@@ -819,6 +853,8 @@ hx::RegisterResources( hx::GetResources() );
 ::StringBuf_obj::__boot();
 ::StringTools_obj::__boot();
 ::StunGun_obj::__boot();
+::flixel::addons::editors::tiled::TiledMap_obj::__boot();
+::TiledStage_obj::__boot();
 ::ValueType_obj::__boot();
 ::Type_obj::__boot();
 ::XmlType_obj::__boot();
@@ -854,6 +890,12 @@ hx::RegisterResources( hx::GetResources() );
 ::openfl::_legacy::display::BitmapData_obj::__boot();
 ::flixel::_FlxSprite::GraphicDefault_obj::__boot();
 ::flixel::FlxSubState_obj::__boot();
+::flixel::addons::editors::tiled::TiledLayer_obj::__boot();
+::flixel::addons::editors::tiled::TiledObject_obj::__boot();
+::flixel::addons::editors::tiled::TiledObjectGroup_obj::__boot();
+::flixel::addons::editors::tiled::TiledPropertySet_obj::__boot();
+::flixel::addons::editors::tiled::TiledTile_obj::__boot();
+::flixel::addons::editors::tiled::TiledTileSet_obj::__boot();
 ::flixel::addons::weapon::FlxBullet_obj::__boot();
 ::flixel::animation::FlxBaseAnimation_obj::__boot();
 ::flixel::animation::FlxAnimation_obj::__boot();
@@ -981,6 +1023,12 @@ hx::RegisterResources( hx::GetResources() );
 ::haxe::io::Eof_obj::__boot();
 ::haxe::io::Error_obj::__boot();
 ::haxe::io::Path_obj::__boot();
+::haxe::xml::_Fast::NodeAccess_obj::__boot();
+::haxe::xml::_Fast::AttribAccess_obj::__boot();
+::haxe::xml::_Fast::HasAttribAccess_obj::__boot();
+::haxe::xml::_Fast::HasNodeAccess_obj::__boot();
+::haxe::xml::_Fast::NodeListAccess_obj::__boot();
+::haxe::xml::Fast_obj::__boot();
 ::haxe::zip::Compress_obj::__boot();
 ::haxe::zip::FlushMode_obj::__boot();
 ::haxe::zip::Uncompress_obj::__boot();

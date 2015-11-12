@@ -47,13 +47,13 @@ Dynamic PolarSprite_obj::__Create(hx::DynamicArray inArgs)
 	result->__construct(inArgs[0],inArgs[1],inArgs[2]);
 	return result;}
 
-Void PolarSprite_obj::setPolarity( bool polSet){
+Void PolarSprite_obj::setPolarity( bool polBool){
 {
 		HX_STACK_FRAME("PolarSprite","setPolarity",0xdc049c47,"PolarSprite.setPolarity","PolarSprite.hx",25,0x3e92945b)
 		HX_STACK_THIS(this)
-		HX_STACK_ARG(polSet,"polSet")
+		HX_STACK_ARG(polBool,"polBool")
 		HX_STACK_LINE(25)
-		if ((polSet)){
+		if ((polBool)){
 			HX_STACK_LINE(26)
 			this->animation->play(HX_CSTRING("polTrue"),null(),null());
 			HX_STACK_LINE(27)

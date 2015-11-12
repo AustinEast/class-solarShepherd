@@ -311,7 +311,7 @@
 			"file": "source/LandPlayer.hx",
 			"settings":
 			{
-				"buffer_size": 4411,
+				"buffer_size": 4956,
 				"line_ending": "Unix"
 			}
 		},
@@ -319,56 +319,16 @@
 			"file": "source/SpaceState.hx",
 			"settings":
 			{
-				"buffer_size": 2234,
+				"buffer_size": 3707,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "source/Star.hx",
-			"settings":
-			{
-				"buffer_size": 485,
-				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "source/Reg.hx",
 			"settings":
 			{
-				"buffer_size": 1319,
+				"buffer_size": 2092,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "source/PolarSprite.hx",
-			"settings":
-			{
-				"buffer_size": 1034,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "source/SpacePlayer.hx",
-			"settings":
-			{
-				"buffer_size": 1267,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "source/SpaceBullet.hx",
-			"settings":
-			{
-				"buffer_size": 2821,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "source/SpaceEnemy.hx",
-			"settings":
-			{
-				"buffer_size": 3395,
-				"line_ending": "Unix"
 			}
 		}
 	],
@@ -432,6 +392,11 @@
 	},
 	"file_history":
 	[
+		"/Volumes/Mac Storage/Austin/Dropbox/Public/haxedev/SolarShepard/source/Star.hx",
+		"/Volumes/Mac Storage/Austin/Dropbox/Public/haxedev/SolarShepard/source/SpaceEnemy.hx",
+		"/Volumes/Mac Storage/Austin/Dropbox/Public/haxedev/SolarShepard/source/PolarSprite.hx",
+		"/Volumes/Mac Storage/Austin/Dropbox/Public/haxedev/SolarShepard/source/SpacePlayer.hx",
+		"/Volumes/Mac Storage/Austin/Dropbox/Public/haxedev/SolarShepard/source/SpaceBullet.hx",
 		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/SpacePlayer.hx",
 		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/FlxProject.sublime-project",
 		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/build.hxml",
@@ -468,7 +433,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 93.0,
+		"height": 0.0,
 		"where_history":
 		[
 		]
@@ -503,7 +468,7 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -511,15 +476,15 @@
 					"file": "source/LandPlayer.hx",
 					"settings":
 					{
-						"buffer_size": 4411,
+						"buffer_size": 4956,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								416,
-								416
+								0,
+								0
 							]
 						],
 						"settings":
@@ -540,15 +505,15 @@
 					"file": "source/SpaceState.hx",
 					"settings":
 					{
-						"buffer_size": 2234,
+						"buffer_size": 3707,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1374,
-								1374
+								134,
+								134
 							]
 						],
 						"settings":
@@ -558,52 +523,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 55.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "source/Star.hx",
-					"settings":
-					{
-						"buffer_size": 485,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								485,
-								485
-							]
-						],
-						"settings":
-						{
-							"haxe-build-id": 0,
-							"syntax": "Packages/Haxe/Haxe.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "source/Reg.hx",
 					"settings":
 					{
-						"buffer_size": 1319,
+						"buffer_size": 2092,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1311,
-								1311
+								0,
+								0
 							]
 						],
 						"settings":
@@ -611,122 +549,6 @@
 							"haxe-build-id": 0,
 							"syntax": "Packages/Haxe/Haxe.tmLanguage",
 							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 185.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "source/PolarSprite.hx",
-					"settings":
-					{
-						"buffer_size": 1034,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								457,
-								457
-							]
-						],
-						"settings":
-						{
-							"haxe-build-id": 0,
-							"syntax": "Packages/Haxe/Haxe.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "source/SpacePlayer.hx",
-					"settings":
-					{
-						"buffer_size": 1267,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								191,
-								191
-							]
-						],
-						"settings":
-						{
-							"haxe-build-id": 0,
-							"syntax": "Packages/Haxe/Haxe.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "source/SpaceBullet.hx",
-					"settings":
-					{
-						"buffer_size": 2821,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1535,
-								1535
-							]
-						],
-						"settings":
-						{
-							"haxe-build-id": 0,
-							"syntax": "Packages/Haxe/Haxe.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 738.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "source/SpaceEnemy.hx",
-					"settings":
-					{
-						"buffer_size": 3395,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								491,
-								491
-							]
-						],
-						"settings":
-						{
-							"haxe-build-id": 0,
-							"syntax": "Packages/Haxe/Haxe.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

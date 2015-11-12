@@ -16,16 +16,19 @@ package;
     //Player attributes
     private var MAX_HEALTH:Int = 10;
     private var ACCELERATION:Int = 400;
-    private var RUN_SPEED:Int = 80;
+    private var RUN_SPEED:Int = 90;
+    private var SPRINT_SPEED:Int = 130;
     private var JUMP_SPEED:Int = 120;
     private var GRAVITY:Int = 500;
     private var MAX_KNOCKEDOUT = 5;
     private var DISTANCE_SEEN = 120;
 
-   	//Jump Mechanics
+   	// Mechanics
    	public var _canJump:Bool;
    	public var _jumpTimer:Float;
    	public var _targetDistance:Float;
+    public var _targetY:Float;
+
     
     //Animation helper variables
     public var _hurtCounter:Float = 0;
@@ -87,7 +90,8 @@ package;
         } 
         else
         {
-        	_targetDistance = FlxMath.distanceBetween(_target,this);     
+        	_targetDistance = FlxMath.distanceBetween(_target,this);
+            _targetY = _target.y - y;  
         	jumpCheck();
         	controls(); 
         } 
@@ -130,7 +134,7 @@ package;
     }
     private function controls()
     {
-    	if (_targetDistance < 150 && !_flickering)
+    	if (_targetDistance < 150 && _targetY < 50 && _targetY > -50 && !_flickering)
     	{
         	if (_target.x < x)
         	{
@@ -190,6 +194,7 @@ package;
      {
         if(_hurtCounter > MAX_KNOCKEDOUT)
         {
+            FlxG.camera.shake(0.01, 0.2);
             return true;
         }
         else

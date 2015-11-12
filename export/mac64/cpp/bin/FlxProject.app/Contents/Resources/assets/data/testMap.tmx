@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="30" tilewidth="16" tileheight="16" nextobjectid="49">
+ <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16" tilecount="5">
+  <image source="../images/tiles.png" width="80" height="16"/>
+  <terraintypes>
+   <terrain name="terrain" tile="-1"/>
+  </terraintypes>
+  <tile id="0">
+   <properties>
+    <property name="tilesheet" value="tiles.png"/>
+   </properties>
+  </tile>
+  <tile id="2" terrain=",,0,0"/>
+  <tile id="3" terrain=",,0,0"/>
+  <tile id="4" terrain=",,0,0"/>
+ </tileset>
+ <tileset firstgid="6" name="player" tilewidth="16" tileheight="16" tilecount="6">
+  <image source="../images/mapObjects.png" width="96" height="16"/>
+ </tileset>
+ <tileset firstgid="12" name="objects" tilewidth="16" tileheight="16" tilecount="6">
+  <image source="../images/map/mapObjects.png" width="96" height="16"/>
+ </tileset>
+ <layer name="scenario" width="40" height="30">
+  <properties>
+   <property name="tileset" value="tiles"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzVlsEOxCAIREnV///lTQ8khhUZRFd2Ek9t4Ql28CGi5w9WNmVme5Wd79VOvjpYLRiT+Uax0dVELLkivL/u75sLZSx05/yhjDf/D+77jDPD/2vVMgPfLD8/j/pARLP8fY9vMmoaeRXKGfVLxBcRT9ViRO4idZKzBXKwysK3K3m871f61gk+a2Z6vfEE4+gMWGyF9POM7sXSjnppcXd6lJcNnek77n19PIuNexqpbc/L8ZC7bLSnmiSDlUPjGPlapjmH9tZiRt/z6lR/d8nLJ+s0OusnPOa05D7kHoryrJ8laA00f1ipY+9dcrZZ803L652hs4XE+ACpWgSj
+  </data>
+ </layer>
+ <objectgroup name="chaser">
+  <object id="47" name="chaser" type="chaser" gid="13" x="187.85" y="70.9053" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup name="player">
+  <object id="46" name="player" type="player" gid="12" x="19.2374" y="76.7419" width="16" height="16"/>
+ </objectgroup>
+</map>

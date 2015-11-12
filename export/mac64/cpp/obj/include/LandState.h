@@ -6,13 +6,16 @@
 #endif
 
 #include <flixel/FlxState.h>
-HX_DECLARE_CLASS0(LandLevel)
 HX_DECLARE_CLASS0(LandPlayer)
 HX_DECLARE_CLASS0(LandState)
+HX_DECLARE_CLASS0(PolarSprite)
+HX_DECLARE_CLASS0(Shooter)
+HX_DECLARE_CLASS0(TiledStage)
 HX_DECLARE_CLASS1(flixel,FlxBasic)
 HX_DECLARE_CLASS1(flixel,FlxObject)
 HX_DECLARE_CLASS1(flixel,FlxSprite)
 HX_DECLARE_CLASS1(flixel,FlxState)
+HX_DECLARE_CLASS4(flixel,addons,editors,tiled,TiledMap)
 HX_DECLARE_CLASS2(flixel,group,FlxGroup)
 HX_DECLARE_CLASS2(flixel,group,FlxTypedGroup)
 HX_DECLARE_CLASS2(flixel,interfaces,IFlxDestroyable)
@@ -40,16 +43,27 @@ class HXCPP_CLASS_ATTRIBUTES  LandState_obj : public ::flixel::FlxState_obj{
 		void __Visit(HX_VISIT_PARAMS);
 		::String __ToString() const { return HX_CSTRING("LandState"); }
 
+		::Shooter _shooter;
 		::LandPlayer _player;
-		::LandLevel _level;
+		::TiledStage _level;
+		::flixel::group::FlxGroup _enemies;
 		virtual Void create( );
 
 		virtual Void destroy( );
 
 		virtual Void update( );
 
-		virtual Void crateCollision( Dynamic Level,Dynamic Bullet);
+		virtual Void crateCollision( ::flixel::FlxObject Level,::flixel::FlxSprite Bullet);
 		Dynamic crateCollision_dyn();
+
+		virtual Void stunCollision( ::flixel::FlxObject Level,::flixel::FlxSprite Bullet);
+		Dynamic stunCollision_dyn();
+
+		virtual Void enemyCollision( ::LandPlayer Player,Dynamic Enemy);
+		Dynamic enemyCollision_dyn();
+
+		virtual Void enemyHitWithBullet( Dynamic Enemy,::flixel::FlxSprite Bullet);
+		Dynamic enemyHitWithBullet_dyn();
 
 };
 

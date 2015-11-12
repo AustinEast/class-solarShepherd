@@ -29,15 +29,23 @@ class HXCPP_CLASS_ATTRIBUTES  Reg_obj : public hx::Object{
 		static void __register();
 		::String __ToString() const { return HX_CSTRING("Reg"); }
 
-		static Dynamic levels;
+		static Array< ::String > levels;
 		static int level;
 		static Dynamic scores;
 		static int score;
 		static Array< ::Dynamic > saves;
 		static Array< int > colors;
+		static ::String TILES;
 		static ::String LANDPLAYER;
-		static ::String STUNGUN;
+		static ::String STUNGUNBULLET;
 		static ::String CRATE;
+		static ::String THUD;
+		static ::String MENUSELECT;
+		static ::String STUNGUNSOUND;
+		static ::String PLAYERJUMP;
+		static ::String ENEMYSHIPDESTROYED;
+		static ::String PLAYERSHIPDESTROYED;
+		static ::String PICKUP;
 };
 
 

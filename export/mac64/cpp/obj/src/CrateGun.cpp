@@ -41,7 +41,7 @@ Dynamic BulletID = __o_BulletID.Default(0);
 	HX_STACK_LINE(15)
 	super::__construct(Name,ParentRef,BulletType,BulletID);
 	HX_STACK_LINE(18)
-	this->makeImageBullet((int)5,HX_CSTRING("assets/temp/crate.png"),(int)0,(int)0,true,(int)360,(int)1,null(),null());
+	this->makeImageBullet((int)5,HX_CSTRING("assets/temp/editorblock.png"),(int)0,(int)0,true,(int)360,null(),null(),null());
 	HX_STACK_LINE(19)
 	::flixel::util::FlxRect _g = ::flixel::util::FlxRect_obj::__new((int)0,(int)0,(int)3000,(int)3000);		HX_STACK_VAR(_g,"_g");
 	HX_STACK_LINE(19)
@@ -51,7 +51,7 @@ Dynamic BulletID = __o_BulletID.Default(0);
 	HX_STACK_LINE(21)
 	this->rndFactorAngle = (int)20;
 	HX_STACK_LINE(22)
-	this->setBulletDirection((int)360,(int)300);
+	this->setBulletDirection((int)345,(int)200);
 	HX_STACK_LINE(23)
 	this->setBulletLifeSpan((int)6);
 	HX_STACK_LINE(24)

@@ -25,7 +25,7 @@ Dynamic Reg_obj::__Create(hx::DynamicArray inArgs)
 	result->__construct();
 	return result;}
 
-Dynamic Reg_obj::levels;
+Array< ::String > Reg_obj::levels;
 
 int Reg_obj::level;
 
@@ -37,11 +37,27 @@ Array< ::Dynamic > Reg_obj::saves;
 
 Array< int > Reg_obj::colors;
 
+::String Reg_obj::TILES;
+
 ::String Reg_obj::LANDPLAYER;
 
-::String Reg_obj::STUNGUN;
+::String Reg_obj::STUNGUNBULLET;
 
 ::String Reg_obj::CRATE;
+
+::String Reg_obj::THUD;
+
+::String Reg_obj::MENUSELECT;
+
+::String Reg_obj::STUNGUNSOUND;
+
+::String Reg_obj::PLAYERJUMP;
+
+::String Reg_obj::ENEMYSHIPDESTROYED;
+
+::String Reg_obj::PLAYERSHIPDESTROYED;
+
+::String Reg_obj::PICKUP;
 
 
 Reg_obj::Reg_obj()
@@ -73,7 +89,7 @@ Dynamic Reg_obj::__SetField(const ::String &inName,const Dynamic &inValue,bool i
 		if (HX_FIELD_EQ(inName,"saves") ) { saves=inValue.Cast< Array< ::Dynamic > >(); return inValue; }
 		break;
 	case 6:
-		if (HX_FIELD_EQ(inName,"levels") ) { levels=inValue.Cast< Dynamic >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"levels") ) { levels=inValue.Cast< Array< ::String > >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"scores") ) { scores=inValue.Cast< Dynamic >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"colors") ) { colors=inValue.Cast< Array< int > >(); return inValue; }
 	}
@@ -92,9 +108,17 @@ static ::String sStaticFields[] = {
 	HX_CSTRING("score"),
 	HX_CSTRING("saves"),
 	HX_CSTRING("colors"),
+	HX_CSTRING("TILES"),
 	HX_CSTRING("LANDPLAYER"),
-	HX_CSTRING("STUNGUN"),
+	HX_CSTRING("STUNGUNBULLET"),
 	HX_CSTRING("CRATE"),
+	HX_CSTRING("THUD"),
+	HX_CSTRING("MENUSELECT"),
+	HX_CSTRING("STUNGUNSOUND"),
+	HX_CSTRING("PLAYERJUMP"),
+	HX_CSTRING("ENEMYSHIPDESTROYED"),
+	HX_CSTRING("PLAYERSHIPDESTROYED"),
+	HX_CSTRING("PICKUP"),
 	String(null()) };
 
 #if HXCPP_SCRIPTABLE
@@ -112,9 +136,17 @@ static void sMarkStatics(HX_MARK_PARAMS) {
 	HX_MARK_MEMBER_NAME(Reg_obj::score,"score");
 	HX_MARK_MEMBER_NAME(Reg_obj::saves,"saves");
 	HX_MARK_MEMBER_NAME(Reg_obj::colors,"colors");
+	HX_MARK_MEMBER_NAME(Reg_obj::TILES,"TILES");
 	HX_MARK_MEMBER_NAME(Reg_obj::LANDPLAYER,"LANDPLAYER");
-	HX_MARK_MEMBER_NAME(Reg_obj::STUNGUN,"STUNGUN");
+	HX_MARK_MEMBER_NAME(Reg_obj::STUNGUNBULLET,"STUNGUNBULLET");
 	HX_MARK_MEMBER_NAME(Reg_obj::CRATE,"CRATE");
+	HX_MARK_MEMBER_NAME(Reg_obj::THUD,"THUD");
+	HX_MARK_MEMBER_NAME(Reg_obj::MENUSELECT,"MENUSELECT");
+	HX_MARK_MEMBER_NAME(Reg_obj::STUNGUNSOUND,"STUNGUNSOUND");
+	HX_MARK_MEMBER_NAME(Reg_obj::PLAYERJUMP,"PLAYERJUMP");
+	HX_MARK_MEMBER_NAME(Reg_obj::ENEMYSHIPDESTROYED,"ENEMYSHIPDESTROYED");
+	HX_MARK_MEMBER_NAME(Reg_obj::PLAYERSHIPDESTROYED,"PLAYERSHIPDESTROYED");
+	HX_MARK_MEMBER_NAME(Reg_obj::PICKUP,"PICKUP");
 };
 
 #ifdef HXCPP_VISIT_ALLOCS
@@ -126,9 +158,17 @@ static void sVisitStatics(HX_VISIT_PARAMS) {
 	HX_VISIT_MEMBER_NAME(Reg_obj::score,"score");
 	HX_VISIT_MEMBER_NAME(Reg_obj::saves,"saves");
 	HX_VISIT_MEMBER_NAME(Reg_obj::colors,"colors");
+	HX_VISIT_MEMBER_NAME(Reg_obj::TILES,"TILES");
 	HX_VISIT_MEMBER_NAME(Reg_obj::LANDPLAYER,"LANDPLAYER");
-	HX_VISIT_MEMBER_NAME(Reg_obj::STUNGUN,"STUNGUN");
+	HX_VISIT_MEMBER_NAME(Reg_obj::STUNGUNBULLET,"STUNGUNBULLET");
 	HX_VISIT_MEMBER_NAME(Reg_obj::CRATE,"CRATE");
+	HX_VISIT_MEMBER_NAME(Reg_obj::THUD,"THUD");
+	HX_VISIT_MEMBER_NAME(Reg_obj::MENUSELECT,"MENUSELECT");
+	HX_VISIT_MEMBER_NAME(Reg_obj::STUNGUNSOUND,"STUNGUNSOUND");
+	HX_VISIT_MEMBER_NAME(Reg_obj::PLAYERJUMP,"PLAYERJUMP");
+	HX_VISIT_MEMBER_NAME(Reg_obj::ENEMYSHIPDESTROYED,"ENEMYSHIPDESTROYED");
+	HX_VISIT_MEMBER_NAME(Reg_obj::PLAYERSHIPDESTROYED,"PLAYERSHIPDESTROYED");
+	HX_VISIT_MEMBER_NAME(Reg_obj::PICKUP,"PICKUP");
 };
 
 #endif
@@ -151,14 +191,22 @@ void Reg_obj::__register()
 
 void Reg_obj::__boot()
 {
-	levels= Dynamic( Array_obj<Dynamic>::__new());
+	levels= Array_obj< ::String >::__new().Add(HX_CSTRING("assets/data/testMap.tmx"));
 	level= (int)0;
 	scores= Dynamic( Array_obj<Dynamic>::__new());
 	score= (int)0;
 	saves= Array_obj< ::Dynamic >::__new();
 	colors= Array_obj< int >::__new().Add((int)-14341082).Add((int)-3357819).Add((int)-3656107).Add((int)-13996897);
+	TILES= HX_CSTRING("assets/images/map/");
 	LANDPLAYER= HX_CSTRING("assets/images/Dog.png");
-	STUNGUN= HX_CSTRING("assets/temp/beam.png");
-	CRATE= HX_CSTRING("assets/temp/crate.png");
+	STUNGUNBULLET= HX_CSTRING("assets/temp/beam.png");
+	CRATE= HX_CSTRING("assets/temp/editorblock.png");
+	THUD= HX_CSTRING("assets/sounds/KnockOrBossFire.mp3");
+	MENUSELECT= HX_CSTRING("assets/sounds/MainMenuNavi.mp3");
+	STUNGUNSOUND= HX_CSTRING("assets/sounds/stunGun.mp3");
+	PLAYERJUMP= HX_CSTRING("assets/sounds/playerJump.mp3");
+	ENEMYSHIPDESTROYED= HX_CSTRING("assets/sounds/EnemySpaceshipDestroyed.mp3");
+	PLAYERSHIPDESTROYED= HX_CSTRING("assets/sounds/playerSpaceshipDestroyed.mp3");
+	PICKUP= HX_CSTRING("assets/sounds/powerupPickup.mp3");
 }
 

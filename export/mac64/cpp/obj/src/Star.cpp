@@ -1,8 +1,5 @@
 #include <hxcpp.h>
 
-#ifndef INCLUDED_Reg
-#include <Reg.h>
-#endif
 #ifndef INCLUDED_Star
 #include <Star.h>
 #endif
@@ -52,16 +49,16 @@ HX_STACK_THIS(this)
 	super::__construct(_g2,_g5,null());
 	HX_STACK_LINE(15)
 	Float i = ::Math_obj::random();		HX_STACK_VAR(i,"i");
-	HX_STACK_LINE(16)
+	HX_STACK_LINE(17)
 	if (((i > 0.75))){
-		HX_STACK_LINE(16)
-		this->makeGraphic((int)2,(int)2,::Reg_obj::colors->__get((int)1),null(),null());
+		HX_STACK_LINE(17)
+		this->makeGraphic((int)2,(int)2,null(),null(),null());
 	}
 	else{
-		HX_STACK_LINE(16)
-		this->makeGraphic((int)1,(int)1,::Reg_obj::colors->__get((int)1),null(),null());
+		HX_STACK_LINE(17)
+		this->makeGraphic((int)1,(int)1,null(),null(),null());
 	}
-	HX_STACK_LINE(17)
+	HX_STACK_LINE(18)
 	this->velocity->set_y(((int)25 + (i * (int)125)));
 }
 ;
@@ -83,14 +80,14 @@ Dynamic Star_obj::__Create(hx::DynamicArray inArgs)
 
 Void Star_obj::update( ){
 {
-		HX_STACK_FRAME("Star","update",0x4fab8f05,"Star.update","Star.hx",21,0x0237360c)
+		HX_STACK_FRAME("Star","update",0x4fab8f05,"Star.update","Star.hx",22,0x0237360c)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(22)
+		HX_STACK_LINE(23)
 		if (((this->y > ::flixel::FlxG_obj::height))){
-			HX_STACK_LINE(22)
+			HX_STACK_LINE(23)
 			this->set_y((int)-1);
 		}
-		HX_STACK_LINE(23)
+		HX_STACK_LINE(24)
 		this->super::update();
 	}
 return null();

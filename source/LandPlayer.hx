@@ -14,9 +14,10 @@ package;
  class LandPlayer extends PolarSprite
  {
     //Player attributes
-    private var MAX_HEALTH:Int = 10;
+    private var MAX_HEALTH:Int = 5;
     private var ACCELERATION:Int = 400;
     private var RUN_SPEED:Int = 100;
+    private var SPRINT_SPEED:Int = 130;
     private var JUMP_SPEED:Int = 200;
     private var GRAVITY:Int = 500;
 
@@ -27,10 +28,14 @@ package;
     //Animation helper variables
     public var _flickering:Bool;
 
+    //checkpoints
+    public var _resetX:Float;
+    public var _resetY:Float;
+
     /**
     * Handles the creation of a player creation.
     **/
-     public function new(X, Y)
+     public function new(X, Y, resetX, resetY)
      {
 
          super(X, Y);
@@ -39,6 +44,10 @@ package;
          drag.set(RUN_SPEED*6,JUMP_SPEED*2);
          maxVelocity.set(RUN_SPEED,JUMP_SPEED);
          acceleration.y = GRAVITY;
+
+         //Set respawn area
+         _resetX = resetX;
+         _resetY = resetY;
 
           //Set the player health
          health = MAX_HEALTH;
@@ -91,7 +100,11 @@ package;
 
         if (isTouching(FlxObject.FLOOR))
         {
-            if (velocity.x > 0 || velocity.x < 0)
+            if (velocity.x > 100 || velocity.x < -100)
+            {
+                animation.play("run");
+            }
+            else if (velocity.x > 0 || velocity.x < 0)
             {
                 animation.play("walk");
             }
@@ -157,10 +170,17 @@ package;
         }
      }
      override function hurt(Damage:Float)
-        {
+     {
             flicker(2);
+            FlxG.camera.shake(0.01, 0.2);
             return super.hurt(Damage);
-        } 
+     } 
+     override function kill()
+     {
+        exists = false;
+        FlxG.camera.flash(0xffFFFFFF, .30);
+        FlxG.camera.fade(FlxColor.BLACK, 3, false, doneFadeOut);
+     }
      private function flicker(Duration:Float):Void
      {
          FlxSpriteUtil.flicker(this, Duration, 0.02, true, true, function(_) 
@@ -168,5 +188,12 @@ package;
             _flickering = false;
          });
          _flickering = true;
-     }      
+     } 
+     private function doneFadeOut():Void 
+    {
+        reset(_resetX, _resetY);
+        health = MAX_HEALTH;
+        FlxG.camera.stopFX();
+        FlxG.camera.fade(FlxColor.TRANSPARENT,2,true);
+    }     
  }

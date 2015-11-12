@@ -38,6 +38,9 @@ class HXCPP_CLASS_ATTRIBUTES  StunGun_obj : public ::flixel::addons::weapon::Flx
 		::String __ToString() const { return HX_CSTRING("StunGun"); }
 
 		::flixel::system::FlxSound _shootSnd;
+		virtual bool soundFire( );
+		Dynamic soundFire_dyn();
+
 };
 
 

@@ -38,8 +38,8 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
-		urls.push ("assets/images/Background3.png");
-		types.push (lime.Assets.AssetType.IMAGE);
+		urls.push ("assets/data/testMap.tmx");
+		types.push (lime.Assets.AssetType.TEXT);
 		
 		
 		urls.push ("assets/images/Dog.png");
@@ -48,6 +48,26 @@ class ApplicationMain {
 		
 		urls.push ("assets/images/images-go-here.txt");
 		types.push (lime.Assets.AssetType.TEXT);
+		
+		
+		urls.push ("assets/images/map/Background3.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/map/mapObjects.ase");
+		types.push (lime.Assets.AssetType.BINARY);
+		
+		
+		urls.push ("assets/images/map/mapObjects.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/map/Sand_tile.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/map/tiles.png");
+		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
 		urls.push ("assets/images/polarityPalette.ase");
@@ -67,14 +87,6 @@ class ApplicationMain {
 		
 		
 		urls.push ("assets/images/pongShipRed.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("assets/images/Sand_tile.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("assets/images/Tiles.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -306,7 +318,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "693",
+			build: "1026",
 			company: "HaxeFlixel",
 			file: "FlxProject",
 			fps: 60,

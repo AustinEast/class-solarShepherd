@@ -79,8 +79,8 @@ class SpaceState extends FlxState
 	{
 		super.update();
 
-		FlxG.overlap(_bullets,_player,onHitPaddle);
-		FlxG.overlap(_bullets,_enemies,onHitPaddle);
+		FlxG.overlap(_bullets,_player,bounce);
+		FlxG.overlap(_bullets,_enemies,bounce);
 	}	
 	/**
     * This function takes the info from bullet collisions above,
@@ -90,4 +90,42 @@ class SpaceState extends FlxState
 	{
 		thisBall.bounce(thisPaddle);
 	}
+	public function bounce(_bullet,_paddle:PolarSprite):Void
+    {   
+        //Method to keep the bullet from overlapping with whichever enemy.
+        if (_bullet._hitPaddle != _paddle)
+        {   
+            //If the bullet is the same polarity as the object, it will "Bounce".
+            if(_paddle._polarity == _bullet._polarity)
+            {   
+                _bullet.velocity.x += _paddle.velocity.x/2;
+                _bullet.velocity.y *= -1;
+                _bullet._hitPaddle = _paddle;
+                FlxG.sound.play(Reg.MENUSELECT);
+            }
+            //If the bullet isn't, kill the item, bullet and make a screen shake.
+            else if(_paddle._polarity != _bullet._polarity)
+            {
+                _paddle.kill();
+                _bullet.kill();
+                FlxG.camera.shake(0.02, 0.25); 
+                FlxG.sound.play(Reg.ENEMYSHIPDESTROYED);
+                //if the player is hit, fade the camera.
+                //This calls doneFadeOut once the fade is done.
+                if (_paddle.important == true)
+                { 
+                    FlxG.camera.flash(0xffFFFFFF, 1);
+                    FlxG.camera.fade(FlxColor.BLACK, .33, false, doneFadeOut);
+                } 
+            }
+        }
+    }
+    /**
+    * This function is called if the player gets hit and the game fades out.
+    * It sends you back to the menu.
+    **/
+    private function doneFadeOut():Void 
+    {
+        FlxG.switchState(new MenuState());
+    }
 }

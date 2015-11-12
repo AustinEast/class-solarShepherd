@@ -36,12 +36,12 @@ class HXCPP_CLASS_ATTRIBUTES  SpaceBullet_obj : public ::PolarSprite_obj{
 		void __Visit(HX_VISIT_PARAMS);
 		::String __ToString() const { return HX_CSTRING("SpaceBullet"); }
 
-		::PolarSprite hitPaddle;
+		::PolarSprite _hitPaddle;
 		virtual Void update( );
 
 		virtual Void destroy( );
 
-		virtual Void bounce( ::PolarSprite paddle);
+		virtual Void bounce( ::PolarSprite _paddle);
 		Dynamic bounce_dyn();
 
 		virtual Void doneFadeOut( );

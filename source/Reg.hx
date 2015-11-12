@@ -1,6 +1,7 @@
 package;
 
 import flixel.util.FlxSave;
+import flixel.group.FlxGroup;
 
 /**
  * Handy, pre-built Registry class that can be used to store 
@@ -13,12 +14,17 @@ class Reg
 	 * Generic levels Array that can be used for cross-state stuff.
 	 * Example usage: Storing the levels of a platformer.
 	 */
-	public static var levels:Array<String> = ["assets/data/map1.csv"];
+	public static var levels:Array<String> = ["assets/data/testMap.tmx"];
 	/**
 	 * Generic level variable that can be used for cross-state stuff.
 	 * Example usage: Storing the current level number.
 	 */
 	public static var level:Int = 0;
+	/**
+	 * Generic level variable that can be used for cross-state stuff.
+	 * Example usage: Storing the current level number.
+	 */
+	public static var loadedLevel:TiledStage;
 	/**
 	 * Generic scores Array that can be used for cross-state stuff.
 	 * Example usage: Storing the scores for level.
@@ -39,9 +45,14 @@ class Reg
 	 */
 	public static var colors:Array<Int> = [0xff252c26, 0xffccc385, 0xffc83655, 0xff2a6c9f];
 	/**
+	 * Stores enemy bullets.
+	 */
+	public static var enemyBullets:FlxGroup = new FlxGroup();
+	/**
 	 * Asset paths.
 	 */
 	 //Art
+	public static inline var TILES:String = "assets/images/map/";
 	public static inline var LANDPLAYER:String = "assets/images/Dog.png";
 	public static inline var STUNGUNBULLET:String = "assets/temp/beam.png";
 	public static inline var CRATE:String = "assets/temp/editorblock.png";

@@ -1,0 +1,2 @@
+ -DFLX_RENDER_TILE="1" -DHXCPP_CLANG="1" -DHXCPP_M64="1" -Ddesktop="1" -Dflixel="3.3.11" -Dflixel-addons="1.1.0" -Dflixel_addons="1.1.0" -Dhaxe3="1" -Dhaxe_ver="3.103" -Dhxcpp="3.2.180" -Dhxcpp_api_level="311" -Dlime="2.6.8" -Dlime-legacy="1" -Dlime-native="1" -Dlime_legacy="1" -Dlime_native="1" -Dmac="1" -Dnative="1" -Dno-compilation="1" -Dno_compilation="1" -Dopenfl="3.3.8" -Dopenfl-legacy="1" -Dopenfl-native="1" -Dopenfl_legacy="1" -Dopenfl_native="1" -Dtools="2.6.8"
+/usr/lib/haxe/lib/hxcpp/3,2,180/

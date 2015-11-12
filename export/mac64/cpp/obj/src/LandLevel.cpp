@@ -3,6 +3,9 @@
 #ifndef INCLUDED_LandLevel
 #include <LandLevel.h>
 #endif
+#ifndef INCLUDED_Reg
+#include <Reg.h>
+#endif
 #ifndef INCLUDED_flixel_FlxBasic
 #include <flixel/FlxBasic.h>
 #endif
@@ -51,16 +54,17 @@ Dynamic LandLevel_obj::__Create(hx::DynamicArray inArgs)
 	result->__construct(inArgs[0]);
 	return result;}
 
-Void LandLevel_obj::Level1( ){
+Void LandLevel_obj::loadLevel( int Number){
 {
-		HX_STACK_FRAME("LandLevel","Level1",0x267ccea2,"LandLevel.Level1","LandLevel.hx",25,0x5f74e8e5)
+		HX_STACK_FRAME("LandLevel","loadLevel",0x247a6849,"LandLevel.loadLevel","LandLevel.hx",25,0x5f74e8e5)
 		HX_STACK_THIS(this)
+		HX_STACK_ARG(Number,"Number")
 		HX_STACK_LINE(27)
 		::flixel::tile::FlxTilemap _g = ::flixel::tile::FlxTilemap_obj::__new();		HX_STACK_VAR(_g,"_g");
 		HX_STACK_LINE(27)
 		this->map = _g;
 		HX_STACK_LINE(29)
-		::String _g1 = ::openfl::_legacy::Assets_obj::getText(HX_CSTRING("assets/data/map1.csv"));		HX_STACK_VAR(_g1,"_g1");
+		::String _g1 = ::openfl::_legacy::Assets_obj::getText(::Reg_obj::levels->__get((int)0));		HX_STACK_VAR(_g1,"_g1");
 		HX_STACK_LINE(29)
 		::flixel::tile::FlxTilemap _g2 = this->map->loadMap(_g1,HX_CSTRING("assets/images/Tiles.png"),(int)16,(int)16,null(),null(),null(),null());		HX_STACK_VAR(_g2,"_g2");
 		HX_STACK_LINE(29)
@@ -78,7 +82,7 @@ return null();
 }
 
 
-HX_DEFINE_DYNAMIC_FUNC0(LandLevel_obj,Level1,(void))
+HX_DEFINE_DYNAMIC_FUNC1(LandLevel_obj,loadLevel,(void))
 
 
 LandLevel_obj::LandLevel_obj()
@@ -114,7 +118,9 @@ Dynamic LandLevel_obj::__Field(const ::String &inName,bool inCallProp)
 		break;
 	case 6:
 		if (HX_FIELD_EQ(inName,"height") ) { return height; }
-		if (HX_FIELD_EQ(inName,"Level1") ) { return Level1_dyn(); }
+		break;
+	case 9:
+		if (HX_FIELD_EQ(inName,"loadLevel") ) { return loadLevel_dyn(); }
 	}
 	return super::__Field(inName,inCallProp);
 }
@@ -158,7 +164,7 @@ static ::String sMemberFields[] = {
 	HX_CSTRING("map"),
 	HX_CSTRING("width"),
 	HX_CSTRING("height"),
-	HX_CSTRING("Level1"),
+	HX_CSTRING("loadLevel"),
 	String(null()) };
 
 static void sMarkStatics(HX_MARK_PARAMS) {

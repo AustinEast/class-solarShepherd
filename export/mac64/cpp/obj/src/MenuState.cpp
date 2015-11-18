@@ -98,7 +98,7 @@ Void MenuState_obj::create( ){
 		HX_STACK_FRAME("MenuState","create",0xe57b7c18,"MenuState.create","MenuState.hx",24,0xdfbcb22c)
 		HX_STACK_THIS(this)
 		HX_STACK_LINE(26)
-		::flixel::text::FlxText _g = ::flixel::text::FlxText_obj::__new((int)0,(int)100,::flixel::FlxG_obj::width,HX_CSTRING("Solar Shepard Gameplay Modules"),null(),null());		HX_STACK_VAR(_g,"_g");
+		::flixel::text::FlxText _g = ::flixel::text::FlxText_obj::__new((int)0,(int)40,::flixel::FlxG_obj::width,HX_CSTRING("Solar Shepherd Gameplay Modules"),null(),null());		HX_STACK_VAR(_g,"_g");
 		HX_STACK_LINE(26)
 		this->_title = _g;
 		HX_STACK_LINE(27)
@@ -106,11 +106,11 @@ Void MenuState_obj::create( ){
 		HX_STACK_LINE(28)
 		this->add(this->_title);
 		HX_STACK_LINE(30)
-		::flixel::ui::FlxButton _g1 = ::flixel::ui::FlxButton_obj::__new(((Float(::flixel::FlxG_obj::width) / Float((int)2)) - (int)90),(int)200,HX_CSTRING("Space"),this->goToSpaceState_dyn());		HX_STACK_VAR(_g1,"_g1");
+		::flixel::ui::FlxButton _g1 = ::flixel::ui::FlxButton_obj::__new(((Float(::flixel::FlxG_obj::width) / Float((int)2)) - (int)90),(int)80,HX_CSTRING("Space"),this->goToSpaceState_dyn());		HX_STACK_VAR(_g1,"_g1");
 		HX_STACK_LINE(30)
 		this->_spacePlay = _g1;
 		HX_STACK_LINE(31)
-		::flixel::ui::FlxButton _g2 = ::flixel::ui::FlxButton_obj::__new(((Float(::flixel::FlxG_obj::width) / Float((int)2)) + (int)30),(int)200,HX_CSTRING("Land"),this->goToLandState_dyn());		HX_STACK_VAR(_g2,"_g2");
+		::flixel::ui::FlxButton _g2 = ::flixel::ui::FlxButton_obj::__new(((Float(::flixel::FlxG_obj::width) / Float((int)2)) + (int)30),(int)80,HX_CSTRING("Land"),this->goToLandState_dyn());		HX_STACK_VAR(_g2,"_g2");
 		HX_STACK_LINE(31)
 		this->_landPlay = _g2;
 		HX_STACK_LINE(32)

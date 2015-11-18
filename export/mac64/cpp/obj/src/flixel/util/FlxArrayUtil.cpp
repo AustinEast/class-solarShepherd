@@ -9,6 +9,12 @@
 #ifndef INCLUDED_flixel_interfaces_IFlxDestroyable
 #include <flixel/interfaces/IFlxDestroyable.h>
 #endif
+#ifndef INCLUDED_flixel_system_debug_WatchEntry
+#include <flixel/system/debug/WatchEntry.h>
+#endif
+#ifndef INCLUDED_flixel_system_debug_Window
+#include <flixel/system/debug/Window.h>
+#endif
 #ifndef INCLUDED_flixel_system_replay_FrameRecord
 #include <flixel/system/replay/FrameRecord.h>
 #endif
@@ -30,6 +36,27 @@
 #ifndef INCLUDED_flixel_util_FlxTimer
 #include <flixel/util/FlxTimer.h>
 #endif
+#ifndef INCLUDED_openfl__legacy_display_DisplayObject
+#include <openfl/_legacy/display/DisplayObject.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_DisplayObjectContainer
+#include <openfl/_legacy/display/DisplayObjectContainer.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_IBitmapDrawable
+#include <openfl/_legacy/display/IBitmapDrawable.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_InteractiveObject
+#include <openfl/_legacy/display/InteractiveObject.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_Sprite
+#include <openfl/_legacy/display/Sprite.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_events_EventDispatcher
+#include <openfl/_legacy/events/EventDispatcher.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_events_IEventDispatcher
+#include <openfl/_legacy/events/IEventDispatcher.h>
+#endif
 namespace flixel{
 namespace util{
 
@@ -50,28 +77,6 @@ Dynamic FlxArrayUtil_obj::__Create(hx::DynamicArray inArgs)
 {  hx::ObjectPtr< FlxArrayUtil_obj > result = new FlxArrayUtil_obj();
 	result->__construct();
 	return result;}
-
-Array< ::Dynamic > FlxArrayUtil_obj::fastSplice_flixel_text_FlxTextFormat( Array< ::Dynamic > array,::flixel::text::FlxTextFormat element){
-	HX_STACK_FRAME("flixel.util.FlxArrayUtil","fastSplice_flixel_text_FlxTextFormat",0xed3cac0b,"flixel.util.FlxArrayUtil.fastSplice_flixel_text_FlxTextFormat","flixel/util/FlxArrayUtil.hx",80,0xa0dc755b)
-	HX_STACK_ARG(array,"array")
-	HX_STACK_ARG(element,"element")
-	HX_STACK_LINE(81)
-	int index = array->indexOf(element,null());		HX_STACK_VAR(index,"index");
-	HX_STACK_LINE(82)
-	if (((index != (int)-1))){
-		HX_STACK_LINE(84)
-		array[index] = array->__get((array->length - (int)1)).StaticCast< ::flixel::text::FlxTextFormat >();
-		HX_STACK_LINE(84)
-		array->pop().StaticCast< ::flixel::text::FlxTextFormat >();
-		HX_STACK_LINE(84)
-		return array;
-	}
-	HX_STACK_LINE(86)
-	return array;
-}
-
-
-STATIC_HX_DEFINE_DYNAMIC_FUNC2(FlxArrayUtil_obj,fastSplice_flixel_text_FlxTextFormat,return )
 
 Void FlxArrayUtil_obj::setLength_flixel_system_replay_FrameRecord( Array< ::Dynamic > array,int newLength){
 {
@@ -202,21 +207,27 @@ return null();
 
 STATIC_HX_DEFINE_DYNAMIC_FUNC2(FlxArrayUtil_obj,setLength_flixel_input_keyboard_FlxKey,(void))
 
-Dynamic FlxArrayUtil_obj::getRandom_flixel_group_FlxTypedGroup_T( Dynamic Objects,hx::Null< int >  __o_StartIndex,hx::Null< int >  __o_EndIndex){
-int StartIndex = __o_StartIndex.Default(0);
-int EndIndex = __o_EndIndex.Default(0);
-	HX_STACK_FRAME("flixel.util.FlxArrayUtil","getRandom_flixel_group_FlxTypedGroup_T",0x238278ca,"flixel.util.FlxArrayUtil.getRandom_flixel_group_FlxTypedGroup_T","flixel/util/FlxArrayUtil.hx",66,0xa0dc755b)
-	HX_STACK_ARG(Objects,"Objects")
-	HX_STACK_ARG(StartIndex,"StartIndex")
-	HX_STACK_ARG(EndIndex,"EndIndex")
-{
-		HX_STACK_LINE(66)
-		return ::flixel::util::FlxRandom_obj::getObject_getRandom_T(Objects,StartIndex,EndIndex);
+Array< ::Dynamic > FlxArrayUtil_obj::fastSplice_flixel_text_FlxTextFormat( Array< ::Dynamic > array,::flixel::text::FlxTextFormat element){
+	HX_STACK_FRAME("flixel.util.FlxArrayUtil","fastSplice_flixel_text_FlxTextFormat",0xed3cac0b,"flixel.util.FlxArrayUtil.fastSplice_flixel_text_FlxTextFormat","flixel/util/FlxArrayUtil.hx",80,0xa0dc755b)
+	HX_STACK_ARG(array,"array")
+	HX_STACK_ARG(element,"element")
+	HX_STACK_LINE(81)
+	int index = array->indexOf(element,null());		HX_STACK_VAR(index,"index");
+	HX_STACK_LINE(82)
+	if (((index != (int)-1))){
+		HX_STACK_LINE(84)
+		array[index] = array->__get((array->length - (int)1)).StaticCast< ::flixel::text::FlxTextFormat >();
+		HX_STACK_LINE(84)
+		array->pop().StaticCast< ::flixel::text::FlxTextFormat >();
+		HX_STACK_LINE(84)
+		return array;
 	}
+	HX_STACK_LINE(86)
+	return array;
 }
 
 
-STATIC_HX_DEFINE_DYNAMIC_FUNC3(FlxArrayUtil_obj,getRandom_flixel_group_FlxTypedGroup_T,return )
+STATIC_HX_DEFINE_DYNAMIC_FUNC2(FlxArrayUtil_obj,fastSplice_flixel_text_FlxTextFormat,return )
 
 Void FlxArrayUtil_obj::setLength_Int( Array< int > array,int newLength){
 {
@@ -327,6 +338,66 @@ Array< ::Dynamic > FlxArrayUtil_obj::fastSplice_flixel_util_FlxPath( Array< ::Dy
 
 STATIC_HX_DEFINE_DYNAMIC_FUNC2(FlxArrayUtil_obj,fastSplice_flixel_util_FlxPath,return )
 
+Dynamic FlxArrayUtil_obj::getRandom_flixel_group_FlxTypedGroup_T( Dynamic Objects,hx::Null< int >  __o_StartIndex,hx::Null< int >  __o_EndIndex){
+int StartIndex = __o_StartIndex.Default(0);
+int EndIndex = __o_EndIndex.Default(0);
+	HX_STACK_FRAME("flixel.util.FlxArrayUtil","getRandom_flixel_group_FlxTypedGroup_T",0x238278ca,"flixel.util.FlxArrayUtil.getRandom_flixel_group_FlxTypedGroup_T","flixel/util/FlxArrayUtil.hx",66,0xa0dc755b)
+	HX_STACK_ARG(Objects,"Objects")
+	HX_STACK_ARG(StartIndex,"StartIndex")
+	HX_STACK_ARG(EndIndex,"EndIndex")
+{
+		HX_STACK_LINE(66)
+		return ::flixel::util::FlxRandom_obj::getObject_getRandom_T(Objects,StartIndex,EndIndex);
+	}
+}
+
+
+STATIC_HX_DEFINE_DYNAMIC_FUNC3(FlxArrayUtil_obj,getRandom_flixel_group_FlxTypedGroup_T,return )
+
+Array< ::Dynamic > FlxArrayUtil_obj::fastSplice_flixel_system_debug_WatchEntry( Array< ::Dynamic > array,::flixel::system::debug::WatchEntry element){
+	HX_STACK_FRAME("flixel.util.FlxArrayUtil","fastSplice_flixel_system_debug_WatchEntry",0x10964af8,"flixel.util.FlxArrayUtil.fastSplice_flixel_system_debug_WatchEntry","flixel/util/FlxArrayUtil.hx",80,0xa0dc755b)
+	HX_STACK_ARG(array,"array")
+	HX_STACK_ARG(element,"element")
+	HX_STACK_LINE(81)
+	int index = array->indexOf(element,null());		HX_STACK_VAR(index,"index");
+	HX_STACK_LINE(82)
+	if (((index != (int)-1))){
+		HX_STACK_LINE(84)
+		array[index] = array->__get((array->length - (int)1)).StaticCast< ::flixel::system::debug::WatchEntry >();
+		HX_STACK_LINE(84)
+		array->pop().StaticCast< ::flixel::system::debug::WatchEntry >();
+		HX_STACK_LINE(84)
+		return array;
+	}
+	HX_STACK_LINE(86)
+	return array;
+}
+
+
+STATIC_HX_DEFINE_DYNAMIC_FUNC2(FlxArrayUtil_obj,fastSplice_flixel_system_debug_WatchEntry,return )
+
+Array< ::Dynamic > FlxArrayUtil_obj::fastSplice_flixel_system_debug_Window( Array< ::Dynamic > array,::flixel::system::debug::Window element){
+	HX_STACK_FRAME("flixel.util.FlxArrayUtil","fastSplice_flixel_system_debug_Window",0x3304bcc5,"flixel.util.FlxArrayUtil.fastSplice_flixel_system_debug_Window","flixel/util/FlxArrayUtil.hx",80,0xa0dc755b)
+	HX_STACK_ARG(array,"array")
+	HX_STACK_ARG(element,"element")
+	HX_STACK_LINE(81)
+	int index = array->indexOf(element,null());		HX_STACK_VAR(index,"index");
+	HX_STACK_LINE(82)
+	if (((index != (int)-1))){
+		HX_STACK_LINE(84)
+		array[index] = array->__get((array->length - (int)1)).StaticCast< ::flixel::system::debug::Window >();
+		HX_STACK_LINE(84)
+		array->pop().StaticCast< ::flixel::system::debug::Window >();
+		HX_STACK_LINE(84)
+		return array;
+	}
+	HX_STACK_LINE(86)
+	return array;
+}
+
+
+STATIC_HX_DEFINE_DYNAMIC_FUNC2(FlxArrayUtil_obj,fastSplice_flixel_system_debug_Window,return )
+
 Dynamic FlxArrayUtil_obj::swapAndPop_fastSplice_T( Dynamic array,int index){
 	HX_STACK_FRAME("flixel.util.FlxArrayUtil","swapAndPop_fastSplice_T",0xfdfa2694,"flixel.util.FlxArrayUtil.swapAndPop_fastSplice_T","flixel/util/FlxArrayUtil.hx",110,0xa0dc755b)
 	HX_STACK_ARG(array,"array")
@@ -417,10 +488,16 @@ Dynamic FlxArrayUtil_obj::__Field(const ::String &inName,bool inCallProp)
 	case 36:
 		if (HX_FIELD_EQ(inName,"fastSplice_flixel_text_FlxTextFormat") ) { return fastSplice_flixel_text_FlxTextFormat_dyn(); }
 		break;
+	case 37:
+		if (HX_FIELD_EQ(inName,"fastSplice_flixel_system_debug_Window") ) { return fastSplice_flixel_system_debug_Window_dyn(); }
+		break;
 	case 38:
 		if (HX_FIELD_EQ(inName,"setLength_flixel_group_FlxTypedGroup_T") ) { return setLength_flixel_group_FlxTypedGroup_T_dyn(); }
 		if (HX_FIELD_EQ(inName,"setLength_flixel_input_keyboard_FlxKey") ) { return setLength_flixel_input_keyboard_FlxKey_dyn(); }
 		if (HX_FIELD_EQ(inName,"getRandom_flixel_group_FlxTypedGroup_T") ) { return getRandom_flixel_group_FlxTypedGroup_T_dyn(); }
+		break;
+	case 41:
+		if (HX_FIELD_EQ(inName,"fastSplice_flixel_system_debug_WatchEntry") ) { return fastSplice_flixel_system_debug_WatchEntry_dyn(); }
 		break;
 	case 42:
 		if (HX_FIELD_EQ(inName,"setLength_flixel_system_replay_FrameRecord") ) { return setLength_flixel_system_replay_FrameRecord_dyn(); }
@@ -439,15 +516,17 @@ void FlxArrayUtil_obj::__GetFields(Array< ::String> &outFields)
 };
 
 static ::String sStaticFields[] = {
-	HX_CSTRING("fastSplice_flixel_text_FlxTextFormat"),
 	HX_CSTRING("setLength_flixel_system_replay_FrameRecord"),
 	HX_CSTRING("setLength_flixel_group_FlxTypedGroup_T"),
 	HX_CSTRING("setLength_flixel_input_keyboard_FlxKey"),
-	HX_CSTRING("getRandom_flixel_group_FlxTypedGroup_T"),
+	HX_CSTRING("fastSplice_flixel_text_FlxTextFormat"),
 	HX_CSTRING("setLength_Int"),
 	HX_CSTRING("fastSplice_flixel_tweens_FlxTween"),
 	HX_CSTRING("fastSplice_flixel_util_FlxTimer"),
 	HX_CSTRING("fastSplice_flixel_util_FlxPath"),
+	HX_CSTRING("getRandom_flixel_group_FlxTypedGroup_T"),
+	HX_CSTRING("fastSplice_flixel_system_debug_WatchEntry"),
+	HX_CSTRING("fastSplice_flixel_system_debug_Window"),
 	HX_CSTRING("swapAndPop_fastSplice_T"),
 	HX_CSTRING("clearArray"),
 	String(null()) };

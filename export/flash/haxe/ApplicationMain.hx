@@ -70,6 +70,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/player.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/polarityPalette.ase");
 		types.push (lime.Assets.AssetType.BINARY);
 		
@@ -87,6 +91,10 @@ class ApplicationMain {
 		
 		
 		urls.push ("assets/images/pongShipRed.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/textbox.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -318,7 +326,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "1026",
+			build: "1103",
 			company: "HaxeFlixel",
 			file: "FlxProject",
 			fps: 60,
@@ -336,13 +344,13 @@ class ApplicationMain {
 					display: 0,
 					fullscreen: false,
 					hardware: true,
-					height: 480,
+					height: 180,
 					parameters: "{}",
 					resizable: true,
 					stencilBuffer: true,
 					title: "Solar Shepard",
 					vsync: true,
-					width: 640,
+					width: 320,
 					x: null,
 					y: null
 				},
@@ -360,7 +368,7 @@ class ApplicationMain {
 		
 		#if (js && html5)
 		#if (munit || utest)
-		openfl.Lib.embed (null, 640, 480, "000000");
+		openfl.Lib.embed (null, 320, 180, "000000");
 		#end
 		#else
 		create ();

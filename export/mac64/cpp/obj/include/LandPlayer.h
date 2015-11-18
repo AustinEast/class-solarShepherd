@@ -22,12 +22,12 @@ class HXCPP_CLASS_ATTRIBUTES  LandPlayer_obj : public ::PolarSprite_obj{
 		typedef ::PolarSprite_obj super;
 		typedef LandPlayer_obj OBJ_;
 		LandPlayer_obj();
-		Void __construct(Dynamic X,Dynamic Y);
+		Void __construct(Dynamic X,Dynamic Y,Float resetX,Float resetY);
 
 	public:
 		inline void *operator new( size_t inSize, bool inContainer=true)
 			{ return hx::Object::operator new(inSize,inContainer); }
-		static hx::ObjectPtr< LandPlayer_obj > __new(Dynamic X,Dynamic Y);
+		static hx::ObjectPtr< LandPlayer_obj > __new(Dynamic X,Dynamic Y,Float resetX,Float resetY);
 		static Dynamic __CreateEmpty();
 		static Dynamic __Create(hx::DynamicArray inArgs);
 		//~LandPlayer_obj();
@@ -48,6 +48,8 @@ class HXCPP_CLASS_ATTRIBUTES  LandPlayer_obj : public ::PolarSprite_obj{
 		::StunGun _stunGun;
 		::CrateGun _crateGun;
 		bool _flickering;
+		Float _resetX;
+		Float _resetY;
 		virtual Void update( );
 
 		virtual Void animationCheck( );
@@ -58,8 +60,13 @@ class HXCPP_CLASS_ATTRIBUTES  LandPlayer_obj : public ::PolarSprite_obj{
 
 		virtual Void hurt( Float Damage);
 
+		virtual Void kill( );
+
 		virtual Void flicker( Float Duration);
 		Dynamic flicker_dyn();
+
+		virtual Void doneFadeOut( );
+		Dynamic doneFadeOut_dyn();
 
 };
 

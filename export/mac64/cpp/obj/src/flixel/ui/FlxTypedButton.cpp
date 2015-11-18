@@ -292,6 +292,22 @@ return null();
 }
 
 
+Void FlxTypedButton_obj::drawDebug( ){
+{
+		HX_STACK_FRAME("flixel.ui.FlxTypedButton","drawDebug",0xd8c08953,"flixel.ui.FlxTypedButton.drawDebug","flixel/ui/FlxTypedButton.hx",179,0x752be24c)
+		HX_STACK_THIS(this)
+		HX_STACK_LINE(180)
+		this->super::drawDebug();
+		HX_STACK_LINE(182)
+		if (((this->label != null()))){
+			HX_STACK_LINE(184)
+			this->label->__Field(HX_CSTRING("drawDebug"),true)();
+		}
+	}
+return null();
+}
+
+
 Void FlxTypedButton_obj::updateButton( ){
 {
 		HX_STACK_FRAME("flixel.ui.FlxTypedButton","updateButton",0x576ba5b7,"flixel.ui.FlxTypedButton.updateButton","flixel/ui/FlxTypedButton.hx",194,0x752be24c)
@@ -701,6 +717,7 @@ Dynamic FlxTypedButton_obj::__Field(const ::String &inName,bool inCallProp)
 		if (HX_FIELD_EQ(inName,"destroy") ) { return destroy_dyn(); }
 		break;
 	case 9:
+		if (HX_FIELD_EQ(inName,"drawDebug") ) { return drawDebug_dyn(); }
 		if (HX_FIELD_EQ(inName,"set_label") ) { return set_label_dyn(); }
 		break;
 	case 10:
@@ -818,6 +835,7 @@ static ::String sMemberFields[] = {
 	HX_CSTRING("destroy"),
 	HX_CSTRING("update"),
 	HX_CSTRING("draw"),
+	HX_CSTRING("drawDebug"),
 	HX_CSTRING("updateButton"),
 	HX_CSTRING("updateStatus"),
 	HX_CSTRING("onUpEventListener"),

@@ -3,6 +3,12 @@
 #ifndef INCLUDED_flixel_FlxBasic
 #include <flixel/FlxBasic.h>
 #endif
+#ifndef INCLUDED_flixel_FlxCamera
+#include <flixel/FlxCamera.h>
+#endif
+#ifndef INCLUDED_flixel_FlxG
+#include <flixel/FlxG.h>
+#endif
 #ifndef INCLUDED_flixel_interfaces_IFlxDestroyable
 #include <flixel/interfaces/IFlxDestroyable.h>
 #endif
@@ -11,6 +17,9 @@
 #endif
 #ifndef INCLUDED_flixel_plugin_PathManager
 #include <flixel/plugin/PathManager.h>
+#endif
+#ifndef INCLUDED_flixel_system_frontEnds_DebuggerFrontEnd
+#include <flixel/system/frontEnds/DebuggerFrontEnd.h>
 #endif
 #ifndef INCLUDED_flixel_util_FlxArrayUtil
 #include <flixel/util/FlxArrayUtil.h>
@@ -30,6 +39,8 @@ HX_STACK_THIS(this)
 	this->_paths = Array_obj< ::Dynamic >::__new();
 	HX_STACK_LINE(14)
 	super::__construct();
+	HX_STACK_LINE(16)
+	this->set_visible(false);
 }
 ;
 	return null();
@@ -86,6 +97,41 @@ Void PathManager_obj::update( ){
 			if ((path->active)){
 				HX_STACK_LINE(37)
 				path->update();
+			}
+		}
+	}
+return null();
+}
+
+
+Void PathManager_obj::draw( ){
+{
+		HX_STACK_FRAME("flixel.plugin.PathManager","draw",0x90a68313,"flixel.plugin.PathManager.draw","flixel/plugin/PathManager.hx",48,0xf3716a7f)
+		HX_STACK_THIS(this)
+		HX_STACK_LINE(49)
+		this->super::draw();
+		HX_STACK_LINE(50)
+		if ((::flixel::FlxG_obj::debugger->drawDebug)){
+			HX_STACK_LINE(52)
+			int _g = (int)0;		HX_STACK_VAR(_g,"_g");
+			HX_STACK_LINE(52)
+			Array< ::Dynamic > _g1 = this->_paths;		HX_STACK_VAR(_g1,"_g1");
+			HX_STACK_LINE(52)
+			while((true)){
+				HX_STACK_LINE(52)
+				if ((!(((_g < _g1->length))))){
+					HX_STACK_LINE(52)
+					break;
+				}
+				HX_STACK_LINE(52)
+				::flixel::util::FlxPath path = _g1->__get(_g).StaticCast< ::flixel::util::FlxPath >();		HX_STACK_VAR(path,"path");
+				HX_STACK_LINE(52)
+				++(_g);
+				HX_STACK_LINE(54)
+				if (((bool((path != null())) && bool(!(path->ignoreDrawDebug))))){
+					HX_STACK_LINE(56)
+					path->drawDebug(null());
+				}
 			}
 		}
 	}
@@ -185,6 +231,9 @@ Dynamic PathManager_obj::__Field(const ::String &inName,bool inCallProp)
 	case 3:
 		if (HX_FIELD_EQ(inName,"add") ) { return add_dyn(); }
 		break;
+	case 4:
+		if (HX_FIELD_EQ(inName,"draw") ) { return draw_dyn(); }
+		break;
 	case 5:
 		if (HX_FIELD_EQ(inName,"clear") ) { return clear_dyn(); }
 		break;
@@ -231,6 +280,7 @@ static ::String sMemberFields[] = {
 	HX_CSTRING("_paths"),
 	HX_CSTRING("destroy"),
 	HX_CSTRING("update"),
+	HX_CSTRING("draw"),
 	HX_CSTRING("add"),
 	HX_CSTRING("remove"),
 	HX_CSTRING("clear"),

@@ -12,6 +12,7 @@ HX_DECLARE_CLASS1(flixel,FlxState)
 HX_DECLARE_CLASS2(flixel,group,FlxGroup)
 HX_DECLARE_CLASS2(flixel,group,FlxTypedGroup)
 HX_DECLARE_CLASS2(flixel,interfaces,IFlxDestroyable)
+HX_DECLARE_CLASS3(flixel,system,debug,FlxDebugger)
 HX_DECLARE_CLASS3(flixel,system,ui,FlxFocusLostScreen)
 HX_DECLARE_CLASS3(flixel,system,ui,FlxSoundTray)
 HX_DECLARE_CLASS3(openfl,_legacy,display,DisplayObject)
@@ -48,6 +49,7 @@ class HXCPP_CLASS_ATTRIBUTES  FlxGame_obj : public ::openfl::_legacy::display::S
 
 		int focusLostFramerate;
 		::flixel::system::ui::FlxSoundTray soundTray;
+		::flixel::system::debug::FlxDebugger debugger;
 		int ticks;
 		bool _gameJustStarted;
 		::Class _initialState;

@@ -1,13 +1,79 @@
 #include <hxcpp.h>
 
+#ifndef INCLUDED_Std
+#include <Std.h>
+#endif
+#ifndef INCLUDED_flixel_FlxBasic
+#include <flixel/FlxBasic.h>
+#endif
+#ifndef INCLUDED_flixel_FlxG
+#include <flixel/FlxG.h>
+#endif
+#ifndef INCLUDED_flixel_FlxGame
+#include <flixel/FlxGame.h>
+#endif
+#ifndef INCLUDED_flixel_interfaces_IFlxDestroyable
+#include <flixel/interfaces/IFlxDestroyable.h>
+#endif
+#ifndef INCLUDED_flixel_system_FlxSound
+#include <flixel/system/FlxSound.h>
+#endif
+#ifndef INCLUDED_flixel_system_debug_FlxDebugger
+#include <flixel/system/debug/FlxDebugger.h>
+#endif
+#ifndef INCLUDED_flixel_system_debug_Log
+#include <flixel/system/debug/Log.h>
+#endif
 #ifndef INCLUDED_flixel_system_debug_LogStyle
 #include <flixel/system/debug/LogStyle.h>
+#endif
+#ifndef INCLUDED_flixel_system_debug_Window
+#include <flixel/system/debug/Window.h>
+#endif
+#ifndef INCLUDED_flixel_system_frontEnds_DebuggerFrontEnd
+#include <flixel/system/frontEnds/DebuggerFrontEnd.h>
 #endif
 #ifndef INCLUDED_flixel_system_frontEnds_LogFrontEnd
 #include <flixel/system/frontEnds/LogFrontEnd.h>
 #endif
+#ifndef INCLUDED_flixel_system_frontEnds_SoundFrontEnd
+#include <flixel/system/frontEnds/SoundFrontEnd.h>
+#endif
 #ifndef INCLUDED_haxe_Log
 #include <haxe/Log.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_Assets
+#include <openfl/_legacy/Assets.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_DisplayObject
+#include <openfl/_legacy/display/DisplayObject.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_DisplayObjectContainer
+#include <openfl/_legacy/display/DisplayObjectContainer.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_IBitmapDrawable
+#include <openfl/_legacy/display/IBitmapDrawable.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_InteractiveObject
+#include <openfl/_legacy/display/InteractiveObject.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_Sprite
+#include <openfl/_legacy/display/Sprite.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_events_EventDispatcher
+#include <openfl/_legacy/events/EventDispatcher.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_events_IEventDispatcher
+#include <openfl/_legacy/events/IEventDispatcher.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_media_Sound
+#include <openfl/_legacy/media/Sound.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_media_SoundChannel
+#include <openfl/_legacy/media/SoundChannel.h>
+#endif
+#ifndef INCLUDED_openfl_media_SoundTransform
+#include <openfl/media/SoundTransform.h>
 #endif
 namespace flixel{
 namespace system{
@@ -42,9 +108,11 @@ Dynamic LogFrontEnd_obj::__Create(hx::DynamicArray inArgs)
 
 Void LogFrontEnd_obj::add( Dynamic Data){
 {
-		HX_STACK_FRAME("flixel.system.frontEnds.LogFrontEnd","add",0xf2495e0f,"flixel.system.frontEnds.LogFrontEnd.add","flixel/system/frontEnds/LogFrontEnd.hx",19,0x686ab8c3)
+		HX_STACK_FRAME("flixel.system.frontEnds.LogFrontEnd","add",0xf2495e0f,"flixel.system.frontEnds.LogFrontEnd.add","flixel/system/frontEnds/LogFrontEnd.hx",21,0x686ab8c3)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(Data,"Data")
+		HX_STACK_LINE(21)
+		this->advanced(Data,::flixel::system::debug::LogStyle_obj::NORMAL,null());
 	}
 return null();
 }
@@ -54,9 +122,11 @@ HX_DEFINE_DYNAMIC_FUNC1(LogFrontEnd_obj,add,(void))
 
 Void LogFrontEnd_obj::warn( Dynamic Data){
 {
-		HX_STACK_FRAME("flixel.system.frontEnds.LogFrontEnd","warn",0x1c716698,"flixel.system.frontEnds.LogFrontEnd.warn","flixel/system/frontEnds/LogFrontEnd.hx",26,0x686ab8c3)
+		HX_STACK_FRAME("flixel.system.frontEnds.LogFrontEnd","warn",0x1c716698,"flixel.system.frontEnds.LogFrontEnd.warn","flixel/system/frontEnds/LogFrontEnd.hx",28,0x686ab8c3)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(Data,"Data")
+		HX_STACK_LINE(28)
+		this->advanced(Data,::flixel::system::debug::LogStyle_obj::WARNING,true);
 	}
 return null();
 }
@@ -66,9 +136,11 @@ HX_DEFINE_DYNAMIC_FUNC1(LogFrontEnd_obj,warn,(void))
 
 Void LogFrontEnd_obj::error( Dynamic Data){
 {
-		HX_STACK_FRAME("flixel.system.frontEnds.LogFrontEnd","error",0x74ce8f36,"flixel.system.frontEnds.LogFrontEnd.error","flixel/system/frontEnds/LogFrontEnd.hx",33,0x686ab8c3)
+		HX_STACK_FRAME("flixel.system.frontEnds.LogFrontEnd","error",0x74ce8f36,"flixel.system.frontEnds.LogFrontEnd.error","flixel/system/frontEnds/LogFrontEnd.hx",35,0x686ab8c3)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(Data,"Data")
+		HX_STACK_LINE(35)
+		this->advanced(Data,::flixel::system::debug::LogStyle_obj::ERROR,true);
 	}
 return null();
 }
@@ -78,9 +150,11 @@ HX_DEFINE_DYNAMIC_FUNC1(LogFrontEnd_obj,error,(void))
 
 Void LogFrontEnd_obj::notice( Dynamic Data){
 {
-		HX_STACK_FRAME("flixel.system.frontEnds.LogFrontEnd","notice",0xa03f14ea,"flixel.system.frontEnds.LogFrontEnd.notice","flixel/system/frontEnds/LogFrontEnd.hx",40,0x686ab8c3)
+		HX_STACK_FRAME("flixel.system.frontEnds.LogFrontEnd","notice",0xa03f14ea,"flixel.system.frontEnds.LogFrontEnd.notice","flixel/system/frontEnds/LogFrontEnd.hx",42,0x686ab8c3)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(Data,"Data")
+		HX_STACK_LINE(42)
+		this->advanced(Data,::flixel::system::debug::LogStyle_obj::NOTICE,null());
 	}
 return null();
 }
@@ -96,6 +170,59 @@ bool FireOnce = __o_FireOnce.Default(false);
 	HX_STACK_ARG(Style,"Style")
 	HX_STACK_ARG(FireOnce,"FireOnce")
 {
+		HX_STACK_LINE(56)
+		if (((::flixel::FlxG_obj::game->debugger == null()))){
+			HX_STACK_LINE(58)
+			this->_standardTraceFunction(Data);
+			HX_STACK_LINE(59)
+			return null();
+		}
+		HX_STACK_LINE(62)
+		if (((Style == null()))){
+			HX_STACK_LINE(64)
+			Style = ::flixel::system::debug::LogStyle_obj::NORMAL;
+		}
+		HX_STACK_LINE(67)
+		if ((!(::Std_obj::is(Data,hx::ClassOf< Array<int> >())))){
+			HX_STACK_LINE(69)
+			Data = Dynamic( Array_obj<Dynamic>::__new().Add(Data));
+		}
+		HX_STACK_LINE(72)
+		if ((::flixel::FlxG_obj::game->debugger->log->add(Data,Style,FireOnce))){
+			HX_STACK_LINE(75)
+			if (((Style->errorSound != null()))){
+				struct _Function_3_1{
+					inline static ::openfl::_legacy::media::Sound Block( ::flixel::system::debug::LogStyle &Style){
+						HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","flixel/system/frontEnds/LogFrontEnd.hx",77,0x686ab8c3)
+						{
+							HX_STACK_LINE(77)
+							::String extension = HX_CSTRING("");		HX_STACK_VAR(extension,"extension");
+							HX_STACK_LINE(77)
+							extension = HX_CSTRING(".ogg");
+							HX_STACK_LINE(77)
+							return ::openfl::_legacy::Assets_obj::getSound((Style->errorSound + extension),null());
+						}
+						return null();
+					}
+				};
+				HX_STACK_LINE(77)
+				::openfl::_legacy::media::SoundChannel _g = (_Function_3_1::Block(Style))->play(null(),null(),null());		HX_STACK_VAR(_g,"_g");
+				HX_STACK_LINE(77)
+				::flixel::FlxG_obj::sound->load(_g,null(),null(),null(),null(),null(),null());
+			}
+			HX_STACK_LINE(81)
+			if ((Style->openConsole)){
+				HX_STACK_LINE(83)
+				::flixel::FlxG_obj::game->debugger->set_visible(true);
+				HX_STACK_LINE(83)
+				::flixel::FlxG_obj::debugger->visible = true;
+			}
+			HX_STACK_LINE(86)
+			if ((Style->callbackFunction = null())){
+				HX_STACK_LINE(88)
+				Style->callbackFunction();
+			}
+		}
 	}
 return null();
 }
@@ -105,8 +232,10 @@ HX_DEFINE_DYNAMIC_FUNC3(LogFrontEnd_obj,advanced,(void))
 
 Void LogFrontEnd_obj::clear( ){
 {
-		HX_STACK_FRAME("flixel.system.frontEnds.LogFrontEnd","clear",0x4a0034fb,"flixel.system.frontEnds.LogFrontEnd.clear","flixel/system/frontEnds/LogFrontEnd.hx",98,0x686ab8c3)
+		HX_STACK_FRAME("flixel.system.frontEnds.LogFrontEnd","clear",0x4a0034fb,"flixel.system.frontEnds.LogFrontEnd.clear","flixel/system/frontEnds/LogFrontEnd.hx",100,0x686ab8c3)
 		HX_STACK_THIS(this)
+		HX_STACK_LINE(100)
+		::flixel::FlxG_obj::game->debugger->log->clear();
 	}
 return null();
 }

@@ -93,6 +93,7 @@ class HXCPP_CLASS_ATTRIBUTES  FlxCamera_obj : public ::flixel::FlxBasic_obj{
 		int _fxShakeDirection;
 		::flixel::util::FlxPoint _point;
 		::openfl::_legacy::display::Sprite canvas;
+		::openfl::_legacy::display::Sprite debugLayer;
 		::flixel::system::layer::DrawStackItem _currentStackItem;
 		::flixel::system::layer::DrawStackItem _headOfDrawStack;
 		virtual ::flixel::system::layer::DrawStackItem getDrawStackItem( ::flixel::util::loaders::CachedGraphics ObjGraphics,bool ObjColored,int ObjBlending,hx::Null< bool >  ObjAntialiasing);

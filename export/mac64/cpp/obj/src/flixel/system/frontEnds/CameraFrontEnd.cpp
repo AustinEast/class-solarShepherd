@@ -18,8 +18,14 @@
 #ifndef INCLUDED_flixel_interfaces_IFlxPooled
 #include <flixel/interfaces/IFlxPooled.h>
 #endif
+#ifndef INCLUDED_flixel_system_debug_LogStyle
+#include <flixel/system/debug/LogStyle.h>
+#endif
 #ifndef INCLUDED_flixel_system_frontEnds_CameraFrontEnd
 #include <flixel/system/frontEnds/CameraFrontEnd.h>
+#endif
+#ifndef INCLUDED_flixel_system_frontEnds_LogFrontEnd
+#include <flixel/system/frontEnds/LogFrontEnd.h>
 #endif
 #ifndef INCLUDED_flixel_util_FlxPoint
 #include <flixel/util/FlxPoint.h>
@@ -127,7 +133,7 @@ bool Destroy = __o_Destroy.Default(true);
 		}
 		else{
 			HX_STACK_LINE(70)
-			Dynamic();
+			::flixel::FlxG_obj::log->advanced(HX_CSTRING("FlxG.cameras.remove(): The camera you attemped to remove is not a part of the game."),::flixel::system::debug::LogStyle_obj::WARNING,true);
 		}
 		HX_STACK_LINE(74)
 		{
@@ -365,6 +371,8 @@ Void CameraFrontEnd_obj::lock( ){
 			camera->clearDrawStack();
 			HX_STACK_LINE(197)
 			camera->canvas->get_graphics()->clear();
+			HX_STACK_LINE(200)
+			camera->debugLayer->get_graphics()->clear();
 			HX_STACK_LINE(208)
 			camera->fill((int(camera->bgColor) & int((int)16777215)),camera->useBgAlphaBlending,(Float(((int((int(camera->bgColor) >> int((int)24))) & int((int)255)))) / Float((int)255)),null());
 		}

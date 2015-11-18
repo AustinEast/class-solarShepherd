@@ -63,6 +63,8 @@ class HXCPP_CLASS_ATTRIBUTES  FlxObject_obj : public ::flixel::FlxBasic_obj{
 		int wasTouching;
 		int allowCollisions;
 		bool collisonXDrag;
+		Dynamic debugBoundingBoxColor;
+		bool ignoreDrawDebug;
 		::flixel::util::FlxPoint _point;
 		Array< ::Dynamic > _cameras;
 		virtual Void initVars( );
@@ -124,6 +126,12 @@ class HXCPP_CLASS_ATTRIBUTES  FlxObject_obj : public ::flixel::FlxBasic_obj{
 
 		virtual Void setSize( Float Width,Float Height);
 		Dynamic setSize_dyn();
+
+		virtual Void drawDebug( );
+		Dynamic drawDebug_dyn();
+
+		virtual Void drawDebugOnCamera( ::flixel::FlxCamera Camera);
+		Dynamic drawDebugOnCamera_dyn();
 
 		virtual ::String toString( );
 

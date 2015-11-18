@@ -18,6 +18,9 @@
 #ifndef INCLUDED_flixel_system_FlxSound
 #include <flixel/system/FlxSound.h>
 #endif
+#ifndef INCLUDED_flixel_system_frontEnds_LogFrontEnd
+#include <flixel/system/frontEnds/LogFrontEnd.h>
+#endif
 #ifndef INCLUDED_flixel_system_frontEnds_SoundFrontEnd
 #include <flixel/system/frontEnds/SoundFrontEnd.h>
 #endif
@@ -145,6 +148,8 @@ bool AutoPlay = __o_AutoPlay.Default(false);
 {
 		HX_STACK_LINE(102)
 		if (((bool((EmbeddedSound == null())) && bool((URL == null()))))){
+			HX_STACK_LINE(104)
+			::flixel::FlxG_obj::log->warn(HX_CSTRING("FlxG.loadSound() requires either\nan embedded sound or a URL to work."));
 			HX_STACK_LINE(105)
 			return null();
 		}

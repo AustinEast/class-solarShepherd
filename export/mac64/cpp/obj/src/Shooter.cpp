@@ -3,6 +3,9 @@
 #ifndef INCLUDED_EnemyGun
 #include <EnemyGun.h>
 #endif
+#ifndef INCLUDED_Reg
+#include <Reg.h>
+#endif
 #ifndef INCLUDED_Shooter
 #include <Shooter.h>
 #endif
@@ -12,20 +15,17 @@
 #ifndef INCLUDED_flixel_FlxBasic
 #include <flixel/FlxBasic.h>
 #endif
+#ifndef INCLUDED_flixel_FlxCamera
+#include <flixel/FlxCamera.h>
+#endif
 #ifndef INCLUDED_flixel_FlxG
 #include <flixel/FlxG.h>
-#endif
-#ifndef INCLUDED_flixel_FlxGame
-#include <flixel/FlxGame.h>
 #endif
 #ifndef INCLUDED_flixel_FlxObject
 #include <flixel/FlxObject.h>
 #endif
 #ifndef INCLUDED_flixel_FlxSprite
 #include <flixel/FlxSprite.h>
-#endif
-#ifndef INCLUDED_flixel_FlxState
-#include <flixel/FlxState.h>
 #endif
 #ifndef INCLUDED_flixel_addons_weapon_FlxWeapon
 #include <flixel/addons/weapon/FlxWeapon.h>
@@ -54,27 +54,6 @@
 #ifndef INCLUDED_hxMath
 #include <hxMath.h>
 #endif
-#ifndef INCLUDED_openfl__legacy_display_DisplayObject
-#include <openfl/_legacy/display/DisplayObject.h>
-#endif
-#ifndef INCLUDED_openfl__legacy_display_DisplayObjectContainer
-#include <openfl/_legacy/display/DisplayObjectContainer.h>
-#endif
-#ifndef INCLUDED_openfl__legacy_display_IBitmapDrawable
-#include <openfl/_legacy/display/IBitmapDrawable.h>
-#endif
-#ifndef INCLUDED_openfl__legacy_display_InteractiveObject
-#include <openfl/_legacy/display/InteractiveObject.h>
-#endif
-#ifndef INCLUDED_openfl__legacy_display_Sprite
-#include <openfl/_legacy/display/Sprite.h>
-#endif
-#ifndef INCLUDED_openfl__legacy_events_EventDispatcher
-#include <openfl/_legacy/events/EventDispatcher.h>
-#endif
-#ifndef INCLUDED_openfl__legacy_events_IEventDispatcher
-#include <openfl/_legacy/events/IEventDispatcher.h>
-#endif
 
 Void Shooter_obj::__construct(Float X,Float Y,::flixel::FlxSprite Target)
 {
@@ -84,7 +63,7 @@ HX_STACK_ARG(X,"X")
 HX_STACK_ARG(Y,"Y")
 HX_STACK_ARG(Target,"Target")
 {
-	HX_STACK_LINE(31)
+	HX_STACK_LINE(32)
 	this->_hurtCounter = (int)0;
 	HX_STACK_LINE(24)
 	this->DISTANCE_SEEN = (int)120;
@@ -102,48 +81,48 @@ HX_STACK_ARG(Target,"Target")
 	this->ACCELERATION = (int)400;
 	HX_STACK_LINE(17)
 	this->MAX_HEALTH = (int)10;
-	HX_STACK_LINE(42)
+	HX_STACK_LINE(43)
 	super::__construct(X,Y,null());
-	HX_STACK_LINE(45)
-	this->drag->set((this->RUN_SPEED * (int)6),(this->JUMP_SPEED * (int)5));
 	HX_STACK_LINE(46)
-	this->maxVelocity->set(this->RUN_SPEED,this->GRAVITY);
+	this->drag->set((this->RUN_SPEED * (int)4),(this->JUMP_SPEED * (int)5));
 	HX_STACK_LINE(47)
+	this->maxVelocity->set(this->RUN_SPEED,this->GRAVITY);
+	HX_STACK_LINE(48)
 	this->acceleration->set_y(this->GRAVITY);
-	HX_STACK_LINE(51)
+	HX_STACK_LINE(52)
 	this->_target = Target;
-	HX_STACK_LINE(53)
+	HX_STACK_LINE(54)
 	this->health = this->MAX_HEALTH;
-	HX_STACK_LINE(58)
+	HX_STACK_LINE(59)
 	this->makeGraphic((int)12,(int)16,(int)-65536,null(),null());
-	HX_STACK_LINE(61)
-	this->set_width((int)10);
 	HX_STACK_LINE(62)
+	this->set_width((int)10);
+	HX_STACK_LINE(63)
 	this->set_height((int)16);
-	HX_STACK_LINE(65)
+	HX_STACK_LINE(66)
 	this->offset->set_x((int)2);
-	HX_STACK_LINE(68)
-	this->animation->add(HX_CSTRING("idle"),Array_obj< int >::__new().Add((int)0).Add((int)1),(int)5,true);
 	HX_STACK_LINE(69)
-	this->animation->add(HX_CSTRING("walk"),Array_obj< int >::__new().Add((int)7).Add((int)8).Add((int)9).Add((int)10).Add((int)11),(int)10,true);
+	this->animation->add(HX_CSTRING("idle"),Array_obj< int >::__new().Add((int)0).Add((int)1),(int)5,true);
 	HX_STACK_LINE(70)
-	this->animation->add(HX_CSTRING("run"),Array_obj< int >::__new().Add((int)2).Add((int)3).Add((int)4).Add((int)5).Add((int)6),(int)10,true);
+	this->animation->add(HX_CSTRING("walk"),Array_obj< int >::__new().Add((int)7).Add((int)8).Add((int)9).Add((int)10).Add((int)11),(int)10,true);
 	HX_STACK_LINE(71)
-	this->animation->add(HX_CSTRING("jump"),Array_obj< int >::__new().Add((int)3).Add((int)4),(int)4,false);
+	this->animation->add(HX_CSTRING("run"),Array_obj< int >::__new().Add((int)2).Add((int)3).Add((int)4).Add((int)5).Add((int)6),(int)10,true);
 	HX_STACK_LINE(72)
-	this->animation->add(HX_CSTRING("fall"),Array_obj< int >::__new().Add((int)5),(int)0,false);
+	this->animation->add(HX_CSTRING("jump"),Array_obj< int >::__new().Add((int)3).Add((int)4),(int)4,false);
 	HX_STACK_LINE(73)
-	this->animation->add(HX_CSTRING("melee"),Array_obj< int >::__new().Add((int)12).Add((int)13).Add((int)14),(int)5,false);
+	this->animation->add(HX_CSTRING("fall"),Array_obj< int >::__new().Add((int)5),(int)0,false);
 	HX_STACK_LINE(74)
-	this->animation->add(HX_CSTRING("hurt"),Array_obj< int >::__new().Add((int)3),(int)0,false);
+	this->animation->add(HX_CSTRING("melee"),Array_obj< int >::__new().Add((int)12).Add((int)13).Add((int)14),(int)5,false);
 	HX_STACK_LINE(75)
+	this->animation->add(HX_CSTRING("hurt"),Array_obj< int >::__new().Add((int)3),(int)0,false);
+	HX_STACK_LINE(76)
 	this->animation->add(HX_CSTRING("dead"),Array_obj< int >::__new().Add((int)5),(int)0,false);
-	HX_STACK_LINE(78)
-	::EnemyGun _g = ::EnemyGun_obj::__new(HX_CSTRING("Enemy Gun"),hx::ObjectPtr<OBJ_>(this),null(),null());		HX_STACK_VAR(_g,"_g");
-	HX_STACK_LINE(78)
-	this->_enemyGun = _g;
 	HX_STACK_LINE(79)
-	::flixel::FlxG_obj::game->_state->add(this->_enemyGun->group);
+	::EnemyGun _g = ::EnemyGun_obj::__new(HX_CSTRING("Enemy Gun"),hx::ObjectPtr<OBJ_>(this),null(),null());		HX_STACK_VAR(_g,"_g");
+	HX_STACK_LINE(79)
+	this->_enemyGun = _g;
+	HX_STACK_LINE(80)
+	::Reg_obj::enemyBullets->add(this->_enemyGun->group);
 }
 ;
 	return null();
@@ -164,39 +143,41 @@ Dynamic Shooter_obj::__Create(hx::DynamicArray inArgs)
 
 Void Shooter_obj::update( ){
 {
-		HX_STACK_FRAME("Shooter","update",0xaa2a7a4b,"Shooter.update","Shooter.hx",85,0xb3418652)
+		HX_STACK_FRAME("Shooter","update",0xaa2a7a4b,"Shooter.update","Shooter.hx",86,0xb3418652)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(86)
-		this->acceleration->set_x((int)0);
 		HX_STACK_LINE(87)
+		this->acceleration->set_x((int)0);
+		HX_STACK_LINE(88)
 		if ((this->_knockedOut)){
-			HX_STACK_LINE(89)
+			HX_STACK_LINE(90)
 			this->knockedOut();
 		}
 		else{
-			HX_STACK_LINE(93)
+			HX_STACK_LINE(94)
 			int _g1;		HX_STACK_VAR(_g1,"_g1");
-			HX_STACK_LINE(93)
+			HX_STACK_LINE(94)
 			{
-				HX_STACK_LINE(93)
+				HX_STACK_LINE(94)
 				::flixel::FlxSprite SpriteA = this->_target;		HX_STACK_VAR(SpriteA,"SpriteA");
-				HX_STACK_LINE(93)
+				HX_STACK_LINE(94)
 				Float dx = ((SpriteA->x + SpriteA->origin->x) - ((this->x + this->origin->x)));		HX_STACK_VAR(dx,"dx");
-				HX_STACK_LINE(93)
+				HX_STACK_LINE(94)
 				Float dy = ((SpriteA->y + SpriteA->origin->y) - ((this->y + this->origin->y)));		HX_STACK_VAR(dy,"dy");
-				HX_STACK_LINE(93)
+				HX_STACK_LINE(94)
 				Float _g = ::Math_obj::sqrt(((dx * dx) + (dy * dy)));		HX_STACK_VAR(_g,"_g");
-				HX_STACK_LINE(93)
+				HX_STACK_LINE(94)
 				_g1 = ::Std_obj::_int(_g);
 			}
-			HX_STACK_LINE(93)
-			this->_targetDistance = _g1;
 			HX_STACK_LINE(94)
-			this->fireCheck();
+			this->_targetDistance = _g1;
 			HX_STACK_LINE(95)
+			this->_targetY = (this->_target->y - this->y);
+			HX_STACK_LINE(96)
+			this->fireCheck();
+			HX_STACK_LINE(97)
 			this->controls();
 		}
-		HX_STACK_LINE(97)
+		HX_STACK_LINE(99)
 		this->super::update();
 	}
 return null();
@@ -205,11 +186,11 @@ return null();
 
 Void Shooter_obj::fireCheck( ){
 {
-		HX_STACK_FRAME("Shooter","fireCheck",0x206aa230,"Shooter.fireCheck","Shooter.hx",101,0xb3418652)
+		HX_STACK_FRAME("Shooter","fireCheck",0x206aa230,"Shooter.fireCheck","Shooter.hx",103,0xb3418652)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(101)
+		HX_STACK_LINE(103)
 		if (((this->_targetDistance < (int)80))){
-			HX_STACK_LINE(103)
+			HX_STACK_LINE(105)
 			this->_enemyGun->runFire((int)0,null(),null(),null(),null());
 		}
 	}
@@ -221,28 +202,28 @@ HX_DEFINE_DYNAMIC_FUNC0(Shooter_obj,fireCheck,(void))
 
 Void Shooter_obj::animationCheck( ){
 {
-		HX_STACK_FRAME("Shooter","animationCheck",0xb7503166,"Shooter.animationCheck","Shooter.hx",108,0xb3418652)
+		HX_STACK_FRAME("Shooter","animationCheck",0xb7503166,"Shooter.animationCheck","Shooter.hx",110,0xb3418652)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(108)
+		HX_STACK_LINE(110)
 		if (((((int(this->touching) & int((int)4096))) > (int)0))){
-			HX_STACK_LINE(110)
+			HX_STACK_LINE(112)
 			if (((bool((this->velocity->x > (int)0)) || bool((this->velocity->x < (int)0))))){
-				HX_STACK_LINE(112)
+				HX_STACK_LINE(114)
 				this->animation->play(HX_CSTRING("walk"),null(),null());
 			}
 			else{
-				HX_STACK_LINE(116)
+				HX_STACK_LINE(118)
 				this->animation->play(HX_CSTRING("idle"),null(),null());
 			}
 		}
 		else{
-			HX_STACK_LINE(120)
+			HX_STACK_LINE(122)
 			if (((this->velocity->y < (int)0))){
-				HX_STACK_LINE(122)
+				HX_STACK_LINE(124)
 				this->animation->play(HX_CSTRING("jump"),null(),null());
 			}
 			else{
-				HX_STACK_LINE(126)
+				HX_STACK_LINE(128)
 				this->animation->play(HX_CSTRING("fall"),null(),null());
 			}
 		}
@@ -255,25 +236,25 @@ HX_DEFINE_DYNAMIC_FUNC0(Shooter_obj,animationCheck,(void))
 
 Void Shooter_obj::controls( ){
 {
-		HX_STACK_FRAME("Shooter","controls",0x25388f38,"Shooter.controls","Shooter.hx",131,0xb3418652)
+		HX_STACK_FRAME("Shooter","controls",0x25388f38,"Shooter.controls","Shooter.hx",133,0xb3418652)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(131)
-		if (((bool((bool((this->_targetDistance < (int)180)) && bool((this->_targetDistance > (int)50)))) && bool(!(this->_flickering))))){
-			HX_STACK_LINE(133)
+		HX_STACK_LINE(133)
+		if (((bool((bool((bool((bool((this->_targetDistance < (int)180)) && bool((this->_targetDistance > (int)50)))) && bool((this->_targetY < (int)50)))) && bool((this->_targetY > (int)-50)))) && bool(!(this->_flickering))))){
+			HX_STACK_LINE(135)
 			if (((this->_target->x < this->x))){
-				HX_STACK_LINE(135)
-				this->acceleration->set_x(-(this->ACCELERATION));
-				HX_STACK_LINE(136)
-				this->set_flipX(true);
 				HX_STACK_LINE(137)
+				this->acceleration->set_x(-(this->ACCELERATION));
+				HX_STACK_LINE(138)
+				this->set_flipX(true);
+				HX_STACK_LINE(139)
 				this->_enemyGun->setBulletDirection((int)180,(int)300);
 			}
 			else{
-				HX_STACK_LINE(141)
-				this->acceleration->set_x(this->ACCELERATION);
-				HX_STACK_LINE(142)
-				this->set_flipX(false);
 				HX_STACK_LINE(143)
+				this->acceleration->set_x(this->ACCELERATION);
+				HX_STACK_LINE(144)
+				this->set_flipX(false);
+				HX_STACK_LINE(145)
 				this->_enemyGun->setBulletDirection((int)360,(int)300);
 			}
 		}
@@ -286,20 +267,20 @@ HX_DEFINE_DYNAMIC_FUNC0(Shooter_obj,controls,(void))
 
 Void Shooter_obj::stun( Float Damage){
 {
-		HX_STACK_FRAME("Shooter","stun",0x32aff4fc,"Shooter.stun","Shooter.hx",148,0xb3418652)
+		HX_STACK_FRAME("Shooter","stun",0x32aff4fc,"Shooter.stun","Shooter.hx",150,0xb3418652)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(Damage,"Damage")
-		HX_STACK_LINE(149)
+		HX_STACK_LINE(151)
 		hx::AddEq(this->_hurtCounter,Damage);
-		HX_STACK_LINE(150)
+		HX_STACK_LINE(152)
 		if ((this->knockedOutCheck())){
-			HX_STACK_LINE(152)
+			HX_STACK_LINE(154)
 			this->_knockedOut = true;
-			HX_STACK_LINE(153)
+			HX_STACK_LINE(155)
 			this->flicker(this->MAX_KNOCKEDOUT);
 		}
 		else{
-			HX_STACK_LINE(157)
+			HX_STACK_LINE(159)
 			this->flicker(0.2);
 		}
 	}
@@ -311,32 +292,32 @@ HX_DEFINE_DYNAMIC_FUNC1(Shooter_obj,stun,(void))
 
 Void Shooter_obj::flicker( Float Duration){
 {
-		HX_STACK_FRAME("Shooter","flicker",0x141da076,"Shooter.flicker","Shooter.hx",161,0xb3418652)
+		HX_STACK_FRAME("Shooter","flicker",0x141da076,"Shooter.flicker","Shooter.hx",163,0xb3418652)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(Duration,"Duration")
-		HX_STACK_LINE(160)
-		Array< ::Dynamic > _g = Array_obj< ::Dynamic >::__new().Add(hx::ObjectPtr<OBJ_>(this));		HX_STACK_VAR(_g,"_g");
 		HX_STACK_LINE(162)
+		Array< ::Dynamic > _g = Array_obj< ::Dynamic >::__new().Add(hx::ObjectPtr<OBJ_>(this));		HX_STACK_VAR(_g,"_g");
+		HX_STACK_LINE(164)
 		{
 
 			HX_BEGIN_LOCAL_FUNC_S1(hx::LocalFunc,_Function_2_1,Array< ::Dynamic >,_g)
 			Void run(::flixel::effects::FlxFlicker _){
-				HX_STACK_FRAME("*","_Function_2_1",0x5201af78,"*._Function_2_1","Shooter.hx",164,0xb3418652)
+				HX_STACK_FRAME("*","_Function_2_1",0x5201af78,"*._Function_2_1","Shooter.hx",166,0xb3418652)
 				HX_STACK_ARG(_,"_")
 				{
-					HX_STACK_LINE(164)
+					HX_STACK_LINE(166)
 					_g->__get((int)0).StaticCast< ::Shooter >()->_flickering = false;
 				}
 				return null();
 			}
 			HX_END_LOCAL_FUNC1((void))
 
-			HX_STACK_LINE(162)
+			HX_STACK_LINE(164)
 			::flixel::effects::FlxFlicker_obj::flicker(hx::ObjectPtr<OBJ_>(this),Duration,0.02,true,true, Dynamic(new _Function_2_1(_g)),null());
-			HX_STACK_LINE(162)
+			HX_STACK_LINE(164)
 			hx::ObjectPtr<OBJ_>(this);
 		}
-		HX_STACK_LINE(166)
+		HX_STACK_LINE(168)
 		this->_flickering = true;
 	}
 return null();
@@ -347,15 +328,15 @@ HX_DEFINE_DYNAMIC_FUNC1(Shooter_obj,flicker,(void))
 
 Void Shooter_obj::knockedOut( ){
 {
-		HX_STACK_FRAME("Shooter","knockedOut",0x61a6bf1d,"Shooter.knockedOut","Shooter.hx",170,0xb3418652)
+		HX_STACK_FRAME("Shooter","knockedOut",0x61a6bf1d,"Shooter.knockedOut","Shooter.hx",172,0xb3418652)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(170)
+		HX_STACK_LINE(172)
 		if (((this->_hurtCounter > (int)0))){
-			HX_STACK_LINE(172)
+			HX_STACK_LINE(174)
 			hx::SubEq(this->_hurtCounter,::flixel::FlxG_obj::elapsed);
 		}
 		else{
-			HX_STACK_LINE(176)
+			HX_STACK_LINE(178)
 			this->_knockedOut = false;
 		}
 	}
@@ -366,18 +347,20 @@ return null();
 HX_DEFINE_DYNAMIC_FUNC0(Shooter_obj,knockedOut,(void))
 
 bool Shooter_obj::knockedOutCheck( ){
-	HX_STACK_FRAME("Shooter","knockedOutCheck",0x7fc2606b,"Shooter.knockedOutCheck","Shooter.hx",181,0xb3418652)
+	HX_STACK_FRAME("Shooter","knockedOutCheck",0x7fc2606b,"Shooter.knockedOutCheck","Shooter.hx",183,0xb3418652)
 	HX_STACK_THIS(this)
-	HX_STACK_LINE(181)
+	HX_STACK_LINE(183)
 	if (((this->_hurtCounter > this->MAX_KNOCKEDOUT))){
-		HX_STACK_LINE(183)
+		HX_STACK_LINE(185)
+		::flixel::FlxG_obj::camera->shake(0.01,0.2,null(),null(),null());
+		HX_STACK_LINE(186)
 		return true;
 	}
 	else{
-		HX_STACK_LINE(187)
+		HX_STACK_LINE(190)
 		return false;
 	}
-	HX_STACK_LINE(181)
+	HX_STACK_LINE(183)
 	return false;
 }
 
@@ -402,6 +385,7 @@ void Shooter_obj::__Mark(HX_MARK_PARAMS)
 	HX_MARK_MEMBER_NAME(DISTANCE_SEEN,"DISTANCE_SEEN");
 	HX_MARK_MEMBER_NAME(_enemyGun,"_enemyGun");
 	HX_MARK_MEMBER_NAME(_targetDistance,"_targetDistance");
+	HX_MARK_MEMBER_NAME(_targetY,"_targetY");
 	HX_MARK_MEMBER_NAME(_hurtCounter,"_hurtCounter");
 	HX_MARK_MEMBER_NAME(_target,"_target");
 	HX_MARK_MEMBER_NAME(_flickering,"_flickering");
@@ -422,6 +406,7 @@ void Shooter_obj::__Visit(HX_VISIT_PARAMS)
 	HX_VISIT_MEMBER_NAME(DISTANCE_SEEN,"DISTANCE_SEEN");
 	HX_VISIT_MEMBER_NAME(_enemyGun,"_enemyGun");
 	HX_VISIT_MEMBER_NAME(_targetDistance,"_targetDistance");
+	HX_VISIT_MEMBER_NAME(_targetY,"_targetY");
 	HX_VISIT_MEMBER_NAME(_hurtCounter,"_hurtCounter");
 	HX_VISIT_MEMBER_NAME(_target,"_target");
 	HX_VISIT_MEMBER_NAME(_flickering,"_flickering");
@@ -444,6 +429,7 @@ Dynamic Shooter_obj::__Field(const ::String &inName,bool inCallProp)
 		if (HX_FIELD_EQ(inName,"flicker") ) { return flicker_dyn(); }
 		break;
 	case 8:
+		if (HX_FIELD_EQ(inName,"_targetY") ) { return _targetY; }
 		if (HX_FIELD_EQ(inName,"controls") ) { return controls_dyn(); }
 		break;
 	case 9:
@@ -486,6 +472,9 @@ Dynamic Shooter_obj::__SetField(const ::String &inName,const Dynamic &inValue,bo
 		if (HX_FIELD_EQ(inName,"GRAVITY") ) { GRAVITY=inValue.Cast< int >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"_target") ) { _target=inValue.Cast< ::flixel::FlxSprite >(); return inValue; }
 		break;
+	case 8:
+		if (HX_FIELD_EQ(inName,"_targetY") ) { _targetY=inValue.Cast< Float >(); return inValue; }
+		break;
 	case 9:
 		if (HX_FIELD_EQ(inName,"RUN_SPEED") ) { RUN_SPEED=inValue.Cast< int >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"_enemyGun") ) { _enemyGun=inValue.Cast< ::EnemyGun >(); return inValue; }
@@ -527,6 +516,7 @@ void Shooter_obj::__GetFields(Array< ::String> &outFields)
 	outFields->push(HX_CSTRING("DISTANCE_SEEN"));
 	outFields->push(HX_CSTRING("_enemyGun"));
 	outFields->push(HX_CSTRING("_targetDistance"));
+	outFields->push(HX_CSTRING("_targetY"));
 	outFields->push(HX_CSTRING("_hurtCounter"));
 	outFields->push(HX_CSTRING("_target"));
 	outFields->push(HX_CSTRING("_flickering"));
@@ -549,6 +539,7 @@ static hx::StorageInfo sMemberStorageInfo[] = {
 	{hx::fsInt,(int)offsetof(Shooter_obj,DISTANCE_SEEN),HX_CSTRING("DISTANCE_SEEN")},
 	{hx::fsObject /*::EnemyGun*/ ,(int)offsetof(Shooter_obj,_enemyGun),HX_CSTRING("_enemyGun")},
 	{hx::fsFloat,(int)offsetof(Shooter_obj,_targetDistance),HX_CSTRING("_targetDistance")},
+	{hx::fsFloat,(int)offsetof(Shooter_obj,_targetY),HX_CSTRING("_targetY")},
 	{hx::fsFloat,(int)offsetof(Shooter_obj,_hurtCounter),HX_CSTRING("_hurtCounter")},
 	{hx::fsObject /*::flixel::FlxSprite*/ ,(int)offsetof(Shooter_obj,_target),HX_CSTRING("_target")},
 	{hx::fsBool,(int)offsetof(Shooter_obj,_flickering),HX_CSTRING("_flickering")},
@@ -568,6 +559,7 @@ static ::String sMemberFields[] = {
 	HX_CSTRING("DISTANCE_SEEN"),
 	HX_CSTRING("_enemyGun"),
 	HX_CSTRING("_targetDistance"),
+	HX_CSTRING("_targetY"),
 	HX_CSTRING("_hurtCounter"),
 	HX_CSTRING("_target"),
 	HX_CSTRING("_flickering"),

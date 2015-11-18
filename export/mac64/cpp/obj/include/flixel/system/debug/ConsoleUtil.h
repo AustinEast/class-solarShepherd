@@ -33,6 +33,12 @@ class HXCPP_CLASS_ATTRIBUTES  ConsoleUtil_obj : public hx::Object{
 		static void __register();
 		::String __ToString() const { return HX_CSTRING("ConsoleUtil"); }
 
+		static Dynamic attemptToCreateInstance_flixel_FlxObject( ::String ClassName,::Class type,Array< ::String > Params);
+		static Dynamic attemptToCreateInstance_flixel_FlxObject_dyn();
+
+		static Dynamic attemptToCreateInstance_flixel_FlxState( ::String ClassName,::Class type,Array< ::String > Params);
+		static Dynamic attemptToCreateInstance_flixel_FlxState_dyn();
+
 		static bool callFunction( Dynamic Function,Dynamic Args);
 		static Dynamic callFunction_dyn();
 

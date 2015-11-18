@@ -82,6 +82,8 @@ class HXCPP_CLASS_ATTRIBUTES  FlxTilemap_obj : public ::flixel::FlxObject_obj{
 		virtual Void setCustomTileMappings( Array< int > mappings,Array< int > randomIndices,Array< ::Dynamic > randomChoices,Dynamic randomLambda);
 		Dynamic setCustomTileMappings_dyn();
 
+		virtual Void drawDebugOnCamera( ::flixel::FlxCamera Camera);
+
 		virtual Void draw( );
 
 		virtual Array< int > getData( hx::Null< bool >  Simple);

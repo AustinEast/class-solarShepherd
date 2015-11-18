@@ -48,6 +48,12 @@
 #ifndef INCLUDED_flixel_system_frontEnds_BitmapFrontEnd
 #include <flixel/system/frontEnds/BitmapFrontEnd.h>
 #endif
+#ifndef INCLUDED_flixel_system_frontEnds_CameraFrontEnd
+#include <flixel/system/frontEnds/CameraFrontEnd.h>
+#endif
+#ifndef INCLUDED_flixel_system_frontEnds_DebuggerFrontEnd
+#include <flixel/system/frontEnds/DebuggerFrontEnd.h>
+#endif
 #ifndef INCLUDED_flixel_system_frontEnds_SignalFrontEnd
 #include <flixel/system/frontEnds/SignalFrontEnd.h>
 #endif
@@ -114,8 +120,38 @@
 #ifndef INCLUDED_openfl__legacy_display_BitmapData
 #include <openfl/_legacy/display/BitmapData.h>
 #endif
+#ifndef INCLUDED_openfl__legacy_display_CapsStyle
+#include <openfl/_legacy/display/CapsStyle.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_DisplayObject
+#include <openfl/_legacy/display/DisplayObject.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_DisplayObjectContainer
+#include <openfl/_legacy/display/DisplayObjectContainer.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_Graphics
+#include <openfl/_legacy/display/Graphics.h>
+#endif
 #ifndef INCLUDED_openfl__legacy_display_IBitmapDrawable
 #include <openfl/_legacy/display/IBitmapDrawable.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_InteractiveObject
+#include <openfl/_legacy/display/InteractiveObject.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_JointStyle
+#include <openfl/_legacy/display/JointStyle.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_LineScaleMode
+#include <openfl/_legacy/display/LineScaleMode.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_Sprite
+#include <openfl/_legacy/display/Sprite.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_events_EventDispatcher
+#include <openfl/_legacy/events/EventDispatcher.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_events_IEventDispatcher
+#include <openfl/_legacy/events/IEventDispatcher.h>
 #endif
 #ifndef INCLUDED_openfl__legacy_geom_Point
 #include <openfl/_legacy/geom/Point.h>
@@ -669,6 +705,209 @@ return null();
 
 HX_DEFINE_DYNAMIC_FUNC4(FlxTilemap_obj,setCustomTileMappings,(void))
 
+Void FlxTilemap_obj::drawDebugOnCamera( ::flixel::FlxCamera Camera){
+{
+		HX_STACK_FRAME("flixel.tile.FlxTilemap","drawDebugOnCamera",0x0d929baf,"flixel.tile.FlxTilemap.drawDebugOnCamera","flixel/tile/FlxTilemap.hx",555,0x448feb74)
+		HX_STACK_THIS(this)
+		HX_STACK_ARG(Camera,"Camera")
+		HX_STACK_LINE(557)
+		::flixel::tile::FlxTilemapBuffer buffer = null();		HX_STACK_VAR(buffer,"buffer");
+		HX_STACK_LINE(558)
+		int l = ::flixel::FlxG_obj::cameras->list->length;		HX_STACK_VAR(l,"l");
+		HX_STACK_LINE(560)
+		{
+			HX_STACK_LINE(560)
+			int _g = (int)0;		HX_STACK_VAR(_g,"_g");
+			HX_STACK_LINE(560)
+			while((true)){
+				HX_STACK_LINE(560)
+				if ((!(((_g < l))))){
+					HX_STACK_LINE(560)
+					break;
+				}
+				HX_STACK_LINE(560)
+				int i = (_g)++;		HX_STACK_VAR(i,"i");
+				HX_STACK_LINE(562)
+				if (((::flixel::FlxG_obj::cameras->list->__get(i).StaticCast< ::flixel::FlxCamera >() == Camera))){
+					HX_STACK_LINE(564)
+					buffer = this->_buffers->__get(i).StaticCast< ::flixel::tile::FlxTilemapBuffer >();
+					HX_STACK_LINE(565)
+					break;
+				}
+			}
+		}
+		HX_STACK_LINE(569)
+		if (((buffer == null()))){
+			HX_STACK_LINE(571)
+			return null();
+		}
+		HX_STACK_LINE(575)
+		int _g = ::Math_obj::floor(Camera->scroll->x);		HX_STACK_VAR(_g,"_g");
+		HX_STACK_LINE(575)
+		Float _g1 = (_g * this->scrollFactor->x);		HX_STACK_VAR(_g1,"_g1");
+		HX_STACK_LINE(575)
+		Float _g2 = (this->x - _g1);		HX_STACK_VAR(_g2,"_g2");
+		HX_STACK_LINE(575)
+		Float _g3 = (_g2 * (int)5);		HX_STACK_VAR(_g3,"_g3");
+		HX_STACK_LINE(575)
+		int _g4 = ::Math_obj::floor(_g3);		HX_STACK_VAR(_g4,"_g4");
+		HX_STACK_LINE(575)
+		Float _g5 = (Float(_g4) / Float((int)5));		HX_STACK_VAR(_g5,"_g5");
+		HX_STACK_LINE(575)
+		Float _g6 = (_g5 + 0.1);		HX_STACK_VAR(_g6,"_g6");
+		HX_STACK_LINE(575)
+		this->_helperPoint->x = _g6;
+		HX_STACK_LINE(576)
+		int _g7 = ::Math_obj::floor(Camera->scroll->y);		HX_STACK_VAR(_g7,"_g7");
+		HX_STACK_LINE(576)
+		Float _g8 = (_g7 * this->scrollFactor->y);		HX_STACK_VAR(_g8,"_g8");
+		HX_STACK_LINE(576)
+		Float _g9 = (this->y - _g8);		HX_STACK_VAR(_g9,"_g9");
+		HX_STACK_LINE(576)
+		Float _g10 = (_g9 * (int)5);		HX_STACK_VAR(_g10,"_g10");
+		HX_STACK_LINE(576)
+		int _g11 = ::Math_obj::floor(_g10);		HX_STACK_VAR(_g11,"_g11");
+		HX_STACK_LINE(576)
+		Float _g12 = (Float(_g11) / Float((int)5));		HX_STACK_VAR(_g12,"_g12");
+		HX_STACK_LINE(576)
+		Float _g13 = (_g12 + 0.1);		HX_STACK_VAR(_g13,"_g13");
+		HX_STACK_LINE(576)
+		this->_helperPoint->y = _g13;
+		HX_STACK_LINE(578)
+		int tileID;		HX_STACK_VAR(tileID,"tileID");
+		HX_STACK_LINE(579)
+		int debugColor;		HX_STACK_VAR(debugColor,"debugColor");
+		HX_STACK_LINE(580)
+		Float drawX;		HX_STACK_VAR(drawX,"drawX");
+		HX_STACK_LINE(581)
+		Float drawY;		HX_STACK_VAR(drawY,"drawY");
+		HX_STACK_LINE(585)
+		this->_point->set_x(((Camera->scroll->x * this->scrollFactor->x) - this->x));
+		HX_STACK_LINE(586)
+		this->_point->set_y(((Camera->scroll->y * this->scrollFactor->y) - this->y));
+		HX_STACK_LINE(587)
+		int screenXInTiles = ::Math_obj::floor((Float(this->_point->x) / Float(this->_scaledTileWidth)));		HX_STACK_VAR(screenXInTiles,"screenXInTiles");
+		HX_STACK_LINE(588)
+		int screenYInTiles = ::Math_obj::floor((Float(this->_point->y) / Float(this->_scaledTileHeight)));		HX_STACK_VAR(screenYInTiles,"screenYInTiles");
+		HX_STACK_LINE(589)
+		int screenRows = buffer->rows;		HX_STACK_VAR(screenRows,"screenRows");
+		HX_STACK_LINE(590)
+		int screenColumns = buffer->columns;		HX_STACK_VAR(screenColumns,"screenColumns");
+		HX_STACK_LINE(593)
+		if (((screenXInTiles < (int)0))){
+			HX_STACK_LINE(595)
+			screenXInTiles = (int)0;
+		}
+		HX_STACK_LINE(597)
+		if (((screenXInTiles > (this->widthInTiles - screenColumns)))){
+			HX_STACK_LINE(599)
+			screenXInTiles = (this->widthInTiles - screenColumns);
+		}
+		HX_STACK_LINE(601)
+		if (((screenYInTiles < (int)0))){
+			HX_STACK_LINE(603)
+			screenYInTiles = (int)0;
+		}
+		HX_STACK_LINE(605)
+		if (((screenYInTiles > (this->heightInTiles - screenRows)))){
+			HX_STACK_LINE(607)
+			screenYInTiles = (this->heightInTiles - screenRows);
+		}
+		HX_STACK_LINE(610)
+		int rowIndex = ((screenYInTiles * this->widthInTiles) + screenXInTiles);		HX_STACK_VAR(rowIndex,"rowIndex");
+		HX_STACK_LINE(611)
+		this->_flashPoint->y = (int)0;
+		HX_STACK_LINE(612)
+		int row = (int)0;		HX_STACK_VAR(row,"row");
+		HX_STACK_LINE(613)
+		int column;		HX_STACK_VAR(column,"column");
+		HX_STACK_LINE(614)
+		int columnIndex;		HX_STACK_VAR(columnIndex,"columnIndex");
+		HX_STACK_LINE(615)
+		::flixel::tile::FlxTile tile;		HX_STACK_VAR(tile,"tile");
+		HX_STACK_LINE(616)
+		::openfl::_legacy::display::BitmapData debugTile;		HX_STACK_VAR(debugTile,"debugTile");
+		HX_STACK_LINE(618)
+		while((true)){
+			HX_STACK_LINE(618)
+			if ((!(((row < screenRows))))){
+				HX_STACK_LINE(618)
+				break;
+			}
+			HX_STACK_LINE(620)
+			columnIndex = rowIndex;
+			HX_STACK_LINE(621)
+			column = (int)0;
+			HX_STACK_LINE(622)
+			this->_flashPoint->x = (int)0;
+			HX_STACK_LINE(624)
+			while((true)){
+				HX_STACK_LINE(624)
+				if ((!(((column < screenColumns))))){
+					HX_STACK_LINE(624)
+					break;
+				}
+				HX_STACK_LINE(626)
+				tileID = this->_rectIDs->__get(columnIndex);
+				HX_STACK_LINE(628)
+				if (((tileID != (int)-1))){
+					HX_STACK_LINE(630)
+					drawX = (this->_helperPoint->x + (hx::Mod(columnIndex,this->widthInTiles) * this->_scaledTileWidth));
+					HX_STACK_LINE(631)
+					int _g14 = ::Math_obj::floor((Float(columnIndex) / Float(this->widthInTiles)));		HX_STACK_VAR(_g14,"_g14");
+					HX_STACK_LINE(631)
+					Float _g15 = (_g14 * this->_scaledTileHeight);		HX_STACK_VAR(_g15,"_g15");
+					HX_STACK_LINE(631)
+					Float _g16 = (this->_helperPoint->y + _g15);		HX_STACK_VAR(_g16,"_g16");
+					HX_STACK_LINE(631)
+					drawY = _g16;
+					HX_STACK_LINE(633)
+					tile = this->_tileObjects->__get(this->_data->__get(columnIndex)).StaticCast< ::flixel::tile::FlxTile >();
+					HX_STACK_LINE(635)
+					if (((tile != null()))){
+						HX_STACK_LINE(637)
+						if (((tile->allowCollisions <= (int)0))){
+							HX_STACK_LINE(639)
+							debugColor = (int)-16776961;
+						}
+						else{
+							HX_STACK_LINE(641)
+							if (((tile->allowCollisions != (int)4369))){
+								HX_STACK_LINE(643)
+								debugColor = (int)-16181;
+							}
+							else{
+								HX_STACK_LINE(647)
+								debugColor = (int)-16744448;
+							}
+						}
+						HX_STACK_LINE(651)
+						::openfl::_legacy::display::Graphics gfx = Camera->debugLayer->get_graphics();		HX_STACK_VAR(gfx,"gfx");
+						HX_STACK_LINE(652)
+						gfx->lineStyle((int)1,debugColor,0.5,null(),null(),null(),null(),null());
+						HX_STACK_LINE(653)
+						gfx->drawRect(drawX,drawY,this->_scaledTileWidth,this->_scaledTileHeight);
+					}
+				}
+				HX_STACK_LINE(657)
+				hx::AddEq(this->_flashPoint->x,this->_scaledTileWidth);
+				HX_STACK_LINE(658)
+				(column)++;
+				HX_STACK_LINE(659)
+				(columnIndex)++;
+			}
+			HX_STACK_LINE(662)
+			hx::AddEq(rowIndex,this->widthInTiles);
+			HX_STACK_LINE(663)
+			hx::AddEq(this->_flashPoint->y,this->_scaledTileHeight);
+			HX_STACK_LINE(664)
+			(row)++;
+		}
+	}
+return null();
+}
+
+
 Void FlxTilemap_obj::draw( ){
 {
 		HX_STACK_FRAME("flixel.tile.FlxTilemap","draw",0x7d740dc8,"flixel.tile.FlxTilemap.draw","flixel/tile/FlxTilemap.hx",674,0x448feb74)
@@ -716,6 +955,13 @@ Void FlxTilemap_obj::draw( ){
 			buffer->dirty = true;
 			HX_STACK_LINE(717)
 			this->drawTilemap(buffer,camera);
+			HX_STACK_LINE(721)
+			(::flixel::FlxBasic_obj::_VISIBLECOUNT)++;
+		}
+		HX_STACK_LINE(726)
+		if ((::flixel::FlxG_obj::debugger->drawDebug)){
+			HX_STACK_LINE(727)
+			this->drawDebug();
 		}
 	}
 return null();
@@ -2398,6 +2644,8 @@ Void FlxTilemap_obj::drawTilemap( ::flixel::tile::FlxTilemapBuffer Buffer,::flix
 		int columnIndex;		HX_STACK_VAR(columnIndex,"columnIndex");
 		HX_STACK_LINE(1594)
 		::flixel::tile::FlxTile tile;		HX_STACK_VAR(tile,"tile");
+		HX_STACK_LINE(1597)
+		::openfl::_legacy::display::BitmapData debugTile;		HX_STACK_VAR(debugTile,"debugTile");
 		HX_STACK_LINE(1600)
 		while((true)){
 			HX_STACK_LINE(1600)
@@ -3522,6 +3770,7 @@ Dynamic FlxTilemap_obj::__Field(const ::String &inName,bool inCallProp)
 		break;
 	case 17:
 		if (HX_FIELD_EQ(inName,"_scaledTileHeight") ) { return _scaledTileHeight; }
+		if (HX_FIELD_EQ(inName,"drawDebugOnCamera") ) { return drawDebugOnCamera_dyn(); }
 		if (HX_FIELD_EQ(inName,"getTileCollisions") ) { return getTileCollisions_dyn(); }
 		if (HX_FIELD_EQ(inName,"setTileProperties") ) { return setTileProperties_dyn(); }
 		if (HX_FIELD_EQ(inName,"setScaleXCallback") ) { return setScaleXCallback_dyn(); }
@@ -3704,6 +3953,7 @@ static ::String sMemberFields[] = {
 	HX_CSTRING("destroy"),
 	HX_CSTRING("loadMap"),
 	HX_CSTRING("setCustomTileMappings"),
+	HX_CSTRING("drawDebugOnCamera"),
 	HX_CSTRING("draw"),
 	HX_CSTRING("getData"),
 	HX_CSTRING("setDirty"),

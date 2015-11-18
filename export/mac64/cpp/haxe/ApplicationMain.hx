@@ -57,8 +57,8 @@ class ApplicationMain {
 				
 				#if mobile
 				
-				forceWidth = 640;
-				forceHeight = 480;
+				forceWidth = 320;
+				forceHeight = 180;
 				
 				container = new flash.display.Sprite ();
 				barA = new flash.display.Sprite ();
@@ -127,7 +127,7 @@ class ApplicationMain {
 				}
 				
 			},
-			640, 480, 
+			320, 180, 
 			60, 
 			0,
 			(true ? flash.Lib.HARDWARE : 0) |
@@ -248,13 +248,13 @@ class ScaledStage extends flash.display.Stage {
 	
 	private override function get_stageHeight ():Int {
 		
-		return 480;
+		return 180;
 	
 	}
 	
 	private override function get_stageWidth ():Int {
 		
-		return 640;
+		return 320;
 	
 	}
 	
@@ -325,11 +325,11 @@ class ApplicationMain {
 		wx.App.boot (function () {
 			
 			
-			frame = wx.Frame.create (null, null, "Solar Shepard", null, { width: 640, height: 480 });
+			frame = wx.Frame.create (null, null, "Solar Shepard", null, { width: 320, height: 180 });
 			
 			
 			#if openfl
-			var stage = wx.NMEStage.create (frame, null, null, { width: 640, height: 480 });
+			var stage = wx.NMEStage.create (frame, null, null, { width: 320, height: 180 });
 			#end
 			
 			var hasMain = false;
@@ -499,7 +499,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "836",
+			build: "1094",
 			company: "HaxeFlixel",
 			file: "FlxProject",
 			fps: 60,
@@ -517,13 +517,13 @@ class ApplicationMain {
 					display: 0,
 					fullscreen: false,
 					hardware: true,
-					height: 480,
+					height: 180,
 					parameters: "{}",
 					resizable: true,
 					stencilBuffer: false,
 					title: "Solar Shepard",
 					vsync: true,
-					width: 640,
+					width: 320,
 					x: null,
 					y: null
 				},
@@ -533,7 +533,7 @@ class ApplicationMain {
 		
 		#if (js && html5)
 		#if (munit || utest)
-		openfl.Lib.embed (null, 640, 480, "null");
+		openfl.Lib.embed (null, 320, 180, "null");
 		#end
 		#else
 		create ();

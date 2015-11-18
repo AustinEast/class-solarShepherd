@@ -47,6 +47,7 @@ class HXCPP_CLASS_ATTRIBUTES  Shooter_obj : public ::flixel::FlxSprite_obj{
 		int DISTANCE_SEEN;
 		::EnemyGun _enemyGun;
 		Float _targetDistance;
+		Float _targetY;
 		Float _hurtCounter;
 		::flixel::FlxSprite _target;
 		bool _flickering;

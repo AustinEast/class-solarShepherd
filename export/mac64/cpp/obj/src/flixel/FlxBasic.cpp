@@ -102,8 +102,10 @@ HX_DEFINE_DYNAMIC_FUNC0(FlxBasic_obj,revive,(void))
 
 Void FlxBasic_obj::update( ){
 {
-		HX_STACK_FRAME("flixel.FlxBasic","update",0x307e9d29,"flixel.FlxBasic.update","flixel/FlxBasic.hx",87,0xd8d6cfcf)
+		HX_STACK_FRAME("flixel.FlxBasic","update",0x307e9d29,"flixel.FlxBasic.update","flixel/FlxBasic.hx",89,0xd8d6cfcf)
 		HX_STACK_THIS(this)
+		HX_STACK_LINE(89)
+		(::flixel::FlxBasic_obj::_ACTIVECOUNT)++;
 	}
 return null();
 }
@@ -113,8 +115,10 @@ HX_DEFINE_DYNAMIC_FUNC0(FlxBasic_obj,update,(void))
 
 Void FlxBasic_obj::draw( ){
 {
-		HX_STACK_FRAME("flixel.FlxBasic","draw",0x12af3b24,"flixel.FlxBasic.draw","flixel/FlxBasic.hx",98,0xd8d6cfcf)
+		HX_STACK_FRAME("flixel.FlxBasic","draw",0x12af3b24,"flixel.FlxBasic.draw","flixel/FlxBasic.hx",100,0xd8d6cfcf)
 		HX_STACK_THIS(this)
+		HX_STACK_LINE(100)
+		(::flixel::FlxBasic_obj::_VISIBLECOUNT)++;
 	}
 return null();
 }
@@ -230,6 +234,10 @@ HX_DEFINE_DYNAMIC_FUNC1(FlxBasic_obj,set_alive,return )
 
 HX_DEFINE_DYNAMIC_FUNC0(FlxBasic_obj,toString,return )
 
+int FlxBasic_obj::_ACTIVECOUNT;
+
+int FlxBasic_obj::_VISIBLECOUNT;
+
 
 FlxBasic_obj::FlxBasic_obj()
 {
@@ -271,7 +279,11 @@ Dynamic FlxBasic_obj::__Field(const ::String &inName,bool inCallProp)
 	case 11:
 		if (HX_FIELD_EQ(inName,"set_visible") ) { return set_visible_dyn(); }
 		break;
+	case 12:
+		if (HX_FIELD_EQ(inName,"_ACTIVECOUNT") ) { return _ACTIVECOUNT; }
+		break;
 	case 13:
+		if (HX_FIELD_EQ(inName,"_VISIBLECOUNT") ) { return _VISIBLECOUNT; }
 		if (HX_FIELD_EQ(inName,"collisionType") ) { return collisionType; }
 	}
 	return super::__Field(inName,inCallProp);
@@ -293,7 +305,11 @@ Dynamic FlxBasic_obj::__SetField(const ::String &inName,const Dynamic &inValue,b
 	case 7:
 		if (HX_FIELD_EQ(inName,"visible") ) { if (inCallProp) return set_visible(inValue);visible=inValue.Cast< bool >(); return inValue; }
 		break;
+	case 12:
+		if (HX_FIELD_EQ(inName,"_ACTIVECOUNT") ) { _ACTIVECOUNT=inValue.Cast< int >(); return inValue; }
+		break;
 	case 13:
+		if (HX_FIELD_EQ(inName,"_VISIBLECOUNT") ) { _VISIBLECOUNT=inValue.Cast< int >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"collisionType") ) { collisionType=inValue.Cast< int >(); return inValue; }
 	}
 	return super::__SetField(inName,inValue,inCallProp);
@@ -311,6 +327,8 @@ void FlxBasic_obj::__GetFields(Array< ::String> &outFields)
 };
 
 static ::String sStaticFields[] = {
+	HX_CSTRING("_ACTIVECOUNT"),
+	HX_CSTRING("_VISIBLECOUNT"),
 	String(null()) };
 
 #if HXCPP_SCRIPTABLE
@@ -346,11 +364,15 @@ static ::String sMemberFields[] = {
 
 static void sMarkStatics(HX_MARK_PARAMS) {
 	HX_MARK_MEMBER_NAME(FlxBasic_obj::__mClass,"__mClass");
+	HX_MARK_MEMBER_NAME(FlxBasic_obj::_ACTIVECOUNT,"_ACTIVECOUNT");
+	HX_MARK_MEMBER_NAME(FlxBasic_obj::_VISIBLECOUNT,"_VISIBLECOUNT");
 };
 
 #ifdef HXCPP_VISIT_ALLOCS
 static void sVisitStatics(HX_VISIT_PARAMS) {
 	HX_VISIT_MEMBER_NAME(FlxBasic_obj::__mClass,"__mClass");
+	HX_VISIT_MEMBER_NAME(FlxBasic_obj::_ACTIVECOUNT,"_ACTIVECOUNT");
+	HX_VISIT_MEMBER_NAME(FlxBasic_obj::_VISIBLECOUNT,"_VISIBLECOUNT");
 };
 
 #endif
@@ -373,6 +395,8 @@ void FlxBasic_obj::__register()
 
 void FlxBasic_obj::__boot()
 {
+	_ACTIVECOUNT= (int)0;
+	_VISIBLECOUNT= (int)0;
 }
 
 } // end namespace flixel

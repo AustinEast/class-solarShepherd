@@ -6,13 +6,10 @@
 #endif
 
 #include <flixel/addons/editors/tiled/TiledMap.h>
-HX_DECLARE_CLASS0(LandPlayer)
 HX_DECLARE_CLASS0(LandState)
-HX_DECLARE_CLASS0(PolarSprite)
 HX_DECLARE_CLASS0(TiledStage)
 HX_DECLARE_CLASS1(flixel,FlxBasic)
 HX_DECLARE_CLASS1(flixel,FlxObject)
-HX_DECLARE_CLASS1(flixel,FlxSprite)
 HX_DECLARE_CLASS1(flixel,FlxState)
 HX_DECLARE_CLASS4(flixel,addons,editors,tiled,TiledMap)
 HX_DECLARE_CLASS4(flixel,addons,editors,tiled,TiledObject)
@@ -48,8 +45,11 @@ class HXCPP_CLASS_ATTRIBUTES  TiledStage_obj : public ::flixel::addons::editors:
 		::flixel::group::FlxGroup foregroundTiles;
 		::flixel::group::FlxGroup backgroundTiles;
 		::flixel::group::FlxGroup scenarioTiles;
-		::LandPlayer _player;
 		Array< ::Dynamic > collidableTileLayers;
+		int c;
+		int s;
+		int p;
+		int f;
 		virtual Void loadObjects( ::LandState state);
 		Dynamic loadObjects_dyn();
 

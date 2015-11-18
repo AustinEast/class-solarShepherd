@@ -30,6 +30,18 @@
 #ifndef INCLUDED_flixel_interfaces_IFlxPooled
 #include <flixel/interfaces/IFlxPooled.h>
 #endif
+#ifndef INCLUDED_flixel_system_debug_FlxDebugger
+#include <flixel/system/debug/FlxDebugger.h>
+#endif
+#ifndef INCLUDED_flixel_system_debug_Watch
+#include <flixel/system/debug/Watch.h>
+#endif
+#ifndef INCLUDED_flixel_system_debug_Window
+#include <flixel/system/debug/Window.h>
+#endif
+#ifndef INCLUDED_flixel_system_frontEnds_DebuggerFrontEnd
+#include <flixel/system/frontEnds/DebuggerFrontEnd.h>
+#endif
 #ifndef INCLUDED_flixel_util_FlxDestroyUtil
 #include <flixel/util/FlxDestroyUtil.h>
 #endif
@@ -189,9 +201,22 @@ HX_DEFINE_DYNAMIC_FUNC0(FlxMouseButton_obj,destroy,(void))
 
 Void FlxMouseButton_obj::onDown( ::openfl::_legacy::events::MouseEvent FlashEvent){
 {
-		HX_STACK_FRAME("flixel.input.mouse.FlxMouseButton","onDown",0x8ad419ab,"flixel.input.mouse.FlxMouseButton.onDown","flixel/input/mouse/FlxMouseButton.hx",116,0x7fcdf6f7)
+		HX_STACK_FRAME("flixel.input.mouse.FlxMouseButton","onDown",0x8ad419ab,"flixel.input.mouse.FlxMouseButton.onDown","flixel/input/mouse/FlxMouseButton.hx",77,0x7fcdf6f7)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(FlashEvent,"FlashEvent")
+		HX_STACK_LINE(79)
+		if (((bool((this->_ID == (int)-1)) && bool(::flixel::FlxG_obj::debugger->visible)))){
+			HX_STACK_LINE(81)
+			if ((::flixel::FlxG_obj::game->debugger->hasMouse)){
+				HX_STACK_LINE(83)
+				return null();
+			}
+			HX_STACK_LINE(85)
+			if ((::flixel::FlxG_obj::game->debugger->watch->editing)){
+				HX_STACK_LINE(87)
+				::flixel::FlxG_obj::game->debugger->watch->submit();
+			}
+		}
 		HX_STACK_LINE(116)
 		if (((this->current > (int)0))){
 			HX_STACK_LINE(118)
@@ -210,9 +235,14 @@ HX_DEFINE_DYNAMIC_FUNC1(FlxMouseButton_obj,onDown,(void))
 
 Void FlxMouseButton_obj::onUp( ::openfl::_legacy::events::MouseEvent FlashEvent){
 {
-		HX_STACK_FRAME("flixel.input.mouse.FlxMouseButton","onUp",0x3a027364,"flixel.input.mouse.FlxMouseButton.onUp","flixel/input/mouse/FlxMouseButton.hx",140,0x7fcdf6f7)
+		HX_STACK_FRAME("flixel.input.mouse.FlxMouseButton","onUp",0x3a027364,"flixel.input.mouse.FlxMouseButton.onUp","flixel/input/mouse/FlxMouseButton.hx",131,0x7fcdf6f7)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(FlashEvent,"FlashEvent")
+		HX_STACK_LINE(133)
+		if (((bool(::flixel::FlxG_obj::debugger->visible) && bool(::flixel::FlxG_obj::game->debugger->hasMouse)))){
+			HX_STACK_LINE(136)
+			return null();
+		}
 		HX_STACK_LINE(140)
 		if (((this->current == (int)2))){
 			HX_STACK_LINE(142)

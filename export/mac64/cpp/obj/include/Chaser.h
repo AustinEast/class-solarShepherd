@@ -46,6 +46,7 @@ class HXCPP_CLASS_ATTRIBUTES  Chaser_obj : public ::flixel::FlxSprite_obj{
 		bool _canJump;
 		Float _jumpTimer;
 		Float _targetDistance;
+		Float _targetY;
 		Float _hurtCounter;
 		::flixel::FlxSprite _target;
 		bool _flickering;

@@ -24,6 +24,12 @@
 #ifndef INCLUDED_flixel_system_FlxSound
 #include <flixel/system/FlxSound.h>
 #endif
+#ifndef INCLUDED_flixel_system_debug_LogStyle
+#include <flixel/system/debug/LogStyle.h>
+#endif
+#ifndef INCLUDED_flixel_system_frontEnds_LogFrontEnd
+#include <flixel/system/frontEnds/LogFrontEnd.h>
+#endif
 #ifndef INCLUDED_flixel_system_frontEnds_SoundFrontEnd
 #include <flixel/system/frontEnds/SoundFrontEnd.h>
 #endif
@@ -825,6 +831,8 @@ Void FlxSound_obj::gotID3( ::openfl::_legacy::events::Event event){
 		HX_STACK_FRAME("flixel.system.FlxSound","gotID3",0xcead1fb0,"flixel.system.FlxSound.gotID3","flixel/system/FlxSound.hx",579,0x7d78fc74)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(event,"event")
+		HX_STACK_LINE(580)
+		::flixel::FlxG_obj::log->advanced(HX_CSTRING("Got ID3 info."),::flixel::system::debug::LogStyle_obj::NOTICE,null());
 		HX_STACK_LINE(581)
 		this->name = this->_sound->get_id3()->songName;
 		HX_STACK_LINE(582)

@@ -15,7 +15,7 @@ class StunGun extends FlxWeapon {
 		super(Name, ParentRef, BulletType, BulletID);
 		
 		_shootSnd = FlxG.sound.load(Reg.STUNGUNSOUND);
-		makeImageBullet(2,Reg.STUNGUNBULLET,0,0,true,360,1);
+		makeImageBullet(2,Reg.STUNGUNBULLET,5,7,true,360,1);
         setBulletBounds(new flixel.util.FlxRect(0,0,3000,3000));
         setFireRate(100);
         rndFactorAngle = 20;

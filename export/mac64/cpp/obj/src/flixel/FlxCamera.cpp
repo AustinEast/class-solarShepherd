@@ -303,16 +303,28 @@ Float Zoom = __o_Zoom.Default(0);
 	::openfl::_legacy::geom::Rectangle _g10 = ::openfl::_legacy::geom::Rectangle_obj::__new((int)0,(int)0,this->width,this->height);		HX_STACK_VAR(_g10,"_g10");
 	HX_STACK_LINE(478)
 	this->canvas->set_scrollRect(_g10);
+	HX_STACK_LINE(481)
+	::openfl::_legacy::display::Sprite _g11 = ::openfl::_legacy::display::Sprite_obj::__new();		HX_STACK_VAR(_g11,"_g11");
+	HX_STACK_LINE(481)
+	this->debugLayer = _g11;
+	HX_STACK_LINE(482)
+	this->debugLayer->set_x((-(this->width) * 0.5));
+	HX_STACK_LINE(483)
+	this->debugLayer->set_y((-(this->height) * 0.5));
+	HX_STACK_LINE(484)
+	this->debugLayer->set_scaleX((int)1);
+	HX_STACK_LINE(485)
+	this->flashSprite->addChild(this->debugLayer);
 	HX_STACK_LINE(488)
-	::flixel::system::layer::DrawStackItem _g11 = ::flixel::system::layer::DrawStackItem_obj::__new();		HX_STACK_VAR(_g11,"_g11");
+	::flixel::system::layer::DrawStackItem _g12 = ::flixel::system::layer::DrawStackItem_obj::__new();		HX_STACK_VAR(_g12,"_g12");
 	HX_STACK_LINE(488)
-	this->_currentStackItem = _g11;
+	this->_currentStackItem = _g12;
 	HX_STACK_LINE(489)
 	this->_headOfDrawStack = this->_currentStackItem;
 	HX_STACK_LINE(492)
-	int _g12 = ::flixel::FlxG_obj::cameras->get_bgColor();		HX_STACK_VAR(_g12,"_g12");
+	int _g13 = ::flixel::FlxG_obj::cameras->get_bgColor();		HX_STACK_VAR(_g13,"_g13");
 	HX_STACK_LINE(492)
-	this->bgColor = _g12;
+	this->bgColor = _g13;
 }
 ;
 	return null();
@@ -529,6 +541,10 @@ Void FlxCamera_obj::destroy( ){
 {
 		HX_STACK_FRAME("flixel.FlxCamera","destroy",0xb607d391,"flixel.FlxCamera.destroy","flixel/FlxCamera.hx",499,0xe7aeb95a)
 		HX_STACK_THIS(this)
+		HX_STACK_LINE(507)
+		this->flashSprite->removeChild(this->debugLayer);
+		HX_STACK_LINE(508)
+		this->debugLayer = null();
 		HX_STACK_LINE(511)
 		this->flashSprite->removeChild(this->canvas);
 		HX_STACK_LINE(512)
@@ -1834,6 +1850,10 @@ int FlxCamera_obj::set_width( int Value){
 			this->_flashOffset->set_x(((this->width * 0.5) * this->zoom));
 			HX_STACK_LINE(1105)
 			this->canvas->set_x((-(this->width) * 0.5));
+			HX_STACK_LINE(1107)
+			Float _g = this->canvas->get_x();		HX_STACK_VAR(_g,"_g");
+			HX_STACK_LINE(1107)
+			this->debugLayer->set_x(_g);
 		}
 	}
 	HX_STACK_LINE(1112)
@@ -1863,6 +1883,10 @@ int FlxCamera_obj::set_height( int Value){
 			this->_flashOffset->set_y(((this->height * 0.5) * this->zoom));
 			HX_STACK_LINE(1135)
 			this->canvas->set_y((-(this->height) * 0.5));
+			HX_STACK_LINE(1137)
+			Float _g = this->canvas->get_y();		HX_STACK_VAR(_g,"_g");
+			HX_STACK_LINE(1137)
+			this->debugLayer->set_y(_g);
 		}
 	}
 	HX_STACK_LINE(1142)
@@ -2053,6 +2077,7 @@ void FlxCamera_obj::__Mark(HX_MARK_PARAMS)
 	HX_MARK_MEMBER_NAME(_fxShakeDirection,"_fxShakeDirection");
 	HX_MARK_MEMBER_NAME(_point,"_point");
 	HX_MARK_MEMBER_NAME(canvas,"canvas");
+	HX_MARK_MEMBER_NAME(debugLayer,"debugLayer");
 	HX_MARK_MEMBER_NAME(_currentStackItem,"_currentStackItem");
 	HX_MARK_MEMBER_NAME(_headOfDrawStack,"_headOfDrawStack");
 	HX_MARK_END_CLASS();
@@ -2100,6 +2125,7 @@ void FlxCamera_obj::__Visit(HX_VISIT_PARAMS)
 	HX_VISIT_MEMBER_NAME(_fxShakeDirection,"_fxShakeDirection");
 	HX_VISIT_MEMBER_NAME(_point,"_point");
 	HX_VISIT_MEMBER_NAME(canvas,"canvas");
+	HX_VISIT_MEMBER_NAME(debugLayer,"debugLayer");
 	HX_VISIT_MEMBER_NAME(_currentStackItem,"_currentStackItem");
 	HX_VISIT_MEMBER_NAME(_headOfDrawStack,"_headOfDrawStack");
 }
@@ -2163,6 +2189,7 @@ Dynamic FlxCamera_obj::__Field(const ::String &inName,bool inCallProp)
 		if (HX_FIELD_EQ(inName,"followLerp") ) { return followLerp; }
 		if (HX_FIELD_EQ(inName,"followLead") ) { return followLead; }
 		if (HX_FIELD_EQ(inName,"_flashRect") ) { return _flashRect; }
+		if (HX_FIELD_EQ(inName,"debugLayer") ) { return debugLayer; }
 		if (HX_FIELD_EQ(inName,"updateFade") ) { return updateFade_dyn(); }
 		if (HX_FIELD_EQ(inName,"set_height") ) { return set_height_dyn(); }
 		break;
@@ -2257,6 +2284,7 @@ Dynamic FlxCamera_obj::__SetField(const ::String &inName,const Dynamic &inValue,
 		if (HX_FIELD_EQ(inName,"followLerp") ) { followLerp=inValue.Cast< Float >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"followLead") ) { followLead=inValue.Cast< ::flixel::util::FlxPoint >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"_flashRect") ) { _flashRect=inValue.Cast< ::openfl::_legacy::geom::Rectangle >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"debugLayer") ) { debugLayer=inValue.Cast< ::openfl::_legacy::display::Sprite >(); return inValue; }
 		break;
 	case 11:
 		if (HX_FIELD_EQ(inName,"defaultZoom") ) { defaultZoom=inValue.Cast< Float >(); return inValue; }
@@ -2343,6 +2371,7 @@ void FlxCamera_obj::__GetFields(Array< ::String> &outFields)
 	outFields->push(HX_CSTRING("_fxShakeDirection"));
 	outFields->push(HX_CSTRING("_point"));
 	outFields->push(HX_CSTRING("canvas"));
+	outFields->push(HX_CSTRING("debugLayer"));
 	outFields->push(HX_CSTRING("_currentStackItem"));
 	outFields->push(HX_CSTRING("_headOfDrawStack"));
 	super::__GetFields(outFields);
@@ -2405,6 +2434,7 @@ static hx::StorageInfo sMemberStorageInfo[] = {
 	{hx::fsInt,(int)offsetof(FlxCamera_obj,_fxShakeDirection),HX_CSTRING("_fxShakeDirection")},
 	{hx::fsObject /*::flixel::util::FlxPoint*/ ,(int)offsetof(FlxCamera_obj,_point),HX_CSTRING("_point")},
 	{hx::fsObject /*::openfl::_legacy::display::Sprite*/ ,(int)offsetof(FlxCamera_obj,canvas),HX_CSTRING("canvas")},
+	{hx::fsObject /*::openfl::_legacy::display::Sprite*/ ,(int)offsetof(FlxCamera_obj,debugLayer),HX_CSTRING("debugLayer")},
 	{hx::fsObject /*::flixel::system::layer::DrawStackItem*/ ,(int)offsetof(FlxCamera_obj,_currentStackItem),HX_CSTRING("_currentStackItem")},
 	{hx::fsObject /*::flixel::system::layer::DrawStackItem*/ ,(int)offsetof(FlxCamera_obj,_headOfDrawStack),HX_CSTRING("_headOfDrawStack")},
 	{ hx::fsUnknown, 0, null()}
@@ -2452,6 +2482,7 @@ static ::String sMemberFields[] = {
 	HX_CSTRING("_fxShakeDirection"),
 	HX_CSTRING("_point"),
 	HX_CSTRING("canvas"),
+	HX_CSTRING("debugLayer"),
 	HX_CSTRING("_currentStackItem"),
 	HX_CSTRING("_headOfDrawStack"),
 	HX_CSTRING("getDrawStackItem"),

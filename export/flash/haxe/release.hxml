@@ -19,5 +19,5 @@
 -swf-lib export/flash/obj/assets.swf
 -swf-version 11.8
 -swf export/flash/bin/FlxProject.swf
--swf-header 640:480:60:000000
+-swf-header 320:180:60:000000
 -cp export/flash/haxe

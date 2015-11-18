@@ -36,8 +36,17 @@
 #ifndef INCLUDED_flixel_interfaces_IFlxPooled
 #include <flixel/interfaces/IFlxPooled.h>
 #endif
+#ifndef INCLUDED_flixel_system_debug_LogStyle
+#include <flixel/system/debug/LogStyle.h>
+#endif
 #ifndef INCLUDED_flixel_system_frontEnds_BitmapFrontEnd
 #include <flixel/system/frontEnds/BitmapFrontEnd.h>
+#endif
+#ifndef INCLUDED_flixel_system_frontEnds_DebuggerFrontEnd
+#include <flixel/system/frontEnds/DebuggerFrontEnd.h>
+#endif
+#ifndef INCLUDED_flixel_system_frontEnds_LogFrontEnd
+#include <flixel/system/frontEnds/LogFrontEnd.h>
 #endif
 #ifndef INCLUDED_flixel_system_layer_DrawStackItem
 #include <flixel/system/layer/DrawStackItem.h>
@@ -356,7 +365,7 @@ HX_DEFINE_DYNAMIC_FUNC1(FlxSprite_obj,clone,return )
 		HX_STACK_LINE(270)
 		Dynamic Data = (_g2 + HX_CSTRING(" object that doesn't exist."));		HX_STACK_VAR(Data,"Data");
 		HX_STACK_LINE(270)
-		Dynamic();
+		::flixel::FlxG_obj::log->advanced(Data,::flixel::system::debug::LogStyle_obj::WARNING,true);
 	}
 	HX_STACK_LINE(273)
 	::flixel::system::layer::Region _g3 = Sprite->region->clone();		HX_STACK_VAR(_g3,"_g3");
@@ -1485,7 +1494,14 @@ Void FlxSprite_obj::draw( ){
 				currDrawData[_g15] = (this->alpha * camera->alpha);
 				HX_STACK_LINE(900)
 				drawItem->position = currIndex;
+				HX_STACK_LINE(903)
+				(::flixel::FlxBasic_obj::_VISIBLECOUNT)++;
 			}
+		}
+		HX_STACK_LINE(908)
+		if ((::flixel::FlxG_obj::debugger->drawDebug)){
+			HX_STACK_LINE(909)
+			this->drawDebug();
 		}
 	}
 return null();

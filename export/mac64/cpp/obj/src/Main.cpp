@@ -67,17 +67,17 @@ HX_STACK_FRAME("Main","new",0x6616a5cb,"Main.new","Main.hx",11,0x087e5c05)
 HX_STACK_THIS(this)
 {
 	HX_STACK_LINE(19)
-	this->startFullscreen = false;
+	this->startFullscreen = true;
 	HX_STACK_LINE(18)
-	this->skipSplash = false;
+	this->skipSplash = true;
 	HX_STACK_LINE(17)
 	this->framerate = (int)60;
 	HX_STACK_LINE(16)
-	this->zoom = (int)2;
+	this->zoom = (int)-1;
 	HX_STACK_LINE(15)
 	this->initialState = hx::ClassOf< ::MenuState >();
 	HX_STACK_LINE(14)
-	this->gameHeight = (int)240;
+	this->gameHeight = (int)180;
 	HX_STACK_LINE(13)
 	this->gameWidth = (int)320;
 	HX_STACK_LINE(30)

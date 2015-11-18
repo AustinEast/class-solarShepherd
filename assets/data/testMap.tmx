@@ -29,11 +29,9 @@
   </data>
  </layer>
  <objectgroup name="enemies">
-  <object id="47" name="chaser" type="chaser" gid="13" x="186.85" y="74.9053" width="16" height="16"/>
   <object id="51" name="chaser" type="chaser" gid="7" x="407" y="80" width="16" height="16"/>
   <object id="52" name="shooter" type="shooter" gid="8" x="317" y="192" width="16" height="16"/>
   <object id="55" name="shooter" type="shooter" gid="8" x="303" y="60" width="16" height="16"/>
-  <object id="56" name="patroller" type="patroller" gid="9" x="108" y="66" width="16" height="16"/>
   <object id="57" name="patroller" type="patroller" gid="9" x="149" y="458" width="16" height="16"/>
  </objectgroup>
  <objectgroup name="player">

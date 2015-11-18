@@ -6,6 +6,12 @@
 #endif
 
 HX_DECLARE_CLASS0(Reg)
+HX_DECLARE_CLASS0(TiledStage)
+HX_DECLARE_CLASS1(flixel,FlxBasic)
+HX_DECLARE_CLASS4(flixel,addons,editors,tiled,TiledMap)
+HX_DECLARE_CLASS2(flixel,group,FlxGroup)
+HX_DECLARE_CLASS2(flixel,group,FlxTypedGroup)
+HX_DECLARE_CLASS2(flixel,interfaces,IFlxDestroyable)
 HX_DECLARE_CLASS2(flixel,util,FlxSave)
 
 
@@ -31,10 +37,12 @@ class HXCPP_CLASS_ATTRIBUTES  Reg_obj : public hx::Object{
 
 		static Array< ::String > levels;
 		static int level;
+		static ::TiledStage loadedLevel;
 		static Dynamic scores;
 		static int score;
 		static Array< ::Dynamic > saves;
 		static Array< int > colors;
+		static ::flixel::group::FlxGroup enemyBullets;
 		static ::String TILES;
 		static ::String LANDPLAYER;
 		static ::String STUNGUNBULLET;

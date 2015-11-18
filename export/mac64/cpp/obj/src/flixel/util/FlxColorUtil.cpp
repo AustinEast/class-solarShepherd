@@ -3,6 +3,15 @@
 #ifndef INCLUDED_Std
 #include <Std.h>
 #endif
+#ifndef INCLUDED_flixel_FlxG
+#include <flixel/FlxG.h>
+#endif
+#ifndef INCLUDED_flixel_system_debug_LogStyle
+#include <flixel/system/debug/LogStyle.h>
+#endif
+#ifndef INCLUDED_flixel_system_frontEnds_LogFrontEnd
+#include <flixel/system/frontEnds/LogFrontEnd.h>
+#endif
 #ifndef INCLUDED_flixel_util_FlxColorUtil
 #include <flixel/util/FlxColorUtil.h>
 #endif
@@ -556,7 +565,7 @@ int Threshold = __o_Threshold.Default(30);
 		HX_STACK_LINE(323)
 		if (((bool((Threshold > (int)359)) || bool((Threshold < (int)0))))){
 			HX_STACK_LINE(325)
-			Dynamic();
+			::flixel::FlxG_obj::log->advanced(HX_CSTRING("FlxColor Warning: Invalid threshold given to getAnalogousHarmony()"),::flixel::system::debug::LogStyle_obj::WARNING,true);
 		}
 		HX_STACK_LINE(328)
 		int _g = ::Std_obj::_int(hsv->__Field(HX_CSTRING("hue"),true));		HX_STACK_VAR(_g,"_g");
@@ -607,7 +616,7 @@ int Threshold = __o_Threshold.Default(30);
 		HX_STACK_LINE(347)
 		if (((bool((Threshold >= (int)359)) || bool((Threshold <= (int)0))))){
 			HX_STACK_LINE(349)
-			Dynamic();
+			::flixel::FlxG_obj::log->advanced(HX_CSTRING("FlxColor: Invalid threshold given to getSplitComplementHarmony()"),::flixel::system::debug::LogStyle_obj::WARNING,true);
 		}
 		HX_STACK_LINE(352)
 		int _g = ::Std_obj::_int(hsv->__Field(HX_CSTRING("hue"),true));		HX_STACK_VAR(_g,"_g");
@@ -621,6 +630,8 @@ int Threshold = __o_Threshold.Default(30);
 		int _g2 = ::Std_obj::_int(hsv->__Field(HX_CSTRING("hue"),true));		HX_STACK_VAR(_g2,"_g2");
 		HX_STACK_LINE(355)
 		int colder = ::flixel::util::FlxMath_obj::wrapValue(_g2,(opposite + Threshold),(int)359);		HX_STACK_VAR(colder,"colder");
+		HX_STACK_LINE(357)
+		::flixel::FlxG_obj::log->advanced((((((((HX_CSTRING("hue: ") + hsv->__Field(HX_CSTRING("hue"),true)) + HX_CSTRING(" opposite: ")) + opposite) + HX_CSTRING(" warmer: ")) + warmer) + HX_CSTRING(" colder: ")) + colder),::flixel::system::debug::LogStyle_obj::NOTICE,null());
 		HX_STACK_LINE(359)
 		int _g3 = ::flixel::util::FlxColorUtil_obj::HSVtoARGB(warmer,hsv->__Field(HX_CSTRING("saturation"),true),hsv->__Field(HX_CSTRING("value"),true),null());		HX_STACK_VAR(_g3,"_g3");
 		HX_STACK_LINE(359)
@@ -1381,7 +1392,7 @@ int Alpha = __o_Alpha.Default(255);
 					;break;
 					default: {
 						HX_STACK_LINE(483)
-						Dynamic();
+						::flixel::FlxG_obj::log->advanced(HX_CSTRING("FlxColor: HSVtoARGB: Unknown color"),::flixel::system::debug::LogStyle_obj::WARNING,true);
 					}
 				}
 			}

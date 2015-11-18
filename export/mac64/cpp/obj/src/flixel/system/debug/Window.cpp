@@ -6,11 +6,17 @@
 #ifndef INCLUDED_flixel_FlxG
 #include <flixel/FlxG.h>
 #endif
+#ifndef INCLUDED_flixel_FlxGame
+#include <flixel/FlxGame.h>
+#endif
 #ifndef INCLUDED_flixel_interfaces_IFlxDestroyable
 #include <flixel/interfaces/IFlxDestroyable.h>
 #endif
 #ifndef INCLUDED_flixel_system_FlxAssets
 #include <flixel/system/FlxAssets.h>
+#endif
+#ifndef INCLUDED_flixel_system_debug_FlxDebugger
+#include <flixel/system/debug/FlxDebugger.h>
 #endif
 #ifndef INCLUDED_flixel_system_debug_Window
 #include <flixel/system/debug/Window.h>
@@ -962,10 +968,40 @@ HX_DEFINE_DYNAMIC_FUNC0(Window_obj,updateSize,(void))
 
 Void Window_obj::close( ){
 {
-		HX_STACK_FRAME("flixel.system.debug.Window","close",0x8465b962,"flixel.system.debug.Window.close","flixel/system/debug/Window.hx",445,0xb8dfd4e5)
+		HX_STACK_FRAME("flixel.system.debug.Window","close",0x8465b962,"flixel.system.debug.Window.close","flixel/system/debug/Window.hx",444,0xb8dfd4e5)
 		HX_STACK_THIS(this)
 		HX_STACK_LINE(445)
 		this->destroy();
+		HX_STACK_LINE(447)
+		{
+			HX_STACK_LINE(447)
+			::flixel::system::debug::FlxDebugger _this = ::flixel::FlxG_obj::game->debugger;		HX_STACK_VAR(_this,"_this");
+			HX_STACK_LINE(447)
+			if ((_this->contains(hx::ObjectPtr<OBJ_>(this)))){
+				HX_STACK_LINE(447)
+				_this->removeChild(hx::ObjectPtr<OBJ_>(this));
+			}
+			HX_STACK_LINE(447)
+			{
+				HX_STACK_LINE(447)
+				Array< ::Dynamic > array = _this->_windows;		HX_STACK_VAR(array,"array");
+				HX_STACK_LINE(447)
+				int index = array->indexOf(hx::ObjectPtr<OBJ_>(this),null());		HX_STACK_VAR(index,"index");
+				HX_STACK_LINE(447)
+				if (((index != (int)-1))){
+					HX_STACK_LINE(447)
+					array[index] = array->__get((array->length - (int)1)).StaticCast< ::flixel::system::debug::Window >();
+					HX_STACK_LINE(447)
+					array->pop().StaticCast< ::flixel::system::debug::Window >();
+					HX_STACK_LINE(447)
+					array;
+				}
+				else{
+					HX_STACK_LINE(447)
+					array;
+				}
+			}
+		}
 	}
 return null();
 }

@@ -23,12 +23,12 @@ class MenuState extends FlxState
 	override public function create():Void
 	{
 		//Creates the title text.
-		_title = new FlxText(0,100,FlxG.width,"Solar Shepard Gameplay Modules");
+		_title = new FlxText(0,40,FlxG.width,"Solar Shepherd Gameplay Modules");
 		_title.setFormat(null,16,0xFFFFFFFF,"center",1);
 		add(_title);
 		//Create the buttons for different states.
-		_spacePlay = new FlxButton(FlxG.width/2-90,200,"Space",goToSpaceState);
-		_landPlay = new FlxButton(FlxG.width/2+30,200,"Land",goToLandState);
+		_spacePlay = new FlxButton(FlxG.width/2-90,80,"Space",goToSpaceState);
+		_landPlay = new FlxButton(FlxG.width/2+30,80,"Land",goToLandState);
 		add(_spacePlay);
 		add(_landPlay);
 

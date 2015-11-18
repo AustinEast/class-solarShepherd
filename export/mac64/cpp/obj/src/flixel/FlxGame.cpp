@@ -1,5 +1,8 @@
 #include <hxcpp.h>
 
+#ifndef INCLUDED_IMap
+#include <IMap.h>
+#endif
 #ifndef INCLUDED_Std
 #include <Std.h>
 #endif
@@ -20,6 +23,9 @@
 #endif
 #ifndef INCLUDED_flixel_FlxState
 #include <flixel/FlxState.h>
+#endif
+#ifndef INCLUDED_flixel_FlxSubState
+#include <flixel/FlxSubState.h>
 #endif
 #ifndef INCLUDED_flixel_group_FlxGroup
 #include <flixel/group/FlxGroup.h>
@@ -48,14 +54,35 @@
 #ifndef INCLUDED_flixel_system_FlxSplash
 #include <flixel/system/FlxSplash.h>
 #endif
+#ifndef INCLUDED_flixel_system_debug_Console
+#include <flixel/system/debug/Console.h>
+#endif
+#ifndef INCLUDED_flixel_system_debug_FlxDebugger
+#include <flixel/system/debug/FlxDebugger.h>
+#endif
+#ifndef INCLUDED_flixel_system_debug_LogStyle
+#include <flixel/system/debug/LogStyle.h>
+#endif
+#ifndef INCLUDED_flixel_system_debug_Stats
+#include <flixel/system/debug/Stats.h>
+#endif
+#ifndef INCLUDED_flixel_system_debug_Window
+#include <flixel/system/debug/Window.h>
+#endif
 #ifndef INCLUDED_flixel_system_frontEnds_BitmapFrontEnd
 #include <flixel/system/frontEnds/BitmapFrontEnd.h>
 #endif
 #ifndef INCLUDED_flixel_system_frontEnds_CameraFrontEnd
 #include <flixel/system/frontEnds/CameraFrontEnd.h>
 #endif
+#ifndef INCLUDED_flixel_system_frontEnds_DebuggerFrontEnd
+#include <flixel/system/frontEnds/DebuggerFrontEnd.h>
+#endif
 #ifndef INCLUDED_flixel_system_frontEnds_InputFrontEnd
 #include <flixel/system/frontEnds/InputFrontEnd.h>
+#endif
+#ifndef INCLUDED_flixel_system_frontEnds_LogFrontEnd
+#include <flixel/system/frontEnds/LogFrontEnd.h>
 #endif
 #ifndef INCLUDED_flixel_system_frontEnds_PluginFrontEnd
 #include <flixel/system/frontEnds/PluginFrontEnd.h>
@@ -98,6 +125,9 @@
 #endif
 #ifndef INCLUDED_flixel_util__FlxSignal_FlxSignalBase
 #include <flixel/util/_FlxSignal/FlxSignalBase.h>
+#endif
+#ifndef INCLUDED_haxe_ds_StringMap
+#include <haxe/ds/StringMap.h>
 #endif
 #ifndef INCLUDED_openfl__legacy_Lib
 #include <openfl/_legacy/Lib.h>
@@ -266,16 +296,26 @@ Void FlxGame_obj::create( Dynamic _){
 		this->get_stage()->set_frameRate(::flixel::FlxG_obj::drawFramerate);
 		HX_STACK_LINE(278)
 		this->addChild(this->_inputContainer);
+		HX_STACK_LINE(282)
+		int _g2 = ::openfl::_legacy::Lib_obj::get_current()->get_stage()->get_stageWidth();		HX_STACK_VAR(_g2,"_g2");
+		HX_STACK_LINE(282)
+		int _g3 = ::openfl::_legacy::Lib_obj::get_current()->get_stage()->get_stageHeight();		HX_STACK_VAR(_g3,"_g3");
+		HX_STACK_LINE(282)
+		::flixel::system::debug::FlxDebugger _g4 = ::flixel::system::debug::FlxDebugger_obj::__new(_g2,_g3);		HX_STACK_VAR(_g4,"_g4");
+		HX_STACK_LINE(282)
+		this->debugger = _g4;
+		HX_STACK_LINE(283)
+		this->addChild(this->debugger);
 		HX_STACK_LINE(290)
-		::flixel::system::ui::FlxSoundTray _g2 = ::Type_obj::createInstance(this->_customSoundTray,Dynamic( Array_obj<Dynamic>::__new()));		HX_STACK_VAR(_g2,"_g2");
+		::flixel::system::ui::FlxSoundTray _g5 = ::Type_obj::createInstance(this->_customSoundTray,Dynamic( Array_obj<Dynamic>::__new()));		HX_STACK_VAR(_g5,"_g5");
 		HX_STACK_LINE(290)
-		this->soundTray = _g2;
+		this->soundTray = _g5;
 		HX_STACK_LINE(291)
 		this->addChild(this->soundTray);
 		HX_STACK_LINE(295)
-		::flixel::system::ui::FlxFocusLostScreen _g3 = ::Type_obj::createInstance(this->_customFocusLostScreen,Dynamic( Array_obj<Dynamic>::__new()));		HX_STACK_VAR(_g3,"_g3");
+		::flixel::system::ui::FlxFocusLostScreen _g6 = ::Type_obj::createInstance(this->_customFocusLostScreen,Dynamic( Array_obj<Dynamic>::__new()));		HX_STACK_VAR(_g6,"_g6");
 		HX_STACK_LINE(295)
-		this->_focusLostScreen = _g3;
+		this->_focusLostScreen = _g6;
 		HX_STACK_LINE(296)
 		this->addChild(this->_focusLostScreen);
 		HX_STACK_LINE(302)
@@ -287,11 +327,13 @@ Void FlxGame_obj::create( Dynamic _){
 			HX_STACK_LINE(310)
 			::flixel::FlxG_obj::signals->gameReset->dispatch();
 			HX_STACK_LINE(310)
+			this->_skipSplash = true;
+			HX_STACK_LINE(310)
 			if (((bool(this->_skipSplash) || bool((::flixel::system::FlxSplash_obj::nextState != null()))))){
 				HX_STACK_LINE(310)
-				::flixel::FlxState _g4 = ::Type_obj::createInstance(this->_initialState,Dynamic( Array_obj<Dynamic>::__new()));		HX_STACK_VAR(_g4,"_g4");
+				::flixel::FlxState _g7 = ::Type_obj::createInstance(this->_initialState,Dynamic( Array_obj<Dynamic>::__new()));		HX_STACK_VAR(_g7,"_g7");
 				HX_STACK_LINE(310)
-				this->_requestedState = _g4;
+				this->_requestedState = _g7;
 				HX_STACK_LINE(310)
 				if (((::flixel::system::FlxSplash_obj::nextState == null()))){
 					HX_STACK_LINE(310)
@@ -302,11 +344,16 @@ Void FlxGame_obj::create( Dynamic _){
 				HX_STACK_LINE(310)
 				::flixel::system::FlxSplash_obj::nextState = this->_initialState;
 				HX_STACK_LINE(310)
-				::flixel::system::FlxSplash _g5 = ::flixel::system::FlxSplash_obj::__new(null());		HX_STACK_VAR(_g5,"_g5");
+				::flixel::system::FlxSplash _g8 = ::flixel::system::FlxSplash_obj::__new(null());		HX_STACK_VAR(_g8,"_g8");
 				HX_STACK_LINE(310)
-				this->_requestedState = _g5;
+				this->_requestedState = _g8;
 				HX_STACK_LINE(310)
 				this->_skipSplash = true;
+			}
+			HX_STACK_LINE(310)
+			if ((::Std_obj::is(this->_requestedState,hx::ClassOf< ::flixel::FlxSubState >()))){
+				HX_STACK_LINE(310)
+				HX_STACK_DO_THROW(HX_CSTRING("You can't set FlxSubState class instance as the state for you game"));
 			}
 			HX_STACK_LINE(310)
 			::flixel::FlxG_obj::reset();
@@ -314,22 +361,22 @@ Void FlxGame_obj::create( Dynamic _){
 		HX_STACK_LINE(311)
 		this->switchState();
 		HX_STACK_LINE(313)
-		int _g6 = ::Std_obj::_int((Float((int)1000) / Float(::flixel::FlxG_obj::game->_stepMS)));		HX_STACK_VAR(_g6,"_g6");
+		int _g9 = ::Std_obj::_int((Float((int)1000) / Float(::flixel::FlxG_obj::game->_stepMS)));		HX_STACK_VAR(_g9,"_g9");
 		HX_STACK_LINE(313)
-		if (((_g6 < ::flixel::FlxG_obj::drawFramerate))){
+		if (((_g9 < ::flixel::FlxG_obj::drawFramerate))){
 			HX_STACK_LINE(315)
-			Dynamic();
+			::flixel::FlxG_obj::log->advanced(HX_CSTRING("FlxG.updateFramerate: The update framerate shouldn't be smaller than the draw framerate, since it can slow down your game."),::flixel::system::debug::LogStyle_obj::WARNING,true);
 		}
 		HX_STACK_LINE(319)
 		this->get_stage()->addEventListener(::openfl::_legacy::events::Event_obj::ENTER_FRAME,this->onEnterFrame_dyn(),null(),null(),null());
 		HX_STACK_LINE(323)
 		this->get_stage()->addEventListener(::openfl::_legacy::events::Event_obj::RESIZE,this->onResize_dyn(),null(),null(),null());
 		HX_STACK_LINE(326)
-		int _g7 = ::openfl::_legacy::Lib_obj::get_current()->get_stage()->get_stageWidth();		HX_STACK_VAR(_g7,"_g7");
+		int _g10 = ::openfl::_legacy::Lib_obj::get_current()->get_stage()->get_stageWidth();		HX_STACK_VAR(_g10,"_g10");
 		HX_STACK_LINE(326)
-		int _g8 = ::openfl::_legacy::Lib_obj::get_current()->get_stage()->get_stageHeight();		HX_STACK_VAR(_g8,"_g8");
+		int _g11 = ::openfl::_legacy::Lib_obj::get_current()->get_stage()->get_stageHeight();		HX_STACK_VAR(_g11,"_g11");
 		HX_STACK_LINE(326)
-		this->resizeGame(_g7,_g8);
+		this->resizeGame(_g10,_g11);
 	}
 return null();
 }
@@ -365,6 +412,8 @@ Void FlxGame_obj::onFocus( Dynamic _){
 			HX_STACK_LINE(359)
 			this->_focusLostScreen->set_visible(false);
 		}
+		HX_STACK_LINE(364)
+		this->debugger->stats->onFocus();
 		HX_STACK_LINE(367)
 		this->get_stage()->set_frameRate(::flixel::FlxG_obj::drawFramerate);
 		HX_STACK_LINE(369)
@@ -418,6 +467,8 @@ Void FlxGame_obj::onFocusLost( Dynamic _){
 			HX_STACK_LINE(395)
 			this->_focusLostScreen->set_visible(true);
 		}
+		HX_STACK_LINE(400)
+		this->debugger->stats->onFocusLost();
 		HX_STACK_LINE(403)
 		this->get_stage()->set_frameRate(this->focusLostFramerate);
 		HX_STACK_LINE(405)
@@ -506,6 +557,8 @@ Void FlxGame_obj::resizeGame( int width,int height){
 		HX_STACK_ARG(height,"height")
 		HX_STACK_LINE(429)
 		::flixel::FlxG_obj::_scaleMode->onMeasure(width,height);
+		HX_STACK_LINE(432)
+		this->debugger->onResize(width,height);
 		HX_STACK_LINE(436)
 		if (((this->_focusLostScreen != null()))){
 			HX_STACK_LINE(438)
@@ -596,8 +649,14 @@ Void FlxGame_obj::onEnterFrame( Dynamic _){
 				HX_STACK_LINE(499)
 				this->step();
 			}
+			HX_STACK_LINE(503)
+			::flixel::FlxBasic_obj::_VISIBLECOUNT = (int)0;
 			HX_STACK_LINE(506)
 			this->draw();
+			HX_STACK_LINE(509)
+			this->debugger->stats->visibleObjects(::flixel::FlxBasic_obj::_VISIBLECOUNT);
+			HX_STACK_LINE(510)
+			this->debugger->update();
 		}
 	}
 return null();
@@ -612,6 +671,8 @@ Void FlxGame_obj::resetGame( ){
 		HX_STACK_THIS(this)
 		HX_STACK_LINE(521)
 		::flixel::FlxG_obj::signals->gameReset->dispatch();
+		HX_STACK_LINE(524)
+		this->_skipSplash = true;
 		HX_STACK_LINE(527)
 		if (((bool(this->_skipSplash) || bool((::flixel::system::FlxSplash_obj::nextState != null()))))){
 			HX_STACK_LINE(529)
@@ -633,6 +694,11 @@ Void FlxGame_obj::resetGame( ){
 			this->_requestedState = _g1;
 			HX_STACK_LINE(539)
 			this->_skipSplash = true;
+		}
+		HX_STACK_LINE(543)
+		if ((::Std_obj::is(this->_requestedState,hx::ClassOf< ::flixel::FlxSubState >()))){
+			HX_STACK_LINE(545)
+			HX_STACK_DO_THROW(HX_CSTRING("You can't set FlxSubState class instance as the state for you game"));
 		}
 		HX_STACK_LINE(549)
 		::flixel::FlxG_obj::reset();
@@ -697,6 +763,13 @@ Void FlxGame_obj::switchState( ){
 			HX_STACK_LINE(587)
 			this->gameStart();
 		}
+		HX_STACK_LINE(591)
+		{
+			HX_STACK_LINE(591)
+			Dynamic value = this->_state;		HX_STACK_VAR(value,"value");
+			HX_STACK_LINE(591)
+			this->debugger->console->registeredObjects->set(HX_CSTRING("state"),value);
+		}
 	}
 return null();
 }
@@ -730,6 +803,8 @@ Void FlxGame_obj::step( ){
 				HX_STACK_LINE(612)
 				::flixel::FlxG_obj::signals->gameReset->dispatch();
 				HX_STACK_LINE(612)
+				this->_skipSplash = true;
+				HX_STACK_LINE(612)
 				if (((bool(this->_skipSplash) || bool((::flixel::system::FlxSplash_obj::nextState != null()))))){
 					HX_STACK_LINE(612)
 					::flixel::FlxState _g = ::Type_obj::createInstance(this->_initialState,Dynamic( Array_obj<Dynamic>::__new()));		HX_STACK_VAR(_g,"_g");
@@ -752,13 +827,22 @@ Void FlxGame_obj::step( ){
 					this->_skipSplash = true;
 				}
 				HX_STACK_LINE(612)
+				if ((::Std_obj::is(this->_requestedState,hx::ClassOf< ::flixel::FlxSubState >()))){
+					HX_STACK_LINE(612)
+					HX_STACK_DO_THROW(HX_CSTRING("You can't set FlxSubState class instance as the state for you game"));
+				}
+				HX_STACK_LINE(612)
 				::flixel::FlxG_obj::reset();
 			}
 			HX_STACK_LINE(613)
 			this->_resetGame = false;
 		}
+		HX_STACK_LINE(645)
+		::flixel::FlxBasic_obj::_ACTIVECOUNT = (int)0;
 		HX_STACK_LINE(648)
 		this->update();
+		HX_STACK_LINE(651)
+		this->debugger->stats->activeObjects(::flixel::FlxBasic_obj::_ACTIVECOUNT);
 	}
 return null();
 }
@@ -779,6 +863,13 @@ Void FlxGame_obj::update( ){
 		if (((this->_state != this->_requestedState))){
 			HX_STACK_LINE(668)
 			this->switchState();
+		}
+		HX_STACK_LINE(672)
+		if ((::flixel::FlxG_obj::debugger->visible)){
+			HX_STACK_LINE(674)
+			int _g = ::openfl::_legacy::Lib_obj::getTimer();		HX_STACK_VAR(_g,"_g");
+			HX_STACK_LINE(674)
+			this->ticks = _g;
 		}
 		HX_STACK_LINE(678)
 		::flixel::FlxG_obj::signals->preUpdate->dispatch();
@@ -863,21 +954,27 @@ Void FlxGame_obj::update( ){
 		}
 		HX_STACK_LINE(703)
 		::flixel::FlxG_obj::signals->postUpdate->dispatch();
+		HX_STACK_LINE(706)
+		int _g1 = ::openfl::_legacy::Lib_obj::getTimer();		HX_STACK_VAR(_g1,"_g1");
+		HX_STACK_LINE(706)
+		int _g2 = (_g1 - this->ticks);		HX_STACK_VAR(_g2,"_g2");
+		HX_STACK_LINE(706)
+		this->debugger->stats->flixelUpdate(_g2);
 		HX_STACK_LINE(710)
 		{
 			HX_STACK_LINE(710)
 			int _g = (int)0;		HX_STACK_VAR(_g,"_g");
 			HX_STACK_LINE(710)
-			Array< ::Dynamic > _g1 = ::flixel::FlxG_obj::swipes;		HX_STACK_VAR(_g1,"_g1");
+			Array< ::Dynamic > _g11 = ::flixel::FlxG_obj::swipes;		HX_STACK_VAR(_g11,"_g11");
 			HX_STACK_LINE(710)
 			while((true)){
 				HX_STACK_LINE(710)
-				if ((!(((_g < _g1->length))))){
+				if ((!(((_g < _g11->length))))){
 					HX_STACK_LINE(710)
 					break;
 				}
 				HX_STACK_LINE(710)
-				::flixel::input::FlxSwipe swipe = _g1->__get(_g).StaticCast< ::flixel::input::FlxSwipe >();		HX_STACK_VAR(swipe,"swipe");
+				::flixel::input::FlxSwipe swipe = _g11->__get(_g).StaticCast< ::flixel::input::FlxSwipe >();		HX_STACK_VAR(swipe,"swipe");
 				HX_STACK_LINE(710)
 				++(_g);
 				HX_STACK_LINE(712)
@@ -931,6 +1028,13 @@ Void FlxGame_obj::draw( ){
 			HX_STACK_LINE(784)
 			return null();
 		}
+		HX_STACK_LINE(788)
+		if ((::flixel::FlxG_obj::debugger->visible)){
+			HX_STACK_LINE(791)
+			int _g = ::openfl::_legacy::Lib_obj::getTimer();		HX_STACK_VAR(_g,"_g");
+			HX_STACK_LINE(791)
+			this->ticks = _g;
+		}
 		HX_STACK_LINE(795)
 		::flixel::FlxG_obj::signals->preDraw->dispatch();
 		HX_STACK_LINE(798)
@@ -961,6 +1065,8 @@ Void FlxGame_obj::draw( ){
 				camera->clearDrawStack();
 				HX_STACK_LINE(801)
 				camera->canvas->get_graphics()->clear();
+				HX_STACK_LINE(801)
+				camera->debugLayer->get_graphics()->clear();
 				HX_STACK_LINE(801)
 				camera->fill((int(camera->bgColor) & int((int)16777215)),camera->useBgAlphaBlending,(Float(((int((int(camera->bgColor) >> int((int)24))) & int((int)255)))) / Float((int)255)),null());
 			}
@@ -1015,6 +1121,8 @@ Void FlxGame_obj::draw( ){
 				}
 			}
 		}
+		HX_STACK_LINE(811)
+		this->debugger->stats->drawCalls(::flixel::system::layer::TileSheetExt_obj::_DRAWCALLS);
 		HX_STACK_LINE(837)
 		{
 			HX_STACK_LINE(837)
@@ -1043,6 +1151,12 @@ Void FlxGame_obj::draw( ){
 		}
 		HX_STACK_LINE(839)
 		::flixel::FlxG_obj::signals->postDraw->dispatch();
+		HX_STACK_LINE(842)
+		int _g1 = ::openfl::_legacy::Lib_obj::getTimer();		HX_STACK_VAR(_g1,"_g1");
+		HX_STACK_LINE(842)
+		int _g2 = (_g1 - this->ticks);		HX_STACK_VAR(_g2,"_g2");
+		HX_STACK_LINE(842)
+		this->debugger->stats->flixelDraw(_g2);
 	}
 return null();
 }
@@ -1060,6 +1174,7 @@ void FlxGame_obj::__Mark(HX_MARK_PARAMS)
 	HX_MARK_BEGIN_CLASS(FlxGame);
 	HX_MARK_MEMBER_NAME(focusLostFramerate,"focusLostFramerate");
 	HX_MARK_MEMBER_NAME(soundTray,"soundTray");
+	HX_MARK_MEMBER_NAME(debugger,"debugger");
 	HX_MARK_MEMBER_NAME(ticks,"ticks");
 	HX_MARK_MEMBER_NAME(_gameJustStarted,"_gameJustStarted");
 	HX_MARK_MEMBER_NAME(_initialState,"_initialState");
@@ -1088,6 +1203,7 @@ void FlxGame_obj::__Visit(HX_VISIT_PARAMS)
 {
 	HX_VISIT_MEMBER_NAME(focusLostFramerate,"focusLostFramerate");
 	HX_VISIT_MEMBER_NAME(soundTray,"soundTray");
+	HX_VISIT_MEMBER_NAME(debugger,"debugger");
 	HX_VISIT_MEMBER_NAME(ticks,"ticks");
 	HX_VISIT_MEMBER_NAME(_gameJustStarted,"_gameJustStarted");
 	HX_VISIT_MEMBER_NAME(_initialState,"_initialState");
@@ -1132,6 +1248,7 @@ Dynamic FlxGame_obj::__Field(const ::String &inName,bool inCallProp)
 		if (HX_FIELD_EQ(inName,"onFocus") ) { return onFocus_dyn(); }
 		break;
 	case 8:
+		if (HX_FIELD_EQ(inName,"debugger") ) { return debugger; }
 		if (HX_FIELD_EQ(inName,"onResize") ) { return onResize_dyn(); }
 		break;
 	case 9:
@@ -1195,6 +1312,9 @@ Dynamic FlxGame_obj::__SetField(const ::String &inName,const Dynamic &inValue,bo
 	case 7:
 		if (HX_FIELD_EQ(inName,"_stepMS") ) { _stepMS=inValue.Cast< int >(); return inValue; }
 		break;
+	case 8:
+		if (HX_FIELD_EQ(inName,"debugger") ) { debugger=inValue.Cast< ::flixel::system::debug::FlxDebugger >(); return inValue; }
+		break;
 	case 9:
 		if (HX_FIELD_EQ(inName,"soundTray") ) { soundTray=inValue.Cast< ::flixel::system::ui::FlxSoundTray >(); return inValue; }
 		break;
@@ -1240,6 +1360,7 @@ void FlxGame_obj::__GetFields(Array< ::String> &outFields)
 {
 	outFields->push(HX_CSTRING("focusLostFramerate"));
 	outFields->push(HX_CSTRING("soundTray"));
+	outFields->push(HX_CSTRING("debugger"));
 	outFields->push(HX_CSTRING("ticks"));
 	outFields->push(HX_CSTRING("_gameJustStarted"));
 	outFields->push(HX_CSTRING("_initialState"));
@@ -1270,6 +1391,7 @@ static ::String sStaticFields[] = {
 static hx::StorageInfo sMemberStorageInfo[] = {
 	{hx::fsInt,(int)offsetof(FlxGame_obj,focusLostFramerate),HX_CSTRING("focusLostFramerate")},
 	{hx::fsObject /*::flixel::system::ui::FlxSoundTray*/ ,(int)offsetof(FlxGame_obj,soundTray),HX_CSTRING("soundTray")},
+	{hx::fsObject /*::flixel::system::debug::FlxDebugger*/ ,(int)offsetof(FlxGame_obj,debugger),HX_CSTRING("debugger")},
 	{hx::fsInt,(int)offsetof(FlxGame_obj,ticks),HX_CSTRING("ticks")},
 	{hx::fsBool,(int)offsetof(FlxGame_obj,_gameJustStarted),HX_CSTRING("_gameJustStarted")},
 	{hx::fsObject /*::Class*/ ,(int)offsetof(FlxGame_obj,_initialState),HX_CSTRING("_initialState")},
@@ -1297,6 +1419,7 @@ static hx::StorageInfo sMemberStorageInfo[] = {
 static ::String sMemberFields[] = {
 	HX_CSTRING("focusLostFramerate"),
 	HX_CSTRING("soundTray"),
+	HX_CSTRING("debugger"),
 	HX_CSTRING("ticks"),
 	HX_CSTRING("_gameJustStarted"),
 	HX_CSTRING("_initialState"),

@@ -42,6 +42,30 @@ STATIC_HX_DEFINE_DYNAMIC_FUNC1(StringTools_obj,urlEncode,return )
 
 STATIC_HX_DEFINE_DYNAMIC_FUNC1(StringTools_obj,urlDecode,return )
 
+::String StringTools_obj::htmlEscape( ::String s,Dynamic quotes){
+	HX_STACK_FRAME("StringTools","htmlEscape",0x0e1a5dd0,"StringTools.htmlEscape","/usr/lib/haxe/std/StringTools.hx",97,0x02f0e375)
+	HX_STACK_ARG(s,"s")
+	HX_STACK_ARG(quotes,"quotes")
+	HX_STACK_LINE(98)
+	::String _g = s.split(HX_CSTRING("&"))->join(HX_CSTRING("&amp;")).split(HX_CSTRING("<"))->join(HX_CSTRING("&lt;")).split(HX_CSTRING(">"))->join(HX_CSTRING("&gt;"));		HX_STACK_VAR(_g,"_g");
+	HX_STACK_LINE(98)
+	s = _g;
+	HX_STACK_LINE(99)
+	if ((quotes)){
+		HX_STACK_LINE(99)
+		return s.split(HX_CSTRING("\""))->join(HX_CSTRING("&quot;")).split(HX_CSTRING("'"))->join(HX_CSTRING("&#039;"));
+	}
+	else{
+		HX_STACK_LINE(99)
+		return s;
+	}
+	HX_STACK_LINE(99)
+	return null();
+}
+
+
+STATIC_HX_DEFINE_DYNAMIC_FUNC2(StringTools_obj,htmlEscape,return )
+
 bool StringTools_obj::startsWith( ::String s,::String start){
 	HX_STACK_FRAME("StringTools","startsWith",0x5f4e6efb,"StringTools.startsWith","/usr/lib/haxe/std/StringTools.hx",133,0x02f0e375)
 	HX_STACK_ARG(s,"s")
@@ -220,6 +244,7 @@ Dynamic StringTools_obj::__Field(const ::String &inName,bool inCallProp)
 		if (HX_FIELD_EQ(inName,"urlDecode") ) { return urlDecode_dyn(); }
 		break;
 	case 10:
+		if (HX_FIELD_EQ(inName,"htmlEscape") ) { return htmlEscape_dyn(); }
 		if (HX_FIELD_EQ(inName,"startsWith") ) { return startsWith_dyn(); }
 	}
 	return super::__Field(inName,inCallProp);
@@ -238,6 +263,7 @@ void StringTools_obj::__GetFields(Array< ::String> &outFields)
 static ::String sStaticFields[] = {
 	HX_CSTRING("urlEncode"),
 	HX_CSTRING("urlDecode"),
+	HX_CSTRING("htmlEscape"),
 	HX_CSTRING("startsWith"),
 	HX_CSTRING("endsWith"),
 	HX_CSTRING("isSpace"),

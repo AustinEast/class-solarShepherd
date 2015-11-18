@@ -61,6 +61,90 @@ Dynamic ConsoleUtil_obj::__Create(hx::DynamicArray inArgs)
 	result->__construct();
 	return result;}
 
+Dynamic ConsoleUtil_obj::attemptToCreateInstance_flixel_FlxObject( ::String ClassName,::Class type,Array< ::String > Params){
+	HX_STACK_FRAME("flixel.system.debug.ConsoleUtil","attemptToCreateInstance_flixel_FlxObject",0xd1869411,"flixel.system.debug.ConsoleUtil.attemptToCreateInstance_flixel_FlxObject","flixel/system/debug/ConsoleUtil.hx",91,0x3784f9ee)
+	HX_STACK_ARG(ClassName,"ClassName")
+	HX_STACK_ARG(type,"type")
+	HX_STACK_ARG(Params,"Params")
+	HX_STACK_LINE(92)
+	if (((Params == null()))){
+		HX_STACK_LINE(93)
+		Params = Array_obj< ::String >::__new();
+	}
+	HX_STACK_LINE(95)
+	Dynamic obj = ::Type_obj::resolveClass(ClassName);		HX_STACK_VAR(obj,"obj");
+	HX_STACK_LINE(96)
+	if ((!(::Reflect_obj::isObject(obj)))){
+		HX_STACK_LINE(98)
+		::flixel::FlxG_obj::log->advanced((ClassName + HX_CSTRING("' is not a valid class name. Try passing the full class path. Also make sure the class is being compiled.")),::flixel::system::debug::LogStyle_obj::ERROR,true);
+		HX_STACK_LINE(99)
+		return null();
+	}
+	HX_STACK_LINE(102)
+	Dynamic instance = ::Type_obj::createInstance(obj,Params);		HX_STACK_VAR(instance,"instance");
+	HX_STACK_LINE(104)
+	if ((!(::Std_obj::is(instance,type)))){
+		HX_STACK_LINE(106)
+		{
+			HX_STACK_LINE(106)
+			::String _g = ::Type_obj::getClassName(type);		HX_STACK_VAR(_g,"_g");
+			HX_STACK_LINE(106)
+			Dynamic Data = ((ClassName + HX_CSTRING("' is not a ")) + _g);		HX_STACK_VAR(Data,"Data");
+			HX_STACK_LINE(106)
+			::flixel::FlxG_obj::log->advanced(Data,::flixel::system::debug::LogStyle_obj::ERROR,true);
+		}
+		HX_STACK_LINE(107)
+		return null();
+	}
+	HX_STACK_LINE(110)
+	return instance;
+}
+
+
+STATIC_HX_DEFINE_DYNAMIC_FUNC3(ConsoleUtil_obj,attemptToCreateInstance_flixel_FlxObject,return )
+
+Dynamic ConsoleUtil_obj::attemptToCreateInstance_flixel_FlxState( ::String ClassName,::Class type,Array< ::String > Params){
+	HX_STACK_FRAME("flixel.system.debug.ConsoleUtil","attemptToCreateInstance_flixel_FlxState",0xf7aff0ff,"flixel.system.debug.ConsoleUtil.attemptToCreateInstance_flixel_FlxState","flixel/system/debug/ConsoleUtil.hx",91,0x3784f9ee)
+	HX_STACK_ARG(ClassName,"ClassName")
+	HX_STACK_ARG(type,"type")
+	HX_STACK_ARG(Params,"Params")
+	HX_STACK_LINE(92)
+	if (((Params == null()))){
+		HX_STACK_LINE(93)
+		Params = Array_obj< ::String >::__new();
+	}
+	HX_STACK_LINE(95)
+	Dynamic obj = ::Type_obj::resolveClass(ClassName);		HX_STACK_VAR(obj,"obj");
+	HX_STACK_LINE(96)
+	if ((!(::Reflect_obj::isObject(obj)))){
+		HX_STACK_LINE(98)
+		::flixel::FlxG_obj::log->advanced((ClassName + HX_CSTRING("' is not a valid class name. Try passing the full class path. Also make sure the class is being compiled.")),::flixel::system::debug::LogStyle_obj::ERROR,true);
+		HX_STACK_LINE(99)
+		return null();
+	}
+	HX_STACK_LINE(102)
+	Dynamic instance = ::Type_obj::createInstance(obj,Params);		HX_STACK_VAR(instance,"instance");
+	HX_STACK_LINE(104)
+	if ((!(::Std_obj::is(instance,type)))){
+		HX_STACK_LINE(106)
+		{
+			HX_STACK_LINE(106)
+			::String _g = ::Type_obj::getClassName(type);		HX_STACK_VAR(_g,"_g");
+			HX_STACK_LINE(106)
+			Dynamic Data = ((ClassName + HX_CSTRING("' is not a ")) + _g);		HX_STACK_VAR(Data,"Data");
+			HX_STACK_LINE(106)
+			::flixel::FlxG_obj::log->advanced(Data,::flixel::system::debug::LogStyle_obj::ERROR,true);
+		}
+		HX_STACK_LINE(107)
+		return null();
+	}
+	HX_STACK_LINE(110)
+	return instance;
+}
+
+
+STATIC_HX_DEFINE_DYNAMIC_FUNC3(ConsoleUtil_obj,attemptToCreateInstance_flixel_FlxState,return )
+
 bool ConsoleUtil_obj::callFunction( Dynamic Function,Dynamic Args){
 	HX_STACK_FRAME("flixel.system.debug.ConsoleUtil","callFunction",0x976d0913,"flixel.system.debug.ConsoleUtil.callFunction","flixel/system/debug/ConsoleUtil.hx",25,0x3784f9ee)
 	HX_STACK_ARG(Function,"Function")
@@ -94,6 +178,8 @@ bool ConsoleUtil_obj::callFunction( Dynamic Function,Dynamic Args){
 						::Reflect_obj::callMethod(null(),Function,shortenedArgs);
 					}
 					else{
+						HX_STACK_LINE(50)
+						::flixel::FlxG_obj::log->advanced(((((HX_CSTRING("Invalid number or parameters: ") + expected) + HX_CSTRING(" expected, ")) + Args->__Field(HX_CSTRING("length"),true)) + HX_CSTRING(" passed")),::flixel::system::debug::LogStyle_obj::ERROR,true);
 						HX_STACK_LINE(51)
 						return false;
 					}
@@ -221,7 +307,7 @@ Dynamic ConsoleUtil_obj::resolveObjectAndVariable( ::String ObjectAndVariable,Dy
 			HX_STACK_LINE(134)
 			Dynamic Data = (_g6 + HX_CSTRING("' is not a valid Object"));		HX_STACK_VAR(Data,"Data");
 			HX_STACK_LINE(134)
-			Dynamic();
+			::flixel::FlxG_obj::log->advanced(Data,::flixel::system::debug::LogStyle_obj::ERROR,true);
 		}
 		HX_STACK_LINE(135)
 		return null();
@@ -315,7 +401,7 @@ Dynamic ConsoleUtil_obj::resolveObjectAndVariable( ::String ObjectAndVariable,Dy
 							HX_STACK_LINE(155)
 							Dynamic Data = (_g16 + HX_CSTRING("'"));		HX_STACK_VAR(Data,"Data");
 							HX_STACK_LINE(155)
-							Dynamic();
+							::flixel::FlxG_obj::log->advanced(Data,::flixel::system::debug::LogStyle_obj::ERROR,true);
 						}
 						HX_STACK_LINE(156)
 						return null();
@@ -518,6 +604,12 @@ Dynamic ConsoleUtil_obj::__Field(const ::String &inName,bool inCallProp)
 		break;
 	case 31:
 		if (HX_FIELD_EQ(inName,"resolveObjectAndVariableFromMap") ) { return resolveObjectAndVariableFromMap_dyn(); }
+		break;
+	case 39:
+		if (HX_FIELD_EQ(inName,"attemptToCreateInstance_flixel_FlxState") ) { return attemptToCreateInstance_flixel_FlxState_dyn(); }
+		break;
+	case 40:
+		if (HX_FIELD_EQ(inName,"attemptToCreateInstance_flixel_FlxObject") ) { return attemptToCreateInstance_flixel_FlxObject_dyn(); }
 	}
 	return super::__Field(inName,inCallProp);
 }
@@ -533,6 +625,8 @@ void ConsoleUtil_obj::__GetFields(Array< ::String> &outFields)
 };
 
 static ::String sStaticFields[] = {
+	HX_CSTRING("attemptToCreateInstance_flixel_FlxObject"),
+	HX_CSTRING("attemptToCreateInstance_flixel_FlxState"),
 	HX_CSTRING("callFunction"),
 	HX_CSTRING("findCommand"),
 	HX_CSTRING("resolveObjectAndVariable"),

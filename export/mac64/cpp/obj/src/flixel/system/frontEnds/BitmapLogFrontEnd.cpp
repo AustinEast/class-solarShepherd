@@ -1,13 +1,58 @@
 #include <hxcpp.h>
 
+#ifndef INCLUDED_IMap
+#include <IMap.h>
+#endif
+#ifndef INCLUDED_flixel_FlxG
+#include <flixel/FlxG.h>
+#endif
+#ifndef INCLUDED_flixel_FlxGame
+#include <flixel/FlxGame.h>
+#endif
+#ifndef INCLUDED_flixel_system_debug_BitmapLog
+#include <flixel/system/debug/BitmapLog.h>
+#endif
+#ifndef INCLUDED_flixel_system_debug_FlxDebugger
+#include <flixel/system/debug/FlxDebugger.h>
+#endif
+#ifndef INCLUDED_flixel_system_debug_Window
+#include <flixel/system/debug/Window.h>
+#endif
+#ifndef INCLUDED_flixel_system_frontEnds_BitmapFrontEnd
+#include <flixel/system/frontEnds/BitmapFrontEnd.h>
+#endif
 #ifndef INCLUDED_flixel_system_frontEnds_BitmapLogFrontEnd
 #include <flixel/system/frontEnds/BitmapLogFrontEnd.h>
+#endif
+#ifndef INCLUDED_flixel_util_loaders_CachedGraphics
+#include <flixel/util/loaders/CachedGraphics.h>
+#endif
+#ifndef INCLUDED_haxe_ds_StringMap
+#include <haxe/ds/StringMap.h>
 #endif
 #ifndef INCLUDED_openfl__legacy_display_BitmapData
 #include <openfl/_legacy/display/BitmapData.h>
 #endif
+#ifndef INCLUDED_openfl__legacy_display_DisplayObject
+#include <openfl/_legacy/display/DisplayObject.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_DisplayObjectContainer
+#include <openfl/_legacy/display/DisplayObjectContainer.h>
+#endif
 #ifndef INCLUDED_openfl__legacy_display_IBitmapDrawable
 #include <openfl/_legacy/display/IBitmapDrawable.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_InteractiveObject
+#include <openfl/_legacy/display/InteractiveObject.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_Sprite
+#include <openfl/_legacy/display/Sprite.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_events_EventDispatcher
+#include <openfl/_legacy/events/EventDispatcher.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_events_IEventDispatcher
+#include <openfl/_legacy/events/IEventDispatcher.h>
 #endif
 namespace flixel{
 namespace system{
@@ -38,11 +83,13 @@ Dynamic BitmapLogFrontEnd_obj::__Create(hx::DynamicArray inArgs)
 
 Void BitmapLogFrontEnd_obj::add( ::openfl::_legacy::display::BitmapData Data,::String __o_Name){
 ::String Name = __o_Name.Default(HX_CSTRING(""));
-	HX_STACK_FRAME("flixel.system.frontEnds.BitmapLogFrontEnd","add",0xa17c2360,"flixel.system.frontEnds.BitmapLogFrontEnd.add","flixel/system/frontEnds/BitmapLogFrontEnd.hx",10,0x20ede752)
+	HX_STACK_FRAME("flixel.system.frontEnds.BitmapLogFrontEnd","add",0xa17c2360,"flixel.system.frontEnds.BitmapLogFrontEnd.add","flixel/system/frontEnds/BitmapLogFrontEnd.hx",12,0x20ede752)
 	HX_STACK_THIS(this)
 	HX_STACK_ARG(Data,"Data")
 	HX_STACK_ARG(Name,"Name")
 {
+		HX_STACK_LINE(12)
+		::flixel::FlxG_obj::game->debugger->bitmapLog->add(Data,Name);
 	}
 return null();
 }
@@ -52,8 +99,10 @@ HX_DEFINE_DYNAMIC_FUNC2(BitmapLogFrontEnd_obj,add,(void))
 
 Void BitmapLogFrontEnd_obj::clear( ){
 {
-		HX_STACK_FRAME("flixel.system.frontEnds.BitmapLogFrontEnd","clear",0x3f6bb08c,"flixel.system.frontEnds.BitmapLogFrontEnd.clear","flixel/system/frontEnds/BitmapLogFrontEnd.hx",20,0x20ede752)
+		HX_STACK_FRAME("flixel.system.frontEnds.BitmapLogFrontEnd","clear",0x3f6bb08c,"flixel.system.frontEnds.BitmapLogFrontEnd.clear","flixel/system/frontEnds/BitmapLogFrontEnd.hx",22,0x20ede752)
 		HX_STACK_THIS(this)
+		HX_STACK_LINE(22)
+		::flixel::FlxG_obj::game->debugger->bitmapLog->clear();
 	}
 return null();
 }
@@ -63,10 +112,12 @@ HX_DEFINE_DYNAMIC_FUNC0(BitmapLogFrontEnd_obj,clear,(void))
 
 Void BitmapLogFrontEnd_obj::clearAt( hx::Null< int >  __o_Index){
 int Index = __o_Index.Default(-1);
-	HX_STACK_FRAME("flixel.system.frontEnds.BitmapLogFrontEnd","clearAt",0xb622249f,"flixel.system.frontEnds.BitmapLogFrontEnd.clearAt","flixel/system/frontEnds/BitmapLogFrontEnd.hx",31,0x20ede752)
+	HX_STACK_FRAME("flixel.system.frontEnds.BitmapLogFrontEnd","clearAt",0xb622249f,"flixel.system.frontEnds.BitmapLogFrontEnd.clearAt","flixel/system/frontEnds/BitmapLogFrontEnd.hx",33,0x20ede752)
 	HX_STACK_THIS(this)
 	HX_STACK_ARG(Index,"Index")
 {
+		HX_STACK_LINE(33)
+		::flixel::FlxG_obj::game->debugger->bitmapLog->clearAt(Index);
 	}
 return null();
 }
@@ -78,6 +129,13 @@ Void BitmapLogFrontEnd_obj::viewCache( ){
 {
 		HX_STACK_FRAME("flixel.system.frontEnds.BitmapLogFrontEnd","viewCache",0xebde341c,"flixel.system.frontEnds.BitmapLogFrontEnd.viewCache","flixel/system/frontEnds/BitmapLogFrontEnd.hx",41,0x20ede752)
 		HX_STACK_THIS(this)
+		HX_STACK_LINE(43)
+		::flixel::FlxG_obj::game->debugger->bitmapLog->clear();
+		HX_STACK_LINE(44)
+		for(::cpp::FastIterator_obj< ::flixel::util::loaders::CachedGraphics > *__it = ::cpp::CreateFastIterator< ::flixel::util::loaders::CachedGraphics >(::flixel::FlxG_obj::bitmap->_cache->iterator());  __it->hasNext(); ){
+			::flixel::util::loaders::CachedGraphics cachedGraphic = __it->next();
+			::flixel::FlxG_obj::game->debugger->bitmapLog->add(cachedGraphic->bitmap,cachedGraphic->key);
+		}
 	}
 return null();
 }

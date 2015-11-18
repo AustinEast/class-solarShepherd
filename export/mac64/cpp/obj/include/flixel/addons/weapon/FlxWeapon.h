@@ -147,9 +147,6 @@ class HXCPP_CLASS_ATTRIBUTES  FlxWeapon_obj : public hx::Object{
 		virtual Void setBulletGravity( int ForceX,int ForceY);
 		Dynamic setBulletGravity_dyn();
 
-		virtual Void setBulletDrag( int ForceX,int ForceY);
-		Dynamic setBulletDrag_dyn();
-
 		virtual Void setBulletAcceleration( int AccelerationX,int AccelerationY,int SpeedMaxX,int SpeedMaxY);
 		Dynamic setBulletAcceleration_dyn();
 

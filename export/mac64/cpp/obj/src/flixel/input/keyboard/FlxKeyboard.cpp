@@ -21,6 +21,18 @@
 #ifndef INCLUDED_flixel_interfaces_IFlxInput
 #include <flixel/interfaces/IFlxInput.h>
 #endif
+#ifndef INCLUDED_flixel_system_debug_FlxDebugger
+#include <flixel/system/debug/FlxDebugger.h>
+#endif
+#ifndef INCLUDED_flixel_system_debug_LogStyle
+#include <flixel/system/debug/LogStyle.h>
+#endif
+#ifndef INCLUDED_flixel_system_frontEnds_DebuggerFrontEnd
+#include <flixel/system/frontEnds/DebuggerFrontEnd.h>
+#endif
+#ifndef INCLUDED_flixel_system_frontEnds_LogFrontEnd
+#include <flixel/system/frontEnds/LogFrontEnd.h>
+#endif
 #ifndef INCLUDED_flixel_system_frontEnds_SoundFrontEnd
 #include <flixel/system/frontEnds/SoundFrontEnd.h>
 #endif
@@ -578,6 +590,10 @@ bool FlxKeyboard_obj::checkStatus( int KeyCode,int Status){
 			}
 		}
 	}
+	else{
+		HX_STACK_LINE(175)
+		::flixel::FlxG_obj::log->advanced(((HX_CSTRING("Invalid Key: `") + KeyCode) + HX_CSTRING("`.")),::flixel::system::debug::LogStyle_obj::ERROR,true);
+	}
 	HX_STACK_LINE(179)
 	return false;
 }
@@ -832,6 +848,15 @@ Void FlxKeyboard_obj::onKeyUp( ::openfl::_legacy::events::KeyboardEvent FlashEve
 				HX_STACK_LINE(473)
 				c = code;
 			}
+		}
+		HX_STACK_LINE(477)
+		if (((  (((::flixel::FlxG_obj::game->debugger != null()))) ? bool(this->inKeyArray(::flixel::FlxG_obj::debugger->toggleKeys,c)) : bool(false) ))){
+			HX_STACK_LINE(479)
+			bool Value = !(::flixel::FlxG_obj::debugger->visible);		HX_STACK_VAR(Value,"Value");
+			HX_STACK_LINE(479)
+			::flixel::FlxG_obj::game->debugger->set_visible(Value);
+			HX_STACK_LINE(479)
+			::flixel::FlxG_obj::debugger->visible = Value;
 		}
 		HX_STACK_LINE(484)
 		if ((!(this->enabled))){

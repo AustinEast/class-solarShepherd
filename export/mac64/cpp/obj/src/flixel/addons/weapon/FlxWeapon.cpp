@@ -844,97 +844,63 @@ return null();
 
 HX_DEFINE_DYNAMIC_FUNC2(FlxWeapon_obj,setBulletGravity,(void))
 
-Void FlxWeapon_obj::setBulletDrag( int ForceX,int ForceY){
-{
-		HX_STACK_FRAME("flixel.addons.weapon.FlxWeapon","setBulletDrag",0xeefccbef,"flixel.addons.weapon.FlxWeapon.setBulletDrag","flixel/addons/weapon/FlxWeapon.hx",598,0x017a22ba)
-		HX_STACK_THIS(this)
-		HX_STACK_ARG(ForceX,"ForceX")
-		HX_STACK_ARG(ForceY,"ForceY")
-		HX_STACK_LINE(598)
-		Array< int > ForceY1 = Array_obj< int >::__new().Add(ForceY);		HX_STACK_VAR(ForceY1,"ForceY1");
-		HX_STACK_LINE(598)
-		Array< int > ForceX1 = Array_obj< int >::__new().Add(ForceX);		HX_STACK_VAR(ForceX1,"ForceX1");
-
-		HX_BEGIN_LOCAL_FUNC_S2(hx::LocalFunc,_Function_1_1,Array< int >,ForceY1,Array< int >,ForceX1)
-		Void run(::flixel::addons::weapon::FlxBullet b){
-			HX_STACK_FRAME("*","_Function_1_1",0x5200ed37,"*._Function_1_1","flixel/addons/weapon/FlxWeapon.hx",600,0x017a22ba)
-			HX_STACK_ARG(b,"b")
-			{
-				HX_STACK_LINE(601)
-				b->drag->set_x(ForceX1->__get((int)0));
-				HX_STACK_LINE(602)
-				b->drag->set_y(ForceY1->__get((int)0));
-			}
-			return null();
-		}
-		HX_END_LOCAL_FUNC1((void))
-
-		HX_STACK_LINE(600)
-		this->group->forEach( Dynamic(new _Function_1_1(ForceY1,ForceX1)));
-	}
-return null();
-}
-
-
-HX_DEFINE_DYNAMIC_FUNC2(FlxWeapon_obj,setBulletDrag,(void))
-
 Void FlxWeapon_obj::setBulletAcceleration( int AccelerationX,int AccelerationY,int SpeedMaxX,int SpeedMaxY){
 {
-		HX_STACK_FRAME("flixel.addons.weapon.FlxWeapon","setBulletAcceleration",0x75d6933b,"flixel.addons.weapon.FlxWeapon.setBulletAcceleration","flixel/addons/weapon/FlxWeapon.hx",615,0x017a22ba)
+		HX_STACK_FRAME("flixel.addons.weapon.FlxWeapon","setBulletAcceleration",0x75d6933b,"flixel.addons.weapon.FlxWeapon.setBulletAcceleration","flixel/addons/weapon/FlxWeapon.hx",603,0x017a22ba)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(AccelerationX,"AccelerationX")
 		HX_STACK_ARG(AccelerationY,"AccelerationY")
 		HX_STACK_ARG(SpeedMaxX,"SpeedMaxX")
 		HX_STACK_ARG(SpeedMaxY,"SpeedMaxY")
-		HX_STACK_LINE(615)
+		HX_STACK_LINE(603)
 		Array< int > SpeedMaxY1 = Array_obj< int >::__new().Add(SpeedMaxY);		HX_STACK_VAR(SpeedMaxY1,"SpeedMaxY1");
-		HX_STACK_LINE(615)
+		HX_STACK_LINE(603)
 		Array< int > SpeedMaxX1 = Array_obj< int >::__new().Add(SpeedMaxX);		HX_STACK_VAR(SpeedMaxX1,"SpeedMaxX1");
-		HX_STACK_LINE(615)
+		HX_STACK_LINE(603)
 		Array< int > AccelerationY1 = Array_obj< int >::__new().Add(AccelerationY);		HX_STACK_VAR(AccelerationY1,"AccelerationY1");
-		HX_STACK_LINE(615)
+		HX_STACK_LINE(603)
 		Array< int > AccelerationX1 = Array_obj< int >::__new().Add(AccelerationX);		HX_STACK_VAR(AccelerationX1,"AccelerationX1");
-		HX_STACK_LINE(617)
+		HX_STACK_LINE(605)
 		if (((bool((AccelerationX1->__get((int)0) == (int)0)) && bool((AccelerationY1->__get((int)0) == (int)0))))){
 
 			HX_BEGIN_LOCAL_FUNC_S0(hx::LocalFunc,_Function_2_1)
 			Void run(::flixel::addons::weapon::FlxBullet b){
-				HX_STACK_FRAME("*","_Function_2_1",0x5201af78,"*._Function_2_1","flixel/addons/weapon/FlxWeapon.hx",620,0x017a22ba)
+				HX_STACK_FRAME("*","_Function_2_1",0x5201af78,"*._Function_2_1","flixel/addons/weapon/FlxWeapon.hx",608,0x017a22ba)
 				HX_STACK_ARG(b,"b")
 				{
-					HX_STACK_LINE(620)
+					HX_STACK_LINE(608)
 					b->accelerates = false;
 				}
 				return null();
 			}
 			HX_END_LOCAL_FUNC1((void))
 
-			HX_STACK_LINE(619)
+			HX_STACK_LINE(607)
 			this->group->forEach( Dynamic(new _Function_2_1()));
 		}
 		else{
 
 			HX_BEGIN_LOCAL_FUNC_S4(hx::LocalFunc,_Function_2_1,Array< int >,AccelerationY1,Array< int >,SpeedMaxY1,Array< int >,AccelerationX1,Array< int >,SpeedMaxX1)
 			Void run(::flixel::addons::weapon::FlxBullet b){
-				HX_STACK_FRAME("*","_Function_2_1",0x5201af78,"*._Function_2_1","flixel/addons/weapon/FlxWeapon.hx",625,0x017a22ba)
+				HX_STACK_FRAME("*","_Function_2_1",0x5201af78,"*._Function_2_1","flixel/addons/weapon/FlxWeapon.hx",613,0x017a22ba)
 				HX_STACK_ARG(b,"b")
 				{
-					HX_STACK_LINE(626)
+					HX_STACK_LINE(614)
 					b->accelerates = true;
-					HX_STACK_LINE(627)
+					HX_STACK_LINE(615)
 					b->xAcceleration = AccelerationX1->__get((int)0);
-					HX_STACK_LINE(628)
+					HX_STACK_LINE(616)
 					b->yAcceleration = AccelerationY1->__get((int)0);
-					HX_STACK_LINE(629)
+					HX_STACK_LINE(617)
 					b->maxVelocity->set_x(SpeedMaxX1->__get((int)0));
-					HX_STACK_LINE(630)
+					HX_STACK_LINE(618)
 					b->maxVelocity->set_y(SpeedMaxY1->__get((int)0));
 				}
 				return null();
 			}
 			HX_END_LOCAL_FUNC1((void))
 
-			HX_STACK_LINE(625)
+			HX_STACK_LINE(613)
 			this->group->forEach( Dynamic(new _Function_2_1(AccelerationY1,SpeedMaxY1,AccelerationX1,SpeedMaxX1)));
 		}
 	}
@@ -946,13 +912,13 @@ HX_DEFINE_DYNAMIC_FUNC4(FlxWeapon_obj,setBulletAcceleration,(void))
 
 Void FlxWeapon_obj::setBulletOffset( Float OffsetX,Float OffsetY){
 {
-		HX_STACK_FRAME("flixel.addons.weapon.FlxWeapon","setBulletOffset",0xc1306c4e,"flixel.addons.weapon.FlxWeapon.setBulletOffset","flixel/addons/weapon/FlxWeapon.hx",644,0x017a22ba)
+		HX_STACK_FRAME("flixel.addons.weapon.FlxWeapon","setBulletOffset",0xc1306c4e,"flixel.addons.weapon.FlxWeapon.setBulletOffset","flixel/addons/weapon/FlxWeapon.hx",632,0x017a22ba)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(OffsetX,"OffsetX")
 		HX_STACK_ARG(OffsetY,"OffsetY")
-		HX_STACK_LINE(645)
+		HX_STACK_LINE(633)
 		this->_positionOffset->set_x(OffsetX);
-		HX_STACK_LINE(646)
+		HX_STACK_LINE(634)
 		this->_positionOffset->set_y(OffsetY);
 	}
 return null();
@@ -965,29 +931,29 @@ Void FlxWeapon_obj::setBulletRandomFactor( hx::Null< int >  __o_RandomAngle,hx::
 int RandomAngle = __o_RandomAngle.Default(0);
 int RandomSpeed = __o_RandomSpeed.Default(0);
 Float RandomLifeSpan = __o_RandomLifeSpan.Default(0);
-	HX_STACK_FRAME("flixel.addons.weapon.FlxWeapon","setBulletRandomFactor",0x976ca62d,"flixel.addons.weapon.FlxWeapon.setBulletRandomFactor","flixel/addons/weapon/FlxWeapon.hx",658,0x017a22ba)
+	HX_STACK_FRAME("flixel.addons.weapon.FlxWeapon","setBulletRandomFactor",0x976ca62d,"flixel.addons.weapon.FlxWeapon.setBulletRandomFactor","flixel/addons/weapon/FlxWeapon.hx",646,0x017a22ba)
 	HX_STACK_THIS(this)
 	HX_STACK_ARG(RandomAngle,"RandomAngle")
 	HX_STACK_ARG(RandomSpeed,"RandomSpeed")
 	HX_STACK_ARG(RandomPosition,"RandomPosition")
 	HX_STACK_ARG(RandomLifeSpan,"RandomLifeSpan")
 {
-		HX_STACK_LINE(659)
+		HX_STACK_LINE(647)
 		this->rndFactorAngle = RandomAngle;
-		HX_STACK_LINE(660)
+		HX_STACK_LINE(648)
 		this->rndFactorSpeed = RandomSpeed;
-		HX_STACK_LINE(662)
+		HX_STACK_LINE(650)
 		if (((RandomPosition != null()))){
-			HX_STACK_LINE(664)
+			HX_STACK_LINE(652)
 			this->rndFactorPosition = RandomPosition;
 		}
-		HX_STACK_LINE(667)
+		HX_STACK_LINE(655)
 		if (((RandomLifeSpan < (int)0))){
-			HX_STACK_LINE(667)
+			HX_STACK_LINE(655)
 			this->rndFactorLifeSpan = -(RandomLifeSpan);
 		}
 		else{
-			HX_STACK_LINE(667)
+			HX_STACK_LINE(655)
 			this->rndFactorLifeSpan = RandomLifeSpan;
 		}
 	}
@@ -999,10 +965,10 @@ HX_DEFINE_DYNAMIC_FUNC4(FlxWeapon_obj,setBulletRandomFactor,(void))
 
 Void FlxWeapon_obj::setBulletLifeSpan( Float Lifespan){
 {
-		HX_STACK_FRAME("flixel.addons.weapon.FlxWeapon","setBulletLifeSpan",0x7502ff61,"flixel.addons.weapon.FlxWeapon.setBulletLifeSpan","flixel/addons/weapon/FlxWeapon.hx",678,0x017a22ba)
+		HX_STACK_FRAME("flixel.addons.weapon.FlxWeapon","setBulletLifeSpan",0x7502ff61,"flixel.addons.weapon.FlxWeapon.setBulletLifeSpan","flixel/addons/weapon/FlxWeapon.hx",666,0x017a22ba)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(Lifespan,"Lifespan")
-		HX_STACK_LINE(678)
+		HX_STACK_LINE(666)
 		this->bulletLifeSpan = Lifespan;
 	}
 return null();
@@ -1013,10 +979,10 @@ HX_DEFINE_DYNAMIC_FUNC1(FlxWeapon_obj,setBulletLifeSpan,(void))
 
 Void FlxWeapon_obj::setBulletElasticity( Float Elasticity){
 {
-		HX_STACK_FRAME("flixel.addons.weapon.FlxWeapon","setBulletElasticity",0x858d71b4,"flixel.addons.weapon.FlxWeapon.setBulletElasticity","flixel/addons/weapon/FlxWeapon.hx",688,0x017a22ba)
+		HX_STACK_FRAME("flixel.addons.weapon.FlxWeapon","setBulletElasticity",0x858d71b4,"flixel.addons.weapon.FlxWeapon.setBulletElasticity","flixel/addons/weapon/FlxWeapon.hx",676,0x017a22ba)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(Elasticity,"Elasticity")
-		HX_STACK_LINE(688)
+		HX_STACK_LINE(676)
 		this->bulletElasticity = Elasticity;
 	}
 return null();
@@ -1026,46 +992,46 @@ return null();
 HX_DEFINE_DYNAMIC_FUNC1(FlxWeapon_obj,setBulletElasticity,(void))
 
 ::flixel::addons::weapon::FlxBullet FlxWeapon_obj::getFreeBullet( ){
-	HX_STACK_FRAME("flixel.addons.weapon.FlxWeapon","getFreeBullet",0x2e2a229b,"flixel.addons.weapon.FlxWeapon.getFreeBullet","flixel/addons/weapon/FlxWeapon.hx",697,0x017a22ba)
+	HX_STACK_FRAME("flixel.addons.weapon.FlxWeapon","getFreeBullet",0x2e2a229b,"flixel.addons.weapon.FlxWeapon.getFreeBullet","flixel/addons/weapon/FlxWeapon.hx",685,0x017a22ba)
 	HX_STACK_THIS(this)
-	HX_STACK_LINE(698)
+	HX_STACK_LINE(686)
 	::flixel::addons::weapon::FlxBullet result = null();		HX_STACK_VAR(result,"result");
-	HX_STACK_LINE(700)
+	HX_STACK_LINE(688)
 	if (((bool((this->group == null())) || bool((this->group->length == (int)0))))){
-		HX_STACK_LINE(702)
+		HX_STACK_LINE(690)
 		HX_STACK_DO_THROW(HX_CSTRING("Weapon.as cannot fire a bullet until one has been created via a call to makePixelBullet or makeImageBullet"));
-		HX_STACK_LINE(703)
+		HX_STACK_LINE(691)
 		return null();
 	}
-	HX_STACK_LINE(706)
+	HX_STACK_LINE(694)
 	::flixel::addons::weapon::FlxBullet bullet;		HX_STACK_VAR(bullet,"bullet");
-	HX_STACK_LINE(708)
+	HX_STACK_LINE(696)
 	{
-		HX_STACK_LINE(708)
+		HX_STACK_LINE(696)
 		int _g1 = (int)0;		HX_STACK_VAR(_g1,"_g1");
-		HX_STACK_LINE(708)
+		HX_STACK_LINE(696)
 		int _g = this->group->members->__Field(HX_CSTRING("length"),true);		HX_STACK_VAR(_g,"_g");
-		HX_STACK_LINE(708)
+		HX_STACK_LINE(696)
 		while((true)){
-			HX_STACK_LINE(708)
+			HX_STACK_LINE(696)
 			if ((!(((_g1 < _g))))){
-				HX_STACK_LINE(708)
+				HX_STACK_LINE(696)
 				break;
 			}
-			HX_STACK_LINE(708)
+			HX_STACK_LINE(696)
 			int i = (_g1)++;		HX_STACK_VAR(i,"i");
-			HX_STACK_LINE(710)
+			HX_STACK_LINE(698)
 			bullet = this->group->members->__GetItem(i);
-			HX_STACK_LINE(712)
+			HX_STACK_LINE(700)
 			if (((bullet->exists == false))){
-				HX_STACK_LINE(714)
+				HX_STACK_LINE(702)
 				result = bullet;
-				HX_STACK_LINE(715)
+				HX_STACK_LINE(703)
 				break;
 			}
 		}
 	}
-	HX_STACK_LINE(719)
+	HX_STACK_LINE(707)
 	return result;
 }
 
@@ -1074,13 +1040,13 @@ HX_DEFINE_DYNAMIC_FUNC0(FlxWeapon_obj,getFreeBullet,return )
 
 Void FlxWeapon_obj::setPreFireCallback( Dynamic Callback,::flixel::system::FlxSound Sound){
 {
-		HX_STACK_FRAME("flixel.addons.weapon.FlxWeapon","setPreFireCallback",0x17fc4125,"flixel.addons.weapon.FlxWeapon.setPreFireCallback","flixel/addons/weapon/FlxWeapon.hx",729,0x017a22ba)
+		HX_STACK_FRAME("flixel.addons.weapon.FlxWeapon","setPreFireCallback",0x17fc4125,"flixel.addons.weapon.FlxWeapon.setPreFireCallback","flixel/addons/weapon/FlxWeapon.hx",717,0x017a22ba)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(Callback,"Callback")
 		HX_STACK_ARG(Sound,"Sound")
-		HX_STACK_LINE(730)
+		HX_STACK_LINE(718)
 		this->onPreFireCallback = Callback;
-		HX_STACK_LINE(731)
+		HX_STACK_LINE(719)
 		this->onPreFireSound = Sound;
 	}
 return null();
@@ -1091,13 +1057,13 @@ HX_DEFINE_DYNAMIC_FUNC2(FlxWeapon_obj,setPreFireCallback,(void))
 
 Void FlxWeapon_obj::setFireCallback( Dynamic Callback,::flixel::system::FlxSound Sound){
 {
-		HX_STACK_FRAME("flixel.addons.weapon.FlxWeapon","setFireCallback",0xd6298074,"flixel.addons.weapon.FlxWeapon.setFireCallback","flixel/addons/weapon/FlxWeapon.hx",741,0x017a22ba)
+		HX_STACK_FRAME("flixel.addons.weapon.FlxWeapon","setFireCallback",0xd6298074,"flixel.addons.weapon.FlxWeapon.setFireCallback","flixel/addons/weapon/FlxWeapon.hx",729,0x017a22ba)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(Callback,"Callback")
 		HX_STACK_ARG(Sound,"Sound")
-		HX_STACK_LINE(742)
+		HX_STACK_LINE(730)
 		this->onFireCallback = Callback;
-		HX_STACK_LINE(743)
+		HX_STACK_LINE(731)
 		this->onFireSound = Sound;
 	}
 return null();
@@ -1108,13 +1074,13 @@ HX_DEFINE_DYNAMIC_FUNC2(FlxWeapon_obj,setFireCallback,(void))
 
 Void FlxWeapon_obj::setPostFireCallback( Dynamic Callback,::flixel::system::FlxSound Sound){
 {
-		HX_STACK_FRAME("flixel.addons.weapon.FlxWeapon","setPostFireCallback",0xdc094174,"flixel.addons.weapon.FlxWeapon.setPostFireCallback","flixel/addons/weapon/FlxWeapon.hx",753,0x017a22ba)
+		HX_STACK_FRAME("flixel.addons.weapon.FlxWeapon","setPostFireCallback",0xdc094174,"flixel.addons.weapon.FlxWeapon.setPostFireCallback","flixel/addons/weapon/FlxWeapon.hx",741,0x017a22ba)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(Callback,"Callback")
 		HX_STACK_ARG(Sound,"Sound")
-		HX_STACK_LINE(754)
+		HX_STACK_LINE(742)
 		this->onPostFireCallback = Callback;
-		HX_STACK_LINE(755)
+		HX_STACK_LINE(743)
 		this->onPostFireSound = Sound;
 	}
 return null();
@@ -1125,17 +1091,17 @@ HX_DEFINE_DYNAMIC_FUNC2(FlxWeapon_obj,setPostFireCallback,(void))
 
 Void FlxWeapon_obj::bulletsOverlap( ::flixel::FlxBasic ObjectOrGroup,Dynamic NotifyCallBack,hx::Null< bool >  __o_SkipParent){
 bool SkipParent = __o_SkipParent.Default(true);
-	HX_STACK_FRAME("flixel.addons.weapon.FlxWeapon","bulletsOverlap",0x10a2055f,"flixel.addons.weapon.FlxWeapon.bulletsOverlap","flixel/addons/weapon/FlxWeapon.hx",767,0x017a22ba)
+	HX_STACK_FRAME("flixel.addons.weapon.FlxWeapon","bulletsOverlap",0x10a2055f,"flixel.addons.weapon.FlxWeapon.bulletsOverlap","flixel/addons/weapon/FlxWeapon.hx",755,0x017a22ba)
 	HX_STACK_THIS(this)
 	HX_STACK_ARG(ObjectOrGroup,"ObjectOrGroup")
 	HX_STACK_ARG(NotifyCallBack,"NotifyCallBack")
 	HX_STACK_ARG(SkipParent,"SkipParent")
 {
-		HX_STACK_LINE(767)
+		HX_STACK_LINE(755)
 		if (((bool((this->group != null())) && bool((this->group->length > (int)0))))){
-			HX_STACK_LINE(769)
+			HX_STACK_LINE(757)
 			this->_skipParentCollision = SkipParent;
-			HX_STACK_LINE(770)
+			HX_STACK_LINE(758)
 			::flixel::FlxG_obj::overlap(ObjectOrGroup,this->group,(  (((NotifyCallBack != null()))) ? Dynamic(NotifyCallBack) : Dynamic(this->onBulletHit_dyn()) ),this->shouldBulletHit_dyn());
 		}
 	}
@@ -1146,25 +1112,25 @@ return null();
 HX_DEFINE_DYNAMIC_FUNC3(FlxWeapon_obj,bulletsOverlap,(void))
 
 bool FlxWeapon_obj::shouldBulletHit( ::flixel::FlxObject Object,::flixel::FlxObject Bullet){
-	HX_STACK_FRAME("flixel.addons.weapon.FlxWeapon","shouldBulletHit",0xf466b895,"flixel.addons.weapon.FlxWeapon.shouldBulletHit","flixel/addons/weapon/FlxWeapon.hx",775,0x017a22ba)
+	HX_STACK_FRAME("flixel.addons.weapon.FlxWeapon","shouldBulletHit",0xf466b895,"flixel.addons.weapon.FlxWeapon.shouldBulletHit","flixel/addons/weapon/FlxWeapon.hx",763,0x017a22ba)
 	HX_STACK_THIS(this)
 	HX_STACK_ARG(Object,"Object")
 	HX_STACK_ARG(Bullet,"Bullet")
-	HX_STACK_LINE(776)
+	HX_STACK_LINE(764)
 	if (((bool((this->parent == Object)) && bool(this->_skipParentCollision)))){
-		HX_STACK_LINE(778)
+		HX_STACK_LINE(766)
 		return false;
 	}
-	HX_STACK_LINE(781)
+	HX_STACK_LINE(769)
 	if ((::Std_obj::is(Object,hx::ClassOf< ::flixel::tile::FlxTilemap >()))){
-		HX_STACK_LINE(783)
+		HX_STACK_LINE(771)
 		return (hx::TCast< flixel::tile::FlxTilemap >::cast(Object))->overlapsWithCallback(Bullet,null(),null(),null());
 	}
 	else{
-		HX_STACK_LINE(787)
+		HX_STACK_LINE(775)
 		return true;
 	}
-	HX_STACK_LINE(781)
+	HX_STACK_LINE(769)
 	return false;
 }
 
@@ -1173,11 +1139,11 @@ HX_DEFINE_DYNAMIC_FUNC2(FlxWeapon_obj,shouldBulletHit,return )
 
 Void FlxWeapon_obj::onBulletHit( ::flixel::FlxObject Object,::flixel::FlxObject Bullet){
 {
-		HX_STACK_FRAME("flixel.addons.weapon.FlxWeapon","onBulletHit",0x45e7eaa9,"flixel.addons.weapon.FlxWeapon.onBulletHit","flixel/addons/weapon/FlxWeapon.hx",793,0x017a22ba)
+		HX_STACK_FRAME("flixel.addons.weapon.FlxWeapon","onBulletHit",0x45e7eaa9,"flixel.addons.weapon.FlxWeapon.onBulletHit","flixel/addons/weapon/FlxWeapon.hx",781,0x017a22ba)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(Object,"Object")
 		HX_STACK_ARG(Bullet,"Bullet")
-		HX_STACK_LINE(793)
+		HX_STACK_LINE(781)
 		Bullet->kill();
 	}
 return null();
@@ -1367,7 +1333,6 @@ Dynamic FlxWeapon_obj::__Field(const ::String &inName,bool inCallProp)
 		if (HX_FIELD_EQ(inName,"currentBullet") ) { return currentBullet; }
 		if (HX_FIELD_EQ(inName,"_bulletsFired") ) { return _bulletsFired; }
 		if (HX_FIELD_EQ(inName,"fireFromAngle") ) { return fireFromAngle_dyn(); }
-		if (HX_FIELD_EQ(inName,"setBulletDrag") ) { return setBulletDrag_dyn(); }
 		if (HX_FIELD_EQ(inName,"getFreeBullet") ) { return getFreeBullet_dyn(); }
 		break;
 	case 14:
@@ -1692,7 +1657,6 @@ static ::String sMemberFields[] = {
 	HX_CSTRING("setBulletBounds"),
 	HX_CSTRING("setBulletDirection"),
 	HX_CSTRING("setBulletGravity"),
-	HX_CSTRING("setBulletDrag"),
 	HX_CSTRING("setBulletAcceleration"),
 	HX_CSTRING("setBulletOffset"),
 	HX_CSTRING("setBulletRandomFactor"),

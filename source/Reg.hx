@@ -53,7 +53,7 @@ class Reg
 	 */
 	 //Art
 	public static inline var TILES:String = "assets/images/map/";
-	public static inline var LANDPLAYER:String = "assets/images/Dog.png";
+	public static inline var LANDPLAYER:String = "assets/images/player.png";
 	public static inline var STUNGUNBULLET:String = "assets/temp/beam.png";
 	public static inline var CRATE:String = "assets/temp/editorblock.png";
 	//Sounds

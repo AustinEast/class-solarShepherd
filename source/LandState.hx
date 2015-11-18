@@ -19,6 +19,7 @@ import flixel.FlxCamera;
 class LandState extends FlxState
 {
 	public var _player:LandPlayer;
+	public var _npc:Npc;
 	public var _enemies:FlxGroup;
 	public var _chaser:Chaser;
 	public var _chaserArray:Array<FlxPoint>;
@@ -29,6 +30,7 @@ class LandState extends FlxState
 	public var _fuelGroup:FlxGroup;
 	public var _fuel:Fuel;
 	public var _fuelArray:Array<FlxPoint>;
+	public var _textbox:TextBox;
 
 	/**
 	 * Function that is called up when to state is created to set it up. 
@@ -40,12 +42,15 @@ class LandState extends FlxState
 		//create levels and player.
 		Reg.loadedLevel = new TiledStage(Reg.levels[Reg.level]);
 		_player = new LandPlayer(20,50,20,50);
+		_npc = new Npc(50,50);
 		_enemies = new FlxGroup();
 		_fuelGroup = new FlxGroup();
+		_textbox = new TextBox("USER");
 
 		//add everything to the scene.
 		add(Reg.loadedLevel.scenarioTiles);
 		add(_player);
+		add(_npc);
 		add(_enemies);
 		add(_fuelGroup);
 		add(Reg.enemyBullets);
@@ -97,13 +102,18 @@ class LandState extends FlxState
 	 */
 	override public function update():Void
 	{
+		if(!_textbox._isVisible)
+		{
 		super.update();
 
 		FlxG.collide(Reg.loadedLevel.scenarioTiles,_player);
+		FlxG.collide(Reg.loadedLevel.scenarioTiles,_npc);
 		FlxG.collide(Reg.loadedLevel.scenarioTiles,_enemies);
 		FlxG.overlap(Reg.loadedLevel.scenarioTiles,_player._crateGun.group,crateCollision);
+		//FlxG.overlap(Reg.loadedLevel.scenarioTiles,Reg.enemyBullets,stunCollision);
 
 		FlxG.overlap(_player,_enemies,enemyCollision);
+		FlxG.overlap(_player,_npc,talk);
 		FlxG.overlap(_player,_fuelGroup,collectFuel);
 		FlxG.collide(_player,_player._crateGun.group);
 		FlxG.collide(_player._crateGun.group,_player._crateGun.group);
@@ -111,7 +121,21 @@ class LandState extends FlxState
 
 		FlxG.collide(_enemies,_player._crateGun.group);
 		FlxG.overlap(_enemies,_player._stunGun.group,enemyHitWithBullet);
+		}
+		else
+		{
+			_textbox.update();
+		}
 	}	
+	function talk(Player,Npc)
+	{
+		if(FlxG.keys.justPressed.DOWN)
+		{
+			_textbox = new TextBox("USER");
+			add(_textbox);
+			_textbox.talk("This is a test. fadfsdfsdf sdfsdfsdfsd. REREFEFEEFE FEREEEEEEEEEE");
+		}
+	}
 	function crateCollision(Level:FlxObject, Bullet:FlxSprite)
 	{
 		FlxObject.separate(Level,Bullet);

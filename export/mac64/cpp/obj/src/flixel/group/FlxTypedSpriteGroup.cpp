@@ -30,6 +30,12 @@
 #ifndef INCLUDED_flixel_interfaces_IFlxPooled
 #include <flixel/interfaces/IFlxPooled.h>
 #endif
+#ifndef INCLUDED_flixel_system_debug_LogStyle
+#include <flixel/system/debug/LogStyle.h>
+#endif
+#ifndef INCLUDED_flixel_system_frontEnds_LogFrontEnd
+#include <flixel/system/frontEnds/LogFrontEnd.h>
+#endif
 #ifndef INCLUDED_flixel_system_layer_frames_FlxFrame
 #include <flixel/system/layer/frames/FlxFrame.h>
 #endif
@@ -74,6 +80,8 @@ Float X = __o_X.Default(0);
 Float Y = __o_Y.Default(0);
 int MaxSize = __o_MaxSize.Default(0);
 {
+	HX_STACK_LINE(52)
+	this->_isDrawnDebug = false;
 	HX_STACK_LINE(46)
 	this->_skipTransformChildren = false;
 	HX_STACK_LINE(68)
@@ -841,10 +849,12 @@ return null();
 
 Void FlxTypedSpriteGroup_obj::draw( ){
 {
-		HX_STACK_FRAME("flixel.group.FlxTypedSpriteGroup","draw",0x0c4e99b1,"flixel.group.FlxTypedSpriteGroup.draw","flixel/group/FlxTypedSpriteGroup.hx",214,0x49082bbf)
+		HX_STACK_FRAME("flixel.group.FlxTypedSpriteGroup","draw",0x0c4e99b1,"flixel.group.FlxTypedSpriteGroup.draw","flixel/group/FlxTypedSpriteGroup.hx",213,0x49082bbf)
 		HX_STACK_THIS(this)
 		HX_STACK_LINE(214)
 		this->group->draw();
+		HX_STACK_LINE(216)
+		this->_isDrawnDebug = false;
 	}
 return null();
 }
@@ -2207,9 +2217,11 @@ return null();
 HX_DEFINE_DYNAMIC_FUNC1(FlxTypedSpriteGroup_obj,scrollFactorCallback,(void))
 
 ::flixel::FlxSprite FlxTypedSpriteGroup_obj::loadGraphicFromSprite( ::flixel::FlxSprite Sprite){
-	HX_STACK_FRAME("flixel.group.FlxTypedSpriteGroup","loadGraphicFromSprite",0x6f12dc84,"flixel.group.FlxTypedSpriteGroup.loadGraphicFromSprite","flixel/group/FlxTypedSpriteGroup.hx",896,0x49082bbf)
+	HX_STACK_FRAME("flixel.group.FlxTypedSpriteGroup","loadGraphicFromSprite",0x6f12dc84,"flixel.group.FlxTypedSpriteGroup.loadGraphicFromSprite","flixel/group/FlxTypedSpriteGroup.hx",892,0x49082bbf)
 	HX_STACK_THIS(this)
 	HX_STACK_ARG(Sprite,"Sprite")
+	HX_STACK_LINE(894)
+	::flixel::FlxG_obj::log->advanced(HX_CSTRING("loadGraphicFromSprite() is not supported in FlxSpriteGroups."),::flixel::system::debug::LogStyle_obj::ERROR,true);
 	HX_STACK_LINE(896)
 	return hx::ObjectPtr<OBJ_>(this);
 }
@@ -2240,7 +2252,7 @@ int Rotations = __o_Rotations.Default(16);
 int Frame = __o_Frame.Default(-1);
 bool AntiAliasing = __o_AntiAliasing.Default(false);
 bool AutoBuffer = __o_AutoBuffer.Default(false);
-	HX_STACK_FRAME("flixel.group.FlxTypedSpriteGroup","loadRotatedGraphic",0x45e23732,"flixel.group.FlxTypedSpriteGroup.loadRotatedGraphic","flixel/group/FlxTypedSpriteGroup.hx",917,0x49082bbf)
+	HX_STACK_FRAME("flixel.group.FlxTypedSpriteGroup","loadRotatedGraphic",0x45e23732,"flixel.group.FlxTypedSpriteGroup.loadRotatedGraphic","flixel/group/FlxTypedSpriteGroup.hx",913,0x49082bbf)
 	HX_STACK_THIS(this)
 	HX_STACK_ARG(Graphic,"Graphic")
 	HX_STACK_ARG(Rotations,"Rotations")
@@ -2249,6 +2261,8 @@ bool AutoBuffer = __o_AutoBuffer.Default(false);
 	HX_STACK_ARG(AutoBuffer,"AutoBuffer")
 	HX_STACK_ARG(Key,"Key")
 {
+		HX_STACK_LINE(915)
+		::flixel::FlxG_obj::log->advanced(HX_CSTRING("loadRotatedGraphic() is not supported in FlxSpriteGroups."),::flixel::system::debug::LogStyle_obj::ERROR,true);
 		HX_STACK_LINE(917)
 		return hx::ObjectPtr<OBJ_>(this);
 	}
@@ -2258,7 +2272,7 @@ bool AutoBuffer = __o_AutoBuffer.Default(false);
 ::flixel::FlxSprite FlxTypedSpriteGroup_obj::makeGraphic( int Width,int Height,hx::Null< int >  __o_Color,hx::Null< bool >  __o_Unique,::String Key){
 int Color = __o_Color.Default(-1);
 bool Unique = __o_Unique.Default(false);
-	HX_STACK_FRAME("flixel.group.FlxTypedSpriteGroup","makeGraphic",0x27a1d44d,"flixel.group.FlxTypedSpriteGroup.makeGraphic","flixel/group/FlxTypedSpriteGroup.hx",929,0x49082bbf)
+	HX_STACK_FRAME("flixel.group.FlxTypedSpriteGroup","makeGraphic",0x27a1d44d,"flixel.group.FlxTypedSpriteGroup.makeGraphic","flixel/group/FlxTypedSpriteGroup.hx",925,0x49082bbf)
 	HX_STACK_THIS(this)
 	HX_STACK_ARG(Width,"Width")
 	HX_STACK_ARG(Height,"Height")
@@ -2266,6 +2280,8 @@ bool Unique = __o_Unique.Default(false);
 	HX_STACK_ARG(Unique,"Unique")
 	HX_STACK_ARG(Key,"Key")
 {
+		HX_STACK_LINE(927)
+		::flixel::FlxG_obj::log->advanced(HX_CSTRING("makeGraphic() is not supported in FlxSpriteGroups."),::flixel::system::debug::LogStyle_obj::ERROR,true);
 		HX_STACK_LINE(929)
 		return hx::ObjectPtr<OBJ_>(this);
 	}
@@ -2274,12 +2290,14 @@ bool Unique = __o_Unique.Default(false);
 
 ::flixel::FlxSprite FlxTypedSpriteGroup_obj::loadGraphicFromTexture( Dynamic Data,hx::Null< bool >  __o_Unique,::String FrameName){
 bool Unique = __o_Unique.Default(false);
-	HX_STACK_FRAME("flixel.group.FlxTypedSpriteGroup","loadGraphicFromTexture",0x00c4377c,"flixel.group.FlxTypedSpriteGroup.loadGraphicFromTexture","flixel/group/FlxTypedSpriteGroup.hx",941,0x49082bbf)
+	HX_STACK_FRAME("flixel.group.FlxTypedSpriteGroup","loadGraphicFromTexture",0x00c4377c,"flixel.group.FlxTypedSpriteGroup.loadGraphicFromTexture","flixel/group/FlxTypedSpriteGroup.hx",937,0x49082bbf)
 	HX_STACK_THIS(this)
 	HX_STACK_ARG(Data,"Data")
 	HX_STACK_ARG(Unique,"Unique")
 	HX_STACK_ARG(FrameName,"FrameName")
 {
+		HX_STACK_LINE(939)
+		::flixel::FlxG_obj::log->advanced(HX_CSTRING("loadGraphicFromTexture() is not supported in FlxSpriteGroups."),::flixel::system::debug::LogStyle_obj::ERROR,true);
 		HX_STACK_LINE(941)
 		return hx::ObjectPtr<OBJ_>(this);
 	}
@@ -2290,7 +2308,7 @@ bool Unique = __o_Unique.Default(false);
 int Rotations = __o_Rotations.Default(16);
 bool AntiAliasing = __o_AntiAliasing.Default(false);
 bool AutoBuffer = __o_AutoBuffer.Default(false);
-	HX_STACK_FRAME("flixel.group.FlxTypedSpriteGroup","loadRotatedGraphicFromTexture",0xb4a2567f,"flixel.group.FlxTypedSpriteGroup.loadRotatedGraphicFromTexture","flixel/group/FlxTypedSpriteGroup.hx",953,0x49082bbf)
+	HX_STACK_FRAME("flixel.group.FlxTypedSpriteGroup","loadRotatedGraphicFromTexture",0xb4a2567f,"flixel.group.FlxTypedSpriteGroup.loadRotatedGraphicFromTexture","flixel/group/FlxTypedSpriteGroup.hx",949,0x49082bbf)
 	HX_STACK_THIS(this)
 	HX_STACK_ARG(Data,"Data")
 	HX_STACK_ARG(Image,"Image")
@@ -2298,6 +2316,8 @@ bool AutoBuffer = __o_AutoBuffer.Default(false);
 	HX_STACK_ARG(AntiAliasing,"AntiAliasing")
 	HX_STACK_ARG(AutoBuffer,"AutoBuffer")
 {
+		HX_STACK_LINE(951)
+		::flixel::FlxG_obj::log->advanced(HX_CSTRING("loadRotatedGraphicFromTexture() is not supported in FlxSpriteGroups."),::flixel::system::debug::LogStyle_obj::ERROR,true);
 		HX_STACK_LINE(953)
 		return hx::ObjectPtr<OBJ_>(this);
 	}
@@ -2394,6 +2414,7 @@ void FlxTypedSpriteGroup_obj::__Mark(HX_MARK_PARAMS)
 	HX_MARK_MEMBER_NAME(members,"members");
 	HX_MARK_MEMBER_NAME(length,"length");
 	HX_MARK_MEMBER_NAME(_skipTransformChildren,"_skipTransformChildren");
+	HX_MARK_MEMBER_NAME(_isDrawnDebug,"_isDrawnDebug");
 	HX_MARK_MEMBER_NAME(_sprites,"_sprites");
 	::flixel::FlxSprite_obj::__Mark(HX_MARK_ARG);
 	HX_MARK_END_CLASS();
@@ -2405,6 +2426,7 @@ void FlxTypedSpriteGroup_obj::__Visit(HX_VISIT_PARAMS)
 	HX_VISIT_MEMBER_NAME(members,"members");
 	HX_VISIT_MEMBER_NAME(length,"length");
 	HX_VISIT_MEMBER_NAME(_skipTransformChildren,"_skipTransformChildren");
+	HX_VISIT_MEMBER_NAME(_isDrawnDebug,"_isDrawnDebug");
 	HX_VISIT_MEMBER_NAME(_sprites,"_sprites");
 	::flixel::FlxSprite_obj::__Visit(HX_VISIT_ARG);
 }
@@ -2499,6 +2521,7 @@ Dynamic FlxTypedSpriteGroup_obj::__Field(const ::String &inName,bool inCallProp)
 		if (HX_FIELD_EQ(inName,"resetHelpers") ) { return resetHelpers_dyn(); }
 		break;
 	case 13:
+		if (HX_FIELD_EQ(inName,"_isDrawnDebug") ) { return _isDrawnDebug; }
 		if (HX_FIELD_EQ(inName,"overlapsPoint") ) { return overlapsPoint_dyn(); }
 		if (HX_FIELD_EQ(inName,"getFirstAlive") ) { return getFirstAlive_dyn(); }
 		if (HX_FIELD_EQ(inName,"forEachExists") ) { return forEachExists_dyn(); }
@@ -2594,6 +2617,9 @@ Dynamic FlxTypedSpriteGroup_obj::__SetField(const ::String &inName,const Dynamic
 	case 8:
 		if (HX_FIELD_EQ(inName,"_sprites") ) { _sprites=inValue.Cast< Array< ::Dynamic > >(); return inValue; }
 		break;
+	case 13:
+		if (HX_FIELD_EQ(inName,"_isDrawnDebug") ) { _isDrawnDebug=inValue.Cast< bool >(); return inValue; }
+		break;
 	case 22:
 		if (HX_FIELD_EQ(inName,"_skipTransformChildren") ) { _skipTransformChildren=inValue.Cast< bool >(); return inValue; }
 	}
@@ -2607,6 +2633,7 @@ void FlxTypedSpriteGroup_obj::__GetFields(Array< ::String> &outFields)
 	outFields->push(HX_CSTRING("length"));
 	outFields->push(HX_CSTRING("maxSize"));
 	outFields->push(HX_CSTRING("_skipTransformChildren"));
+	outFields->push(HX_CSTRING("_isDrawnDebug"));
 	outFields->push(HX_CSTRING("_sprites"));
 	super::__GetFields(outFields);
 };
@@ -2620,6 +2647,7 @@ static hx::StorageInfo sMemberStorageInfo[] = {
 	{hx::fsObject /*Dynamic*/ ,(int)offsetof(FlxTypedSpriteGroup_obj,members),HX_CSTRING("members")},
 	{hx::fsInt,(int)offsetof(FlxTypedSpriteGroup_obj,length),HX_CSTRING("length")},
 	{hx::fsBool,(int)offsetof(FlxTypedSpriteGroup_obj,_skipTransformChildren),HX_CSTRING("_skipTransformChildren")},
+	{hx::fsBool,(int)offsetof(FlxTypedSpriteGroup_obj,_isDrawnDebug),HX_CSTRING("_isDrawnDebug")},
 	{hx::fsObject /*Array< ::Dynamic >*/ ,(int)offsetof(FlxTypedSpriteGroup_obj,_sprites),HX_CSTRING("_sprites")},
 	{ hx::fsUnknown, 0, null()}
 };
@@ -2637,6 +2665,7 @@ static ::String sMemberFields[] = {
 	HX_CSTRING("members"),
 	HX_CSTRING("length"),
 	HX_CSTRING("_skipTransformChildren"),
+	HX_CSTRING("_isDrawnDebug"),
 	HX_CSTRING("_sprites"),
 	HX_CSTRING("initVars"),
 	HX_CSTRING("destroy"),

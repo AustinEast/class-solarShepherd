@@ -12,6 +12,9 @@
 #ifndef INCLUDED_flixel_FlxBasic
 #include <flixel/FlxBasic.h>
 #endif
+#ifndef INCLUDED_flixel_FlxG
+#include <flixel/FlxG.h>
+#endif
 #ifndef INCLUDED_flixel_FlxObject
 #include <flixel/FlxObject.h>
 #endif
@@ -32,6 +35,12 @@
 #endif
 #ifndef INCLUDED_flixel_interfaces_IFlxDestroyable
 #include <flixel/interfaces/IFlxDestroyable.h>
+#endif
+#ifndef INCLUDED_flixel_system_debug_LogStyle
+#include <flixel/system/debug/LogStyle.h>
+#endif
+#ifndef INCLUDED_flixel_system_frontEnds_LogFrontEnd
+#include <flixel/system/frontEnds/LogFrontEnd.h>
 #endif
 #ifndef INCLUDED_flixel_system_layer_frames_FlxFrame
 #include <flixel/system/layer/frames/FlxFrame.h>
@@ -327,6 +336,8 @@ Void FlxAnimationController_obj::append( ::String Name,Array< int > Frames){
 		::flixel::animation::FlxAnimation anim = this->_animations->get(Name);		HX_STACK_VAR(anim,"anim");
 		HX_STACK_LINE(217)
 		if (((anim == null()))){
+			HX_STACK_LINE(220)
+			::flixel::FlxG_obj::log->advanced(((HX_CSTRING("No animation called \"") + Name) + HX_CSTRING("\"")),::flixel::system::debug::LogStyle_obj::WARNING,true);
 			HX_STACK_LINE(221)
 			return null();
 		}
@@ -397,6 +408,8 @@ Void FlxAnimationController_obj::appendByNames( ::String Name,Array< ::String > 
 		::flixel::animation::FlxAnimation anim = this->_animations->get(Name);		HX_STACK_VAR(anim,"anim");
 		HX_STACK_LINE(271)
 		if (((anim == null()))){
+			HX_STACK_LINE(273)
+			::flixel::FlxG_obj::log->advanced(((HX_CSTRING("No animation called \"") + Name) + HX_CSTRING("\"")),::flixel::system::debug::LogStyle_obj::WARNING,true);
 			HX_STACK_LINE(274)
 			return null();
 		}
@@ -457,6 +470,8 @@ Void FlxAnimationController_obj::appendByStringIndices( ::String Name,::String P
 		::flixel::animation::FlxAnimation anim = this->_animations->get(Name);		HX_STACK_VAR(anim,"anim");
 		HX_STACK_LINE(320)
 		if (((anim == null()))){
+			HX_STACK_LINE(322)
+			::flixel::FlxG_obj::log->advanced(((HX_CSTRING("No animation called \"") + Name) + HX_CSTRING("\"")),::flixel::system::debug::LogStyle_obj::WARNING,true);
 			HX_STACK_LINE(323)
 			return null();
 		}
@@ -517,6 +532,8 @@ Void FlxAnimationController_obj::appendByIndices( ::String Name,::String Prefix,
 		::flixel::animation::FlxAnimation anim = this->_animations->get(Name);		HX_STACK_VAR(anim,"anim");
 		HX_STACK_LINE(369)
 		if (((anim == null()))){
+			HX_STACK_LINE(371)
+			::flixel::FlxG_obj::log->advanced(((HX_CSTRING("No animation called \"") + Name) + HX_CSTRING("\"")),::flixel::system::debug::LogStyle_obj::WARNING,true);
 			HX_STACK_LINE(372)
 			return null();
 		}
@@ -626,6 +643,8 @@ Void FlxAnimationController_obj::appendByPrefix( ::String Name,::String Prefix){
 		::flixel::animation::FlxAnimation anim = this->_animations->get(Name);		HX_STACK_VAR(anim,"anim");
 		HX_STACK_LINE(446)
 		if (((anim == null()))){
+			HX_STACK_LINE(448)
+			::flixel::FlxG_obj::log->advanced(((HX_CSTRING("No animation called \"") + Name) + HX_CSTRING("\"")),::flixel::system::debug::LogStyle_obj::WARNING,true);
 			HX_STACK_LINE(449)
 			return null();
 		}
@@ -681,6 +700,8 @@ int Frame = __o_Frame.Default(0);
 		};
 		HX_STACK_LINE(482)
 		if (((  ((!(((AnimName == null()))))) ? bool(_Function_1_1::Block(this,AnimName)) : bool(true) ))){
+			HX_STACK_LINE(484)
+			::flixel::FlxG_obj::log->advanced(((HX_CSTRING("No animation called \"") + AnimName) + HX_CSTRING("\"")),::flixel::system::debug::LogStyle_obj::WARNING,true);
 			HX_STACK_LINE(485)
 			return null();
 		}

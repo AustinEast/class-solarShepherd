@@ -1,7 +1,43 @@
 #include <hxcpp.h>
 
+#ifndef INCLUDED_flixel_FlxG
+#include <flixel/FlxG.h>
+#endif
+#ifndef INCLUDED_flixel_FlxGame
+#include <flixel/FlxGame.h>
+#endif
+#ifndef INCLUDED_flixel_system_debug_FlxDebugger
+#include <flixel/system/debug/FlxDebugger.h>
+#endif
+#ifndef INCLUDED_flixel_system_debug_Watch
+#include <flixel/system/debug/Watch.h>
+#endif
+#ifndef INCLUDED_flixel_system_debug_Window
+#include <flixel/system/debug/Window.h>
+#endif
 #ifndef INCLUDED_flixel_system_frontEnds_WatchFrontEnd
 #include <flixel/system/frontEnds/WatchFrontEnd.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_DisplayObject
+#include <openfl/_legacy/display/DisplayObject.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_DisplayObjectContainer
+#include <openfl/_legacy/display/DisplayObjectContainer.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_IBitmapDrawable
+#include <openfl/_legacy/display/IBitmapDrawable.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_InteractiveObject
+#include <openfl/_legacy/display/InteractiveObject.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_Sprite
+#include <openfl/_legacy/display/Sprite.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_events_EventDispatcher
+#include <openfl/_legacy/events/EventDispatcher.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_events_IEventDispatcher
+#include <openfl/_legacy/events/IEventDispatcher.h>
 #endif
 namespace flixel{
 namespace system{
@@ -32,11 +68,13 @@ Dynamic WatchFrontEnd_obj::__Create(hx::DynamicArray inArgs)
 
 Void WatchFrontEnd_obj::add( Dynamic AnyObject,::String VariableName,::String DisplayName){
 {
-		HX_STACK_FRAME("flixel.system.frontEnds.WatchFrontEnd","add",0xbd17f1da,"flixel.system.frontEnds.WatchFrontEnd.add","flixel/system/frontEnds/WatchFrontEnd.hx",16,0xd7ade198)
+		HX_STACK_FRAME("flixel.system.frontEnds.WatchFrontEnd","add",0xbd17f1da,"flixel.system.frontEnds.WatchFrontEnd.add","flixel/system/frontEnds/WatchFrontEnd.hx",18,0xd7ade198)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(AnyObject,"AnyObject")
 		HX_STACK_ARG(VariableName,"VariableName")
 		HX_STACK_ARG(DisplayName,"DisplayName")
+		HX_STACK_LINE(18)
+		::flixel::FlxG_obj::game->debugger->watch->add(AnyObject,VariableName,DisplayName);
 	}
 return null();
 }
@@ -46,10 +84,12 @@ HX_DEFINE_DYNAMIC_FUNC3(WatchFrontEnd_obj,add,(void))
 
 Void WatchFrontEnd_obj::remove( Dynamic AnyObject,::String VariableName){
 {
-		HX_STACK_FRAME("flixel.system.frontEnds.WatchFrontEnd","remove",0x8d8c762b,"flixel.system.frontEnds.WatchFrontEnd.remove","flixel/system/frontEnds/WatchFrontEnd.hx",30,0xd7ade198)
+		HX_STACK_FRAME("flixel.system.frontEnds.WatchFrontEnd","remove",0x8d8c762b,"flixel.system.frontEnds.WatchFrontEnd.remove","flixel/system/frontEnds/WatchFrontEnd.hx",32,0xd7ade198)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(AnyObject,"AnyObject")
 		HX_STACK_ARG(VariableName,"VariableName")
+		HX_STACK_LINE(32)
+		::flixel::FlxG_obj::game->debugger->watch->remove(AnyObject,VariableName,null());
 	}
 return null();
 }
@@ -59,10 +99,12 @@ HX_DEFINE_DYNAMIC_FUNC2(WatchFrontEnd_obj,remove,(void))
 
 Void WatchFrontEnd_obj::addQuick( ::String Name,Dynamic NewValue){
 {
-		HX_STACK_FRAME("flixel.system.frontEnds.WatchFrontEnd","addQuick",0x8c660eb3,"flixel.system.frontEnds.WatchFrontEnd.addQuick","flixel/system/frontEnds/WatchFrontEnd.hx",45,0xd7ade198)
+		HX_STACK_FRAME("flixel.system.frontEnds.WatchFrontEnd","addQuick",0x8c660eb3,"flixel.system.frontEnds.WatchFrontEnd.addQuick","flixel/system/frontEnds/WatchFrontEnd.hx",47,0xd7ade198)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(Name,"Name")
 		HX_STACK_ARG(NewValue,"NewValue")
+		HX_STACK_LINE(47)
+		::flixel::FlxG_obj::game->debugger->watch->updateQuickWatch(Name,NewValue);
 	}
 return null();
 }
@@ -72,9 +114,11 @@ HX_DEFINE_DYNAMIC_FUNC2(WatchFrontEnd_obj,addQuick,(void))
 
 Void WatchFrontEnd_obj::removeQuick( ::String Name){
 {
-		HX_STACK_FRAME("flixel.system.frontEnds.WatchFrontEnd","removeQuick",0x15fb44c2,"flixel.system.frontEnds.WatchFrontEnd.removeQuick","flixel/system/frontEnds/WatchFrontEnd.hx",57,0xd7ade198)
+		HX_STACK_FRAME("flixel.system.frontEnds.WatchFrontEnd","removeQuick",0x15fb44c2,"flixel.system.frontEnds.WatchFrontEnd.removeQuick","flixel/system/frontEnds/WatchFrontEnd.hx",59,0xd7ade198)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(Name,"Name")
+		HX_STACK_LINE(59)
+		::flixel::FlxG_obj::game->debugger->watch->remove(null(),null(),Name);
 	}
 return null();
 }
@@ -84,8 +128,10 @@ HX_DEFINE_DYNAMIC_FUNC1(WatchFrontEnd_obj,removeQuick,(void))
 
 Void WatchFrontEnd_obj::addMouse( ){
 {
-		HX_STACK_FRAME("flixel.system.frontEnds.WatchFrontEnd","addMouse",0x3add9deb,"flixel.system.frontEnds.WatchFrontEnd.addMouse","flixel/system/frontEnds/WatchFrontEnd.hx",68,0xd7ade198)
+		HX_STACK_FRAME("flixel.system.frontEnds.WatchFrontEnd","addMouse",0x3add9deb,"flixel.system.frontEnds.WatchFrontEnd.addMouse","flixel/system/frontEnds/WatchFrontEnd.hx",70,0xd7ade198)
 		HX_STACK_THIS(this)
+		HX_STACK_LINE(70)
+		::flixel::FlxG_obj::game->debugger->watch->add(hx::ClassOf< ::flixel::FlxG >(),HX_CSTRING("mouse"),HX_CSTRING("Mouse Position"));
 	}
 return null();
 }
@@ -95,8 +141,10 @@ HX_DEFINE_DYNAMIC_FUNC0(WatchFrontEnd_obj,addMouse,(void))
 
 Void WatchFrontEnd_obj::removeMouse( ){
 {
-		HX_STACK_FRAME("flixel.system.frontEnds.WatchFrontEnd","removeMouse",0xc472d3fa,"flixel.system.frontEnds.WatchFrontEnd.removeMouse","flixel/system/frontEnds/WatchFrontEnd.hx",78,0xd7ade198)
+		HX_STACK_FRAME("flixel.system.frontEnds.WatchFrontEnd","removeMouse",0xc472d3fa,"flixel.system.frontEnds.WatchFrontEnd.removeMouse","flixel/system/frontEnds/WatchFrontEnd.hx",80,0xd7ade198)
 		HX_STACK_THIS(this)
+		HX_STACK_LINE(80)
+		::flixel::FlxG_obj::game->debugger->watch->remove(hx::ClassOf< ::flixel::FlxG >(),HX_CSTRING("mouse"),null());
 	}
 return null();
 }

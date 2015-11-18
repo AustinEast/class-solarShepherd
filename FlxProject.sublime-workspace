@@ -4,6 +4,238 @@
 		"selected_items":
 		[
 			[
+				"colle",
+				"collectFuel"
+			],
+			[
+				"_",
+				"_chaserArray"
+			],
+			[
+				"_fu",
+				"_fuel	var"
+			],
+			[
+				"F",
+				"Fuel	class"
+			],
+			[
+				"_fue",
+				"_fuelGroup"
+			],
+			[
+				"_f",
+				"_fuelGroup"
+			],
+			[
+				"fue",
+				"_fuel	var"
+			],
+			[
+				"w",
+				"WHITE	Int"
+			],
+			[
+				"get",
+				"getTileSet(...)	flixel.addons.editors.tiled.TiledTileSet"
+			],
+			[
+				"Lo",
+				"loadedLevel	TiledStage"
+			],
+			[
+				"Ru",
+				"RUN_SPEED	var"
+			],
+			[
+				"_o",
+				"_patroller	var"
+			],
+			[
+				"_re",
+				"_resetX"
+			],
+			[
+				"res",
+				"resetY	var"
+			],
+			[
+				"_res",
+				"_resetY	var"
+			],
+			[
+				"st",
+				"stopFX(  )	Void"
+			],
+			[
+				"tr",
+				"TRANSPARENT	Int"
+			],
+			[
+				"fl",
+				"flash(...)	Void"
+			],
+			[
+				"re",
+				"Reg	class"
+			],
+			[
+				"_ene",
+				"_enemyGun"
+			],
+			[
+				"en",
+				"enemyBullets	flixel.group.FlxGroup"
+			],
+			[
+				"Re",
+				"Reg	class"
+			],
+			[
+				"pla",
+				"playerHitWithBullet"
+			],
+			[
+				"Pl",
+				"Player	var"
+			],
+			[
+				"_t",
+				"_targetY	var"
+			],
+			[
+				"_ta",
+				"_targetY	var"
+			],
+			[
+				"_tar",
+				"_targetY	var"
+			],
+			[
+				"_ch",
+				"_chaserArray	Array<flixel.util.FlxPoint>"
+			],
+			[
+				"_chas",
+				"_chaserArray"
+			],
+			[
+				"_cha",
+				"_chaserArray"
+			],
+			[
+				"chas",
+				"_chaserArray	var"
+			],
+			[
+				"flxp",
+				"FlxPoint	class"
+			],
+			[
+				"_c",
+				"_chaserArray"
+			],
+			[
+				"play",
+				"_player"
+			],
+			[
+				"S",
+				"Shooter	class"
+			],
+			[
+				"flxGo",
+				"FlxGroup	flixel.group"
+			],
+			[
+				"lan",
+				"LandPlayer	class"
+			],
+			[
+				"_pl",
+				"_player"
+			],
+			[
+				"Fu",
+				"fullWidth	Int"
+			],
+			[
+				"l",
+				"loadObjects(...)	Unknown<0>"
+			],
+			[
+				"le",
+				"levels	Array<String>"
+			],
+			[
+				"Pla",
+				"LandPlayer	class"
+			],
+			[
+				"r",
+				"Reg"
+			],
+			[
+				"M",
+				"MENUSELECT	String"
+			],
+			[
+				"me",
+				"MENUSELECT	String"
+			],
+			[
+				"L",
+				"Level"
+			],
+			[
+				"leve",
+				"levels	Array<Dynamic>"
+			],
+			[
+				"ST",
+				"STUNGUNSOUND	String"
+			],
+			[
+				"KN",
+				"MAX_KNOCKEDOUT	var"
+			],
+			[
+				"kno",
+				"knockedOut	function"
+			],
+			[
+				"knoc",
+				"_knockedOut	var"
+			],
+			[
+				"kn",
+				"_knockedOut	var"
+			],
+			[
+				"Lan",
+				"LandPlayer	class"
+			],
+			[
+				"jump",
+				"_jumpTimer	var"
+			],
+			[
+				"hurt",
+				"_hurtCounter	var"
+			],
+			[
+				"hu",
+				"_hurtCounter	var"
+			],
+			[
+				"po",
+				"_polarity	Bool"
+			],
+			[
+				"sta",
+				"state	flixel.FlxState"
+			],
+			[
 				"La",
 				"LANDPLAYER	String"
 			],
@@ -20,10 +252,6 @@
 				"frameIndex	Int"
 			],
 			[
-				"po",
-				"polTrue"
-			],
-			[
 				"pol",
 				"polFalse"
 			],
@@ -32,20 +260,8 @@
 				"play(...)	Void"
 			],
 			[
-				"tr",
-				"true"
-			],
-			[
 				"Ju",
 				"JUMP_SPEED"
-			],
-			[
-				"Ru",
-				"RUN_SPEED"
-			],
-			[
-				"me",
-				"meleeTrue	var"
 			],
 			[
 				"ass",
@@ -54,18 +270,6 @@
 			[
 				"fo",
 				"follow(...)	Void"
-			],
-			[
-				"le",
-				"level"
-			],
-			[
-				"F",
-				"FlxCamera	class"
-			],
-			[
-				"fl",
-				"FlxObject	class"
 			],
 			[
 				"j",
@@ -106,10 +310,6 @@
 			[
 				"player",
 				"_player	var"
-			],
-			[
-				"en",
-				"_enemies"
 			],
 			[
 				"nu",
@@ -154,10 +354,6 @@
 			[
 				"sw",
 				"switchState(...)	Void"
-			],
-			[
-				"_",
-				"_expParticle	var"
 			],
 			[
 				"FlxEm",
@@ -216,10 +412,6 @@
 				"bgColor	Int"
 			],
 			[
-				"sta",
-				"_starfield"
-			],
-			[
 				"se",
 				"setStarSpeed(...)	Void"
 			],
@@ -272,10 +464,6 @@
 				"FlxGroup"
 			],
 			[
-				"w",
-				"width"
-			],
-			[
 				"wd",
 				"width	Int"
 			],
@@ -308,26 +496,50 @@
 	"buffers":
 	[
 		{
-			"file": "source/LandPlayer.hx",
+			"file": "source/LandState.hx",
 			"settings":
 			{
-				"buffer_size": 4956,
+				"buffer_size": 4283,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "source/SpaceState.hx",
+			"file": "source/TiledStage.hx",
 			"settings":
 			{
-				"buffer_size": 3707,
+				"buffer_size": 3794,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/Fuel.hx",
+			"settings":
+			{
+				"buffer_size": 299,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/LandPlayer.hx",
+			"settings":
+			{
+				"buffer_size": 5547,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/Main.hx",
+			"settings":
+			{
+				"buffer_size": 1953,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "source/Reg.hx",
+			"file": "source/MenuState.hx",
 			"settings":
 			{
-				"buffer_size": 2092,
+				"buffer_size": 1452,
 				"line_ending": "Windows"
 			}
 		}
@@ -335,11 +547,43 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 347.0,
+		"height": 247.0,
 		"selected_items":
 		[
 			[
+				"bui",
+				"Haxe: Choose Build Target"
+			],
+			[
+				"class",
+				"Haxe: New Class"
+			],
+			[
 				"clas",
+				"Haxe: New Class"
+			],
+			[
+				"buil",
+				"Haxe: Choose Build Target"
+			],
+			[
+				"targ",
+				"Haxe: Choose Build Target"
+			],
+			[
+				"tar",
+				"Haxe: Choose Build Target"
+			],
+			[
+				"target",
+				"Haxe: Choose Build Target"
+			],
+			[
+				"new ",
+				"Haxe: New Class"
+			],
+			[
+				"new",
 				"Haxe: New Class"
 			],
 			[
@@ -367,15 +611,11 @@
 				"Haxelib: Install library"
 			],
 			[
-				"buil",
-				"Build: Build"
-			],
-			[
 				"pac",
 				"Preferences: Browse Packages"
 			]
 		],
-		"width": 449.0
+		"width": 431.0
 	},
 	"console":
 	{
@@ -392,22 +632,29 @@
 	},
 	"file_history":
 	[
-		"/Volumes/Mac Storage/Austin/Dropbox/Public/haxedev/SolarShepard/source/Star.hx",
-		"/Volumes/Mac Storage/Austin/Dropbox/Public/haxedev/SolarShepard/source/SpaceEnemy.hx",
-		"/Volumes/Mac Storage/Austin/Dropbox/Public/haxedev/SolarShepard/source/PolarSprite.hx",
-		"/Volumes/Mac Storage/Austin/Dropbox/Public/haxedev/SolarShepard/source/SpacePlayer.hx",
-		"/Volumes/Mac Storage/Austin/Dropbox/Public/haxedev/SolarShepard/source/SpaceBullet.hx",
+		"/Volumes/Mac Storage/Austin/Dropbox/Public/haxedev/SolarShepard/Project.xml",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/TextBox.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/Patroller.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/Reg.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/Shooter.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/Chaser.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/LandPlayer.hx",
+		"/usr/lib/haxe/lib/flixel-addons/1,1,0/flixel/addons/weapon/FlxWeapon.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/CrateGun.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/EnemyGun.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/LandLevel.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/SpaceState.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/SpaceBullet.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/StunGun.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/PolarSprite.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/Star.hx",
 		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/SpacePlayer.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/SpaceEnemy.hx",
 		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/FlxProject.sublime-project",
 		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/build.hxml",
-		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/SpaceBullet.hx",
-		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/SpaceState.hx",
-		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/SpaceEnemy.hx",
 		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/SpaceSprite.hx",
 		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/Main.hx",
 		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/LandState.hx",
-		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/LandLevel.hx",
-		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/LandPlayer.hx",
 		"/Users/Weasty/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
 		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/MenuState.hx",
 		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/PlayState.hx",
@@ -443,6 +690,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"feu",
+			"kill",
+			"fade",
+			"follow",
+			"loado",
+			"collid",
+			"hurt",
+			"collision",
+			"drag",
 			"vert",
 			"ver",
 			"flxstar",
@@ -453,7 +709,7 @@
 			"playsta"
 		],
 		"highlight": true,
-		"in_selection": true,
+		"in_selection": false,
 		"preserve_case": false,
 		"regex": false,
 		"replace_history":
@@ -468,52 +724,51 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 5,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "source/LandPlayer.hx",
+					"file": "source/LandState.hx",
 					"settings":
 					{
-						"buffer_size": 4956,
+						"buffer_size": 4283,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								2849,
+								2849
 							]
 						],
 						"settings":
 						{
 							"haxe-build-id": 0,
 							"syntax": "Packages/Haxe/Haxe.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 70.0,
+						"translation.y": 1503.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "source/SpaceState.hx",
+					"file": "source/TiledStage.hx",
 					"settings":
 					{
-						"buffer_size": 3707,
+						"buffer_size": 3794,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								134,
-								134
+								3712,
+								3712
 							]
 						],
 						"settings":
@@ -530,18 +785,74 @@
 				},
 				{
 					"buffer": 2,
-					"file": "source/Reg.hx",
+					"file": "source/Fuel.hx",
 					"settings":
 					{
-						"buffer_size": 2092,
+						"buffer_size": 299,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								259,
+								259
+							]
+						],
+						"settings":
+						{
+							"haxe-build-id": 0,
+							"syntax": "Packages/Haxe/Haxe.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "source/LandPlayer.hx",
+					"settings":
+					{
+						"buffer_size": 5547,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								170,
+								113
+							]
+						],
+						"settings":
+						{
+							"haxe-build-id": 0,
+							"syntax": "Packages/Haxe/Haxe.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "source/Main.hx",
+					"settings":
+					{
+						"buffer_size": 1953,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								521,
+								521
 							]
 						],
 						"settings":
@@ -552,6 +863,34 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "source/MenuState.hx",
+					"settings":
+					{
+						"buffer_size": 1452,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								791,
+								791
+							]
+						],
+						"settings":
+						{
+							"haxe-build-id": 0,
+							"syntax": "Packages/Haxe/Haxe.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 72.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -592,7 +931,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 83.0
+		"height": 76.0
 	},
 	"replace":
 	{
@@ -609,11 +948,11 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"show_minimap": true,
 	"show_open_files": false,

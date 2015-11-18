@@ -67,13 +67,12 @@ package;
             
         //  The Animation sequences we need
         animation.add("idle", [0, 1], 5, true);
-        animation.add("walk", [7, 8, 9, 10, 11], 10, true);
-        animation.add("run", [2, 3, 4, 5, 6], 10, true);
-        animation.add("jump", [3, 4], 4, false);
-        animation.add("fall", [5], 0, false);
-        animation.add("melee", [12, 13, 14], 5, false);
-        animation.add("hurt", [3], 0, false);
-        animation.add("dead", [5], 0, false);
+        animation.add("walk", [2, 3], 10, true);
+        animation.add("run", [2, 3], 10, true);
+        animation.add("jump", [2], 4, false);
+        animation.add("fall", [3], 0, false);
+        animation.add("hurt", [2], 0, false);
+        animation.add("dead", [3], 0, false);
 
         //  Add the Stun Gun
         _stunGun = new StunGun("Stun Gun",this);
@@ -130,18 +129,18 @@ package;
             acceleration.x = -ACCELERATION;
             flipX = true;
             _stunGun.setBulletDirection(180,300);
-            _stunGun.setBulletOffset(-5,2);
+            _stunGun.setBulletOffset(-5,7);
             _crateGun.setBulletDirection(195,180);
-            _crateGun.setBulletOffset(-5,2);
+            _crateGun.setBulletOffset(-5,7);
         }
         else if (FlxG.keys.pressed.RIGHT)
         {
             acceleration.x = ACCELERATION;
             flipX = false;
             _stunGun.setBulletDirection(360,300);
-            _stunGun.setBulletOffset(5,2);
+            _stunGun.setBulletOffset(5,7);
             _crateGun.setBulletDirection(345,180); 
-            _crateGun.setBulletOffset(5,2);
+            _crateGun.setBulletOffset(5,7);
         }
         // Mario Style jump
         if(FlxG.keys.justPressed.UP && isTouching(FlxObject.FLOOR))

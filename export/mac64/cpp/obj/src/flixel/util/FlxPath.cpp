@@ -3,6 +3,9 @@
 #ifndef INCLUDED_flixel_FlxBasic
 #include <flixel/FlxBasic.h>
 #endif
+#ifndef INCLUDED_flixel_FlxCamera
+#include <flixel/FlxCamera.h>
+#endif
 #ifndef INCLUDED_flixel_FlxG
 #include <flixel/FlxG.h>
 #endif
@@ -36,6 +39,39 @@
 #ifndef INCLUDED_hxMath
 #include <hxMath.h>
 #endif
+#ifndef INCLUDED_openfl__legacy_display_CapsStyle
+#include <openfl/_legacy/display/CapsStyle.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_DisplayObject
+#include <openfl/_legacy/display/DisplayObject.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_DisplayObjectContainer
+#include <openfl/_legacy/display/DisplayObjectContainer.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_Graphics
+#include <openfl/_legacy/display/Graphics.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_IBitmapDrawable
+#include <openfl/_legacy/display/IBitmapDrawable.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_InteractiveObject
+#include <openfl/_legacy/display/InteractiveObject.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_JointStyle
+#include <openfl/_legacy/display/JointStyle.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_LineScaleMode
+#include <openfl/_legacy/display/LineScaleMode.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_display_Sprite
+#include <openfl/_legacy/display/Sprite.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_events_EventDispatcher
+#include <openfl/_legacy/events/EventDispatcher.h>
+#endif
+#ifndef INCLUDED_openfl__legacy_events_IEventDispatcher
+#include <openfl/_legacy/events/IEventDispatcher.h>
+#endif
 namespace flixel{
 namespace util{
 
@@ -62,6 +98,14 @@ bool AutoRotate = __o_AutoRotate.Default(false);
 	this->_nodeIndex = (int)0;
 	HX_STACK_LINE(108)
 	this->finished = false;
+	HX_STACK_LINE(105)
+	this->ignoreDrawDebug = false;
+	HX_STACK_LINE(100)
+	this->debugScrollY = 1.0;
+	HX_STACK_LINE(99)
+	this->debugScrollX = 1.0;
+	HX_STACK_LINE(94)
+	this->debugColor = (int)16777215;
 	HX_STACK_LINE(86)
 	this->active = true;
 	HX_STACK_LINE(81)
@@ -101,6 +145,14 @@ hx::Object *FlxPath_obj::__ToInterface(const hx::type_info &inType) {
 ::flixel::util::FlxPath FlxPath_obj::reset( ){
 	HX_STACK_FRAME("flixel.util.FlxPath","reset",0x2ce64a9e,"flixel.util.FlxPath.reset","flixel/util/FlxPath.hx",141,0x22aae741)
 	HX_STACK_THIS(this)
+	HX_STACK_LINE(143)
+	this->debugScrollX = 1.0;
+	HX_STACK_LINE(144)
+	this->debugScrollY = 1.0;
+	HX_STACK_LINE(145)
+	this->debugColor = (int)16777215;
+	HX_STACK_LINE(146)
+	this->ignoreDrawDebug = false;
 	HX_STACK_LINE(148)
 	this->autoCenter = true;
 	HX_STACK_LINE(149)
@@ -1029,6 +1081,107 @@ HX_DEFINE_DYNAMIC_FUNC0(FlxPath_obj,head,return )
 
 HX_DEFINE_DYNAMIC_FUNC0(FlxPath_obj,tail,return )
 
+Void FlxPath_obj::drawDebug( ::flixel::FlxCamera Camera){
+{
+		HX_STACK_FRAME("flixel.util.FlxPath","drawDebug",0x7c3a9bfe,"flixel.util.FlxPath.drawDebug","flixel/util/FlxPath.hx",617,0x22aae741)
+		HX_STACK_THIS(this)
+		HX_STACK_ARG(Camera,"Camera")
+		HX_STACK_LINE(618)
+		if (((bool((this->nodes == null())) || bool((this->nodes->length <= (int)0))))){
+			HX_STACK_LINE(620)
+			return null();
+		}
+		HX_STACK_LINE(622)
+		if (((Camera == null()))){
+			HX_STACK_LINE(624)
+			Camera = ::flixel::FlxG_obj::camera;
+		}
+		HX_STACK_LINE(632)
+		::openfl::_legacy::display::Graphics gfx = Camera->debugLayer->get_graphics();		HX_STACK_VAR(gfx,"gfx");
+		HX_STACK_LINE(636)
+		::flixel::util::FlxPoint node;		HX_STACK_VAR(node,"node");
+		HX_STACK_LINE(637)
+		::flixel::util::FlxPoint nextNode;		HX_STACK_VAR(nextNode,"nextNode");
+		HX_STACK_LINE(638)
+		int i = (int)0;		HX_STACK_VAR(i,"i");
+		HX_STACK_LINE(639)
+		int l = this->nodes->length;		HX_STACK_VAR(l,"l");
+		HX_STACK_LINE(640)
+		while((true)){
+			HX_STACK_LINE(640)
+			if ((!(((i < l))))){
+				HX_STACK_LINE(640)
+				break;
+			}
+			HX_STACK_LINE(643)
+			node = this->nodes->__get(i).StaticCast< ::flixel::util::FlxPoint >();
+			HX_STACK_LINE(646)
+			::flixel::util::FlxPath_obj::_point->set_x((node->x - (Camera->scroll->x * this->debugScrollX)));
+			HX_STACK_LINE(647)
+			::flixel::util::FlxPath_obj::_point->set_y((node->y - (Camera->scroll->y * this->debugScrollY)));
+			HX_STACK_LINE(650)
+			int nodeSize = (int)2;		HX_STACK_VAR(nodeSize,"nodeSize");
+			HX_STACK_LINE(651)
+			if (((bool((i == (int)0)) || bool((i == (l - (int)1)))))){
+				HX_STACK_LINE(653)
+				hx::MultEq(nodeSize,(int)2);
+			}
+			HX_STACK_LINE(655)
+			int nodeColor = this->debugColor;		HX_STACK_VAR(nodeColor,"nodeColor");
+			HX_STACK_LINE(656)
+			if (((l > (int)1))){
+				HX_STACK_LINE(658)
+				if (((i == (int)0))){
+					HX_STACK_LINE(660)
+					nodeColor = (int)-16744448;
+				}
+				else{
+					HX_STACK_LINE(662)
+					if (((i == (l - (int)1)))){
+						HX_STACK_LINE(664)
+						nodeColor = (int)-65536;
+					}
+				}
+			}
+			HX_STACK_LINE(669)
+			gfx->beginFill(nodeColor,0.5);
+			HX_STACK_LINE(670)
+			gfx->lineStyle(null(),null(),null(),null(),null(),null(),null(),null());
+			HX_STACK_LINE(671)
+			gfx->drawRect((::flixel::util::FlxPath_obj::_point->x - (nodeSize * 0.5)),(::flixel::util::FlxPath_obj::_point->y - (nodeSize * 0.5)),nodeSize,nodeSize);
+			HX_STACK_LINE(672)
+			gfx->endFill();
+			HX_STACK_LINE(675)
+			Float linealpha = 0.3;		HX_STACK_VAR(linealpha,"linealpha");
+			HX_STACK_LINE(676)
+			if (((i < (l - (int)1)))){
+				HX_STACK_LINE(678)
+				nextNode = this->nodes->__get((i + (int)1)).StaticCast< ::flixel::util::FlxPoint >();
+			}
+			else{
+				HX_STACK_LINE(682)
+				nextNode = this->nodes->__get(i).StaticCast< ::flixel::util::FlxPoint >();
+			}
+			HX_STACK_LINE(686)
+			gfx->moveTo(::flixel::util::FlxPath_obj::_point->x,::flixel::util::FlxPath_obj::_point->y);
+			HX_STACK_LINE(687)
+			gfx->lineStyle((int)1,this->debugColor,linealpha,null(),null(),null(),null(),null());
+			HX_STACK_LINE(688)
+			::flixel::util::FlxPath_obj::_point->set_x((nextNode->x - (Camera->scroll->x * this->debugScrollX)));
+			HX_STACK_LINE(689)
+			::flixel::util::FlxPath_obj::_point->set_y((nextNode->y - (Camera->scroll->y * this->debugScrollY)));
+			HX_STACK_LINE(690)
+			gfx->lineTo(::flixel::util::FlxPath_obj::_point->x,::flixel::util::FlxPath_obj::_point->y);
+			HX_STACK_LINE(692)
+			(i)++;
+		}
+	}
+return null();
+}
+
+
+HX_DEFINE_DYNAMIC_FUNC1(FlxPath_obj,drawDebug,(void))
+
 ::flixel::plugin::PathManager FlxPath_obj::manager;
 
 int FlxPath_obj::FORWARD;
@@ -1062,6 +1215,10 @@ void FlxPath_obj::__Mark(HX_MARK_PARAMS)
 	HX_MARK_MEMBER_NAME(autoCenter,"autoCenter");
 	HX_MARK_MEMBER_NAME(active,"active");
 	HX_MARK_MEMBER_NAME(onComplete,"onComplete");
+	HX_MARK_MEMBER_NAME(debugColor,"debugColor");
+	HX_MARK_MEMBER_NAME(debugScrollX,"debugScrollX");
+	HX_MARK_MEMBER_NAME(debugScrollY,"debugScrollY");
+	HX_MARK_MEMBER_NAME(ignoreDrawDebug,"ignoreDrawDebug");
 	HX_MARK_MEMBER_NAME(finished,"finished");
 	HX_MARK_MEMBER_NAME(_nodeIndex,"_nodeIndex");
 	HX_MARK_MEMBER_NAME(_mode,"_mode");
@@ -1080,6 +1237,10 @@ void FlxPath_obj::__Visit(HX_VISIT_PARAMS)
 	HX_VISIT_MEMBER_NAME(autoCenter,"autoCenter");
 	HX_VISIT_MEMBER_NAME(active,"active");
 	HX_VISIT_MEMBER_NAME(onComplete,"onComplete");
+	HX_VISIT_MEMBER_NAME(debugColor,"debugColor");
+	HX_VISIT_MEMBER_NAME(debugScrollX,"debugScrollX");
+	HX_VISIT_MEMBER_NAME(debugScrollY,"debugScrollY");
+	HX_VISIT_MEMBER_NAME(ignoreDrawDebug,"ignoreDrawDebug");
 	HX_VISIT_MEMBER_NAME(finished,"finished");
 	HX_VISIT_MEMBER_NAME(_nodeIndex,"_nodeIndex");
 	HX_VISIT_MEMBER_NAME(_mode,"_mode");
@@ -1127,9 +1288,13 @@ Dynamic FlxPath_obj::__Field(const ::String &inName,bool inCallProp)
 		if (HX_FIELD_EQ(inName,"addPoint") ) { return addPoint_dyn(); }
 		if (HX_FIELD_EQ(inName,"removeAt") ) { return removeAt_dyn(); }
 		break;
+	case 9:
+		if (HX_FIELD_EQ(inName,"drawDebug") ) { return drawDebug_dyn(); }
+		break;
 	case 10:
 		if (HX_FIELD_EQ(inName,"autoCenter") ) { return autoCenter; }
 		if (HX_FIELD_EQ(inName,"onComplete") ) { return onComplete; }
+		if (HX_FIELD_EQ(inName,"debugColor") ) { return debugColor; }
 		if (HX_FIELD_EQ(inName,"_nodeIndex") ) { return _nodeIndex; }
 		if (HX_FIELD_EQ(inName,"_inManager") ) { return _inManager; }
 		if (HX_FIELD_EQ(inName,"addPointAt") ) { return addPointAt_dyn(); }
@@ -1137,6 +1302,13 @@ Dynamic FlxPath_obj::__Field(const ::String &inName,bool inCallProp)
 	case 11:
 		if (HX_FIELD_EQ(inName,"_autoRotate") ) { return _autoRotate; }
 		if (HX_FIELD_EQ(inName,"advancePath") ) { return advancePath_dyn(); }
+		break;
+	case 12:
+		if (HX_FIELD_EQ(inName,"debugScrollX") ) { return debugScrollX; }
+		if (HX_FIELD_EQ(inName,"debugScrollY") ) { return debugScrollY; }
+		break;
+	case 15:
+		if (HX_FIELD_EQ(inName,"ignoreDrawDebug") ) { return ignoreDrawDebug; }
 	}
 	return super::__Field(inName,inCallProp);
 }
@@ -1167,11 +1339,19 @@ Dynamic FlxPath_obj::__SetField(const ::String &inName,const Dynamic &inValue,bo
 	case 10:
 		if (HX_FIELD_EQ(inName,"autoCenter") ) { autoCenter=inValue.Cast< bool >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"onComplete") ) { onComplete=inValue.Cast< Dynamic >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"debugColor") ) { debugColor=inValue.Cast< int >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"_nodeIndex") ) { _nodeIndex=inValue.Cast< int >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"_inManager") ) { _inManager=inValue.Cast< bool >(); return inValue; }
 		break;
 	case 11:
 		if (HX_FIELD_EQ(inName,"_autoRotate") ) { _autoRotate=inValue.Cast< bool >(); return inValue; }
+		break;
+	case 12:
+		if (HX_FIELD_EQ(inName,"debugScrollX") ) { debugScrollX=inValue.Cast< Float >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"debugScrollY") ) { debugScrollY=inValue.Cast< Float >(); return inValue; }
+		break;
+	case 15:
+		if (HX_FIELD_EQ(inName,"ignoreDrawDebug") ) { ignoreDrawDebug=inValue.Cast< bool >(); return inValue; }
 	}
 	return super::__SetField(inName,inValue,inCallProp);
 }
@@ -1184,6 +1364,10 @@ void FlxPath_obj::__GetFields(Array< ::String> &outFields)
 	outFields->push(HX_CSTRING("angle"));
 	outFields->push(HX_CSTRING("autoCenter"));
 	outFields->push(HX_CSTRING("active"));
+	outFields->push(HX_CSTRING("debugColor"));
+	outFields->push(HX_CSTRING("debugScrollX"));
+	outFields->push(HX_CSTRING("debugScrollY"));
+	outFields->push(HX_CSTRING("ignoreDrawDebug"));
 	outFields->push(HX_CSTRING("finished"));
 	outFields->push(HX_CSTRING("_nodeIndex"));
 	outFields->push(HX_CSTRING("_mode"));
@@ -1214,6 +1398,10 @@ static hx::StorageInfo sMemberStorageInfo[] = {
 	{hx::fsBool,(int)offsetof(FlxPath_obj,autoCenter),HX_CSTRING("autoCenter")},
 	{hx::fsBool,(int)offsetof(FlxPath_obj,active),HX_CSTRING("active")},
 	{hx::fsObject /*Dynamic*/ ,(int)offsetof(FlxPath_obj,onComplete),HX_CSTRING("onComplete")},
+	{hx::fsInt,(int)offsetof(FlxPath_obj,debugColor),HX_CSTRING("debugColor")},
+	{hx::fsFloat,(int)offsetof(FlxPath_obj,debugScrollX),HX_CSTRING("debugScrollX")},
+	{hx::fsFloat,(int)offsetof(FlxPath_obj,debugScrollY),HX_CSTRING("debugScrollY")},
+	{hx::fsBool,(int)offsetof(FlxPath_obj,ignoreDrawDebug),HX_CSTRING("ignoreDrawDebug")},
 	{hx::fsBool,(int)offsetof(FlxPath_obj,finished),HX_CSTRING("finished")},
 	{hx::fsInt,(int)offsetof(FlxPath_obj,_nodeIndex),HX_CSTRING("_nodeIndex")},
 	{hx::fsInt,(int)offsetof(FlxPath_obj,_mode),HX_CSTRING("_mode")},
@@ -1232,6 +1420,10 @@ static ::String sMemberFields[] = {
 	HX_CSTRING("autoCenter"),
 	HX_CSTRING("active"),
 	HX_CSTRING("onComplete"),
+	HX_CSTRING("debugColor"),
+	HX_CSTRING("debugScrollX"),
+	HX_CSTRING("debugScrollY"),
+	HX_CSTRING("ignoreDrawDebug"),
 	HX_CSTRING("finished"),
 	HX_CSTRING("_nodeIndex"),
 	HX_CSTRING("_mode"),
@@ -1254,6 +1446,7 @@ static ::String sMemberFields[] = {
 	HX_CSTRING("removeAt"),
 	HX_CSTRING("head"),
 	HX_CSTRING("tail"),
+	HX_CSTRING("drawDebug"),
 	String(null()) };
 
 static void sMarkStatics(HX_MARK_PARAMS) {

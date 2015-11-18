@@ -182,6 +182,21 @@ HX_STACK_ARG(height,"height")
 		HX_STACK_LINE(155)
 		this->stage3Ds->push(x);
 	}
+
+	HX_BEGIN_LOCAL_FUNC_S0(hx::LocalFunc,_Function_1_2)
+	Void run(::String message){
+		HX_STACK_FRAME("*","_Function_1_2",0x5200ed38,"*._Function_1_2","openfl/_legacy/display/Stage.hx",158,0x8b30a073)
+		HX_STACK_ARG(message,"message")
+		{
+			HX_STACK_LINE(158)
+			HX_STACK_DO_THROW(message);
+		}
+		return null();
+	}
+	HX_END_LOCAL_FUNC1((void))
+
+	HX_STACK_LINE(158)
+	::__hxcpp_set_critical_error_handler( Dynamic(new _Function_1_2()));
 }
 ;
 	return null();

@@ -15,6 +15,9 @@
 #ifndef INCLUDED_flixel_FlxBasic
 #include <flixel/FlxBasic.h>
 #endif
+#ifndef INCLUDED_flixel_FlxCamera
+#include <flixel/FlxCamera.h>
+#endif
 #ifndef INCLUDED_flixel_FlxG
 #include <flixel/FlxG.h>
 #endif
@@ -85,12 +88,14 @@
 #include <openfl/_legacy/events/IEventDispatcher.h>
 #endif
 
-Void LandPlayer_obj::__construct(Dynamic X,Dynamic Y)
+Void LandPlayer_obj::__construct(Dynamic X,Dynamic Y,Float resetX,Float resetY)
 {
 HX_STACK_FRAME("LandPlayer","new",0x5ddca2be,"LandPlayer.new","LandPlayer.hx",14,0xbdd67e72)
 HX_STACK_THIS(this)
 HX_STACK_ARG(X,"X")
 HX_STACK_ARG(Y,"Y")
+HX_STACK_ARG(resetX,"resetX")
+HX_STACK_ARG(resetY,"resetY")
 {
 	HX_STACK_LINE(22)
 	this->GRAVITY = (int)500;
@@ -103,52 +108,56 @@ HX_STACK_ARG(Y,"Y")
 	HX_STACK_LINE(18)
 	this->ACCELERATION = (int)400;
 	HX_STACK_LINE(17)
-	this->MAX_HEALTH = (int)10;
-	HX_STACK_LINE(37)
-	super::__construct(X,Y,null());
-	HX_STACK_LINE(40)
-	this->drag->set((this->RUN_SPEED * (int)6),(this->JUMP_SPEED * (int)2));
+	this->MAX_HEALTH = (int)5;
 	HX_STACK_LINE(41)
-	this->maxVelocity->set(this->RUN_SPEED,this->JUMP_SPEED);
-	HX_STACK_LINE(42)
-	this->acceleration->set_y(this->GRAVITY);
+	super::__construct(X,Y,null());
+	HX_STACK_LINE(44)
+	this->drag->set((this->RUN_SPEED * (int)6),(this->JUMP_SPEED * (int)2));
 	HX_STACK_LINE(45)
-	this->health = this->MAX_HEALTH;
+	this->maxVelocity->set(this->RUN_SPEED,this->JUMP_SPEED);
+	HX_STACK_LINE(46)
+	this->acceleration->set_y(this->GRAVITY);
 	HX_STACK_LINE(49)
+	this->_resetX = resetX;
+	HX_STACK_LINE(50)
+	this->_resetY = resetY;
+	HX_STACK_LINE(53)
+	this->health = this->MAX_HEALTH;
+	HX_STACK_LINE(57)
 	this->loadGraphic(HX_CSTRING("assets/images/Dog.png"),true,(int)16,(int)16,null(),null());
-	HX_STACK_LINE(54)
-	this->set_width((int)12);
-	HX_STACK_LINE(55)
-	this->set_height((int)16);
-	HX_STACK_LINE(58)
-	this->offset->set_x((int)2);
-	HX_STACK_LINE(61)
-	this->animation->add(HX_CSTRING("idle"),Array_obj< int >::__new().Add((int)0).Add((int)1),(int)5,true);
 	HX_STACK_LINE(62)
-	this->animation->add(HX_CSTRING("walk"),Array_obj< int >::__new().Add((int)7).Add((int)8).Add((int)9).Add((int)10).Add((int)11),(int)10,true);
+	this->set_width((int)12);
 	HX_STACK_LINE(63)
-	this->animation->add(HX_CSTRING("run"),Array_obj< int >::__new().Add((int)2).Add((int)3).Add((int)4).Add((int)5).Add((int)6),(int)10,true);
-	HX_STACK_LINE(64)
-	this->animation->add(HX_CSTRING("jump"),Array_obj< int >::__new().Add((int)3).Add((int)4),(int)4,false);
-	HX_STACK_LINE(65)
-	this->animation->add(HX_CSTRING("fall"),Array_obj< int >::__new().Add((int)5),(int)0,false);
+	this->set_height((int)16);
 	HX_STACK_LINE(66)
-	this->animation->add(HX_CSTRING("melee"),Array_obj< int >::__new().Add((int)12).Add((int)13).Add((int)14),(int)5,false);
-	HX_STACK_LINE(67)
-	this->animation->add(HX_CSTRING("hurt"),Array_obj< int >::__new().Add((int)3),(int)0,false);
-	HX_STACK_LINE(68)
-	this->animation->add(HX_CSTRING("dead"),Array_obj< int >::__new().Add((int)5),(int)0,false);
+	this->offset->set_x((int)2);
+	HX_STACK_LINE(69)
+	this->animation->add(HX_CSTRING("idle"),Array_obj< int >::__new().Add((int)0).Add((int)1),(int)5,true);
+	HX_STACK_LINE(70)
+	this->animation->add(HX_CSTRING("walk"),Array_obj< int >::__new().Add((int)7).Add((int)8).Add((int)9).Add((int)10).Add((int)11),(int)10,true);
 	HX_STACK_LINE(71)
-	::StunGun _g = ::StunGun_obj::__new(HX_CSTRING("Stun Gun"),hx::ObjectPtr<OBJ_>(this),null(),null());		HX_STACK_VAR(_g,"_g");
-	HX_STACK_LINE(71)
-	this->_stunGun = _g;
+	this->animation->add(HX_CSTRING("run"),Array_obj< int >::__new().Add((int)2).Add((int)3).Add((int)4).Add((int)5).Add((int)6),(int)10,true);
 	HX_STACK_LINE(72)
-	::flixel::FlxG_obj::game->_state->add(this->_stunGun->group);
+	this->animation->add(HX_CSTRING("jump"),Array_obj< int >::__new().Add((int)3).Add((int)4),(int)4,false);
+	HX_STACK_LINE(73)
+	this->animation->add(HX_CSTRING("fall"),Array_obj< int >::__new().Add((int)5),(int)0,false);
 	HX_STACK_LINE(74)
-	::CrateGun _g1 = ::CrateGun_obj::__new(HX_CSTRING("Crate Gun"),hx::ObjectPtr<OBJ_>(this),null(),null());		HX_STACK_VAR(_g1,"_g1");
-	HX_STACK_LINE(74)
-	this->_crateGun = _g1;
+	this->animation->add(HX_CSTRING("melee"),Array_obj< int >::__new().Add((int)12).Add((int)13).Add((int)14),(int)5,false);
 	HX_STACK_LINE(75)
+	this->animation->add(HX_CSTRING("hurt"),Array_obj< int >::__new().Add((int)3),(int)0,false);
+	HX_STACK_LINE(76)
+	this->animation->add(HX_CSTRING("dead"),Array_obj< int >::__new().Add((int)5),(int)0,false);
+	HX_STACK_LINE(79)
+	::StunGun _g = ::StunGun_obj::__new(HX_CSTRING("Stun Gun"),hx::ObjectPtr<OBJ_>(this),null(),null());		HX_STACK_VAR(_g,"_g");
+	HX_STACK_LINE(79)
+	this->_stunGun = _g;
+	HX_STACK_LINE(80)
+	::flixel::FlxG_obj::game->_state->add(this->_stunGun->group);
+	HX_STACK_LINE(82)
+	::CrateGun _g1 = ::CrateGun_obj::__new(HX_CSTRING("Crate Gun"),hx::ObjectPtr<OBJ_>(this),null(),null());		HX_STACK_VAR(_g1,"_g1");
+	HX_STACK_LINE(82)
+	this->_crateGun = _g1;
+	HX_STACK_LINE(83)
 	::flixel::FlxG_obj::game->_state->add(this->_crateGun->group);
 }
 ;
@@ -158,27 +167,27 @@ HX_STACK_ARG(Y,"Y")
 //LandPlayer_obj::~LandPlayer_obj() { }
 
 Dynamic LandPlayer_obj::__CreateEmpty() { return  new LandPlayer_obj; }
-hx::ObjectPtr< LandPlayer_obj > LandPlayer_obj::__new(Dynamic X,Dynamic Y)
+hx::ObjectPtr< LandPlayer_obj > LandPlayer_obj::__new(Dynamic X,Dynamic Y,Float resetX,Float resetY)
 {  hx::ObjectPtr< LandPlayer_obj > result = new LandPlayer_obj();
-	result->__construct(X,Y);
+	result->__construct(X,Y,resetX,resetY);
 	return result;}
 
 Dynamic LandPlayer_obj::__Create(hx::DynamicArray inArgs)
 {  hx::ObjectPtr< LandPlayer_obj > result = new LandPlayer_obj();
-	result->__construct(inArgs[0],inArgs[1]);
+	result->__construct(inArgs[0],inArgs[1],inArgs[2],inArgs[3]);
 	return result;}
 
 Void LandPlayer_obj::update( ){
 {
-		HX_STACK_FRAME("LandPlayer","update",0x5b6e026b,"LandPlayer.update","LandPlayer.hx",81,0xbdd67e72)
+		HX_STACK_FRAME("LandPlayer","update",0x5b6e026b,"LandPlayer.update","LandPlayer.hx",89,0xbdd67e72)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(82)
+		HX_STACK_LINE(90)
 		this->acceleration->set_x((int)0);
-		HX_STACK_LINE(83)
+		HX_STACK_LINE(91)
 		this->animationCheck();
-		HX_STACK_LINE(84)
+		HX_STACK_LINE(92)
 		this->controls();
-		HX_STACK_LINE(86)
+		HX_STACK_LINE(94)
 		this->super::update();
 	}
 return null();
@@ -187,35 +196,35 @@ return null();
 
 Void LandPlayer_obj::animationCheck( ){
 {
-		HX_STACK_FRAME("LandPlayer","animationCheck",0x8188d986,"LandPlayer.animationCheck","LandPlayer.hx",93,0xbdd67e72)
+		HX_STACK_FRAME("LandPlayer","animationCheck",0x8188d986,"LandPlayer.animationCheck","LandPlayer.hx",101,0xbdd67e72)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(93)
+		HX_STACK_LINE(101)
 		if (((((int(this->touching) & int((int)4096))) > (int)0))){
-			HX_STACK_LINE(95)
+			HX_STACK_LINE(103)
 			if (((bool((this->velocity->x > (int)100)) || bool((this->velocity->x < (int)-100))))){
-				HX_STACK_LINE(97)
+				HX_STACK_LINE(105)
 				this->animation->play(HX_CSTRING("run"),null(),null());
 			}
 			else{
-				HX_STACK_LINE(99)
+				HX_STACK_LINE(107)
 				if (((bool((this->velocity->x > (int)0)) || bool((this->velocity->x < (int)0))))){
-					HX_STACK_LINE(101)
+					HX_STACK_LINE(109)
 					this->animation->play(HX_CSTRING("walk"),null(),null());
 				}
 				else{
-					HX_STACK_LINE(105)
+					HX_STACK_LINE(113)
 					this->animation->play(HX_CSTRING("idle"),null(),null());
 				}
 			}
 		}
 		else{
-			HX_STACK_LINE(109)
+			HX_STACK_LINE(117)
 			if (((this->velocity->y < (int)0))){
-				HX_STACK_LINE(111)
+				HX_STACK_LINE(119)
 				this->animation->play(HX_CSTRING("jump"),null(),null());
 			}
 			else{
-				HX_STACK_LINE(115)
+				HX_STACK_LINE(123)
 				this->animation->play(HX_CSTRING("fall"),null(),null());
 			}
 		}
@@ -228,58 +237,58 @@ HX_DEFINE_DYNAMIC_FUNC0(LandPlayer_obj,animationCheck,(void))
 
 Void LandPlayer_obj::controls( ){
 {
-		HX_STACK_FRAME("LandPlayer","controls",0x54865f58,"LandPlayer.controls","LandPlayer.hx",119,0xbdd67e72)
+		HX_STACK_FRAME("LandPlayer","controls",0x54865f58,"LandPlayer.controls","LandPlayer.hx",127,0xbdd67e72)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(120)
+		HX_STACK_LINE(128)
 		if ((::flixel::FlxG_obj::keys->checkStatus((int)37,::flixel::FlxG_obj::keys->pressed->checkStatus))){
-			HX_STACK_LINE(122)
+			HX_STACK_LINE(130)
 			this->acceleration->set_x(-(this->ACCELERATION));
-			HX_STACK_LINE(123)
+			HX_STACK_LINE(131)
 			this->set_flipX(true);
-			HX_STACK_LINE(124)
+			HX_STACK_LINE(132)
 			this->_stunGun->setBulletDirection((int)180,(int)300);
-			HX_STACK_LINE(125)
+			HX_STACK_LINE(133)
 			this->_stunGun->setBulletOffset((int)-5,(int)2);
-			HX_STACK_LINE(126)
+			HX_STACK_LINE(134)
 			this->_crateGun->setBulletDirection((int)195,(int)180);
-			HX_STACK_LINE(127)
+			HX_STACK_LINE(135)
 			this->_crateGun->setBulletOffset((int)-5,(int)2);
 		}
 		else{
-			HX_STACK_LINE(129)
+			HX_STACK_LINE(137)
 			if ((::flixel::FlxG_obj::keys->checkStatus((int)39,::flixel::FlxG_obj::keys->pressed->checkStatus))){
-				HX_STACK_LINE(131)
+				HX_STACK_LINE(139)
 				this->acceleration->set_x(this->ACCELERATION);
-				HX_STACK_LINE(132)
+				HX_STACK_LINE(140)
 				this->set_flipX(false);
-				HX_STACK_LINE(133)
+				HX_STACK_LINE(141)
 				this->_stunGun->setBulletDirection((int)360,(int)300);
-				HX_STACK_LINE(134)
+				HX_STACK_LINE(142)
 				this->_stunGun->setBulletOffset((int)5,(int)2);
-				HX_STACK_LINE(135)
+				HX_STACK_LINE(143)
 				this->_crateGun->setBulletDirection((int)345,(int)180);
-				HX_STACK_LINE(136)
+				HX_STACK_LINE(144)
 				this->_crateGun->setBulletOffset((int)5,(int)2);
 			}
 		}
-		HX_STACK_LINE(139)
+		HX_STACK_LINE(147)
 		if (((  ((::flixel::FlxG_obj::keys->checkStatus((int)38,::flixel::FlxG_obj::keys->justPressed->checkStatus))) ? bool((((int(this->touching) & int((int)4096))) > (int)0)) : bool(false) ))){
-			HX_STACK_LINE(141)
+			HX_STACK_LINE(149)
 			this->velocity->set_y(-(this->JUMP_SPEED));
 		}
-		HX_STACK_LINE(144)
+		HX_STACK_LINE(152)
 		if (((  ((::flixel::FlxG_obj::keys->checkStatus((int)38,::flixel::FlxG_obj::keys->justReleased->checkStatus))) ? bool((this->velocity->y < (int)0)) : bool(false) ))){
-			HX_STACK_LINE(146)
+			HX_STACK_LINE(154)
 			this->velocity->set_y((Float(this->velocity->y) / Float((int)2)));
 		}
-		HX_STACK_LINE(154)
+		HX_STACK_LINE(162)
 		if ((::flixel::FlxG_obj::keys->checkStatus((int)88,::flixel::FlxG_obj::keys->justPressed->checkStatus))){
-			HX_STACK_LINE(156)
+			HX_STACK_LINE(164)
 			this->_stunGun->soundFire();
 		}
-		HX_STACK_LINE(159)
+		HX_STACK_LINE(167)
 		if ((::flixel::FlxG_obj::keys->checkStatus((int)90,::flixel::FlxG_obj::keys->pressed->checkStatus))){
-			HX_STACK_LINE(161)
+			HX_STACK_LINE(169)
 			this->_crateGun->runFire((int)0,null(),null(),null(),null());
 		}
 	}
@@ -291,13 +300,30 @@ HX_DEFINE_DYNAMIC_FUNC0(LandPlayer_obj,controls,(void))
 
 Void LandPlayer_obj::hurt( Float Damage){
 {
-		HX_STACK_FRAME("LandPlayer","hurt",0xbf469bf1,"LandPlayer.hurt","LandPlayer.hx",165,0xbdd67e72)
+		HX_STACK_FRAME("LandPlayer","hurt",0xbf469bf1,"LandPlayer.hurt","LandPlayer.hx",173,0xbdd67e72)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(Damage,"Damage")
-		HX_STACK_LINE(166)
+		HX_STACK_LINE(174)
 		this->flicker((int)2);
-		HX_STACK_LINE(167)
+		HX_STACK_LINE(175)
+		::flixel::FlxG_obj::camera->shake(0.01,0.2,null(),null(),null());
+		HX_STACK_LINE(176)
 		return null(this->super::hurt(Damage));
+	}
+return null();
+}
+
+
+Void LandPlayer_obj::kill( ){
+{
+		HX_STACK_FRAME("LandPlayer","kill",0xc1391f80,"LandPlayer.kill","LandPlayer.hx",179,0xbdd67e72)
+		HX_STACK_THIS(this)
+		HX_STACK_LINE(180)
+		this->set_exists(false);
+		HX_STACK_LINE(181)
+		::flixel::FlxG_obj::camera->flash((int)-1,.30,null(),null());
+		HX_STACK_LINE(182)
+		::flixel::FlxG_obj::camera->fade((int)-16777216,(int)3,false,this->doneFadeOut_dyn(),null());
 	}
 return null();
 }
@@ -305,32 +331,32 @@ return null();
 
 Void LandPlayer_obj::flicker( Float Duration){
 {
-		HX_STACK_FRAME("LandPlayer","flicker",0x7df13456,"LandPlayer.flicker","LandPlayer.hx",170,0xbdd67e72)
+		HX_STACK_FRAME("LandPlayer","flicker",0x7df13456,"LandPlayer.flicker","LandPlayer.hx",185,0xbdd67e72)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(Duration,"Duration")
-		HX_STACK_LINE(169)
+		HX_STACK_LINE(184)
 		Array< ::Dynamic > _g = Array_obj< ::Dynamic >::__new().Add(hx::ObjectPtr<OBJ_>(this));		HX_STACK_VAR(_g,"_g");
-		HX_STACK_LINE(171)
+		HX_STACK_LINE(186)
 		{
 
 			HX_BEGIN_LOCAL_FUNC_S1(hx::LocalFunc,_Function_2_1,Array< ::Dynamic >,_g)
 			Void run(::flixel::effects::FlxFlicker _){
-				HX_STACK_FRAME("*","_Function_2_1",0x5201af78,"*._Function_2_1","LandPlayer.hx",173,0xbdd67e72)
+				HX_STACK_FRAME("*","_Function_2_1",0x5201af78,"*._Function_2_1","LandPlayer.hx",188,0xbdd67e72)
 				HX_STACK_ARG(_,"_")
 				{
-					HX_STACK_LINE(173)
+					HX_STACK_LINE(188)
 					_g->__get((int)0).StaticCast< ::LandPlayer >()->_flickering = false;
 				}
 				return null();
 			}
 			HX_END_LOCAL_FUNC1((void))
 
-			HX_STACK_LINE(171)
+			HX_STACK_LINE(186)
 			::flixel::effects::FlxFlicker_obj::flicker(hx::ObjectPtr<OBJ_>(this),Duration,0.02,true,true, Dynamic(new _Function_2_1(_g)),null());
-			HX_STACK_LINE(171)
+			HX_STACK_LINE(186)
 			hx::ObjectPtr<OBJ_>(this);
 		}
-		HX_STACK_LINE(175)
+		HX_STACK_LINE(190)
 		this->_flickering = true;
 	}
 return null();
@@ -338,6 +364,25 @@ return null();
 
 
 HX_DEFINE_DYNAMIC_FUNC1(LandPlayer_obj,flicker,(void))
+
+Void LandPlayer_obj::doneFadeOut( ){
+{
+		HX_STACK_FRAME("LandPlayer","doneFadeOut",0x8caac46e,"LandPlayer.doneFadeOut","LandPlayer.hx",193,0xbdd67e72)
+		HX_STACK_THIS(this)
+		HX_STACK_LINE(194)
+		this->reset(this->_resetX,this->_resetY);
+		HX_STACK_LINE(195)
+		this->health = this->MAX_HEALTH;
+		HX_STACK_LINE(196)
+		::flixel::FlxG_obj::camera->stopFX();
+		HX_STACK_LINE(197)
+		::flixel::FlxG_obj::camera->fade((int)0,(int)2,true,null(),null());
+	}
+return null();
+}
+
+
+HX_DEFINE_DYNAMIC_FUNC0(LandPlayer_obj,doneFadeOut,(void))
 
 
 LandPlayer_obj::LandPlayer_obj()
@@ -356,6 +401,8 @@ void LandPlayer_obj::__Mark(HX_MARK_PARAMS)
 	HX_MARK_MEMBER_NAME(_stunGun,"_stunGun");
 	HX_MARK_MEMBER_NAME(_crateGun,"_crateGun");
 	HX_MARK_MEMBER_NAME(_flickering,"_flickering");
+	HX_MARK_MEMBER_NAME(_resetX,"_resetX");
+	HX_MARK_MEMBER_NAME(_resetY,"_resetY");
 	::flixel::FlxSprite_obj::__Mark(HX_MARK_ARG);
 	HX_MARK_END_CLASS();
 }
@@ -371,6 +418,8 @@ void LandPlayer_obj::__Visit(HX_VISIT_PARAMS)
 	HX_VISIT_MEMBER_NAME(_stunGun,"_stunGun");
 	HX_VISIT_MEMBER_NAME(_crateGun,"_crateGun");
 	HX_VISIT_MEMBER_NAME(_flickering,"_flickering");
+	HX_VISIT_MEMBER_NAME(_resetX,"_resetX");
+	HX_VISIT_MEMBER_NAME(_resetY,"_resetY");
 	::flixel::FlxSprite_obj::__Visit(HX_VISIT_ARG);
 }
 
@@ -379,12 +428,15 @@ Dynamic LandPlayer_obj::__Field(const ::String &inName,bool inCallProp)
 	switch(inName.length) {
 	case 4:
 		if (HX_FIELD_EQ(inName,"hurt") ) { return hurt_dyn(); }
+		if (HX_FIELD_EQ(inName,"kill") ) { return kill_dyn(); }
 		break;
 	case 6:
 		if (HX_FIELD_EQ(inName,"update") ) { return update_dyn(); }
 		break;
 	case 7:
 		if (HX_FIELD_EQ(inName,"GRAVITY") ) { return GRAVITY; }
+		if (HX_FIELD_EQ(inName,"_resetX") ) { return _resetX; }
+		if (HX_FIELD_EQ(inName,"_resetY") ) { return _resetY; }
 		if (HX_FIELD_EQ(inName,"flicker") ) { return flicker_dyn(); }
 		break;
 	case 8:
@@ -401,6 +453,7 @@ Dynamic LandPlayer_obj::__Field(const ::String &inName,bool inCallProp)
 		break;
 	case 11:
 		if (HX_FIELD_EQ(inName,"_flickering") ) { return _flickering; }
+		if (HX_FIELD_EQ(inName,"doneFadeOut") ) { return doneFadeOut_dyn(); }
 		break;
 	case 12:
 		if (HX_FIELD_EQ(inName,"ACCELERATION") ) { return ACCELERATION; }
@@ -417,6 +470,8 @@ Dynamic LandPlayer_obj::__SetField(const ::String &inName,const Dynamic &inValue
 	switch(inName.length) {
 	case 7:
 		if (HX_FIELD_EQ(inName,"GRAVITY") ) { GRAVITY=inValue.Cast< int >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"_resetX") ) { _resetX=inValue.Cast< Float >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"_resetY") ) { _resetY=inValue.Cast< Float >(); return inValue; }
 		break;
 	case 8:
 		if (HX_FIELD_EQ(inName,"_stunGun") ) { _stunGun=inValue.Cast< ::StunGun >(); return inValue; }
@@ -450,6 +505,8 @@ void LandPlayer_obj::__GetFields(Array< ::String> &outFields)
 	outFields->push(HX_CSTRING("_stunGun"));
 	outFields->push(HX_CSTRING("_crateGun"));
 	outFields->push(HX_CSTRING("_flickering"));
+	outFields->push(HX_CSTRING("_resetX"));
+	outFields->push(HX_CSTRING("_resetY"));
 	super::__GetFields(outFields);
 };
 
@@ -467,6 +524,8 @@ static hx::StorageInfo sMemberStorageInfo[] = {
 	{hx::fsObject /*::StunGun*/ ,(int)offsetof(LandPlayer_obj,_stunGun),HX_CSTRING("_stunGun")},
 	{hx::fsObject /*::CrateGun*/ ,(int)offsetof(LandPlayer_obj,_crateGun),HX_CSTRING("_crateGun")},
 	{hx::fsBool,(int)offsetof(LandPlayer_obj,_flickering),HX_CSTRING("_flickering")},
+	{hx::fsFloat,(int)offsetof(LandPlayer_obj,_resetX),HX_CSTRING("_resetX")},
+	{hx::fsFloat,(int)offsetof(LandPlayer_obj,_resetY),HX_CSTRING("_resetY")},
 	{ hx::fsUnknown, 0, null()}
 };
 #endif
@@ -481,11 +540,15 @@ static ::String sMemberFields[] = {
 	HX_CSTRING("_stunGun"),
 	HX_CSTRING("_crateGun"),
 	HX_CSTRING("_flickering"),
+	HX_CSTRING("_resetX"),
+	HX_CSTRING("_resetY"),
 	HX_CSTRING("update"),
 	HX_CSTRING("animationCheck"),
 	HX_CSTRING("controls"),
 	HX_CSTRING("hurt"),
+	HX_CSTRING("kill"),
 	HX_CSTRING("flicker"),
+	HX_CSTRING("doneFadeOut"),
 	String(null()) };
 
 static void sMarkStatics(HX_MARK_PARAMS) {

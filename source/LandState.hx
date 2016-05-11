@@ -11,14 +11,13 @@ import flixel.group.FlxGroup;
 import flixel.util.FlxColor;
 import flixel.FlxObject;
 import flixel.FlxCamera;
-
+import flixel.ui.FlxBar;
 
 /**
  * A FlxState which can be used for the actual gameplay.
  */
 class LandState extends FlxState
 {
-	public var _player:LandPlayer;
 	public var _npc:Npc;
 	public var _enemies:FlxGroup;
 	public var _chaser:Chaser;
@@ -31,6 +30,7 @@ class LandState extends FlxState
 	public var _fuel:Fuel;
 	public var _fuelArray:Array<FlxPoint>;
 	public var _textbox:TextBox;
+	public var _textcomplete:Bool;
 
 	/**
 	 * Function that is called up when to state is created to set it up. 
@@ -41,34 +41,44 @@ class LandState extends FlxState
 		
 		//create levels and player.
 		Reg.loadedLevel = new TiledStage(Reg.levels[Reg.level]);
-		_player = new LandPlayer(20,50,20,50);
+		Reg.playerLand = new LandPlayer(20,50,20,50);
 		_npc = new Npc(50,50);
 		_enemies = new FlxGroup();
 		_fuelGroup = new FlxGroup();
-		_textbox = new TextBox("USER");
+		_textbox = new TextBox("Commander");
+		Reg.healthBar = new FlxBar(10,10,1,24, 4,Reg.playerLand,"health",0,5);
+		Reg.healthBar.createImageBar(null,Reg.HEALTH,FlxColor.TRANSPARENT);
+		Reg.healthBar.scrollFactor.x = 0;
+		Reg.healthBar.scrollFactor.y = 0;
+		Reg.fuelBar = new FlxBar(40,9,1,260,6,Reg,"fuelTotal",0,20,true);
+		Reg.fuelBar.scrollFactor.x = 0;
+		Reg.fuelBar.scrollFactor.y = 0;
 
 		//add everything to the scene.
 		add(Reg.loadedLevel.scenarioTiles);
-		add(_player);
+		add(Reg.playerLand);
+		add(Reg.healthBar);
+		add(Reg.fuelBar);
 		add(_npc);
 		add(_enemies);
 		add(_fuelGroup);
 		add(Reg.enemyBullets);
 		Reg.loadedLevel.loadObjects(this);
+		add(_textbox);
 
 		for (i in 0..._chaserArray.length)
 		{
-			_chaser = new Chaser(_chaserArray[i].x,_chaserArray[i].y,_player);
+			_chaser = new Chaser(_chaserArray[i].x,_chaserArray[i].y,Reg.playerLand);
 			_enemies.add(_chaser);
 		}
 		for (i in 0..._shooterArray.length)
 		{
-			_shooter = new Shooter(_shooterArray[i].x,_shooterArray[i].y,_player);
+			_shooter = new Shooter(_shooterArray[i].x,_shooterArray[i].y,Reg.playerLand);
 			_enemies.add(_shooter);
 		}
 		for (i in 0..._patrollerArray.length)
 		{
-			_patroller = new Patroller(_patrollerArray[i].x,_patrollerArray[i].y,_player);
+			_patroller = new Patroller(_patrollerArray[i].x,_patrollerArray[i].y,Reg.playerLand);
 			_enemies.add(_patroller);
 		}
 		for (i in 0..._fuelArray.length)
@@ -83,7 +93,7 @@ class LandState extends FlxState
 		FlxG.camera.setBounds(0,0,Reg.loadedLevel.fullWidth,Reg.loadedLevel.fullHeight);
 		
 		//	The camera will follow the player
-		FlxG.camera.follow(_player,FlxCamera.STYLE_PLATFORMER);
+		FlxG.camera.follow(Reg.playerLand,FlxCamera.STYLE_PLATFORMER);
 
 		super.create();
 	}
@@ -94,6 +104,11 @@ class LandState extends FlxState
 	 */
 	override public function destroy():Void
 	{
+		_enemies.destroy();
+		_enemies = null;
+		_fuelGroup.destroy();
+		_fuelGroup = null;
+
 		super.destroy();
 	}
 
@@ -102,25 +117,35 @@ class LandState extends FlxState
 	 */
 	override public function update():Void
 	{
-		if(!_textbox._isVisible)
+		if(!_textbox.isVisible)
 		{
 		super.update();
 
-		FlxG.collide(Reg.loadedLevel.scenarioTiles,_player);
+		if(_textcomplete)
+		{
+			FlxG.camera.fade(FlxColor.BLACK,2,false,switchState);
+		}
+
+		if (Reg.fuelTotal > 14 && !_textcomplete)
+		{
+			_textbox.talk(Reg.dialog[1]);
+			_textcomplete = true;
+		}
+		FlxG.collide(Reg.loadedLevel.scenarioTiles,Reg.playerLand);
 		FlxG.collide(Reg.loadedLevel.scenarioTiles,_npc);
 		FlxG.collide(Reg.loadedLevel.scenarioTiles,_enemies);
-		FlxG.overlap(Reg.loadedLevel.scenarioTiles,_player._crateGun.group,crateCollision);
+		FlxG.overlap(Reg.loadedLevel.scenarioTiles,Reg.playerLand._crateGun.group,crateCollision);
 		//FlxG.overlap(Reg.loadedLevel.scenarioTiles,Reg.enemyBullets,stunCollision);
 
-		FlxG.overlap(_player,_enemies,enemyCollision);
-		FlxG.overlap(_player,_npc,talk);
-		FlxG.overlap(_player,_fuelGroup,collectFuel);
-		FlxG.collide(_player,_player._crateGun.group);
-		FlxG.collide(_player._crateGun.group,_player._crateGun.group);
-		FlxG.overlap(_player,Reg.enemyBullets,playerHitWithBullet);
+		FlxG.overlap(Reg.playerLand,_enemies,enemyCollision);
+		FlxG.overlap(Reg.playerLand,_npc,talk);
+		FlxG.overlap(Reg.playerLand,_fuelGroup,collectFuel);
+		FlxG.collide(Reg.playerLand,Reg.playerLand._crateGun.group);
+		FlxG.collide(Reg.playerLand._crateGun.group,Reg.playerLand._crateGun.group);
+		FlxG.overlap(Reg.playerLand,Reg.enemyBullets,playerHitWithBullet);
 
-		FlxG.collide(_enemies,_player._crateGun.group);
-		FlxG.overlap(_enemies,_player._stunGun.group,enemyHitWithBullet);
+		FlxG.collide(_enemies,Reg.playerLand._crateGun.group);
+		FlxG.overlap(_enemies,Reg.playerLand._stunGun.group,enemyHitWithBullet);
 		}
 		else
 		{
@@ -130,10 +155,8 @@ class LandState extends FlxState
 	function talk(Player,Npc)
 	{
 		if(FlxG.keys.justPressed.DOWN)
-		{
-			_textbox = new TextBox("USER");
-			add(_textbox);
-			_textbox.talk("This is a test. fadfsdfsdf sdfsdfsdfsd. REREFEFEEFE FEREEEEEEEEEE");
+		{			
+			_textbox.talk(Reg.dialog[1]);
 		}
 	}
 	function crateCollision(Level:FlxObject, Bullet:FlxSprite)
@@ -143,6 +166,7 @@ class LandState extends FlxState
 	}
 	function collectFuel(Player:LandPlayer,Coin)
 	{
+		Reg.fuelTotal += 1;
 		Coin.kill();
 	}
 	function stunCollision(Level:FlxObject, Bullet:FlxSprite)
@@ -181,5 +205,9 @@ class LandState extends FlxState
 			Player.velocity.y -= 50;
 			Bullet.kill();
 		}
+	}
+	private function switchState():Void
+	{
+		FlxG.switchState(new MenuState());
 	}
 }

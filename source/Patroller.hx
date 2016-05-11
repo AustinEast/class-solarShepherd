@@ -55,15 +55,14 @@ package;
             
          //  Load the player.png into this sprite.
          //  The 2nd parameter tells Flixel it's animated, then the third and fourth say it is a sprite sheet and it should chop it up into 16x16 sized frames.
-         //loadGraphic(Reg.LANDPLAYER, true, 16, 16);
-         makeGraphic(12,16,FlxColor.RED);
+         loadGraphic(Reg.TURTLE, false, 16, 11);
+         //makeGraphic(12,16,FlxColor.RED);
 
          //  We also shave 2 pixels off each side to make it slip through gaps easier. Changing the width/height does NOT change the visual sprite, just the bounding box used for physics.
-         width = 10;
-         height = 16;
+         width = 14;
+         height = 12;
             
          //  Because we've shaved a few pixels off, we need to offset the sprite to compensate
-         offset.x = 2;
             
          //  The Animation sequences we need
          animation.add("idle", [0, 1], 5, true);

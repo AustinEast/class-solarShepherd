@@ -9,7 +9,7 @@ package;
  class SpacePlayer extends PolarSprite
  {
  	//Player attributes
-    private var MAX_HEALTH:Int = 10;
+    private var MAX_HEALTH:Int = 5;
     private var RUN_SPEED:Int = 120;
     
     //Animation helper variables
@@ -26,7 +26,7 @@ package;
          animation.add("polTrue",[2,3,4],60,true);
          animation.add("polFalse",[7,8,9],60,true); 
          maxVelocity.x = RUN_SPEED;
-         important = true;
+         health = MAX_HEALTH;
 
          setPolarity(true);
      
@@ -56,5 +56,18 @@ package;
        	}	 
 
      }
-
+     override function kill()
+     {
+        exists = false;
+        FlxG.camera.flash(0xffFFFFFF, .30);
+        FlxG.camera.fade(FlxColor.BLACK, 3, false, doneFadeOut);
+     }
+     /**
+    * This function is called if the player gets hit and the game fades out.
+    * It sends you back to the menu.
+    **/
+    private function doneFadeOut():Void 
+    {
+        FlxG.switchState(new MenuState());
+    }
  }

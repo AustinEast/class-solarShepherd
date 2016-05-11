@@ -13,6 +13,6 @@ class Fuel extends FlxSprite{
 	{
 		super(X,Y);
 
-		makeGraphic(8,8,FlxColor.WHITE);
+		loadGraphic(Reg.FUEL,false,9,8);
 	}
 }

@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"double",
+				"_doublePress	var"
+			],
+			[
+				"do",
+				"doublePressed"
+			],
+			[
+				"set",
+				"setCompleteCallback(...)	Void"
+			],
+			[
+				"_fuel",
+				"_fuelGroup	var"
+			],
+			[
+				"_bu",
+				"_bullets	var"
+			],
+			[
+				"got",
+				"goToLandState	function"
+			],
+			[
+				"_d",
+				"_dialogArray	var"
+			],
+			[
+				"page",
+				"_pageIndex	var"
+			],
+			[
+				"Land",
+				"LandPlayer	class"
+			],
+			[
 				"colle",
 				"collectFuel"
 			],
@@ -296,10 +332,6 @@
 				"exists	Bool"
 			],
 			[
-				"_bu",
-				"_bullets"
-			],
-			[
 				"_num",
 				"_numBullets	var"
 			],
@@ -370,10 +402,6 @@
 			[
 				"FlxG",
 				"FlxGroup	flixel.group"
-			],
-			[
-				"set",
-				"setPolarity"
 			],
 			[
 				"this",
@@ -486,52 +514,56 @@
 			[
 				"te",
 				"testPart	var"
-			],
-			[
-				"Flxc",
-				"FlxColor	flixel.util"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "source/LandState.hx",
-			"settings":
-			{
-				"buffer_size": 4283,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "source/TiledStage.hx",
-			"settings":
-			{
-				"buffer_size": 3794,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "source/Fuel.hx",
-			"settings":
-			{
-				"buffer_size": 299,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "source/LandPlayer.hx",
 			"settings":
 			{
-				"buffer_size": 5547,
+				"buffer_size": 5468,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "source/Main.hx",
+			"file": "source/TextBox.hx",
 			"settings":
 			{
-				"buffer_size": 1953,
+				"buffer_size": 4204,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/Reg.hx",
+			"settings":
+			{
+				"buffer_size": 3350,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "source/LandState.hx",
+			"settings":
+			{
+				"buffer_size": 5625,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/SpaceState.hx",
+			"settings":
+			{
+				"buffer_size": 4073,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/usr/lib/haxe/lib/flixel-addons/1,1,0/flixel/addons/text/FlxTypeText.hx",
+			"settings":
+			{
+				"buffer_size": 13233,
 				"line_ending": "Windows"
 			}
 		},
@@ -539,7 +571,7 @@
 			"file": "source/MenuState.hx",
 			"settings":
 			{
-				"buffer_size": 1452,
+				"buffer_size": 1870,
 				"line_ending": "Windows"
 			}
 		}
@@ -547,11 +579,27 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 247.0,
+		"height": 392.0,
 		"selected_items":
 		[
 			[
+				"ha",
+				"Haxe: Choose Build Target"
+			],
+			[
+				"haxe",
+				"Haxe: Choose Build Target"
+			],
+			[
 				"bui",
+				"Haxe: Choose Build Target"
+			],
+			[
+				"buil",
+				"Haxe: Choose Build Target"
+			],
+			[
+				"bu",
 				"Haxe: Choose Build Target"
 			],
 			[
@@ -561,10 +609,6 @@
 			[
 				"clas",
 				"Haxe: New Class"
-			],
-			[
-				"buil",
-				"Haxe: Choose Build Target"
 			],
 			[
 				"targ",
@@ -587,10 +631,6 @@
 				"Haxe: New Class"
 			],
 			[
-				"haxe",
-				"Haxe: Choose Build Target"
-			],
-			[
 				"hax",
 				"Haxe: Restart Server"
 			],
@@ -605,10 +645,6 @@
 			[
 				"instal",
 				"Haxelib: List Installed"
-			],
-			[
-				"ha",
-				"Haxelib: Install library"
 			],
 			[
 				"pac",
@@ -632,6 +668,13 @@
 	},
 	"file_history":
 	[
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/MenuState.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/Fuel.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/TiledStage.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/LandState.hx",
+		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/Main.hx",
+		"/Volumes/Mac Storage/Austin/Dropbox/Public/haxedev/SolarShepard/source/build.hxml",
+		"/Volumes/Mac Storage/Austin/Dropbox/Public/haxedev/SolarShepard/source/TextBox.hx",
 		"/Volumes/Mac Storage/Austin/Dropbox/Public/haxedev/SolarShepard/Project.xml",
 		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/TextBox.hx",
 		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/Patroller.hx",
@@ -653,10 +696,7 @@
 		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/FlxProject.sublime-project",
 		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/build.hxml",
 		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/SpaceSprite.hx",
-		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/Main.hx",
-		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/LandState.hx",
 		"/Users/Weasty/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
-		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/MenuState.hx",
 		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/PlayState.hx",
 		"/usr/lib/haxe/lib/flixel/3,3,11/include.xml",
 		"/Users/Weasty/Dropbox/Public/haxedev/SolarShepard/source/Enemy.hx",
@@ -690,6 +730,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"istal",
+			"_player",
+			"doubleP",
 			"feu",
 			"kill",
 			"fade",
@@ -714,6 +757,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"Reg.playerLand"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -724,51 +768,52 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "source/LandState.hx",
+					"file": "source/LandPlayer.hx",
 					"settings":
 					{
-						"buffer_size": 4283,
+						"buffer_size": 5468,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2849,
-								2849
+								1473,
+								1473
 							]
 						],
 						"settings":
 						{
 							"haxe-build-id": 0,
 							"syntax": "Packages/Haxe/Haxe.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1503.0,
+						"translation.y": 1189.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "source/TiledStage.hx",
+					"file": "source/TextBox.hx",
 					"settings":
 					{
-						"buffer_size": 3794,
+						"buffer_size": 4204,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3712,
-								3712
+								3119,
+								3119
 							]
 						],
 						"settings":
@@ -785,18 +830,74 @@
 				},
 				{
 					"buffer": 2,
-					"file": "source/Fuel.hx",
+					"file": "source/Reg.hx",
 					"settings":
 					{
-						"buffer_size": 299,
+						"buffer_size": 3350,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								259,
-								259
+								1574,
+								1574
+							]
+						],
+						"settings":
+						{
+							"haxe-build-id": 0,
+							"syntax": "Packages/Haxe/Haxe.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 718.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "source/LandState.hx",
+					"settings":
+					{
+						"buffer_size": 5625,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3346,
+								3346
+							]
+						],
+						"settings":
+						{
+							"haxe-build-id": 0,
+							"syntax": "Packages/Haxe/Haxe.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 581.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "source/SpaceState.hx",
+					"settings":
+					{
+						"buffer_size": 4073,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2472,
+								2472
 							]
 						],
 						"settings":
@@ -811,48 +912,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "source/LandPlayer.hx",
+					"buffer": 5,
+					"file": "/usr/lib/haxe/lib/flixel-addons/1,1,0/flixel/addons/text/FlxTypeText.hx",
 					"settings":
 					{
-						"buffer_size": 5547,
+						"buffer_size": 13233,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								170,
-								113
-							]
-						],
-						"settings":
-						{
-							"haxe-build-id": 0,
-							"syntax": "Packages/Haxe/Haxe.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "source/Main.hx",
-					"settings":
-					{
-						"buffer_size": 1953,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								521,
-								521
+								0,
+								0
 							]
 						],
 						"settings":
@@ -862,25 +934,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 5239.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "source/MenuState.hx",
 					"settings":
 					{
-						"buffer_size": 1452,
+						"buffer_size": 1870,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								791,
-								791
+								1644,
+								1644
 							]
 						],
 						"settings":
@@ -890,7 +962,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 72.0,
+						"translation.y": 654.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -935,7 +1007,7 @@
 	},
 	"replace":
 	{
-		"height": 0.0
+		"height": 64.0
 	},
 	"save_all_on_build": true,
 	"select_file":

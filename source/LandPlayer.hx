@@ -158,12 +158,12 @@ package;
             switchPolarity();           
         }*/
         // Stun Gun
-        if (FlxG.keys.justPressed.X)
+        if (FlxG.keys.justPressed.C)
         {   
             _stunGun.soundFire();
         }
         // Crate gun
-        if (FlxG.keys.pressed.Z)
+        if (FlxG.keys.pressed.X)
         {   
             _crateGun.fire();
         }

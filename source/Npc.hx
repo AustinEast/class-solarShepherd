@@ -50,7 +50,7 @@ package;
          //  Load the player.png into this sprite.
          //  The 2nd parameter tells Flixel it's animated, then the third and fourth say it is a sprite sheet and it should chop it up into 16x16 sized frames.
          //loadGraphic(Reg.LANDPLAYER, true, 16, 16);
-         makeGraphic(12,16,FlxColor.BLUE);
+         loadGraphic(Reg.NPC,false,16,16);
 
          //  We also shave 2 pixels off each side to make it slip through gaps easier. Changing the width/height does NOT change the visual sprite, just the bounding box used for physics.
          width = 10;

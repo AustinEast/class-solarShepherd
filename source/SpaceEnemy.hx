@@ -49,6 +49,8 @@ package;
          //Sets horizontal velocity.
          velocity.x = 10;
 
+         health = 1;
+
          setPolarity(true);
      }
     /**

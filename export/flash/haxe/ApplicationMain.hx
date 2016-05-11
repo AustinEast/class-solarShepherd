@@ -34,6 +34,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
+		urls.push ("assets/data/firstLevel.tmx");
+		types.push (lime.Assets.AssetType.TEXT);
+		
+		
 		urls.push ("assets/data/map1.csv");
 		types.push (lime.Assets.AssetType.TEXT);
 		
@@ -42,7 +46,27 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
+		urls.push ("assets/data/Tiles.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/commander.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/Dog.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/fuel.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/health.ase");
+		types.push (lime.Assets.AssetType.BINARY);
+		
+		
+		urls.push ("assets/images/health.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -63,6 +87,42 @@ class ApplicationMain {
 		
 		
 		urls.push ("assets/images/map/Sand_tile.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/map/Tile_grass_ground_planet1.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/map/Tile_ground_planet1.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/map/Tile_ground_planet3.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/map/Tile_ground_rock_planet2.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/map/Tile_ground_rock_vertical_planet2.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/map/Tile_ground_sand_planet2.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/map/Tile_ground_vertical_planet1.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/map/Tile_ground_vertical_planet3.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/map/Tile_ground_water_planet3.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -96,6 +156,30 @@ class ApplicationMain {
 		
 		urls.push ("assets/images/textbox.png");
 		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/Tiles.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/turtle.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/music/gamemusic1.mp3");
+		types.push (lime.Assets.AssetType.MUSIC);
+		
+		
+		urls.push ("assets/music/gamemusic1.ogg");
+		types.push (lime.Assets.AssetType.MUSIC);
+		
+		
+		urls.push ("assets/music/gamemusic2.mp3");
+		types.push (lime.Assets.AssetType.MUSIC);
+		
+		
+		urls.push ("assets/music/gamemusic2.ogg");
+		types.push (lime.Assets.AssetType.MUSIC);
 		
 		
 		urls.push ("assets/music/music-goes-here.txt");
@@ -326,7 +410,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "1103",
+			build: "1210",
 			company: "HaxeFlixel",
 			file: "FlxProject",
 			fps: 60,
@@ -342,7 +426,7 @@ class ApplicationMain {
 					borderless: false,
 					depthBuffer: false,
 					display: 0,
-					fullscreen: false,
+					fullscreen: true,
 					hardware: true,
 					height: 180,
 					parameters: "{}",

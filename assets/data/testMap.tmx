@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="30" tilewidth="16" tileheight="16" nextobjectid="62">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="30" tilewidth="16" tileheight="16" nextobjectid="81">
  <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16" tilecount="5">
   <image source="../images/map/tiles.png" width="80" height="16"/>
   <terraintypes>
@@ -42,5 +42,19 @@
   <object id="59" name="fuel" type="fuel" gid="10" x="166" y="77" width="16" height="16"/>
   <object id="60" name="fuel" type="fuel" gid="10" x="185.716" y="77.3475" width="16" height="16"/>
   <object id="61" name="fuel" type="fuel" gid="10" x="206.675" y="77.492" width="16" height="16"/>
+  <object id="62" name="fuel" type="fuel" gid="16" x="485.906" y="128.804" width="16" height="16"/>
+  <object id="63" name="fuel" type="fuel" gid="16" x="528.669" y="176.912" width="16" height="16"/>
+  <object id="67" name="fuel" type="fuel" gid="16" x="139.53" y="336.202" width="16" height="16"/>
+  <object id="69" name="fuel" type="fuel" gid="16" x="57.2127" y="367.205" width="16" height="16"/>
+  <object id="71" name="fuel" type="fuel" gid="16" x="128.094" y="379.083" width="16" height="16"/>
+  <object id="72" name="fuel" type="fuel" gid="16" x="17.6575" y="171.566" width="16" height="16"/>
+  <object id="73" name="fuel" type="fuel" gid="16" x="531.896" y="332.565" width="16" height="16"/>
+  <object id="74" name="fuel" type="fuel" gid="16" x="376.833" y="347.632" width="16" height="16"/>
+  <object id="75" name="fuel" type="fuel" gid="16" x="560.774" y="428.616" width="16" height="16"/>
+  <object id="76" name="shooter" type="shooter" gid="14" x="291.454" y="380.905" width="16" height="16"/>
+  <object id="77" name="chaser" type="chaser" gid="14" x="209.842" y="286.109" width="16" height="16"/>
+  <object id="78" name="patroller" type="patroller" gid="15" x="428.311" y="429.244" width="16" height="16"/>
+  <object id="79" name="chaser" type="chaser" gid="14" x="500.506" y="332.565" width="16" height="16"/>
+  <object id="80" name="shooter" type="shooter" gid="14" x="533.779" y="428.616" width="16" height="16"/>
  </objectgroup>
 </map>

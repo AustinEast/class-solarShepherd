@@ -109,6 +109,27 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_fonts_arial_ttf);
 		
@@ -118,12 +139,24 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/data/data-goes-here.txt", __ASSET__assets_data_data_goes_here_txt);
 		type.set ("assets/data/data-goes-here.txt", AssetType.TEXT);
+		className.set ("assets/data/firstLevel.tmx", __ASSET__assets_data_firstlevel_tmx);
+		type.set ("assets/data/firstLevel.tmx", AssetType.TEXT);
 		className.set ("assets/data/map1.csv", __ASSET__assets_data_map1_csv);
 		type.set ("assets/data/map1.csv", AssetType.TEXT);
 		className.set ("assets/data/testMap.tmx", __ASSET__assets_data_testmap_tmx);
 		type.set ("assets/data/testMap.tmx", AssetType.TEXT);
+		className.set ("assets/data/Tiles.png", __ASSET__assets_data_tiles_png);
+		type.set ("assets/data/Tiles.png", AssetType.IMAGE);
+		className.set ("assets/images/commander.png", __ASSET__assets_images_commander_png);
+		type.set ("assets/images/commander.png", AssetType.IMAGE);
 		className.set ("assets/images/Dog.png", __ASSET__assets_images_dog_png);
 		type.set ("assets/images/Dog.png", AssetType.IMAGE);
+		className.set ("assets/images/fuel.png", __ASSET__assets_images_fuel_png);
+		type.set ("assets/images/fuel.png", AssetType.IMAGE);
+		className.set ("assets/images/health.ase", __ASSET__assets_images_health_ase);
+		type.set ("assets/images/health.ase", AssetType.BINARY);
+		className.set ("assets/images/health.png", __ASSET__assets_images_health_png);
+		type.set ("assets/images/health.png", AssetType.IMAGE);
 		className.set ("assets/images/images-go-here.txt", __ASSET__assets_images_images_go_here_txt);
 		type.set ("assets/images/images-go-here.txt", AssetType.TEXT);
 		className.set ("assets/images/map/Background3.png", __ASSET__assets_images_map_background3_png);
@@ -134,6 +167,24 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/map/mapObjects.png", AssetType.IMAGE);
 		className.set ("assets/images/map/Sand_tile.png", __ASSET__assets_images_map_sand_tile_png);
 		type.set ("assets/images/map/Sand_tile.png", AssetType.IMAGE);
+		className.set ("assets/images/map/Tile_grass_ground_planet1.png", __ASSET__assets_images_map_tile_grass_ground_planet1_png);
+		type.set ("assets/images/map/Tile_grass_ground_planet1.png", AssetType.IMAGE);
+		className.set ("assets/images/map/Tile_ground_planet1.png", __ASSET__assets_images_map_tile_ground_planet1_png);
+		type.set ("assets/images/map/Tile_ground_planet1.png", AssetType.IMAGE);
+		className.set ("assets/images/map/Tile_ground_planet3.png", __ASSET__assets_images_map_tile_ground_planet3_png);
+		type.set ("assets/images/map/Tile_ground_planet3.png", AssetType.IMAGE);
+		className.set ("assets/images/map/Tile_ground_rock_planet2.png", __ASSET__assets_images_map_tile_ground_rock_planet2_png);
+		type.set ("assets/images/map/Tile_ground_rock_planet2.png", AssetType.IMAGE);
+		className.set ("assets/images/map/Tile_ground_rock_vertical_planet2.png", __ASSET__assets_images_map_tile_ground_rock_vertical_planet2_png);
+		type.set ("assets/images/map/Tile_ground_rock_vertical_planet2.png", AssetType.IMAGE);
+		className.set ("assets/images/map/Tile_ground_sand_planet2.png", __ASSET__assets_images_map_tile_ground_sand_planet2_png);
+		type.set ("assets/images/map/Tile_ground_sand_planet2.png", AssetType.IMAGE);
+		className.set ("assets/images/map/Tile_ground_vertical_planet1.png", __ASSET__assets_images_map_tile_ground_vertical_planet1_png);
+		type.set ("assets/images/map/Tile_ground_vertical_planet1.png", AssetType.IMAGE);
+		className.set ("assets/images/map/Tile_ground_vertical_planet3.png", __ASSET__assets_images_map_tile_ground_vertical_planet3_png);
+		type.set ("assets/images/map/Tile_ground_vertical_planet3.png", AssetType.IMAGE);
+		className.set ("assets/images/map/Tile_ground_water_planet3.png", __ASSET__assets_images_map_tile_ground_water_planet3_png);
+		type.set ("assets/images/map/Tile_ground_water_planet3.png", AssetType.IMAGE);
 		className.set ("assets/images/map/tiles.png", __ASSET__assets_images_map_tiles_png);
 		type.set ("assets/images/map/tiles.png", AssetType.IMAGE);
 		className.set ("assets/images/player.png", __ASSET__assets_images_player_png);
@@ -150,6 +201,18 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/pongShipRed.png", AssetType.IMAGE);
 		className.set ("assets/images/textbox.png", __ASSET__assets_images_textbox_png);
 		type.set ("assets/images/textbox.png", AssetType.IMAGE);
+		className.set ("assets/images/Tiles.png", __ASSET__assets_images_tiles_png);
+		type.set ("assets/images/Tiles.png", AssetType.IMAGE);
+		className.set ("assets/images/turtle.png", __ASSET__assets_images_turtle_png);
+		type.set ("assets/images/turtle.png", AssetType.IMAGE);
+		className.set ("assets/music/gamemusic1.mp3", __ASSET__assets_music_gamemusic1_mp3);
+		type.set ("assets/music/gamemusic1.mp3", AssetType.MUSIC);
+		className.set ("assets/music/gamemusic1.ogg", __ASSET__assets_music_gamemusic1_ogg);
+		type.set ("assets/music/gamemusic1.ogg", AssetType.MUSIC);
+		className.set ("assets/music/gamemusic2.mp3", __ASSET__assets_music_gamemusic2_mp3);
+		type.set ("assets/music/gamemusic2.mp3", AssetType.MUSIC);
+		className.set ("assets/music/gamemusic2.ogg", __ASSET__assets_music_gamemusic2_ogg);
+		type.set ("assets/music/gamemusic2.ogg", AssetType.MUSIC);
 		className.set ("assets/music/music-goes-here.txt", __ASSET__assets_music_music_goes_here_txt);
 		type.set ("assets/music/music-goes-here.txt", AssetType.TEXT);
 		className.set ("assets/sounds/EnemySpaceshipDestroyed.mp3", __ASSET__assets_sounds_enemyspaceshipdestroyed_mp3);
@@ -243,6 +306,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.TEXT);
+		id = "assets/data/firstLevel.tmx";
+		path.set (id, id);
+		
+		type.set (id, AssetType.TEXT);
 		id = "assets/data/map1.csv";
 		path.set (id, id);
 		
@@ -251,7 +318,27 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.TEXT);
+		id = "assets/data/Tiles.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/commander.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		id = "assets/images/Dog.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/fuel.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/health.ase";
+		path.set (id, id);
+		
+		type.set (id, AssetType.BINARY);
+		id = "assets/images/health.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -272,6 +359,42 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		type.set (id, AssetType.IMAGE);
 		id = "assets/images/map/Sand_tile.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/map/Tile_grass_ground_planet1.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/map/Tile_ground_planet1.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/map/Tile_ground_planet3.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/map/Tile_ground_rock_planet2.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/map/Tile_ground_rock_vertical_planet2.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/map/Tile_ground_sand_planet2.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/map/Tile_ground_vertical_planet1.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/map/Tile_ground_vertical_planet3.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/map/Tile_ground_water_planet3.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -307,6 +430,30 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "assets/images/Tiles.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/turtle.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/music/gamemusic1.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
+		id = "assets/music/gamemusic1.ogg";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
+		id = "assets/music/gamemusic2.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
+		id = "assets/music/gamemusic2.ogg";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
 		id = "assets/music/music-goes-here.txt";
 		path.set (id, id);
 		
@@ -496,14 +643,32 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("assets/data/data-goes-here.txt", __ASSET__assets_data_data_goes_here_txt);
 		type.set ("assets/data/data-goes-here.txt", AssetType.TEXT);
 		
+		className.set ("assets/data/firstLevel.tmx", __ASSET__assets_data_firstlevel_tmx);
+		type.set ("assets/data/firstLevel.tmx", AssetType.TEXT);
+		
 		className.set ("assets/data/map1.csv", __ASSET__assets_data_map1_csv);
 		type.set ("assets/data/map1.csv", AssetType.TEXT);
 		
 		className.set ("assets/data/testMap.tmx", __ASSET__assets_data_testmap_tmx);
 		type.set ("assets/data/testMap.tmx", AssetType.TEXT);
 		
+		className.set ("assets/data/Tiles.png", __ASSET__assets_data_tiles_png);
+		type.set ("assets/data/Tiles.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/commander.png", __ASSET__assets_images_commander_png);
+		type.set ("assets/images/commander.png", AssetType.IMAGE);
+		
 		className.set ("assets/images/Dog.png", __ASSET__assets_images_dog_png);
 		type.set ("assets/images/Dog.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/fuel.png", __ASSET__assets_images_fuel_png);
+		type.set ("assets/images/fuel.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/health.ase", __ASSET__assets_images_health_ase);
+		type.set ("assets/images/health.ase", AssetType.BINARY);
+		
+		className.set ("assets/images/health.png", __ASSET__assets_images_health_png);
+		type.set ("assets/images/health.png", AssetType.IMAGE);
 		
 		className.set ("assets/images/images-go-here.txt", __ASSET__assets_images_images_go_here_txt);
 		type.set ("assets/images/images-go-here.txt", AssetType.TEXT);
@@ -519,6 +684,33 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/images/map/Sand_tile.png", __ASSET__assets_images_map_sand_tile_png);
 		type.set ("assets/images/map/Sand_tile.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/map/Tile_grass_ground_planet1.png", __ASSET__assets_images_map_tile_grass_ground_planet1_png);
+		type.set ("assets/images/map/Tile_grass_ground_planet1.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/map/Tile_ground_planet1.png", __ASSET__assets_images_map_tile_ground_planet1_png);
+		type.set ("assets/images/map/Tile_ground_planet1.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/map/Tile_ground_planet3.png", __ASSET__assets_images_map_tile_ground_planet3_png);
+		type.set ("assets/images/map/Tile_ground_planet3.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/map/Tile_ground_rock_planet2.png", __ASSET__assets_images_map_tile_ground_rock_planet2_png);
+		type.set ("assets/images/map/Tile_ground_rock_planet2.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/map/Tile_ground_rock_vertical_planet2.png", __ASSET__assets_images_map_tile_ground_rock_vertical_planet2_png);
+		type.set ("assets/images/map/Tile_ground_rock_vertical_planet2.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/map/Tile_ground_sand_planet2.png", __ASSET__assets_images_map_tile_ground_sand_planet2_png);
+		type.set ("assets/images/map/Tile_ground_sand_planet2.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/map/Tile_ground_vertical_planet1.png", __ASSET__assets_images_map_tile_ground_vertical_planet1_png);
+		type.set ("assets/images/map/Tile_ground_vertical_planet1.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/map/Tile_ground_vertical_planet3.png", __ASSET__assets_images_map_tile_ground_vertical_planet3_png);
+		type.set ("assets/images/map/Tile_ground_vertical_planet3.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/map/Tile_ground_water_planet3.png", __ASSET__assets_images_map_tile_ground_water_planet3_png);
+		type.set ("assets/images/map/Tile_ground_water_planet3.png", AssetType.IMAGE);
 		
 		className.set ("assets/images/map/tiles.png", __ASSET__assets_images_map_tiles_png);
 		type.set ("assets/images/map/tiles.png", AssetType.IMAGE);
@@ -543,6 +735,24 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/images/textbox.png", __ASSET__assets_images_textbox_png);
 		type.set ("assets/images/textbox.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/Tiles.png", __ASSET__assets_images_tiles_png);
+		type.set ("assets/images/Tiles.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/turtle.png", __ASSET__assets_images_turtle_png);
+		type.set ("assets/images/turtle.png", AssetType.IMAGE);
+		
+		className.set ("assets/music/gamemusic1.mp3", __ASSET__assets_music_gamemusic1_mp3);
+		type.set ("assets/music/gamemusic1.mp3", AssetType.MUSIC);
+		
+		className.set ("assets/music/gamemusic1.ogg", __ASSET__assets_music_gamemusic1_ogg);
+		type.set ("assets/music/gamemusic1.ogg", AssetType.MUSIC);
+		
+		className.set ("assets/music/gamemusic2.mp3", __ASSET__assets_music_gamemusic2_mp3);
+		type.set ("assets/music/gamemusic2.mp3", AssetType.MUSIC);
+		
+		className.set ("assets/music/gamemusic2.ogg", __ASSET__assets_music_gamemusic2_ogg);
+		type.set ("assets/music/gamemusic2.ogg", AssetType.MUSIC);
 		
 		className.set ("assets/music/music-goes-here.txt", __ASSET__assets_music_music_goes_here_txt);
 		type.set ("assets/music/music-goes-here.txt", AssetType.TEXT);
@@ -1388,14 +1598,29 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if flash
 
 @:keep @:bind #if display private #end class __ASSET__assets_data_data_goes_here_txt extends flash.utils.ByteArray { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_firstlevel_tmx extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_map1_csv extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_testmap_tmx extends flash.utils.ByteArray { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_tiles_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_commander_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_dog_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_fuel_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_health_ase extends flash.utils.ByteArray { }
+@:keep @:bind #if display private #end class __ASSET__assets_images_health_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_images_go_here_txt extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_images_map_background3_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_map_mapobjects_ase extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_images_map_mapobjects_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_map_sand_tile_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_map_tile_grass_ground_planet1_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_map_tile_ground_planet1_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_map_tile_ground_planet3_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_map_tile_ground_rock_planet2_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_map_tile_ground_rock_vertical_planet2_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_map_tile_ground_sand_planet2_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_map_tile_ground_vertical_planet1_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_map_tile_ground_vertical_planet3_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_map_tile_ground_water_planet3_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_map_tiles_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_player_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_polaritypalette_ase extends flash.utils.ByteArray { }
@@ -1404,6 +1629,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__assets_images_pongshipgrn_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_pongshipred_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_textbox_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_tiles_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_turtle_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_music_gamemusic1_mp3 extends flash.media.Sound { }
+@:keep @:bind #if display private #end class __ASSET__assets_music_gamemusic1_ogg extends flash.media.Sound { }
+@:keep @:bind #if display private #end class __ASSET__assets_music_gamemusic2_mp3 extends flash.media.Sound { }
+@:keep @:bind #if display private #end class __ASSET__assets_music_gamemusic2_ogg extends flash.media.Sound { }
 @:keep @:bind #if display private #end class __ASSET__assets_music_music_goes_here_txt extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_enemyspaceshipdestroyed_mp3 extends flash.media.Sound { }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_knockorbossfire_mp3 extends flash.media.Sound { }
@@ -1507,6 +1738,27 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @:keep #if display private #end class __ASSET__assets_fonts_nokiafc22_ttf extends lime.text.Font { public function new () { super (); name = "Nokia Cellphone FC Small"; } } 
 @:keep #if display private #end class __ASSET__assets_fonts_arial_ttf extends lime.text.Font { public function new () { super (); name = "Arial"; } } 
 
@@ -1519,14 +1771,29 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 @:file("assets/data/data-goes-here.txt") #if display private #end class __ASSET__assets_data_data_goes_here_txt extends lime.utils.ByteArray {}
+@:file("assets/data/firstLevel.tmx") #if display private #end class __ASSET__assets_data_firstlevel_tmx extends lime.utils.ByteArray {}
 @:file("assets/data/map1.csv") #if display private #end class __ASSET__assets_data_map1_csv extends lime.utils.ByteArray {}
 @:file("assets/data/testMap.tmx") #if display private #end class __ASSET__assets_data_testmap_tmx extends lime.utils.ByteArray {}
+@:image("assets/data/Tiles.png") #if display private #end class __ASSET__assets_data_tiles_png extends lime.graphics.Image {}
+@:image("assets/images/commander.png") #if display private #end class __ASSET__assets_images_commander_png extends lime.graphics.Image {}
 @:image("assets/images/Dog.png") #if display private #end class __ASSET__assets_images_dog_png extends lime.graphics.Image {}
+@:image("assets/images/fuel.png") #if display private #end class __ASSET__assets_images_fuel_png extends lime.graphics.Image {}
+@:file("assets/images/health.ase") #if display private #end class __ASSET__assets_images_health_ase extends lime.utils.ByteArray {}
+@:image("assets/images/health.png") #if display private #end class __ASSET__assets_images_health_png extends lime.graphics.Image {}
 @:file("assets/images/images-go-here.txt") #if display private #end class __ASSET__assets_images_images_go_here_txt extends lime.utils.ByteArray {}
 @:image("assets/images/map/Background3.png") #if display private #end class __ASSET__assets_images_map_background3_png extends lime.graphics.Image {}
 @:file("assets/images/map/mapObjects.ase") #if display private #end class __ASSET__assets_images_map_mapobjects_ase extends lime.utils.ByteArray {}
 @:image("assets/images/map/mapObjects.png") #if display private #end class __ASSET__assets_images_map_mapobjects_png extends lime.graphics.Image {}
 @:image("assets/images/map/Sand_tile.png") #if display private #end class __ASSET__assets_images_map_sand_tile_png extends lime.graphics.Image {}
+@:image("assets/images/map/Tile_grass_ground_planet1.png") #if display private #end class __ASSET__assets_images_map_tile_grass_ground_planet1_png extends lime.graphics.Image {}
+@:image("assets/images/map/Tile_ground_planet1.png") #if display private #end class __ASSET__assets_images_map_tile_ground_planet1_png extends lime.graphics.Image {}
+@:image("assets/images/map/Tile_ground_planet3.png") #if display private #end class __ASSET__assets_images_map_tile_ground_planet3_png extends lime.graphics.Image {}
+@:image("assets/images/map/Tile_ground_rock_planet2.png") #if display private #end class __ASSET__assets_images_map_tile_ground_rock_planet2_png extends lime.graphics.Image {}
+@:image("assets/images/map/Tile_ground_rock_vertical_planet2.png") #if display private #end class __ASSET__assets_images_map_tile_ground_rock_vertical_planet2_png extends lime.graphics.Image {}
+@:image("assets/images/map/Tile_ground_sand_planet2.png") #if display private #end class __ASSET__assets_images_map_tile_ground_sand_planet2_png extends lime.graphics.Image {}
+@:image("assets/images/map/Tile_ground_vertical_planet1.png") #if display private #end class __ASSET__assets_images_map_tile_ground_vertical_planet1_png extends lime.graphics.Image {}
+@:image("assets/images/map/Tile_ground_vertical_planet3.png") #if display private #end class __ASSET__assets_images_map_tile_ground_vertical_planet3_png extends lime.graphics.Image {}
+@:image("assets/images/map/Tile_ground_water_planet3.png") #if display private #end class __ASSET__assets_images_map_tile_ground_water_planet3_png extends lime.graphics.Image {}
 @:image("assets/images/map/tiles.png") #if display private #end class __ASSET__assets_images_map_tiles_png extends lime.graphics.Image {}
 @:image("assets/images/player.png") #if display private #end class __ASSET__assets_images_player_png extends lime.graphics.Image {}
 @:file("assets/images/polarityPalette.ase") #if display private #end class __ASSET__assets_images_polaritypalette_ase extends lime.utils.ByteArray {}
@@ -1535,6 +1802,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/images/pongShipGrn.png") #if display private #end class __ASSET__assets_images_pongshipgrn_png extends lime.graphics.Image {}
 @:image("assets/images/pongShipRed.png") #if display private #end class __ASSET__assets_images_pongshipred_png extends lime.graphics.Image {}
 @:image("assets/images/textbox.png") #if display private #end class __ASSET__assets_images_textbox_png extends lime.graphics.Image {}
+@:image("assets/images/Tiles.png") #if display private #end class __ASSET__assets_images_tiles_png extends lime.graphics.Image {}
+@:image("assets/images/turtle.png") #if display private #end class __ASSET__assets_images_turtle_png extends lime.graphics.Image {}
+@:file("assets/music/gamemusic1.mp3") #if display private #end class __ASSET__assets_music_gamemusic1_mp3 extends lime.utils.ByteArray {}
+@:file("assets/music/gamemusic1.ogg") #if display private #end class __ASSET__assets_music_gamemusic1_ogg extends lime.utils.ByteArray {}
+@:file("assets/music/gamemusic2.mp3") #if display private #end class __ASSET__assets_music_gamemusic2_mp3 extends lime.utils.ByteArray {}
+@:file("assets/music/gamemusic2.ogg") #if display private #end class __ASSET__assets_music_gamemusic2_ogg extends lime.utils.ByteArray {}
 @:file("assets/music/music-goes-here.txt") #if display private #end class __ASSET__assets_music_music_goes_here_txt extends lime.utils.ByteArray {}
 @:file("assets/sounds/EnemySpaceshipDestroyed.mp3") #if display private #end class __ASSET__assets_sounds_enemyspaceshipdestroyed_mp3 extends lime.utils.ByteArray {}
 @:file("assets/sounds/KnockOrBossFire.mp3") #if display private #end class __ASSET__assets_sounds_knockorbossfire_mp3 extends lime.utils.ByteArray {}

@@ -14,6 +14,8 @@ class MenuState extends FlxState
 {
 
 	var _title:FlxText;
+	var _instructions:FlxText;
+	var _start:FlxText;
 	var _spacePlay:FlxButton;
 	var _landPlay:FlxButton;
 
@@ -23,14 +25,17 @@ class MenuState extends FlxState
 	override public function create():Void
 	{
 		//Creates the title text.
-		_title = new FlxText(0,40,FlxG.width,"Solar Shepherd Gameplay Modules");
+		_title = new FlxText(0,40,FlxG.width,"Solar Shepherd Gameplay Demo");
 		_title.setFormat(null,16,0xFFFFFFFF,"center",1);
 		add(_title);
 		//Create the buttons for different states.
-		_spacePlay = new FlxButton(FlxG.width/2-90,80,"Space",goToSpaceState);
-		_landPlay = new FlxButton(FlxG.width/2+30,80,"Land",goToLandState);
-		add(_spacePlay);
-		add(_landPlay);
+		_instructions = new FlxText(0,80,FlxG.width,"Controls: Arrow Keys, X, and C. While in the space level, use C to switch Polarity and reflect back bullets. When on land, use X and C to fire your weapons.");
+		_instructions.setFormat(null,8,0xFFFFFFFF,"center",1);
+		add(_instructions);
+		_start = new FlxText(0,140,FlxG.width,"Press X + C to start");
+		_start.setFormat(null,8,0xFFFFFFFF,"center",1);
+		add(_start);
+
 
 		super.create();
 	}
@@ -50,6 +55,14 @@ class MenuState extends FlxState
 	override public function update():Void
 	{
 		super.update();
+		if (FlxG.keys.pressed.C && FlxG.keys.pressed.X)
+		{
+			goToSpaceState();
+		}
+		if (FlxG.keys.pressed.Z)
+		{
+			goToLandState();
+		}
 	}
 	//Sends to SpaceState.
 	private function goToSpaceState():Void
